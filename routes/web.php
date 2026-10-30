@@ -165,8 +165,8 @@ Route::prefix('ppdb/{jenjang}')
             ->name('profil');
 
         // PREVIEW BERKAS
-        Route::get('/berkas/preview/{berkasId}', [PPDBOrangTuaController::class, 'show'])
-            ->name('berkas.preview');
+        // Route::get('/berkas/preview/{berkasId}', [PPDBOrangTuaController::class, 'show'])
+        //     ->name('berkas.preview');
 
         // STATUS PENDAFTARAN
         Route::get('/pendaftaran/status', [PPDBOrangTuaController::class, 'status'])
