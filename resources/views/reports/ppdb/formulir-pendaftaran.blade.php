@@ -209,8 +209,8 @@
                 {{-- JUDUL --}}
                 <td class="header-title">
                     <h2>PANITIA PPDB</h2>
-                    <h3>SD ISLAM AL HIDAYAH KARANGGEDE</h3>
-                    <p>TAHUN PELAJARAN 2026/2027</p>
+                    <h3>{{ $namaJenjang ?? '-' }}</h3>
+                    <p>TAHUN PELAJARAN 2027/2028</p>
                 </td>
 
                 {{-- LOGO YAYASAN --}}
@@ -695,7 +695,7 @@
                 </div>
             </td>
             <td>
-                Kebonan, {{ \Carbon\Carbon::now()->locale('id')->translatedFormat('d F Y') }}
+                Karanggede, {{ \Carbon\Carbon::now()->locale('id')->translatedFormat('d F Y') }}
                 <br>
                 Orang Tua/Wali Siswa
                 <div class="signature-space"></div>

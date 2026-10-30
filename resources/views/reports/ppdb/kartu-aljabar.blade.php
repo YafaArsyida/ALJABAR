@@ -881,24 +881,32 @@
                                         <tr class="payment-detail">
                                             <td>
                                                 Seragam 5 Stel
-                                                <br>
-                                                <i>(3 Seragam Jadi dan 2 Kaos Olah Raga)</i>
+                                                <i>(3 Seragam Jadi dan 2 Kaos Olahraga)</i>
 
-                                                @if ($jenis_kelamin === 'Laki-Laki')
+                                                {{-- @if ($jenis_kelamin === 'Laki-Laki')
                                                     <br>
                                                     &nbsp;&nbsp;- Laki-Laki
                                                 @elseif ($jenis_kelamin === 'Perempuan')
                                                     <br>
                                                     &nbsp;&nbsp;- Perempuan + Jilbab
-                                                @endif
+                                                @endif --}}
+                                                <br>
+                                                &nbsp;&nbsp;- Laki-Laki
+                                                <br>
+                                                &nbsp;&nbsp;- Perempuan + Jilbab
                                             </td>
 
                                             <td class="payment-amount">
-                                                @if ($jenis_kelamin === 'Laki-Laki')
+                                                {{-- @if ($jenis_kelamin === 'Laki-Laki')
                                                     Rp 740.000 
                                                 @elseif ($jenis_kelamin === 'Perempuan')
                                                     Rp 890.000 
-                                                @endif
+                                                @endif --}}
+                                                <br>
+                                                <br>
+                                                Rp 740.000
+                                                <br>
+                                                Rp 890.000
                                             </td>
 
                                             <td class="payment-paraf"></td>

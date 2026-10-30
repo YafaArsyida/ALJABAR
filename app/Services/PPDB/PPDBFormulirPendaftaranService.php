@@ -14,6 +14,7 @@ class PPDBFormulirPendaftaranService
             'ppdb_orangtua',
             'ppdb_alamat',
             'ppdb_pendidikan',
+            'ppdb_periode.ms_jenjang',
         ]);
 
         $jawaban = PPDBJawaban::query()
@@ -28,6 +29,8 @@ class PPDBFormulirPendaftaranService
             )
             ->get();
 
+        $jenjang = $pendaftaran->ppdb_periode?->ms_jenjang;
+        
         return [
             'pendaftaran' => $pendaftaran,
             'calonSiswa' => $pendaftaran->ppdb_calon_siswa,
@@ -35,6 +38,10 @@ class PPDBFormulirPendaftaranService
             'alamat' => $pendaftaran->ppdb_alamat,
             'pendidikan' => $pendaftaran->ppdb_pendidikan,
             'jawaban' => $jawaban,
+
+            'jenjang' => $jenjang,
+            'namaJenjang' => $jenjang?->nama_jenjang,
+            'alamatSekolah' => $jenjang?->alamat,
         ];
     }
 }

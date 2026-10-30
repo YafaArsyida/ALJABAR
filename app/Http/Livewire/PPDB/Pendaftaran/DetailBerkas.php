@@ -26,7 +26,7 @@ class DetailBerkas extends Component
             ->firstOrFail();
     }
 
-     protected function bolehUbahData($status)
+    protected function bolehUbahData($status)
     {
         return ! in_array(
             strtolower(trim((string) $status)),

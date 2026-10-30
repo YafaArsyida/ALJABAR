@@ -23,14 +23,14 @@
 
                     $statusLabel = [
                         'draft' => 'Draft',
-                        'pengecekan' => 'Pengecekan',
+                        'pengecekan' => 'Terdaftar',
                         'diterima' => 'Diterima',
-                        'perbaikan' => 'Perlu Perbaikan',
+                        'perbaikan' => 'Perlu Revisi',
                     ];
 
                     $statusClass = [
                         'draft' => 'bg-secondary-subtle text-secondary',
-                        'pengecekan' => 'bg-warning-subtle text-warning',
+                        'pengecekan' => 'bg-primary-subtle text-primary',
                         'diterima' => 'bg-success-subtle text-success',
                         'perbaikan' => 'bg-danger-subtle text-danger',
                     ];
