@@ -15,7 +15,8 @@
         }
 
         body {
-            font-family: "DejaVu Sans", sans-serif;
+            font-family: "Times New Roman", Times, serif;
+            /* font-family: "DejaVu Sans", sans-serif; */
             font-size: 10px;
             line-height: 1.35;
             color: #222;
