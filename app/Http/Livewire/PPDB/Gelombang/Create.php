@@ -63,9 +63,9 @@ class Create extends Component
      * Pesan validasi dalam bahasa Indonesia.
      */
     protected $messages = [
-        'ppdb_periode_id.required' => 'Periode PPDB belum dipilih.',
-        'ppdb_periode_id.integer' => 'Periode PPDB tidak valid.',
-        'ppdb_periode_id.exists' => 'Periode PPDB yang dipilih tidak ditemukan.',
+        'ppdb_periode_id.required' => 'Periode SPMB belum dipilih.',
+        'ppdb_periode_id.integer' => 'Periode SPMB tidak valid.',
+        'ppdb_periode_id.exists' => 'Periode SPMB yang dipilih tidak ditemukan.',
 
         'nama_gelombang.required' => 'Nama gelombang tidak boleh kosong.',
         'nama_gelombang.max' => 'Nama gelombang maksimal 255 karakter.',
@@ -82,9 +82,9 @@ class Create extends Component
         'kuota.integer' => 'Kuota harus berupa bilangan bulat.',
         'kuota.min' => 'Kuota minimal 1 siswa.',
 
-        'biaya_pendaftaran.required' => 'Biaya pendaftaran wajib diisi.',
-        'biaya_pendaftaran.numeric' => 'Biaya pendaftaran harus berupa angka.',
-        'biaya_pendaftaran.min' => 'Biaya pendaftaran tidak boleh negatif.',
+        'biaya_pendaftaran.required' => 'Biaya SPMB wajib diisi.',
+        'biaya_pendaftaran.numeric' => 'Biaya SPMB harus berupa angka.',
+        'biaya_pendaftaran.min' => 'Biaya SPMB tidak boleh negatif.',
 
         'status.required' => 'Status gelombang wajib dipilih.',
         'status.in' => 'Status gelombang tidak valid.',
@@ -121,11 +121,11 @@ class Create extends Component
             ) {
                 $this->addError(
                     'tanggal_mulai',
-                    'Jadwal gelombang harus berada dalam rentang tanggal periode PPDB.'
+                    'Jadwal gelombang harus berada dalam rentang tanggal periode SPMB.'
                 );
 
                 throw ValidationException::withMessages([
-                    'tanggal_mulai' => 'Jadwal gelombang harus berada dalam rentang tanggal periode PPDB.',
+                    'tanggal_mulai' => 'Jadwal gelombang harus berada dalam rentang tanggal periode SPMB.',
                 ]);
             }
 
@@ -142,7 +142,7 @@ class Create extends Component
             DB::commit();
 
             $this->dispatchBrowserEvent('alertify-success', [
-                'message' => 'Gelombang PPDB berhasil ditambahkan.',
+                'message' => 'Gelombang SPMB berhasil ditambahkan.',
             ]);
 
             $this->dispatchBrowserEvent('hide-modal', [
@@ -163,7 +163,7 @@ class Create extends Component
 
             $this->dispatchBrowserEvent('alertify-error', [
                 'message' =>
-                    'Gelombang PPDB gagal disimpan. Silakan coba kembali.',
+                    'Gelombang SPMB gagal disimpan. Silakan coba kembali.',
             ]);
         }
     }

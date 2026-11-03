@@ -330,6 +330,14 @@ Route::middleware(['auth', 'peran:SUPERADMIN,ADMIN,KEUANGAN,PANITIA_PPDB'])->gro
             Route::get('/laporan', [PPDBAdminController::class, 'laporan'])
                 ->name('laporan');
 
+            Route::get('/laporan/pdf', [PPDBAdminController::class, 'cetakLaporan'])
+                ->name('laporan.pdf');
+
+            Route::get('/laporan/{pendaftaranId}/berkas.zip', [
+                PPDBAdminController::class,
+                'unduhBerkas',
+            ])->whereNumber('pendaftaranId')->name('laporan.berkas.zip');
+
             Route::get('/pengaturan', [PPDBAdminController::class, 'pengaturan'])
                 ->name('pengaturan');
 

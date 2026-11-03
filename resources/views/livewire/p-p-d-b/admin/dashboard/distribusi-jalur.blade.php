@@ -10,7 +10,7 @@
             </div>
 
             <div>
-                <h5 class="fw-bold mb-1">Distribusi Jalur Pendaftaran</h5>
+                <h5 class="fw-bold mb-1">Distribusi Jalur SPMB</h5>
                 <small class="text-muted">
                     Perbandingan jumlah calon siswa berdasarkan jalur.
                 </small>
@@ -46,7 +46,7 @@
                 </div>
 
                 <h6 class="fw-semibold mb-1">
-                    Belum Ada Periode PPDB
+                    Belum Ada Periode SPMB
                 </h6>
 
                 <p class="text-muted small mb-0">
@@ -58,7 +58,7 @@
             <div class="text-center py-4">
                 <i class="mdi mdi-chart-donut fs-1 text-muted"></i>
                 <p class="text-muted mb-0 mt-2">
-                    Belum ada jalur pendaftaran aktif.
+                    Belum ada jalur SPMB yang aktif.
                 </p>
             </div>
 
@@ -72,7 +72,7 @@
                             </span>
 
                             <span class="text-muted small text-end">
-                                {{ number_format($jalur['jumlah'], 0, ',', '.') }} pendaftar
+                                {{ number_format($jalur['jumlah'], 0, ',', '.') }} calon siswa
                                 <span class="fw-semibold text-body ms-1">
                                     ({{ $jalur['persentase'] }}%)
                                 </span>
@@ -100,7 +100,7 @@
                     <div class="small text-muted">
                         Total
                         <strong class="text-body">
-                            {{ number_format($totalPendaftar, 0, ',', '.') }} pendaftar
+                            {{ number_format($totalPendaftar, 0, ',', '.') }} calon siswa
                         </strong>
                         dari seluruh jalur aktif.
                         Pastikan kuota dan persyaratan setiap jalur sesuai

@@ -86,16 +86,16 @@ class Create extends Component
      * Pesan validasi dalam bahasa Indonesia.
      */
     protected $messages = [
-        'ppdb_periode_id.required' => 'Periode PPDB belum dipilih.',
-        'ppdb_periode_id.integer' => 'Periode PPDB tidak valid.',
-        'ppdb_periode_id.exists' => 'Periode PPDB yang dipilih tidak ditemukan.',
+        'ppdb_periode_id.required' => 'Periode SPMB belum dipilih.',
+        'ppdb_periode_id.integer' => 'Periode SPMB tidak valid.',
+        'ppdb_periode_id.exists' => 'Periode SPMB yang dipilih tidak ditemukan.',
 
         'kode_jalur.required' => 'Kode jalur wajib diisi.',
         'kode_jalur.string' => 'Kode jalur harus berupa teks.',
         'kode_jalur.max' =>
             'Kode jalur maksimal 50 karakter.',
         'kode_jalur.unique' =>
-            'Kode jalur sudah digunakan pada periode PPDB ini.',
+            'Kode jalur sudah digunakan pada periode SPMB ini.',
 
         'nama_jalur.required' =>
             'Nama jalur tidak boleh kosong.',
@@ -117,11 +117,11 @@ class Create extends Component
             'Kuota minimal 1 siswa.',
 
         'biaya_pendaftaran.required' =>
-            'Biaya pendaftaran wajib diisi.',
+            'Biaya SPMB wajib diisi.',
         'biaya_pendaftaran.numeric' =>
-            'Biaya pendaftaran harus berupa angka.',
+            'Biaya SPMB harus berupa angka.',
         'biaya_pendaftaran.min' =>
-            'Biaya pendaftaran tidak boleh negatif.',
+            'Biaya SPMB tidak boleh negatif.',
     ];
 
     /**
@@ -160,7 +160,7 @@ class Create extends Component
 
             if ($kodeSudahDigunakan) {
                 throw ValidationException::withMessages([
-                    'kode_jalur' => 'Kode jalur sudah digunakan pada periode PPDB ini.',
+                    'kode_jalur' => 'Kode jalur sudah digunakan pada periode SPMB ini.',
                 ]);
             }
 
@@ -177,7 +177,7 @@ class Create extends Component
             DB::commit();
 
             $this->dispatchBrowserEvent('alertify-success', [
-                'message' => 'Jalur PPDB berhasil ditambahkan.',
+                'message' => 'Jalur seleksi SPMB berhasil ditambahkan.',
             ]);
 
             $this->dispatchBrowserEvent('hide-modal', [
@@ -198,7 +198,7 @@ class Create extends Component
             report($e);
 
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Jalur PPDB gagal disimpan. Silakan coba kembali.',
+                'message' => 'Jalur seleksi SPMB gagal disimpan. Silakan coba kembali.',
             ]);
         }
     }

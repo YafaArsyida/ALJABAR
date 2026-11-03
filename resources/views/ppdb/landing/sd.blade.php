@@ -2,9 +2,9 @@
 <html lang="id" data-layout="vertical" data-topbar="light" data-sidebar="light" data-bs-theme="light" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
     <head>
         <meta charset="utf-8" />
-        <title>PPDB {{ $jenjang->nama_jenjang }}</title>
+        <title>SPMB {{ $jenjang->nama_jenjang }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Informasi Penerimaan Peserta Didik Baru Tahun Ajaran 2027/2028 di {{ $jenjang->nama_jenjang }}.">
+        <meta name="description" content="Informasi Sistem Penerimaan Murid Baru (SPMB) Tahun Ajaran 2027/2028 di {{ $jenjang->nama_jenjang }}.">
         <link rel="shortcut icon" href="{{asset('assets')}}/logo/yayasan.webp">
         <script src="{{ asset('assets') }}/js/layout.js"></script>
         <link href="{{ asset('assets') }}/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -456,7 +456,7 @@
                                         'jenjang' => $jenjang->slug,
                                     ]) }}"
                                         class="btn btn-primary rounded-pill px-3">
-                                        Daftar Sekarang
+                                        Mulai Pendataan
                                     </a>
                                 </li>
                             @endauth
@@ -500,7 +500,7 @@
                                             ]) }}"
                                                 class="btn btn-primary rounded-pill">
                                                 <i class="ri-home-line me-1"></i>
-                                                Dashboard Pendaftaran
+                                                Dashboard SPMB
                                             </a>
                                         @endif
                                     @else
@@ -509,21 +509,21 @@
                                         ]) }}"
                                             class="btn btn-primary rounded-pill">
                                             <i class="ri-user-add-line me-1"></i>
-                                            Daftar Sekarang
+                                            Mulai Pendataan
                                         </a>
                                     @endauth
 
                                     <a href="#jadwal"
                                         class="btn ppdb-secondary-cta rounded-pill">
                                         <i class="ri-calendar-line me-1"></i>
-                                        Lihat Alur Pendaftaran
+                                        Lihat Alur Pendataan
                                     </a>
                                 </div>
 
                                 <div class="ppdb-status d-flex flex-column flex-sm-row flex-wrap gap-3 align-items-sm-center mt-4 text-white">
                                     <div class="ppdb-status-pill d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold">
                                         <span class="dot"></span>
-                                        Pendaftaran Mulai November 2026
+                                        Pendataan Dibuka November 2026
                                     </div>
 
                                     <div class="text-white-50">
@@ -551,14 +551,14 @@
                                     @php
                                         $quickInfo = [
                                             [
-                                                'icon' => 'ri-calendar-event-line',
-                                                'label' => 'Tahun Ajaran',
-                                                'value' => '2027/2028',
+                                                'icon' => 'ri-calendar-check-line',
+                                                'label' => 'Pendataan Dibuka',
+                                                'value' => 'November 2026',
                                             ],
                                             [
-                                                'icon' => 'ri-calendar-check-line',
-                                                'label' => 'Pendaftaran Mulai',
-                                                'value' => 'November 2026',
+                                                'icon' => 'ri-ruler-line',
+                                                'label' => 'Pengukuran Seragam',
+                                                'value' => 'Januari 2027',
                                             ],
                                             [
                                                 'icon' => 'ri-psychotherapy-line',
@@ -574,12 +574,10 @@
                                     @endphp
 
                                     @foreach ($quickInfo as $index => $info)
-                                        <div class="col-lg-3 col-md-6 col-12">
-                                            <div class="p-4 h-100
-                                                {{ $index < 3 ? 'border-end border-bottom border-lg-bottom-0' : 'border-bottom' }}
-                                                position-relative">
+                                        <div class="col-lg col-md-6 col-12">
+                                            <div class="p-3 p-xl-4 h-100 border-end border-bottom position-relative">
 
-                                                <div class="d-flex align-items-start gap-3">
+                                                <div class="d-flex align-items-center gap-3">
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-5">
                                                             <i class="{{ $info['icon'] }}"></i>
@@ -587,11 +585,11 @@
                                                     </div>
 
                                                     <div class="min-w-0">
-                                                        <div class="text-muted text-uppercase fw-medium fs-12 mb-1">
+                                                        <div class="text-muted fw-medium fs-12 mb-2 text-uppercase">
                                                             {{ $info['label'] }}
                                                         </div>
 
-                                                        <div class="fw-semibold text-body fs-15">
+                                                        <div class="fw-bold text-body fs-15 lh-sm">
                                                             {{ $info['value'] }}
                                                         </div>
                                                     </div>
@@ -915,7 +913,7 @@
                             $tahapanBiaya = [
                                 [
                                     'tahap' => 'Tahap Pendataan',
-                                    'periode' => 'Saat pendaftaran',
+                                    'periode' => 'Saat pendataan',
                                     'icon' => 'ri-clipboard-line',
                                     'items' => [
                                         ['nama' => 'Pendataan', 'nominal' => 150000],
@@ -990,11 +988,11 @@
                                             @endforeach
 
                                             <div class="d-flex justify-content-between align-items-center gap-3 mt-4 pt-3 border-top">
-                                                <span class="fw-semibold">
+                                                <span class="fw-bold fs-6 text-body">
                                                     Total tahap
                                                 </span>
 
-                                                <span class="fw-bold text-primary text-nowrap">
+                                                <span class="fw-bold fs-5 text-body text-nowrap">
                                                     Rp{{ number_format(collect($tahap['items'])->sum('nominal'), 0, ',', '.') }}
                                                 </span>
                                             </div>
@@ -1013,8 +1011,11 @@
                                         Informasi Biaya
                                     </h4>
                                     <p class="text-muted small mb-0 lh-lg">
-                                        Total biaya calon siswa laki-laki sebesar Rp4.295.000
-                                        dan calon siswi perempuan sebesar Rp4.445.000 termasuk hijab.
+                                        Total biaya calon siswa laki-laki sebesar
+                                        <strong class="text-body">Rp4.295.000</strong>
+                                        dan calon siswi perempuan sebesar
+                                        <strong class="text-body">Rp4.445.000</strong>
+                                        (termasuk hijab).
                                         Silakan menghubungi panitia SPMB untuk konfirmasi
                                         teknis pembayaran.
                                     </p>
@@ -1035,16 +1036,15 @@
                             </span>
 
                             <h2 class="display-6 fw-bold mb-3">
-                                Alur Pendaftaran SPMB 2027/2028
+                                Alur Pendataan SPMB 2027/2028
                             </h2>
 
                             <p class="text-muted lh-lg mb-0">
-                                Ikuti tahapan pendaftaran SD Islam Al Hidayah berikut
-                                untuk mempersiapkan kebutuhan calon peserta didik.
+                                Kenali tahapan pendataan, kegiatan, dan pembayaran calon peserta didik SD Islam Al Hidayah tahun ajaran 2027/2028.
                             </p>
                         </div>
 
-                        {{-- Fase Pendaftaran --}}
+                        {{-- Fase Pendataan --}}
                         <div class="row g-4 mb-5">
 
                             <div class="col-lg-6">
@@ -1064,27 +1064,27 @@
                                                 </span>
 
                                                 <h3 class="fs-4 fw-bold mb-1">
-                                                    Tahap Pendaftaran
+                                                    Tahap Pendataan
                                                 </h3>
 
                                                 <p class="text-muted small mb-0">
-                                                    Pendaftaran dibuka hingga kuota terpenuhi.
+                                                    Biaya pendataan Rp150.000.
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-column gap-3">
-                                            @php
-                                                $registrationSteps = [
-                                                    'Datang ke sekolah',
-                                                    'Mengikuti wawancara orang tua',
-                                                    'Mengisi formulir pendaftaran',
-                                                    'Melengkapi persyaratan dokumen',
-                                                    'Membayar biaya pendataan, skrining psikologi, dan seragam',
-                                                    'Bergabung dengan grup WhatsApp calon peserta didik SDIA 2027/2028',
-                                                ];
-                                            @endphp
+                                        @php
+                                            $registrationSteps = [
+                                                'Datang langsung ke sekolah',
+                                                'Mengikuti wawancara wali murid',
+                                                'Menyiapkan berkas persyaratan dalam bentuk fisik dan digital',
+                                                'Mengisi formulir pendataan',
+                                                'Mengumpulkan persyaratan SPMB',
+                                                'Melakukan pembayaran biaya pendataan sebesar Rp150.000',
+                                            ];
+                                        @endphp
 
+                                        <div class="d-flex flex-column gap-3">
                                             @foreach ($registrationSteps as $step)
                                                 <div class="d-flex align-items-start gap-3">
                                                     <div class="avatar-xs flex-shrink-0">
@@ -1104,7 +1104,9 @@
                                             <div class="d-flex align-items-start gap-2">
                                                 <i class="ri-information-line text-primary fs-5"></i>
                                                 <p class="small text-muted mb-0 lh-lg">
-                                                    Pendaftaran ditutup apabila kuota telah terpenuhi.
+                                                    Biaya pendataan sebesar Rp150.000.
+                                                    Biaya kegiatan dan perlengkapan lainnya
+                                                    dibayarkan sesuai tahapan berikutnya.
                                                 </p>
                                             </div>
                                         </div>
@@ -1113,79 +1115,97 @@
                                 </div>
                             </div>
 
-                            {{-- Fase Skrining dan Pengumuman --}}
+                            {{-- Tahapan Kegiatan dan Pembayaran --}}
                             <div class="col-lg-6">
                                 <div class="card h-100 border rounded-4 shadow-none mb-0">
                                     <div class="card-body p-4 p-lg-5">
 
+                                        {{-- Header --}}
                                         <div class="d-flex align-items-start gap-3 mb-4">
                                             <div class="avatar-md flex-shrink-0">
-                                                <div class="avatar-title bg-success-subtle text-success rounded-3 fs-4">
+                                                <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-4">
                                                     <i class="ri-calendar-check-line"></i>
                                                 </div>
                                             </div>
 
                                             <div>
-                                                <span class="badge bg-success-subtle text-success mb-2">
-                                                    April 2027
+                                                <span class="badge bg-primary-subtle text-primary mb-2">
+                                                    Januari – Juni 2027
                                                 </span>
 
                                                 <h3 class="fs-4 fw-bold mb-1">
-                                                    Tahap Seleksi
+                                                    Tahapan Kegiatan
                                                 </h3>
 
                                                 <p class="text-muted small mb-0">
-                                                    Pelaksanaan skrining dan penyampaian hasil.
+                                                    Kegiatan dan pembayaran persiapan tahun ajaran baru.
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-column gap-4 mt-4">
+                                        {{-- Daftar Tahapan --}}
+                                        <div class="d-flex flex-column gap-3">
 
-                                            <div class="d-flex align-items-start gap-3">
-                                                <div class="avatar-md flex-shrink-0">
-                                                    <div class="avatar-title bg-success-subtle text-success rounded-3 fs-4">
-                                                        <i class="ri-psychotherapy-line"></i>
+                                            @php
+                                                $activitySteps = [
+                                                    [
+                                                        'judul' => 'Pengukuran Seragam',
+                                                        'periode' => 'Januari – Februari 2027',
+                                                        'deskripsi' => 'Pengukuran seragam dan pembayaran buku untuk kebutuhan satu tahun.',
+                                                    ],
+                                                    [
+                                                        'judul' => 'Skrining Psikologi',
+                                                        'periode' => 'Maret – April 2027',
+                                                        'deskripsi' => 'Pelaksanaan skrining serta pembayaran kegiatan, SPP Juli, dan perlengkapan.',
+                                                    ],
+                                                    [
+                                                        'judul' => 'Persiapan Tahun Ajaran',
+                                                        'periode' => 'Mei – Juni 2027',
+                                                        'deskripsi' => 'Pengambilan buku, seragam, dan Golden Gate serta pembayaran alat penunjang pendidikan dan biaya pengembangan.',
+                                                    ],
+                                                ];
+                                            @endphp
+
+                                            @foreach ($activitySteps as $step)
+                                                <div class="d-flex align-items-start gap-3">
+                                                    <div class="avatar-xs flex-shrink-0">
+                                                        <div class="avatar-title bg-light text-primary rounded-circle fw-semibold">
+                                                            {{ $loop->iteration }}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="min-w-0">
+                                                        <div class="fw-semibold text-body mb-1">
+                                                            {{ $step['judul'] }}
+                                                        </div>
+
+                                                        <div class="text-primary fs-12 fw-medium mb-1">
+                                                            {{ $step['periode'] }}
+                                                        </div>
+
+                                                        <p class="text-muted small mb-0 lh-lg">
+                                                            {{ $step['deskripsi'] }}
+                                                        </p>
                                                     </div>
                                                 </div>
+                                            @endforeach
 
-                                                <div>
-                                                    <h4 class="fs-5 fw-semibold mb-2">
-                                                        Skrining Psikologi
-                                                    </h4>
+                                        </div>
 
-                                                    <p class="text-muted lh-lg mb-0">
-                                                        Calon peserta didik mengikuti skrining psikologi
-                                                        sesuai jadwal yang diinformasikan oleh sekolah.
-                                                    </p>
-                                                </div>
+                                        {{-- Informasi --}}
+                                        <div class="alert alert-light border rounded-3 mt-4 mb-0">
+                                            <div class="d-flex align-items-start gap-2">
+                                                <i class="ri-information-line text-primary fs-5"></i>
+                                                <p class="small text-muted mb-0 lh-lg">
+                                                    Jadwal kegiatan dan informasi pembayaran akan disampaikan
+                                                    lebih lanjut melalui grup WhatsApp calon peserta didik.
+                                                </p>
                                             </div>
-
-                                            <div class="d-flex align-items-start gap-3">
-                                                <div class="avatar-md flex-shrink-0">
-                                                    <div class="avatar-title bg-success-subtle text-success rounded-3 fs-4">
-                                                        <i class="ri-megaphone-line"></i>
-                                                    </div>
-                                                </div>
-
-                                                <div>
-                                                    <h4 class="fs-5 fw-semibold mb-2">
-                                                        Pengumuman Hasil
-                                                    </h4>
-
-                                                    <p class="text-muted lh-lg mb-0">
-                                                        Informasi hasil penerimaan disampaikan
-                                                        pada April 2027.
-                                                    </p>
-                                                </div>
-                                            </div>
-
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                         {{-- CTA --}}
@@ -1194,12 +1214,12 @@
                                 <div class="row align-items-center g-3">
                                     <div class="col-lg">
                                         <h3 class="fs-4 fw-bold mb-2">
-                                            Siapkan Persyaratan Pendaftaran
+                                            Siapkan Persyaratan Pendataan
                                         </h3>
 
                                         <p class="text-muted mb-0 lh-lg">
                                             Pastikan dokumen calon peserta didik sudah dipersiapkan
-                                            sebelum melakukan pendaftaran.
+                                            sebelum memulai proses pendataan.
                                         </p>
                                     </div>
 
@@ -1227,12 +1247,12 @@
                             </span>
 
                             <h2 class="display-6 fw-bold mb-3">
-                                Siapkan Dokumen Pendaftaran
+                                Siapkan Dokumen Pendataan
                             </h2>
 
                             <p class="text-muted lh-lg mb-0">
                                 Pastikan dokumen berikut sudah disiapkan agar proses
-                                pendaftaran calon peserta didik SD Islam Al Hidayah
+                                pendataan calon peserta didik SD Islam Al Hidayah
                                 berjalan lebih lancar.
                             </p>
                         </div>
@@ -1280,7 +1300,7 @@
                                                     'detail' => 'Ukuran 3 × 4, latar belakang merah, 2 lembar',
                                                 ],
                                                 [
-                                                    'title' => 'Formulir pendaftaran',
+                                                    'title' => 'Formulir pendataan',
                                                     'detail' => 'Diisi oleh orang tua calon peserta didik',
                                                 ],
                                                 [
@@ -1332,7 +1352,7 @@
                                                         Berkas Digital
                                                     </h3>
                                                     <p class="text-muted small mb-0">
-                                                        Untuk pendaftaran online
+                                                        Untuk pendataan online
                                                     </p>
                                                 </div>
                                             </div>
@@ -1421,13 +1441,13 @@
 
                                 <div>
                                     <h4 class="fs-6 fw-semibold mb-1">
-                                        Sebelum Mendaftar
+                                        Sebelum Mengikuti Pendataan
                                     </h4>
 
                                     <p class="text-muted small lh-lg mb-0">
-                                        Pendaftaran dimulai November 2026 dan ditutup
+                                        Pendataan dimulai November 2026 dan ditutup
                                         apabila kuota telah terpenuhi. Untuk informasi lebih
-                                        lanjut mengenai dokumen atau proses pendaftaran,
+                                        lanjut mengenai dokumen atau proses pendataan,
                                         silakan hubungi panitia SPMB.
                                     </p>
                                 </div>
@@ -1444,15 +1464,15 @@
                                 <div class="col-lg-6 ppdb-status-copy">
                                     <span class="ppdb-status-kicker">
                                         <i class="ri-search-eye-line"></i>
-                                        Layanan Pendaftaran
+                                        Layanan Pendataan
                                     </span>
 
                                     <h3 class="fs-2 fw-bold text-white">
-                                        Pantau Informasi Pendaftaran Calon Peserta Didik
+                                        Pantau Status Pendataan Calon Peserta Didik
                                     </h3>
 
                                     <p class="text-white-50">
-                                        Gunakan fitur ini untuk memeriksa informasi pendaftaran
+                                        Gunakan fitur ini untuk memeriksa status pendataan
                                         calon peserta didik melalui portal SPMB SD Islam Al Hidayah
                                         Tahun Ajaran 2027/2028.
                                     </p>
@@ -1460,7 +1480,7 @@
                                     <div class="ppdb-status-points d-flex flex-wrap gap-3 text-white-50">
                                         <span class="d-inline-flex align-items-center gap-2">
                                             <i class="ri-checkbox-circle-line text-success"></i>
-                                            Informasi status pendaftaran
+                                            Informasi status pendataan
                                         </span>
 
                                         <span class="d-inline-flex align-items-center gap-2">
@@ -1483,16 +1503,16 @@
                 @php
                     $faqs = [
                         [
-                            'question' => 'Kapan pendaftaran SPMB dibuka?',
-                            'answer' => 'Pendaftaran SPMB SD Islam Al Hidayah Tahun Ajaran 2027/2028 mulai November 2026. Pendaftaran ditutup apabila kuota telah terpenuhi.',
+                            'question' => 'Kapan pendataan SPMB dibuka?',
+                            'answer' => 'Pendataan SPMB SD Islam Al Hidayah Tahun Ajaran 2027/2028 dimulai pada November 2026 dan ditutup apabila kuota telah terpenuhi.',
                         ],
                         [
-                            'question' => 'Bagaimana cara mendaftar?',
-                            'answer' => 'Berdasarkan informasi sekolah, orang tua datang ke sekolah, mengikuti wawancara, mengisi formulir pendaftaran, melengkapi persyaratan, dan menyelesaikan pembayaran tahap pendataan. Silakan perhatikan informasi pada bagian Alur Pendaftaran.',
+                            'question' => 'Bagaimana cara mengikuti pendataan?',
+                            'answer' => 'Berdasarkan informasi sekolah, orang tua datang ke sekolah, mengikuti wawancara, mengisi formulir pendataan, melengkapi persyaratan, dan menyelesaikan pembayaran tahap pendataan. Silakan ikuti tahapan yang dijelaskan pada bagian Alur Pendataan.',
                         ],
                         [
                             'question' => 'Dokumen apa saja yang perlu disiapkan?',
-                            'answer' => 'Dokumen yang perlu disiapkan meliputi fotokopi akta kelahiran, Kartu Keluarga, KTP ayah dan ibu, pas foto calon siswa ukuran 3×4 berlatar belakang merah sebanyak dua lembar, formulir pendaftaran, dan satu lembar materai Rp10.000. Untuk pendaftaran online, siapkan juga berkas digital KK dan akta kelahiran.',
+                            'answer' => 'Dokumen yang perlu disiapkan meliputi fotokopi akta kelahiran, Kartu Keluarga, KTP ayah dan ibu, pas foto calon siswa ukuran 3×4 berlatar belakang merah sebanyak dua lembar, formulir pendataan, dan satu lembar materai Rp10.000. Untuk pendataan online, siapkan juga berkas digital KK dan akta kelahiran.',
                         ],
                         [
                             'question' => 'Berapa biaya SPMB?',
@@ -1504,7 +1524,7 @@
                         ],
                         [
                             'question' => 'Bagaimana jika saya membutuhkan informasi lebih lanjut?',
-                            'answer' => 'Orang tua dapat menghubungi pihak SD Islam Al Hidayah melalui nomor 0822-2626-6861 untuk memperoleh informasi lebih lanjut mengenai pendaftaran.',
+                            'answer' => 'Orang tua dapat menghubungi pihak SD Islam Al Hidayah melalui nomor 0822-2626-6861 untuk memperoleh informasi lebih lanjut mengenai pendataan.',
                         ],
                     ];
                 @endphp
@@ -1522,7 +1542,7 @@
 
                             <p class="text-muted mb-0">
                                 Informasi penting untuk membantu orang tua mempersiapkan
-                                pendaftaran calon peserta didik baru.
+                                pendataan calon peserta didik baru.
                             </p>
                         </div>
 
@@ -1570,9 +1590,9 @@
 
                                 <p>
                                     Awali perjalanan pendidikan putra-putri Anda bersama
-                                    SD Islam Al Hidayah. Pendaftaran dimulai November 2026
+                                    SD Islam Al Hidayah. Pendataan dimulai November 2026
                                     dan ditutup apabila kuota telah terpenuhi.
-                                    Siapkan persyaratan dan ikuti alur pendaftaran yang tersedia.
+                                    Siapkan persyaratan dan ikuti alur pendataan yang tersedia.
                                 </p>
 
                                 <div class="d-flex flex-wrap gap-2">
@@ -1589,7 +1609,7 @@
                                             ]) }}"
                                                 class="btn btn-primary rounded-pill">
                                                 <i class="ri-home-line me-1"></i>
-                                                Dashboard PPDB
+                                                Dashboard SPMB
                                             </a>
                                         @endif
                                     @else
@@ -1598,14 +1618,14 @@
                                         ]) }}"
                                             class="btn btn-primary rounded-pill">
                                             <i class="ri-user-add-line me-1"></i>
-                                            Mulai Pendaftaran
+                                            Mulai Pendataan
                                         </a>
                                     @endauth
 
                                     <a href="#jadwal"
                                         class="btn ppdb-secondary-cta rounded-pill">
                                         <i class="ri-calendar-check-line me-1"></i>
-                                        Lihat Alur Pendaftaran
+                                        Lihat Alur Pendataan
                                     </a>
                                 </div>
                             </div>
@@ -1639,7 +1659,7 @@
                                     style="max-width: 420px;">
                                     Informasi SPMB Tahun Ajaran 2027/2028.
                                     Kenali profil sekolah, program unggulan, biaya,
-                                    jadwal, dan persyaratan pendaftaran calon peserta didik.
+                                    jadwal, dan persyaratan pendataan calon peserta didik.
                                 </p>
 
                                 <div class="d-flex align-items-start gap-2 text-white-50 mb-3">
@@ -1683,7 +1703,7 @@
                                         <a href="#biaya">Biaya SPMB</a>
                                     </li>
                                     <li class="mb-2">
-                                        <a href="#jadwal">Jadwal & Alur Pendaftaran</a>
+                                        <a href="#jadwal">Jadwal & Alur Pendataan</a>
                                     </li>
                                     <li class="mb-2">
                                         <a href="#persyaratan">Persyaratan</a>
@@ -1692,7 +1712,7 @@
                                         <a href="#faq">Pertanyaan Umum</a>
                                     </li>
                                     <li>
-                                        <a href="#ppdb-status">Cek Status Pendaftaran</a>
+                                        <a href="#ppdb-status">Cek Status Pendataan</a>
                                     </li>
                                 </ul>
                             </div>
@@ -1708,7 +1728,7 @@
                                 <p class="text-white-50 ff-secondary fs-14 mb-4">
                                     Kenali proses SPMB SD Islam Al Hidayah,
                                     persiapkan dokumen yang diperlukan, dan
-                                    dapatkan informasi pendaftaran Tahun Ajaran 2027/2028.
+                                    dapatkan informasi pendataan Tahun Ajaran 2027/2028.
                                 </p>
 
                                 <div class="d-flex flex-wrap gap-2">
@@ -1727,7 +1747,7 @@
                                                 ]) }}"
                                                 class="btn btn-primary rounded-pill px-4">
                                                 <i class="ri-home-line align-middle me-1"></i>
-                                                Dashboard PPDB
+                                                Dashboard SPMB
                                             </a>
                                         @endif
                                     @else
@@ -1737,7 +1757,7 @@
                                             ]) }}"
                                             class="btn btn-primary rounded-pill px-4">
                                             <i class="ri-pencil-line align-middle me-1"></i>
-                                            Mulai Pendaftaran
+                                            Mulai Pendataan
                                             <i class="ri-arrow-right-line align-middle ms-1"></i>
                                         </a>
                                     @endauth
@@ -1789,7 +1809,7 @@
                                                 'jenjang' => $jenjang->slug,
                                             ]) }}"
                                             class="link-light me-3">
-                                            Dashboard PPDB
+                                            Dashboard SPMB
                                         </a>
                                     @endif
                                 @else
@@ -1798,7 +1818,7 @@
                                             'jenjang' => $jenjang->slug,
                                         ]) }}"
                                         class="link-light me-3">
-                                        Daftar SPMB
+                                        Mulai Pendataan SPMB
                                     </a>
                                 @endauth
 
@@ -1821,7 +1841,7 @@
                 title="Hubungi panitia SPMB melalui WhatsApp">
 
                 <i class="ri-whatsapp-line" aria-hidden="true"></i>
-                <span>Bantuan PPDB</span>
+                <span>Bantuan SPMB</span>
             </a>
         </div>
         <script src="{{ asset('assets') }}/libs/bootstrap/js/bootstrap.bundle.min.js"></script>

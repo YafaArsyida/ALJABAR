@@ -1,7 +1,7 @@
 
 <div class="row g-3">
 
-    {{-- TOTAL PENDAFTAR --}}
+    {{-- TOTAL CALON SISWA --}}
     <div class="col-xl-3 col-md-6">
         <div class="card border rounded-4 mb-0 h-100">
             <div class="card-body p-4">
@@ -16,10 +16,10 @@
 
                         <div>
                             <div class="text-muted small mb-1">
-                                TOTAL PENDAFTAR
+                                TOTAL CALON SISWA
                             </div>
                             <div class="fs-5 fw-semibold text-dark">
-                                Seluruh Pendaftar
+                                Seluruh Calon Siswa
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                                 DITERIMA
                             </div>
                             <div class="fs-5 fw-semibold text-dark">
-                                Pendaftaran Diterima
+                                Calon Siswa Diterima
                             </div>
                         </div>
                     </div>

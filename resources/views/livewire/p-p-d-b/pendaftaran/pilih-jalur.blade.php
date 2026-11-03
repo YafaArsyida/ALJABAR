@@ -10,10 +10,10 @@
 
             <div class="flex-grow-1 min-w-0">
                 <h5 class="fw-bold mb-1 text-break">
-                    Pilihan Jalur Pendaftaran
+                    Pilihan Jalur Pendataan SPMB
                 </h5>
                 <p class="text-muted small mb-0">
-                    Informasi jalur dan gelombang pendaftaran Anda. 
+                    Informasi jalur dan gelombang SPMB yang tersedia untuk Anda.
                 </p>
             </div>
 
@@ -30,11 +30,11 @@
 
             <div>
                 <h6 class="fw-semibold mb-1">
-                    Pilih Jalur Pendaftaran
+                    Pilih Jalur Pendataan
                 </h6>
                 <p class="text-muted small mb-0">
                     Bacalah deskripsi dan ketentuan setiap jalur sebelum
-                    memilih. Pilihan akan digunakan untuk proses pendaftaran
+                    memilih. Jalur yang dipilih akan digunakan dalam proses pendataan
                     calon siswa pada periode ini.
                 </p>
             </div>
@@ -141,7 +141,7 @@
                             {{-- <div class="mt-auto pt-3 border-top">
                                 <div class="d-flex justify-content-between align-items-start gap-3 mb-2">
                                     <span class="text-muted small">
-                                        Biaya pendaftaran
+                                        Biaya pendataan
                                     </span>
 
                                     <span class="fw-semibold small text-end">
@@ -236,11 +236,11 @@
                 </div>
 
                 <h6 class="fw-semibold mb-2">
-                    Belum Ada Jalur Pendaftaran
+                    Belum Ada Jalur Pendataan
                 </h6>
 
                 <p class="text-muted small mb-0">
-                    Belum ada jalur yang tersedia pada periode PPDB ini.
+                    Belum ada jalur yang tersedia pada periode SPMB ini.
                     Silakan hubungi pihak sekolah jika membutuhkan informasi.
                 </p>
             </div>

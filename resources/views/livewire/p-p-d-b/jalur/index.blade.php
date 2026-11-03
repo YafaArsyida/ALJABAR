@@ -14,11 +14,11 @@
 
                     <div>
                         <h5 class="fw-bold mb-1">
-                            Jalur Pendaftaran
+                            Jalur Seleksi SPMB
                         </h5>
 
                         <small class="text-muted">
-                            Kelola jalur seleksi, kuota, dan biaya pendaftaran PPDB.
+                            Kelola jalur seleksi, kuota, dan biaya SPMB.
                         </small>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
 
                 <p class="text-muted mb-0">
                     Pilih jenjang dan tahun ajaran terlebih dahulu
-                    untuk melihat jalur pendaftaran PPDB.
+                    untuk melihat jalur seleksi SPMB.
                 </p>
             </div>
 
@@ -101,7 +101,7 @@
                         for="filterPeriodeJalur"
                         class="form-label small text-muted text-uppercase fw-medium mb-2"
                     >
-                        Periode PPDB
+                        Periode SPMB
                     </label>
 
                     <select
@@ -109,7 +109,7 @@
                         wire:model="selectedPeriode"
                         class="form-select"
                         style="cursor: pointer;"
-                        title="Pilih Periode PPDB"
+                        title="Pilih Periode SPMB"
                     >
                         <option value="">Semua Periode</option>
 
@@ -150,7 +150,7 @@
                             </th>
 
                             <th class="text-end">
-                                Biaya Pendaftaran
+                                Biaya SPMB
                             </th>
 
                             <th class="text-center">
@@ -301,11 +301,11 @@
                                     </div>
 
                                     <h6 class="fw-semibold mb-1">
-                                        Belum Ada Jalur Pendaftaran
+                                        Belum Ada Jalur Seleksi
                                     </h6>
 
                                     <p class="text-muted mb-0">
-                                        Belum ada jalur pendaftaran untuk
+                                        Belum ada jalur seleksi SPMB untuk
                                         jenjang dan tahun ajaran ini,
                                         atau data tidak ditemukan.
                                     </p>

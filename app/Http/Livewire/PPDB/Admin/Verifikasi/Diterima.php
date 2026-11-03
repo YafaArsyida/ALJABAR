@@ -29,7 +29,7 @@ class Diterima extends Component
             $this->reset(['pendaftaranId']);
 
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Pendaftaran tidak tersedia untuk diterima.',
+                'message' => 'Data pendataan tidak tersedia untuk diterima.',
             ]);
 
             return;
@@ -45,9 +45,9 @@ class Diterima extends Component
             'pendaftaranId' => ['required', 'integer'],
         ], [
             'pendaftaranId.required' =>
-                'Pendaftaran belum dipilih.',
+                'Data pendataan belum dipilih.',
             'pendaftaranId.integer' =>
-                'ID pendaftaran tidak valid.',
+                'ID pendataan tidak valid.',
         ]);
 
         $pendaftaran = PPDBPendaftaran::find(
@@ -59,7 +59,7 @@ class Diterima extends Component
             !in_array($pendaftaran->status, ['pengecekan', 'perbaikan'])
         ) {
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Status pendaftaran sudah berubah atau data tidak ditemukan.',
+                'message' => 'Status pendataan sudah berubah atau data tidak ditemukan.',
             ]);
 
             return;
@@ -79,7 +79,7 @@ class Diterima extends Component
         ]);
 
         $this->dispatchBrowserEvent('alertify-success', [
-            'message' => 'Pendaftaran berhasil diterima.',
+            'message' => 'Calon siswa berhasil diterima.',
         ]);
 
         $this->reset([

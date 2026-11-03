@@ -21,13 +21,13 @@
                     class="fw-semibold mb-1"
                     id="offcanvasPemeriksaanPendaftaranLabel">
 
-                    Bantu Pendaftaran
+                    Bantu Pendataan SPMB
                     {{ $periode?->nama_periode ?? 'Periode Belum Dipilih' }}
                 </h5>
 
                 <p class="text-muted small mb-0">
                     @if ($periode)
-                        Periode pendaftaran
+                        Periode pendataan
 
                         {{ $periode->tanggal_mulai
                             ? \Carbon\Carbon::parse($periode->tanggal_mulai)->translatedFormat('d F Y')
@@ -40,7 +40,7 @@
                             : '-' }}
                     @else
                         <i class="ri-information-line me-1"></i>
-                        Silakan pilih periode pendaftaran terlebih dahulu.
+                        Silakan pilih periode SPMB terlebih dahulu.
                     @endif
                 </p>
             </div>
@@ -237,7 +237,7 @@
                     </div>
 
                     <p class="text-muted mb-0">
-                        Memuat formulir pendaftaran...
+                        Memuat formulir pendataan...
                     </p>
                 </div>
             </div>
@@ -339,7 +339,7 @@
 
             <div class="text-muted small">
                 <i class="ri-information-line me-1"></i>
-                Simpan sebagai draft untuk dilanjutkan nanti.
+                Periksa kembali data sebelum menyimpan pendataan calon siswa.
             </div>
 
             <div class="d-flex gap-2 flex-shrink-0">
@@ -362,7 +362,7 @@
 
                     <span wire:loading.remove wire:target="simpanDraft">
                         <i class="ri-save-line me-1"></i>
-                        Simpan Pendaftaran
+                        Simpan Pendataan
                     </span>
 
                     <span wire:loading wire:target="simpanDraft">

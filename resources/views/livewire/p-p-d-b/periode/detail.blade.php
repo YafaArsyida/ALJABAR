@@ -24,11 +24,11 @@
                             class="fw-bold mb-1"
                             id="ModalDetailPeriodeLabel"
                         >
-                            Detail Periode PPDB
+                            Detail Periode SPMB
                         </h5>
 
                         <small class="text-muted">
-                            Informasi periode, jadwal pendaftaran, dan gelombang penerimaan.
+                            Informasi periode, jadwal pendataan, dan gelombang SPMB.
                         </small>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                             </h6>
 
                             <small class="text-muted">
-                                Informasi utama periode penerimaan siswa baru.
+                                Informasi utama periode SPMB.
                             </small>
                         </div>
 
@@ -101,15 +101,15 @@
                         </div>
                     </section>
 
-                    {{-- JADWAL PENDAFTARAN --}}
+                    {{-- JADWAL PENDATAAN --}}
                     <section class="mb-4">
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">
-                                Jadwal Pendaftaran
+                                Jadwal Pendataan
                             </h6>
 
                             <small class="text-muted">
-                                Rentang waktu pelaksanaan penerimaan siswa baru.
+                                Rentang waktu pendataan calon siswa.
                             </small>
                         </div>
 

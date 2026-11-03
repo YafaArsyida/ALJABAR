@@ -1,6 +1,6 @@
 @extends('template_portal_ppdb.v_template')
 
-@section('title', 'Status Pendaftaran')
+@section('title', 'Status Pendataan SPMB')
 
 @section('content')
 
@@ -20,23 +20,23 @@
                             'badge' => 'bg-secondary-subtle text-secondary',
                             'icon' => 'ri-draft-line',
                             'iconClass' => 'bg-secondary-subtle text-secondary',
-                            'judul' => 'Pendaftaran Belum Dikirim',
-                            'deskripsi' => 'Silakan lengkapi dan kirim data pendaftaran Anda.',
+                            'judul' => 'Pendataan Belum Dikirim',
+                            'deskripsi' => 'Silakan lengkapi dan kirim data SPMB Anda.',
                         ],
                         // 'pengecekan' => [
                         //     'label' => 'Sedang Dicek',
                         //     'badge' => 'bg-warning-subtle text-warning',
                         //     'icon' => 'ri-time-line',
                         //     'iconClass' => 'bg-warning-subtle text-warning',
-                        //     'judul' => 'Pendaftaran Berhasil Dikirim',
-                        //     'deskripsi' => 'Pendaftaran Anda sedang menunggu proses verifikasi oleh panitia.',
+                        //     'judul' => 'Data SPMB Berhasil Dikirim',
+                        //     'deskripsi' => 'Data SPMB Anda sedang menunggu proses verifikasi oleh panitia.',
                         // ],
                         'pengecekan' => [
                             'label' => 'Terdaftar',
                             'badge' => 'bg-primary-subtle text-primary',
                             'icon' => 'ri-checkbox-circle-line',
                             'iconClass' => 'bg-primary-subtle text-primary',
-                            'judul' => 'Pendaftaran Berhasil!',
+                            'judul' => 'Pendataan Berhasil!',
                             'deskripsi' => 'Silakan menunggu jadwal pengukuran seragam dan skrining psikologi.',
                         ],
                         'perbaikan' => [
@@ -44,7 +44,7 @@
                             'badge' => 'bg-danger-subtle text-danger',
                             'icon' => 'ri-edit-circle-line',
                             'iconClass' => 'bg-danger-subtle text-danger',
-                            'judul' => 'Pendaftaran Memerlukan Perbaikan',
+                            'judul' => 'Data SPMB Memerlukan Perbaikan',
                             'deskripsi' => 'Silakan periksa informasi dan lakukan perbaikan sesuai catatan panitia.',
                         ],
                         'diterima' => [
@@ -52,15 +52,15 @@
                             'badge' => 'bg-success-subtle text-success',
                             'icon' => 'ri-checkbox-circle-line',
                             'iconClass' => 'bg-success-subtle text-success',
-                            'judul' => 'Pendaftaran Diterima',
-                            'deskripsi' => 'Selamat, pendaftaran Anda telah dinyatakan diterima.',
+                            'judul' => 'Calon Siswa Diterima',
+                            'deskripsi' => 'Selamat, calon siswa telah dinyatakan diterima melalui SPMB.',
                         ],
                         'ditolak' => [
                             'label' => 'Ditolak',
                             'badge' => 'bg-danger-subtle text-danger',
                             'icon' => 'ri-close-circle-line',
                             'iconClass' => 'bg-danger-subtle text-danger',
-                            'judul' => 'Pendaftaran Tidak Diterima',
+                            'judul' => 'Calon Siswa Belum Diterima',
                             'deskripsi' => 'Silakan lihat informasi hasil seleksi yang disampaikan oleh panitia.',
                         ],
                     ];
@@ -72,8 +72,8 @@
                         'badge' => 'bg-secondary-subtle text-secondary',
                         'icon' => 'ri-information-line',
                         'iconClass' => 'bg-secondary-subtle text-secondary',
-                        'judul' => 'Informasi Pendaftaran',
-                        'deskripsi' => 'Silakan periksa informasi terbaru mengenai pendaftaran Anda.',
+                        'judul' => 'Informasi Status SPMB',
+                        'deskripsi' => 'Silakan periksa informasi terbaru mengenai pendataan Anda.',
                     ];
                 @endphp
 
@@ -116,7 +116,7 @@
                             <div class="col-lg-7">
                                 <div class="mb-3">
                                     <small class="text-muted d-block mb-1">
-                                        Nomor Pendaftaran
+                                        Nomor Pendataan
                                     </small>
 
                                     <div class="d-flex align-items-center gap-2 flex-wrap">
@@ -127,7 +127,7 @@
                                         @if (!empty($pendaftaran->nomor_pendaftaran))
                                             <button type="button"
                                                 class="btn btn-sm btn-light btn-icon rounded-circle"
-                                                title="Salin nomor pendaftaran"
+                                                title="Salin nomor pendataan"
                                                 onclick="copyToClipboard(@js($pendaftaran->nomor_pendaftaran))">
                                                 <i class="ri-file-copy-line"></i>
                                             </button>
@@ -136,8 +136,8 @@
                                 </div>
 
                                 <p class="text-muted mb-4">
-                                    Gunakan nomor pendaftaran ini untuk memantau perkembangan
-                                    proses PPDB dan melihat informasi pendaftaran Anda.
+                                    Gunakan nomor ini untuk memantau perkembangan
+                                    proses SPMB dan melihat informasi pendataan Anda.
                                 </p>
 
 
@@ -170,7 +170,7 @@
                                         ]) }}"
                                             class="btn btn-primary rounded-pill px-4">
                                             <i class="ri-edit-line me-1"></i>
-                                            {{ $status === 'perbaikan' ? 'Perbaiki Data' : 'Lanjutkan Pendaftaran' }}
+                                            {{ $status === 'perbaikan' ? 'Perbaiki Data' : 'Lanjutkan Pendataan' }}
                                         </a>
                                     @else
                                         {{-- PREVIEW PENDAFTARAN --}}
@@ -179,7 +179,7 @@
                                         ]) }}"
                                             class="btn btn-outline-primary rounded-pill px-4">
                                             <i class="ri-eye-line me-1"></i>
-                                            Preview Pendaftaran
+                                            Lihat Ringkasan Pendataan
                                         </a>
                                     @endif
 
@@ -196,6 +196,14 @@
 
                                     {{-- CETAK KARTU --}}
                                     @if ($pendaftaran->status !== 'draft')
+                                        <button type="button"
+                                            class="btn btn-success rounded-pill px-4"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#modalKonfirmasiPendataan">
+                                            <i class="ri-whatsapp-line me-1"></i>
+                                            Konfirmasi Pendataan
+                                        </button>
+
                                         <a
                                             href="{{ route('ppdb.kartu-aljabar.pdf', [
                                                 'pendaftaranId' => $pendaftaran->ppdb_pendaftaran_id,
@@ -217,7 +225,7 @@
                                     <div class="card-body">
 
                                         <div class="d-flex justify-content-between gap-3 mb-3">
-                                            <span class="text-muted">Tanggal Pendaftaran</span>
+                                            <span class="text-muted">Tanggal Pengiriman Data</span>
                                             <strong class="text-end">
                                                 {{ $pendaftaran->submitted_at
                                                     ? \Carbon\Carbon::parse($pendaftaran->submitted_at)->translatedFormat('d F Y')
@@ -270,14 +278,14 @@
                                     Jadwal Proses SPMB
                                 </h5>
                                 <small class="text-muted">
-                                    Tahapan penerimaan peserta didik baru Tahun Ajaran 2027/2028.
+                                    Tahapan SPMB Tahun Ajaran 2027/2028.
                                 </small>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        {{-- PENDAFTARAN --}}
+                        {{-- PENDATAAN --}}
                         <div class="d-flex gap-3">
                             <div class="flex-shrink-0 text-center" style="width: 64px;">
                                 <h4 class="fw-bold text-primary mb-0">Nov</h4>
@@ -286,29 +294,30 @@
 
                             <div class="pb-4 border-bottom w-100">
                                 <h6 class="fw-semibold mb-1">
-                                    Pendaftaran Dibuka
+                                    Pendataan Dibuka
                                 </h6>
                                 <small class="text-muted">
-                                    Pendaftaran dimulai pada November 2026.
-                                    Calon peserta didik mengikuti proses pendaftaran
+                                    Pendataan SPMB dimulai pada November 2026.
+                                    Calon peserta didik mengikuti proses pendataan
                                     sesuai arahan pihak sekolah.
                                 </small>
                             </div>
                         </div>
 
-                        {{-- PENDAFTARAN DITUTUP --}}
+                        {{-- PENGUKURAN SERAGAM --}}
                         <div class="d-flex gap-3 pt-4">
                             <div class="flex-shrink-0 text-center" style="width: 64px;">
-                                <i class="ri-flag-line fs-3 text-primary"></i>
+                                <h4 class="fw-bold text-primary mb-0">Jan–Feb</h4>
+                                <small class="text-muted">2027</small>
                             </div>
 
                             <div class="pb-4 border-bottom w-100">
                                 <h6 class="fw-semibold mb-1">
-                                    Penutupan Pendaftaran
+                                    Pengukuran Seragam
                                 </h6>
                                 <small class="text-muted">
-                                    Pendaftaran ditutup apabila kuota peserta didik
-                                    telah terpenuhi.
+                                    Pengukuran seragam dan pembayaran buku
+                                    untuk kebutuhan satu tahun.
                                 </small>
                             </div>
                         </div>
@@ -316,7 +325,7 @@
                         {{-- SKRINING PSIKOLOGI --}}
                         <div class="d-flex gap-3 pt-4">
                             <div class="flex-shrink-0 text-center" style="width: 64px;">
-                                <h4 class="fw-bold text-primary mb-0">Apr</h4>
+                                <h4 class="fw-bold text-primary mb-0">Mar–Apr</h4>
                                 <small class="text-muted">2027</small>
                             </div>
 
@@ -325,25 +334,27 @@
                                     Skrining Psikologi
                                 </h6>
                                 <small class="text-muted">
-                                    Calon peserta didik mengikuti skrining psikologi
-                                    sesuai jadwal yang diinformasikan oleh sekolah.
+                                    Pelaksanaan skrining serta pembayaran kegiatan,
+                                    SPP Juli, dan perlengkapan.
                                 </small>
                             </div>
                         </div>
 
-                        {{-- PENGUMUMAN HASIL --}}
+                        {{-- PERSIAPAN TAHUN AJARAN BARU --}}
                         <div class="d-flex gap-3 pt-4">
                             <div class="flex-shrink-0 text-center" style="width: 64px;">
-                                <i class="ri-notification-3-line fs-3 text-primary"></i>
+                                <h4 class="fw-bold text-primary mb-0">Mei–Jun</h4>
+                                <small class="text-muted">2027</small>
                             </div>
 
                             <div class="w-100">
                                 <h6 class="fw-semibold mb-1">
-                                    Pengumuman Hasil Seleksi
+                                    Persiapan Tahun Ajaran Baru
                                 </h6>
                                 <small class="text-muted">
-                                    Hasil seleksi calon peserta didik diumumkan pada
-                                    April 2027.
+                                    Pengambilan buku, seragam, dan Golden Gate,
+                                    serta pembayaran alat penunjang pendidikan
+                                    dan biaya pengembangan.
                                 </small>
                             </div>
                         </div>
@@ -353,127 +364,14 @@
 
         </div>
     </div>
-    @if ($status === 'perbaikan')
-    <div
-        wire:ignore.self
-        class="modal fade"
-        id="modalKirimUlang"
-        tabindex="-1"
-        aria-labelledby="modalKirimUlangLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+    @include('ppdb.orang-tua.partials.modal-konfirmasi-pendataan', [
+        'pendaftaran' => $pendaftaran,
+    ])
 
-                {{-- HEADER --}}
-                <div class="modal-header border-0 pb-0">
-                    <button
-                        type="button"
-                        class="btn btn-light btn-icon rounded-circle ms-auto"
-                        data-bs-dismiss="modal"
-                        aria-label="Tutup"
-                    >
-                        <i class="ri-close-line fs-18"></i>
-                    </button>
-                </div>
-
-                {{-- BODY --}}
-                <div class="modal-body px-4 pb-4 pt-2 text-center">
-
-                    {{-- ICON --}}
-                    <div class="mb-4">
-                        <div class="avatar-xl mx-auto">
-                            <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/sbnjyzil.json"
-                                    trigger="loop"
-                                    colors="primary:#0d6efd,secondary:#0d6efd"
-                                    style="width:70px;height:70px"
-                                >
-                                </lord-icon>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- TITLE --}}
-                    <div class="mb-2">
-                        <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">
-                            Konfirmasi Perbaikan
-                        </span>
-
-                        <h3
-                            class="fw-bold mb-2"
-                            id="modalKirimUlangLabel"
-                        >
-                            Kirim Ulang Pendaftaran?
-                        </h3>
-
-                        <p class="text-muted mb-0 lh-lg px-lg-2">
-                            Pastikan seluruh data yang diminta panitia telah
-                            diperbaiki. Setelah dikirim, pendaftaran Anda akan
-                            diperiksa kembali oleh panitia PPDB.
-                        </p>
-                    </div>
-
-                    {{-- INFORMASI --}}
-                    <div class="alert alert-light border rounded-4 text-start mt-4 mb-0">
-                        <div class="d-flex align-items-start gap-3">
-                            <div class="flex-shrink-0">
-                                <i class="ri-information-line text-primary fs-20"></i>
-                            </div>
-
-                            <div>
-                                <h6 class="fw-semibold mb-1">
-                                    Sebelum Mengirim
-                                </h6>
-
-                                <p class="text-muted mb-0 fs-13">
-                                    Pastikan perbaikan sudah selesai dan data
-                                    yang diperbarui sudah benar. Setelah dikirim,
-                                    status pendaftaran akan berubah menjadi pengecekan. Anda dapat memantau
-                                    hasil pemeriksaan melalui halaman status PPDB.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                {{-- FOOTER --}}
-                <div class="modal-footer border-0 pt-0 px-4 pb-4 justify-content-center">
-
-                    <button
-                        type="button"
-                        class="btn btn-light rounded-pill px-4"
-                        data-bs-dismiss="modal"
-                    >
-                        <i class="ri-arrow-go-back-line me-1"></i>
-                        Periksa Kembali
-                    </button>
-
-                    <form
-                        action="{{ route('ppdb.pendaftaran.kirim-ulang', [
-                            'jenjang' => $pendaftaran->ppdb_periode->ms_jenjang->slug,
-                            'ppdb_pendaftaran_id' => $pendaftaran->ppdb_pendaftaran_id,
-                        ]) }}"
-                        method="POST"
-                    >
-                        @csrf
-
-                        <button
-                            type="submit"
-                            class="btn btn-primary rounded-pill px-4"
-                        >
-                            <i class="ri-send-plane-line me-1"></i>
-                            Ya, Kirim Ulang
-                        </button>
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-    @endif
+    @include('ppdb.orang-tua.partials.modal-kirim-ulang', [
+        'pendaftaran' => $pendaftaran,
+        'status' => $status,
+    ])
     @if (session('success'))
         <script>
             document.addEventListener('DOMContentLoaded', function () {

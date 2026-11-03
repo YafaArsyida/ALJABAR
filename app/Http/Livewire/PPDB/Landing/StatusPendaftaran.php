@@ -34,8 +34,8 @@ class StatusPendaftaran extends Component
             ['nomorPendaftaran' => $nomor],
             ['nomorPendaftaran' => 'required|string|max:50'],
             [
-                'nomorPendaftaran.required' => 'Nomor pendaftaran wajib diisi.',
-                'nomorPendaftaran.max' => 'Nomor pendaftaran maksimal 50 karakter.',
+                'nomorPendaftaran.required' => 'Nomor pendataan wajib diisi.',
+                'nomorPendaftaran.max' => 'Nomor pendataan maksimal 50 karakter.',
             ]
         );
 
@@ -54,7 +54,7 @@ class StatusPendaftaran extends Component
             ->first();
 
         if (!$pendaftaran) {
-            $this->pesanStatus = 'Nomor pendaftaran tidak ditemukan. Periksa kembali nomor yang Anda masukkan.';
+            $this->pesanStatus = 'Nomor pendataan tidak ditemukan. Periksa kembali nomor yang Anda masukkan.';
             $this->dispatchBrowserEvent('statusPendaftaranGagal');
             return;
         }

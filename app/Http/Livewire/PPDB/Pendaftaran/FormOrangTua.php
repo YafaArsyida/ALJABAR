@@ -49,7 +49,9 @@ class FormOrangTua extends Component
     public $wali_tanggal_lahir = '';
     public $wali_berkebutuhan_khusus = 'Tidak';
     public $wali_pekerjaan = '';
+    public $wali_penghasilan = '';
     public $wali_whatsapp = '';
+    public $bersedia_orang_tua_asuh = false;
 
     protected function rules()
     {
@@ -73,7 +75,7 @@ class FormOrangTua extends Component
             ],
             'ayah_pekerjaan' => ['nullable', 'string', 'max:100'],
             'ayah_penghasilan' => [
-                'nullable',
+                'required',
                 Rule::in([
                     'TIDAK_ADA', 'KURANG_1JT', '1JT_3JT',
                     '3JT_5JT', '5JT_7JT', 'LEBIH_7JT',
@@ -100,7 +102,7 @@ class FormOrangTua extends Component
             ],
             'ibu_pekerjaan' => ['nullable', 'string', 'max:100'],
             'ibu_penghasilan' => [
-                'nullable',
+                'required',
                 Rule::in([
                     'TIDAK_ADA', 'KURANG_1JT', '1JT_3JT',
                     '3JT_5JT', '5JT_7JT', 'LEBIH_7JT',
@@ -139,10 +141,19 @@ class FormOrangTua extends Component
                 Rule::in(['Ya', 'Tidak']),
             ],
             'wali_pekerjaan' => ['nullable', 'string', 'max:100'],
+            'wali_penghasilan' => [
+                Rule::requiredIf($this->gunakan_wali),
+                'nullable',
+                Rule::in([
+                    'TIDAK_ADA', 'KURANG_1JT', '1JT_3JT',
+                    '3JT_5JT', '5JT_7JT', 'LEBIH_7JT',
+                ]),
+            ],
             'wali_whatsapp' => [
                 Rule::requiredIf($this->gunakan_wali),
                 'nullable', 'string', 'max:20',
             ],
+            'bersedia_orang_tua_asuh' => ['boolean'],
         ];
     }
 
@@ -155,6 +166,8 @@ class FormOrangTua extends Component
         'ayah_tanggal_lahir.before_or_equal' => 'Tanggal lahir ayah tidak boleh melebihi hari ini.',
         'ayah_berkebutuhan_khusus.required' => 'Pilih status kebutuhan khusus ayah.',
         'ayah_berkebutuhan_khusus.in' => 'Status kebutuhan khusus ayah tidak valid.',
+        'ayah_penghasilan.required' => 'Penghasilan ayah wajib dipilih.',
+        'ayah_penghasilan.in' => 'Pilihan penghasilan ayah tidak valid.',
 
         'ibu_nama.required' => 'Nama ibu wajib diisi.',
         'ibu_nama.max' => 'Nama ibu maksimal 150 karakter.',
@@ -164,6 +177,8 @@ class FormOrangTua extends Component
         'ibu_tanggal_lahir.before_or_equal' => 'Tanggal lahir ibu tidak boleh melebihi hari ini.',
         'ibu_berkebutuhan_khusus.required' => 'Pilih status kebutuhan khusus ibu.',
         'ibu_berkebutuhan_khusus.in' => 'Status kebutuhan khusus ibu tidak valid.',
+        'ibu_penghasilan.required' => 'Penghasilan ibu wajib dipilih.',
+        'ibu_penghasilan.in' => 'Pilihan penghasilan ibu tidak valid.',
 
         'wali_hubungan.required' => 'Hubungan dengan wali wajib dipilih.',
         'wali_nama.required' => 'Nama wali wajib diisi.',
@@ -175,6 +190,8 @@ class FormOrangTua extends Component
         'wali_berkebutuhan_khusus.required' => 'Pilih status kebutuhan khusus wali.',
         'wali_berkebutuhan_khusus.in' => 'Status kebutuhan khusus wali tidak valid.',
         'wali_whatsapp.required' => 'Nomor WhatsApp wali wajib diisi.',
+        'wali_penghasilan.required' => 'Penghasilan wali wajib dipilih.',
+        'wali_penghasilan.in' => 'Pilihan penghasilan wali tidak valid.',
     ];
 
     public function mount($periodeId, $pendaftaranId)
@@ -215,7 +232,7 @@ class FormOrangTua extends Component
             ->first();
 
         if (! $periode) {
-            abort(403, 'Periode PPDB tidak aktif.');
+            abort(403, 'Periode SPMB tidak aktif.');
         }
 
         $pendaftaran = PPDBPendaftaran::query()
@@ -226,13 +243,37 @@ class FormOrangTua extends Component
             ->first();
 
         if (! $pendaftaran) {
-            abort(403, 'Pendaftaran tidak ditemukan atau bukan milik Anda.');
+            abort(403, 'Data pendataan tidak ditemukan atau bukan milik Anda.');
         }
 
         return $pendaftaran;
     }
 
-    
+    public function updated($propertyName)
+    {
+        if ($propertyName === 'gunakan_wali' && ! $this->gunakan_wali) {
+            $this->wali_penghasilan = '';
+            $this->resetValidation(['wali_penghasilan']);
+        }
+
+        if (
+            in_array($propertyName, [
+                'ayah_penghasilan',
+                'ibu_penghasilan',
+                'wali_penghasilan',
+                'gunakan_wali',
+            ], true)
+            && ! PPDBOrangTuaService::penghasilanDiAtasTigaJuta([
+                'ayah_penghasilan' => $this->ayah_penghasilan,
+                'ibu_penghasilan' => $this->ibu_penghasilan,
+                'wali_penghasilan' => $this->wali_penghasilan,
+                'gunakan_wali' => $this->gunakan_wali,
+            ])
+        ) {
+            $this->bersedia_orang_tua_asuh = false;
+        }
+    }
+
     public function simpan()
     {
         $data = $this->validate();
@@ -248,7 +289,7 @@ class FormOrangTua extends Component
             if (!$pendaftaran) {
                 throw ValidationException::withMessages([
                     'ayah_nama' =>
-                        'Pendaftaran tidak ditemukan. Silakan periksa kembali.',
+                        'Data pendataan tidak ditemukan. Silakan periksa kembali.',
                 ]);
             }
 
@@ -293,7 +334,13 @@ class FormOrangTua extends Component
     {
         $pendaftaran = $this->ambilPendaftaranMilikPengguna();
         return view('livewire.p-p-d-b.pendaftaran.form-orang-tua',[
-            'pendaftaran' => $pendaftaran
+            'pendaftaran' => $pendaftaran,
+            'perluOrangTuaAsuh' => PPDBOrangTuaService::penghasilanDiAtasTigaJuta([
+                'ayah_penghasilan' => $this->ayah_penghasilan,
+                'ibu_penghasilan' => $this->ibu_penghasilan,
+                'wali_penghasilan' => $this->wali_penghasilan,
+                'gunakan_wali' => $this->gunakan_wali,
+            ]),
         ]);
     }
 }

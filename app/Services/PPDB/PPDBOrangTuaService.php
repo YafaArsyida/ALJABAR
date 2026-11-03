@@ -6,6 +6,22 @@ use App\Models\PPDBOrangTua;
 
 class PPDBOrangTuaService
 {
+    public static function penghasilanDiAtasTigaJuta(array $data): bool
+    {
+        $rentangDiAtasTigaJuta = [
+            '3JT_5JT',
+            '5JT_7JT',
+            'LEBIH_7JT',
+        ];
+
+        return in_array($data['ayah_penghasilan'] ?? null, $rentangDiAtasTigaJuta, true)
+            || in_array($data['ibu_penghasilan'] ?? null, $rentangDiAtasTigaJuta, true)
+            || (
+                !empty($data['gunakan_wali'])
+                && in_array($data['wali_penghasilan'] ?? null, $rentangDiAtasTigaJuta, true)
+            );
+    }
+
     /**
      * Menyimpan data orang tua calon siswa.
      */
@@ -91,6 +107,10 @@ class PPDBOrangTuaService
                 $data['wali_pekerjaan'] ?: null;
             $orangTua->telepon_wali =
                 $data['wali_whatsapp'] ?: null;
+            if (array_key_exists('wali_penghasilan', $data)) {
+                $orangTua->penghasilan_wali =
+                    $data['wali_penghasilan'] ?: null;
+            }
         } else {
             $orangTua->nama_wali = null;
             $orangTua->nik_wali = null;
@@ -100,6 +120,22 @@ class PPDBOrangTuaService
             $orangTua->hubungan_wali = null;
             $orangTua->pekerjaan_wali = null;
             $orangTua->telepon_wali = null;
+            if (array_key_exists('wali_penghasilan', $data)) {
+                $orangTua->penghasilan_wali = null;
+            }
+        }
+
+        if (
+            !$orangTua->exists
+            || array_key_exists('bersedia_orang_tua_asuh', $data)
+        ) {
+            $bersedia = self::penghasilanDiAtasTigaJuta($data)
+                && filter_var(
+                    $data['bersedia_orang_tua_asuh'] ?? false,
+                    FILTER_VALIDATE_BOOLEAN
+                );
+
+            $orangTua->bersedia_orang_tua_asuh = $bersedia ? 'ya' : 'tidak';
         }
     }
 }

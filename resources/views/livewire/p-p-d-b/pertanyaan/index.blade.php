@@ -15,10 +15,10 @@
 
                         <div>
                             <h5 class="fw-bold mb-1">
-                                Pertanyaan PPDB
+                                Pertanyaan Pendataan SPMB
                             </h5>
                             <small class="text-muted">
-                                Kelola pertanyaan kuisioner yang harus diisi calon siswa.
+                                Kelola pertanyaan kuesioner untuk formulir pendataan calon siswa.
                             </small>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
 
                     <p class="text-muted mb-0">
                         Pilih jenjang dan tahun ajaran terlebih dahulu
-                        untuk melihat pertanyaan PPDB.
+                        untuk melihat pertanyaan formulir pendataan SPMB.
                     </p>
                 </div>
 
@@ -100,7 +100,7 @@
                             for="filterPeriodePertanyaan"
                             class="form-label small text-muted text-uppercase fw-medium mb-2"
                         >
-                            Periode PPDB
+                            Periode SPMB
                         </label>
 
                         <select
@@ -108,7 +108,7 @@
                             wire:model="selectedPeriode"
                             class="form-select"
                             style="cursor: pointer;"
-                            title="Pilih Periode PPDB"
+                            title="Pilih Periode SPMB"
                         >
                             <option value="">Semua Periode</option>
 
@@ -329,7 +329,7 @@
                                         </h6>
 
                                         <p class="text-muted mb-0">
-                                            Belum ada pertanyaan kuisioner untuk
+                                            Belum ada pertanyaan kuesioner untuk
                                             jenjang dan tahun ajaran ini,
                                             atau data tidak ditemukan.
                                         </p>

@@ -58,6 +58,10 @@
                                 RA
                                 @break
 
+                            @case('SD')
+                                SD
+                                @break
+
                             @case('PAUD')
                                 PAUD
                                 @break
@@ -85,28 +89,6 @@
                         </div>
                     </div>
 
-                    {{-- NPSN --}}
-                    <div class="col-12 col-md-6">
-                        <small class="text-muted d-block mb-1">
-                            NPSN
-                        </small>
-
-                        <div class="fw-semibold">
-                            {{ $pendidikan->npsn_asal_sekolah ?: '-' }}
-                        </div>
-                    </div>
-
-                    {{-- ALAMAT SEKOLAH --}}
-                    <div class="col-12 col-md-6">
-                        <small class="text-muted d-block mb-1">
-                            Alamat Asal Sekolah
-                        </small>
-
-                        <div class="fw-semibold text-break">
-                            {{ $pendidikan->alamat_asal_sekolah ?: '-' }}
-                        </div>
-                    </div>
-
                     {{-- TAHUN LULUS --}}
                     <div class="col-12 col-md-6">
                         <small class="text-muted d-block mb-1">
@@ -118,14 +100,14 @@
                         </div>
                     </div>
 
-                    {{-- NOMOR IJAZAH --}}
-                    <div class="col-12 col-md-6">
+                    {{-- ALAMAT SEKOLAH --}}
+                    <div class="col-12">
                         <small class="text-muted d-block mb-1">
-                            Nomor Peserta / Bukti Kelulusan
+                            Alamat Asal Sekolah
                         </small>
 
                         <div class="fw-semibold text-break">
-                            {{ $pendidikan->nomor_ijazah ?: '-' }}
+                            {{ $pendidikan->alamat_asal_sekolah ?: '-' }}
                         </div>
                     </div>
 

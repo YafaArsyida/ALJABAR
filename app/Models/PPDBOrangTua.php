@@ -51,6 +51,9 @@ class PPDBOrangTua extends Model
         'hubungan_wali',
         'pekerjaan_wali',
         'telepon_wali',
+        'penghasilan_wali',
+
+        'bersedia_orang_tua_asuh',
     ];
 
 
@@ -62,6 +65,27 @@ class PPDBOrangTua extends Model
         'tanggal_lahir_ibu' => 'date',
         'tanggal_lahir_wali' => 'date',
     ];
+
+    public function setNamaAyahAttribute($value): void
+    {
+        $this->attributes['nama_ayah'] = $value === null
+            ? null
+            : mb_strtoupper($value, 'UTF-8');
+    }
+
+    public function setNamaIbuAttribute($value): void
+    {
+        $this->attributes['nama_ibu'] = $value === null
+            ? null
+            : mb_strtoupper($value, 'UTF-8');
+    }
+
+    public function setNamaWaliAttribute($value): void
+    {
+        $this->attributes['nama_wali'] = $value === null
+            ? null
+            : mb_strtoupper($value, 'UTF-8');
+    }
 
     public function ppdb_pendaftaran(): BelongsTo
     {

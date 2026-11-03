@@ -84,14 +84,13 @@ class Edit extends Component
      */
     protected $messages = [
         'ppdb_jalur_id.required' => 'Data jalur belum dipilih.',
-        'ppdb_jalur_id.exists' => 'Jalur PPDB tidak ditemukan.',
-
-        'ppdb_periode_id.required' => 'Periode PPDB wajib dipilih.',
-        'ppdb_periode_id.exists' => 'Periode PPDB tidak ditemukan.',
+        'ppdb_jalur_id.exists' => 'Jalur seleksi tidak ditemukan.',
+        'ppdb_periode_id.required' => 'Periode SPMB wajib dipilih.',
+        'ppdb_periode_id.exists' => 'Periode SPMB tidak ditemukan.',
 
         'kode_jalur.required' => 'Kode jalur wajib diisi.',
         'kode_jalur.max' => 'Kode jalur maksimal 50 karakter.',
-        'kode_jalur.unique' => 'Kode jalur sudah digunakan pada periode PPDB ini.',
+        'kode_jalur.unique' => 'Kode jalur sudah digunakan pada periode SPMB ini.',
 
         'nama_jalur.required' => 'Nama jalur wajib diisi.',
         'nama_jalur.max' => 'Nama jalur maksimal 255 karakter.',
@@ -102,9 +101,9 @@ class Edit extends Component
         'kuota.integer' => 'Kuota harus berupa bilangan bulat.',
         'kuota.min' => 'Kuota minimal 1 siswa.',
 
-        'biaya_pendaftaran.required' => 'Biaya pendaftaran wajib diisi.',
-        'biaya_pendaftaran.numeric' => 'Biaya pendaftaran harus berupa angka.',
-        'biaya_pendaftaran.min' => 'Biaya pendaftaran tidak boleh negatif.',
+        'biaya_pendaftaran.required' => 'Biaya SPMB wajib diisi.',
+        'biaya_pendaftaran.numeric' => 'Biaya SPMB harus berupa angka.',
+        'biaya_pendaftaran.min' => 'Biaya SPMB tidak boleh negatif.',
 
         'status.required' => 'Status jalur wajib dipilih.',
         'status.in' => 'Status jalur tidak valid.',
@@ -156,7 +155,7 @@ class Edit extends Component
 
             if ($kodeSudahDigunakan) {
                 throw ValidationException::withMessages([
-                    'kode_jalur' => 'Kode jalur sudah digunakan pada periode PPDB ini.',
+                    'kode_jalur' => 'Kode jalur sudah digunakan pada periode SPMB ini.',
                 ]);
             }
 
@@ -178,7 +177,7 @@ class Edit extends Component
             ]);
 
             $this->dispatchBrowserEvent('alertify-success', [
-                'message' => 'Jalur PPDB berhasil diperbarui.',
+                'message' => 'Jalur seleksi SPMB berhasil diperbarui.',
             ]);
 
             $this->emit('refreshJalurs');
@@ -192,7 +191,7 @@ class Edit extends Component
             report($e);
 
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Jalur PPDB gagal diperbarui. Silakan coba kembali.',
+                'message' => 'Jalur seleksi SPMB gagal diperbarui. Silakan coba kembali.',
             ]);
         }
     }

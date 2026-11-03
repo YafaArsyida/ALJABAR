@@ -26,11 +26,11 @@
                             class="fw-bold mb-1"
                             id="ModalAddPeriodeLabel"
                         >
-                            Tambah Periode PPDB
+                            Tambah Periode SPMB
                         </h5>
 
                         <small class="text-muted">
-                            Atur identitas dan jadwal penerimaan siswa baru.
+                            Atur identitas dan jadwal pendataan calon siswa.
                         </small>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <section class="mb-4">
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">
-                                Konteks Penerimaan
+                                Konteks SPMB
                             </h6>
 
                             <small class="text-muted">
@@ -128,8 +128,8 @@
                             </h6>
 
                             <small class="text-muted">
-                                Berikan nama yang mudah dikenali oleh
-                                pengelola PPDB.
+                                Berikan nama periode yang mudah dikenali oleh
+                                pengelola SPMB.
                             </small>
                         </div>
 
@@ -147,7 +147,7 @@
                                 id="create_nama_periode"
                                 wire:model.defer="nama_periode"
                                 class="form-control @error('nama_periode') is-invalid @enderror"
-                                placeholder="Contoh: PPDB Tahun Ajaran 2027/2028"
+                                placeholder="Contoh: SPMB Tahun Ajaran 2027/2028"
                             >
 
                             @error('nama_periode')
@@ -185,7 +185,7 @@
                     <section class="mb-4">
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">
-                                Jadwal Pendaftaran
+                                Jadwal Pendataan
                             </h6>
 
                             <small class="text-muted">

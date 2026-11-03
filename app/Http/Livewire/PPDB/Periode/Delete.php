@@ -36,7 +36,7 @@ class Delete extends Component
                 DB::rollBack();
 
                 $this->dispatchBrowserEvent('alertify-error', [
-                    'message' => 'Periode PPDB tidak ditemukan.',
+                    'message' => 'Periode SPMB tidak ditemukan.',
                 ]);
 
                 return;
@@ -47,7 +47,7 @@ class Delete extends Component
                 DB::rollBack();
 
                 $this->dispatchBrowserEvent('alertify-error', [
-                    'message' => 'Periode tidak bisa dihapus karena masih memiliki gelombang pendaftaran.',
+                    'message' => 'Periode tidak dapat dihapus karena masih memiliki gelombang SPMB.',
                 ]);
 
                 return;

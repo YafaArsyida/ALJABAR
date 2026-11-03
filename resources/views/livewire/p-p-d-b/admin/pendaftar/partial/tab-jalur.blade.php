@@ -9,9 +9,9 @@
             </div>
 
             <div>
-                <h5 class="fw-bold mb-1">Jalur Pendaftaran</h5>
+                <h5 class="fw-bold mb-1">Jalur Seleksi SPMB</h5>
                 <small class="text-muted">
-                    Pilih jalur sesuai ketentuan PPDB dan ketersediaan kuota.
+                    Pilih jalur seleksi sesuai ketentuan SPMB dan kuota yang tersedia.
                 </small>
             </div>
         </div>
@@ -30,7 +30,7 @@
                     <div>
                         <h6 class="fw-semibold mb-1">Pilihan Jalur</h6>
                         <small class="text-muted">
-                            Pilih salah satu jalur pendaftaran yang tersedia.
+                            Pilih salah satu jalur seleksi yang tersedia.
                         </small>
                     </div>
                 </div>
@@ -88,14 +88,14 @@
                                     </div>
 
                                     <p class="text-muted small mb-2">
-                                        {{ $jalur->deskripsi ?: 'Jalur pendaftaran sesuai ketentuan sekolah.' }}
+                                        {{ $jalur->deskripsi ?: 'Jalur seleksi sesuai ketentuan sekolah.' }}
                                     </p>
 
                                     <small class="text-muted">
                                         <i class="ri-group-line me-1"></i>
                                         Kuota {{ number_format($jalur->kuota, 0, ',', '.') }} siswa
                                         <span class="mx-1">·</span>
-                                        {{ number_format($jalur->jumlah_pendaftar, 0, ',', '.') }} pendaftar
+                                        {{ number_format($jalur->jumlah_pendaftar, 0, ',', '.') }} calon siswa
                                     </small>
                                 </div>
                             </label>
@@ -110,10 +110,10 @@
                                 </div>
 
                                 <h6 class="fw-semibold mb-1">
-                                    Belum Ada Jalur Pendaftaran
+                                    Belum Ada Jalur Seleksi
                                 </h6>
                                 <p class="text-muted small mb-0">
-                                    Tidak ada jalur aktif pada periode PPDB yang dipilih.
+                                    Tidak ada jalur aktif pada periode SPMB yang dipilih.
                                 </p>
                             </div>
                         </div>

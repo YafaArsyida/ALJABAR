@@ -60,7 +60,7 @@ class DetailJalur extends Component
             $this->jalurTerpilih = $pendaftaran->ppdb_jalur_id;
 
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Jalur tidak dapat diubah pada tahap pendaftaran ini.',
+                'message' => 'Jalur tidak dapat diubah pada tahap pendataan ini.',
             ]);
 
             return;
@@ -95,7 +95,7 @@ class DetailJalur extends Component
             'jalurTerpilih' => ['required', 'integer'],
         ], [
             'jalurTerpilih.required' =>
-                'Silakan pilih jalur pendaftaran.',
+                'Silakan pilih jalur pendataan.',
             'jalurTerpilih.integer' =>
                 'Pilihan jalur tidak valid.',
         ]);
@@ -114,7 +114,7 @@ class DetailJalur extends Component
             if (!in_array($pendaftaran->status, ['draft', 'perbaikan'])) {
                 throw ValidationException::withMessages([
                     'jalurTerpilih' =>
-                        'Pendaftaran tidak dapat diubah pada status saat ini.',
+                        'Data pendataan tidak dapat diubah pada status saat ini.',
                 ]);
             }
 
@@ -135,7 +135,7 @@ class DetailJalur extends Component
             if (!$jalur) {
                 throw ValidationException::withMessages([
                     'jalurTerpilih' =>
-                        'Jalur tidak tersedia pada periode pendaftaran ini.',
+                        'Jalur tidak tersedia pada periode pendataan ini.',
                 ]);
             }
 
@@ -186,7 +186,7 @@ class DetailJalur extends Component
         $slugJenjang = $pendaftaran->ppdb_periode->ms_jenjang->slug;
 
         $this->dispatchBrowserEvent('alertify-success', [
-            'message' => 'Jalur pendaftaran berhasil diperbarui.',
+            'message' => 'Jalur pendataan berhasil diperbarui.',
         ]);
 
         return redirect()->route('ppdb.pendaftaran.data-siswa', [

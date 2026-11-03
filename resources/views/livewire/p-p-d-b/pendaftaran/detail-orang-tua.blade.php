@@ -15,7 +15,8 @@
                 <div>
                     <h5 class="fw-bold mb-1">Data Orang Tua / Wali</h5>
                     <small class="text-muted">
-                        Informasi orang tua dan wali calon siswa yang telah tersimpan.
+                        Data orang tua/wali calon siswa yang telah Anda isi untuk
+                        SPMB Tahun Ajaran 2027/2028.
                     </small>
                 </div>
             </div>
@@ -111,13 +112,13 @@
                     </div>
 
                     <div class="col-md-6">
-                        <small class="text-muted d-block mb-1">Penghasilan per Bulan</small>
+                        <small class="text-muted d-block mb-1">Penghasilan Ayah per Bulan</small>
                         <div class="fw-semibold">
                             @switch($orangTua->penghasilan_ayah)
                                 @case('TIDAK_ADA') Tidak Berpenghasilan @break
                                 @case('KURANG_1JT') Kurang dari Rp1.000.000 @break
                                 @case('1JT_3JT') Rp1.000.000–Rp3.000.000 @break
-                                @case('3JT_5JT') Rp3.000.000–Rp5.000.000 @break
+                                @case('3JT_5JT') Lebih dari Rp3.000.000 hingga Rp5.000.000 @break
                                 @case('5JT_7JT') Rp5.000.000–Rp7.000.000 @break
                                 @case('LEBIH_7JT') Lebih dari Rp7.000.000 @break
                                 @default -
@@ -207,13 +208,13 @@
                     </div>
 
                     <div class="col-md-6">
-                        <small class="text-muted d-block mb-1">Penghasilan per Bulan</small>
+                        <small class="text-muted d-block mb-1">Penghasilan Ibu per Bulan</small>
                         <div class="fw-semibold">
                             @switch($orangTua->penghasilan_ibu)
                                 @case('TIDAK_ADA') Tidak Berpenghasilan @break
                                 @case('KURANG_1JT') Kurang dari Rp1.000.000 @break
                                 @case('1JT_3JT') Rp1.000.000–Rp3.000.000 @break
-                                @case('3JT_5JT') Rp3.000.000–Rp5.000.000 @break
+                                @case('3JT_5JT') Lebih dari Rp3.000.000 hingga Rp5.000.000 @break
                                 @case('5JT_7JT') Rp5.000.000–Rp7.000.000 @break
                                 @case('LEBIH_7JT') Lebih dari Rp7.000.000 @break
                                 @default -
@@ -304,6 +305,21 @@
                         </div>
 
                         <div class="col-md-6">
+                            <small class="text-muted d-block mb-1">Penghasilan Wali per Bulan</small>
+                            <div class="fw-semibold">
+                                @switch($orangTua->penghasilan_wali)
+                                    @case('TIDAK_ADA') Tidak Berpenghasilan @break
+                                    @case('KURANG_1JT') Kurang dari Rp1.000.000 @break
+                                    @case('1JT_3JT') Rp1.000.000–Rp3.000.000 @break
+                                    @case('3JT_5JT') Lebih dari Rp3.000.000 hingga Rp5.000.000 @break
+                                    @case('5JT_7JT') Rp5.000.000–Rp7.000.000 @break
+                                    @case('LEBIH_7JT') Lebih dari Rp7.000.000 @break
+                                    @default -
+                                @endswitch
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
                             <small class="text-muted d-block mb-1">Nomor Telepon / WhatsApp</small>
                             <div class="fw-semibold">{{ $orangTua->telepon_wali ?: '-' }}</div>
                         </div>
@@ -312,6 +328,15 @@
                 </div>
             </div>
         @endif
+
+        <div class="card border rounded-4 shadow-none mb-4">
+            <div class="card-body">
+                <small class="text-muted d-block mb-1">Kesediaan Menjadi Orang Tua Asuh</small>
+                <div class="fw-semibold">
+                    {{ $orangTua->bersedia_orang_tua_asuh === 'ya' ? 'Ya' : 'Tidak' }}
+                </div>
+            </div>
+        </div>
 
         {{-- NAVIGASI --}}
         <div class="d-flex flex-column flex-sm-row justify-content-between gap-2 mt-4 pt-3 border-top">

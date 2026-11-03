@@ -14,11 +14,11 @@
 
                         <div>
                             <h5 class="fw-bold mb-1">
-                                Gelombang Pendaftaran
+                                Gelombang SPMB
                             </h5>
 
                             <small class="text-muted">
-                                Kelola jadwal, kuota, dan biaya setiap gelombang PPDB.
+                                Kelola jadwal, kuota, dan biaya setiap gelombang SPMB.
                             </small>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                     </h6>
 
                     <p class="text-muted mb-0">
-                        Pilih jenjang dan tahun ajaran terlebih dahulu untuk melihat gelombang pendaftaran.
+                        Pilih jenjang dan tahun ajaran untuk melihat gelombang SPMB.
                     </p>
                 </div>
             @else
@@ -92,7 +92,7 @@
                             for="filterPeriode"
                             class="form-label small text-muted text-uppercase fw-medium mb-2"
                         >
-                            Periode PPDB
+                            Periode SPMB
                         </label>
 
                         <select
@@ -100,7 +100,7 @@
                             wire:model="selectedPeriode"
                             class="form-select"
                             style="cursor: pointer;"
-                            title="Pilih Periode PPDB"
+                            title="Pilih Periode SPMB"
                         >
                             <option value="">Semua Periode</option>
 
@@ -122,9 +122,9 @@
                                 <th class="text-center">hapus</th>
                                 <th>Nama Gelombang</th>
                                 <th>Periode</th>
-                                <th>Jadwal Pendaftaran</th>
+                                <th>Jadwal Pendataan</th>
                                 <th class="text-center">Kuota</th>
-                                <th class="text-end">Biaya Pendaftaran</th>
+                                <th class="text-end">Biaya SPMB</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center" width="150">Aksi</th>
                             </tr>
@@ -261,7 +261,7 @@
                                         </h6>
 
                                         <p class="text-muted mb-0">
-                                            Belum ada gelombang pendaftaran untuk jenjang dan tahun ajaran ini, atau data tidak ditemukan.
+                                            Belum ada gelombang SPMB untuk jenjang dan tahun ajaran ini, atau data tidak ditemukan.
                                         </p>
                                     </td>
                                 </tr>

@@ -47,11 +47,11 @@
                         </span>
 
                         <h3 class="fw-bold mb-2" id="deletePertanyaanLabel">
-                            Hapus Pertanyaan PPDB
+                            Hapus Pertanyaan SPMB
                         </h3>
 
                         <p class="text-muted mb-0 lh-lg px-lg-4">
-                            Pertanyaan yang dipilih akan dihapus dari konfigurasi formulir PPDB.
+                            Pertanyaan yang dipilih akan dihapus dari konfigurasi formulir pendataan SPMB.
                             Tindakan ini tidak dapat dibatalkan.
                         </p>
                     </div>
@@ -69,7 +69,7 @@
                                 </h6>
 
                                 <p class="text-muted mb-0 fs-13">
-                                    Pertanyaan yang sudah memiliki jawaban pendaftar
+                                    Pertanyaan yang sudah memiliki jawaban calon siswa
                                     tidak dapat dihapus agar riwayat data tetap terjaga.
                                     Pastikan pertanyaan yang dipilih memang tidak lagi diperlukan.
                                 </p>

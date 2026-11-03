@@ -58,17 +58,26 @@ class PPDBPendidikanService
             ? null
             : self::nilaiOpsional($data['alamat_asal_sekolah'] ?? null);
 
-        $pendidikan->npsn_asal_sekolah = $tidakAdaSekolah
-            ? null
-            : self::nilaiOpsional($data['npsn_asal_sekolah'] ?? null);
-
         $pendidikan->tahun_lulus = $tidakAdaSekolah
             ? null
             : self::nilaiOpsional($data['tahun_lulus'] ?? null);
 
-        $pendidikan->nomor_ijazah = $tidakAdaSekolah
-            ? null
-            : self::nilaiOpsional($data['nomor_ijazah'] ?? null);
+        if ($tidakAdaSekolah) {
+            $pendidikan->npsn_asal_sekolah = null;
+            $pendidikan->nomor_ijazah = null;
+        } else {
+            if (array_key_exists('npsn_asal_sekolah', $data)) {
+                $pendidikan->npsn_asal_sekolah = self::nilaiOpsional(
+                    $data['npsn_asal_sekolah']
+                );
+            }
+
+            if (array_key_exists('nomor_ijazah', $data)) {
+                $pendidikan->nomor_ijazah = self::nilaiOpsional(
+                    $data['nomor_ijazah']
+                );
+            }
+        }
     }
 
     /**

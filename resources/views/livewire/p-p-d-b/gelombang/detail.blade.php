@@ -24,10 +24,10 @@
                             class="fw-bold mb-1"
                             id="ModalDetailGelombangLabel"
                         >
-                            Detail Gelombang PPDB
+                            Detail Gelombang SPMB
                         </h5>
                         <small class="text-muted">
-                            Informasi gelombang, jadwal, kuota, dan biaya pendaftaran siswa baru.
+                            Informasi gelombang, jadwal pendataan, kuota, dan biaya SPMB.
                         </small>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                                 Identitas Gelombang
                             </h6>
                             <small class="text-muted">
-                                Informasi utama gelombang penerimaan siswa baru.
+                                Informasi utama gelombang SPMB.
                             </small>
                         </div>
 
@@ -69,7 +69,7 @@
 
                             <div class="col-md-6">
                                 <label class="form-label">
-                                    Periode PPDB
+                                    Periode SPMB
                                 </label>
                                 <div class="form-control bg-light text-break">
                                     {{ $gelombangDetail->ppdb_periode?->nama_periode ?: '-' }}
@@ -96,14 +96,14 @@
                         </div>
                     </section>
 
-                    {{-- JADWAL PENDAFTARAN --}}
+                    {{-- JADWAL PENDATAAN --}}
                     <section class="mb-4">
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">
-                                Jadwal Pendaftaran
+                                Jadwal Pendataan
                             </h6>
                             <small class="text-muted">
-                                Rentang waktu pendaftaran pada gelombang ini.
+                                Rentang waktu pendataan pada gelombang ini.
                             </small>
                         </div>
 
@@ -132,7 +132,7 @@
 
                             <div class="col-12">
                                 <label class="form-label">
-                                    Durasi Pendaftaran
+                                    Durasi Pendataan
                                 </label>
                                 <div class="form-control bg-light">
                                     @if ($gelombangDetail->tanggal_mulai && $gelombangDetail->tanggal_selesai)
@@ -154,7 +154,7 @@
                                 Kuota dan Biaya
                             </h6>
                             <small class="text-muted">
-                                Batas penerimaan dan biaya pendaftaran yang ditetapkan.
+                                Kuota calon siswa dan biaya SPMB yang ditetapkan.
                             </small>
                         </div>
 
@@ -171,7 +171,7 @@
 
                             <div class="col-md-6">
                                 <label class="form-label">
-                                    Biaya Pendaftaran
+                                    Biaya SPMB
                                 </label>
                                 <div class="form-control bg-light text-break">
                                     Rp {{ number_format((float) $gelombangDetail->biaya_pendaftaran, 0, ',', '.') }}
@@ -187,7 +187,7 @@
                                 Status Gelombang
                             </h6>
                             <small class="text-muted">
-                                Status pengaturan gelombang pendaftaran.
+                                Status pengaturan gelombang SPMB.
                             </small>
                         </div>
 

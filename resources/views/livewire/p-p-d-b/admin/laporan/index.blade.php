@@ -16,23 +16,34 @@
 
                     <div>
                         <h5 class="fw-bold mb-1">
-                            Laporan Penerimaan Siswa Baru
+                            Laporan SPMB - Calon Siswa Diterima
                         </h5>
 
                         <small class="text-muted">
-                            Daftar calon siswa yang diterima serta pencetakan kartu aljabar dan formulir pendaftaran.
+                            Daftar calon siswa yang diterima serta fasilitas untuk mencetak kartu dan formulir pendataan.
                         </small>
                     </div>
                 </div>
             </div>
 
-            {{-- INFO PERIODE --}}
+            {{-- UNDUH LAPORAN --}}
             @if ($selectedJenjang && $selectedTahunAjar && $periode)
                 <div class="d-flex align-items-center gap-2 flex-wrap">
-                    <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2">
-                        <i class="ri-checkbox-circle-line me-1"></i>
-                        Periode Aktif
-                    </span>
+                    <button
+                        type="button"
+                        class="btn btn-danger rounded-pill px-4 d-inline-flex align-items-center gap-2"
+                        wire:click="unduhLaporan"
+                        wire:loading.attr="disabled"
+                        wire:target="unduhLaporan">
+                        <span wire:loading.remove wire:target="unduhLaporan">
+                            <i class="ri-file-pdf-line"></i>
+                            Unduh Laporan PDF
+                        </span>
+                        <span wire:loading wire:target="unduhLaporan">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            Menyiapkan PDF...
+                        </span>
+                    </button>
                 </div>
             @endif
 
@@ -54,7 +65,7 @@
 
                 <p class="text-muted mb-0">
                     Silakan pilih jenjang dan tahun ajaran terlebih dahulu
-                    untuk menampilkan laporan penerimaan siswa baru.
+                    untuk menampilkan laporan calon siswa yang diterima pada SPMB.
                 </p>
             </div>
         {{-- PERIODE TIDAK TERSEDIA --}}
@@ -67,10 +78,10 @@
                     </div>
                 </div>
 
-                <h6 class="mb-1">Periode PPDB Tidak Tersedia</h6>
+                <h6 class="mb-1">Periode SPMB Tidak Tersedia</h6>
 
                 <p class="text-muted mb-0">
-                    Tidak ditemukan periode PPDB aktif untuk kombinasi
+                    Tidak ditemukan periode SPMB aktif untuk kombinasi
                     jenjang dan tahun ajaran yang dipilih.
                 </p>
             </div>
@@ -92,7 +103,7 @@
                             type="text"
                             id="searchData"
                             class="form-control search"
-                            placeholder="Cari nama atau nomor pendaftaran..."
+                            placeholder="Cari nama atau nomor pendataan..."
                             wire:model.debounce.400ms="search">
 
                         <i class="ri-search-line search-icon"></i>
@@ -104,7 +115,7 @@
                     <label
                         for="filterJalur"
                         class="form-label small text-muted text-uppercase fw-medium mb-2">
-                        Jalur Pendaftaran
+                        Jalur Seleksi
                     </label>
 
                     <select
@@ -147,7 +158,7 @@
                 class="text-muted small mb-3">
 
                 <span class="spinner-border spinner-border-sm me-1"></span>
-                Memuat laporan penerimaan...
+                Memuat laporan SPMB...
             </div>
 
             {{-- TABEL --}}
@@ -161,10 +172,10 @@
                                     No.
                                 </th>
                                 <th>Calon Siswa</th>
-                                <th>Nomor Pendaftaran</th>
+                                <th>Nomor Pendataan</th>
                                 <th>Jalur</th>
                                 <th>Status</th>
-                                <th class="text-center" style="min-width: 280px;">
+                                <th class="text-center" style="min-width: 420px;">
                                     Aksi
                                 </th>
                             </tr>
@@ -227,11 +238,24 @@
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 class="btn btn-danger btn-sm rounded-pill px-3 text-nowrap"
-                                                title="Cetak Formulir Pendaftaran">
+                                                title="Cetak Formulir Pendataan">
 
                                                 <i class="ri-printer-line me-1"></i>
                                                 Formulir
                                             </a>
+
+                                            {{-- UNDUH BERKAS PENDATAAN --}}
+                                            <a
+                                                href="{{ route('ppdb.admin.laporan.berkas.zip', [
+                                                    'pendaftaranId' => $item->ppdb_pendaftaran_id,
+                                                ]) }}"
+                                                class="btn btn-soft-primary btn-sm rounded-pill px-3 text-nowrap"
+                                                title="Unduh berkas pendataan"
+                                            >
+                                                <i class="ri-download-2-line me-1"></i>
+                                                Berkas
+                                            </a>
+
                                             {{-- Kontak WhatsApp --}}
                                             @php
                                                 $orangTua = $item->ppdb_orangtua;
@@ -312,16 +336,16 @@
                                         </div>
 
                                         <h6 class="mb-1">
-                                            Data Penerimaan Belum Tersedia
+                                            Data Calon Siswa Diterima Belum Tersedia
                                         </h6>
 
                                         <p class="text-muted mb-3">
                                             @if (trim($search) !== '')
-                                                Tidak ditemukan calon siswa diterima
+                                                Tidak ditemukan calon siswa yang diterima
                                                 yang sesuai dengan pencarian.
                                             @else
                                                 Belum ada calon siswa yang diterima
-                                                pada periode PPDB ini.
+                                                pada periode SPMB ini.
                                             @endif
                                         </p>
 

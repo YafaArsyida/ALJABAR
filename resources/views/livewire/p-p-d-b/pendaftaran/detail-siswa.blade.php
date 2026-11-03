@@ -13,7 +13,7 @@
                 <div>
                     <h5 class="fw-bold mb-1">Data Calon Siswa</h5>
                     <small class="text-muted">
-                        Identitas calon siswa yang telah tersimpan.
+                        Data calon siswa yang telah Anda isi untuk SPMB Tahun Ajaran 2027/2028.
                     </small>
                 </div>
             </div>

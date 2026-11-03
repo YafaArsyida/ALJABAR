@@ -1,6 +1,6 @@
 @extends('template_portal_ppdb.v_template')
 
-@section('title', 'Pilih Jalur Pendaftaran')
+@section('title', 'Pilih Jalur Pendataan SPMB')
 
 @section('content')
 <div class="page-content">
@@ -10,7 +10,10 @@
 
                 {{-- PROGRESS PENDAFTARAN --}}
                 @include('ppdb.orang-tua.layouts.progress-pendaftaran', [
-                    'stepAktif' => $stepAktif
+                    'stepAktif' => $stepAktif,
+                    'judulProgress' => 'Progres Pendataan',
+                    'deskripsiProgress' => 'Lengkapi setiap langkah untuk menyelesaikan pendataan.',
+                    'labelProgress' => 'Progres pendataan',
                 ])
 
                 {{-- MAIN CARD --}}
@@ -24,10 +27,10 @@
                                 </div>
                             </div>
 
-                            <h5 class="mb-2">Pendaftaran Belum Dibuka</h5>
+                            <h5 class="mb-2">Pendataan SPMB Belum Dibuka</h5>
                             <p class="text-muted mb-0">
-                                Periode PPDB belum tersedia. Silakan kembali
-                                ketika pendaftaran sudah dibuka.
+                                Periode SPMB belum tersedia. Silakan kembali
+                                saat pendataan sudah dibuka.
                             </p>
                         </div>
                     </div>

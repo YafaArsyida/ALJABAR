@@ -27,7 +27,7 @@
 
         {{-- Heading --}}
         <div class="text-center mb-4">
-            <h4 class="fw-bold mb-2">Buat Akun Pendaftaran</h4>
+            <h4 class="fw-bold mb-2">Buat Akun Pendataan</h4>
             <p class="text-muted mb-0">
                 Daftarkan akun orang tua/wali untuk memulai
                 proses penerimaan peserta didik baru.
@@ -197,7 +197,7 @@
                     <label class="form-check-label text-muted"
                         for="agreement">
                         Saya menyetujui syarat dan ketentuan
-                        pendaftaran SPMB.
+                        pendataan SPMB.
                     </label>
 
                     @error('agreement')

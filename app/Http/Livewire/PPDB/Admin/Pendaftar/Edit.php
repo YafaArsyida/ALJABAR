@@ -82,6 +82,7 @@ class Edit extends Component
     public $ayah_pendidikan = '';
     public $ayah_pekerjaan = '';
     public $ayah_penghasilan = '';
+    public $bersedia_orang_tua_asuh = false;
     public $ayah_whatsapp = '';
 
     // =========================================================
@@ -110,6 +111,7 @@ class Edit extends Component
     public $wali_tanggal_lahir = '';
     public $wali_berkebutuhan_khusus = 'Tidak';
     public $wali_pekerjaan = '';
+    public $wali_penghasilan = '';
     public $wali_whatsapp = '';
 
     // =========================================================
@@ -222,7 +224,7 @@ class Edit extends Component
 
         if (!$pendaftaran) {
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Data pendaftaran tidak ditemukan.',
+                'message' => 'Data pendataan tidak ditemukan.',
             ]);
 
             return;
@@ -410,6 +412,7 @@ class Edit extends Component
         $this->ayah_pendidikan = $orangtua->pendidikan_ayah ?? '';
         $this->ayah_pekerjaan = $orangtua->pekerjaan_ayah ?? '';
         $this->ayah_penghasilan = $orangtua->penghasilan_ayah ?? '';
+        $this->bersedia_orang_tua_asuh = $orangtua->bersedia_orang_tua_asuh === 'ya';
         $this->ayah_whatsapp = $orangtua->telepon_ayah ?? '';
 
         // =========================================================
@@ -447,6 +450,7 @@ class Edit extends Component
 
         $this->wali_hubungan = $orangtua->hubungan_wali ?? '';
         $this->wali_pekerjaan = $orangtua->pekerjaan_wali ?? '';
+        $this->wali_penghasilan = $orangtua->penghasilan_wali ?? '';
         $this->wali_whatsapp = $orangtua->telepon_wali ?? '';
 
         // Aktifkan bagian wali jika sebelumnya sudah diisi.
@@ -561,6 +565,7 @@ class Edit extends Component
             'ayah_pendidikan',
             'ayah_pekerjaan',
             'ayah_penghasilan',
+            'bersedia_orang_tua_asuh',
             'ayah_whatsapp',
 
             'ibu_nama',
@@ -581,6 +586,7 @@ class Edit extends Component
             'wali_tanggal_lahir',
             'wali_berkebutuhan_khusus',
             'wali_pekerjaan',
+            'wali_penghasilan',
             'wali_whatsapp',
 
             'alamat_lengkap',
@@ -781,7 +787,7 @@ class Edit extends Component
                 'nullable', 'string', 'max:100',
             ],
             'ayah_penghasilan' => [
-                'nullable',
+                'required',
                 Rule::in([
                     'TIDAK_ADA', 'KURANG_1JT', '1JT_3JT',
                     '3JT_5JT', '5JT_7JT', 'LEBIH_7JT',
@@ -820,7 +826,7 @@ class Edit extends Component
                 'nullable', 'string', 'max:100',
             ],
             'ibu_penghasilan' => [
-                'nullable',
+                'required',
                 Rule::in([
                     'TIDAK_ADA', 'KURANG_1JT', '1JT_3JT',
                     '3JT_5JT', '5JT_7JT', 'LEBIH_7JT',
@@ -866,9 +872,20 @@ class Edit extends Component
             'wali_pekerjaan' => [
                 'nullable', 'string', 'max:100',
             ],
+            'wali_penghasilan' => [
+                Rule::requiredIf($this->gunakan_wali),
+                'nullable',
+                Rule::in([
+                    'TIDAK_ADA', 'KURANG_1JT', '1JT_3JT',
+                    '3JT_5JT', '5JT_7JT', 'LEBIH_7JT',
+                ]),
+            ],
             'wali_whatsapp' => [
                 Rule::requiredIf($this->gunakan_wali),
                 'nullable', 'string', 'max:20',
+            ],
+            'bersedia_orang_tua_asuh' => [
+                'boolean',
             ],
 
             // =========================================================
@@ -944,13 +961,13 @@ class Edit extends Component
             ],
             'jenjang_asal' => [
                 'required',
-                Rule::in(['TK', 'RA', 'PAUD', 'TIDAK_ADA']),
+                Rule::in(['TK', 'RA', 'SD', 'PAUD', 'TIDAK_ADA']),
             ],
             'tahun_lulus' => [
                 'nullable',
                 'integer',
                 'min:' . (date('Y') - 10),
-                'max:' . date('Y'),
+                'max:' . max((int) date('Y'), 2027),
             ],
             'nomor_ijazah' => [
                 'nullable', 'string', 'max:100',
@@ -975,25 +992,25 @@ class Edit extends Component
                 'nullable',
                 'file',
                 'mimes:jpg,jpeg,png,webp,pdf',
-                'max:2048',
+                'max:5120',
             ],
             'fileAktaKelahiran' => [
                 'nullable',
                 'file',
                 'mimes:jpg,jpeg,png,webp,pdf',
-                'max:2048',
+                'max:5120',
             ],
             'filePasFoto' => [
                 'nullable',
                 'image',
                 'mimes:jpg,jpeg,png,webp',
-                'max:2048',
+                'max:5120',
             ],
             'fileDokumenPendukung' => [
                 'nullable',
                 'file',
                 'mimes:jpg,jpeg,png,webp,pdf',
-                'max:2048',
+                'max:5120',
             ],
         ];
     }
@@ -1047,10 +1064,10 @@ class Edit extends Component
         // =========================================================
         // PARAMETER PENDAFTARAN
         // =========================================================
-        'periodeId.required' => 'Periode PPDB wajib dipilih.',
-        'periodeId.integer' => 'Periode PPDB tidak valid.',
-        'jalurTerpilih.required' => 'Jalur pendaftaran wajib dipilih.',
-        'jalurTerpilih.integer' => 'Jalur pendaftaran tidak valid.',
+        'periodeId.required' => 'Periode SPMB wajib dipilih.',
+        'periodeId.integer' => 'Periode SPMB tidak valid.',
+        'jalurTerpilih.required' => 'Jalur seleksi wajib dipilih.',
+        'jalurTerpilih.integer' => 'Jalur seleksi tidak valid.',
 
         // =========================================================
         // DATA CALON SISWA
@@ -1137,6 +1154,7 @@ class Edit extends Component
         'ayah_pendidikan.in' => 'Pilihan pendidikan ayah tidak valid.',
         'ayah_pekerjaan.max' => 'Pekerjaan ayah maksimal 100 karakter.',
         'ayah_penghasilan.in' => 'Pilihan penghasilan ayah tidak valid.',
+        'ayah_penghasilan.required' => 'Penghasilan ayah wajib dipilih.',
 
         // =========================================================
         // DATA IBU
@@ -1156,6 +1174,7 @@ class Edit extends Component
         'ibu_pendidikan.in' => 'Pilihan pendidikan ibu tidak valid.',
         'ibu_pekerjaan.max' => 'Pekerjaan ibu maksimal 100 karakter.',
         'ibu_penghasilan.in' => 'Pilihan penghasilan ibu tidak valid.',
+        'ibu_penghasilan.required' => 'Penghasilan ibu wajib dipilih.',
 
         // =========================================================
         // PENGATURAN WALI
@@ -1174,9 +1193,12 @@ class Edit extends Component
         'wali_berkebutuhan_khusus.required' => 'Pilih status kebutuhan khusus wali.',
         'wali_berkebutuhan_khusus.in' => 'Status kebutuhan khusus wali tidak valid.',
         'wali_pekerjaan.max' => 'Pekerjaan wali maksimal 100 karakter.',
+        'wali_penghasilan.required' => 'Penghasilan wali wajib dipilih.',
+        'wali_penghasilan.in' => 'Pilihan penghasilan wali tidak valid.',
         'wali_whatsapp.required' => 'Nomor WhatsApp wali wajib diisi.',
         'wali_whatsapp.string' => 'Nomor WhatsApp wali harus berupa teks.',
         'wali_whatsapp.max' => 'Nomor WhatsApp wali maksimal 20 karakter.',
+        'bersedia_orang_tua_asuh.boolean' => 'Pilihan kesediaan menjadi orang tua asuh tidak valid.',
 
         // =========================================================
         // ALAMAT DAN PERJALANAN
@@ -1235,19 +1257,19 @@ class Edit extends Component
         // =========================================================
         'fileKartuKeluarga.file' => 'Kartu Keluarga harus berupa file yang valid.',
         'fileKartuKeluarga.mimes' => 'Kartu Keluarga harus berupa JPG, JPEG, PNG, WebP, atau PDF.',
-        'fileKartuKeluarga.max' => 'Ukuran Kartu Keluarga maksimal 2 MB.',
+        'fileKartuKeluarga.max' => 'Ukuran Kartu Keluarga maksimal 5 MB.',
 
         'fileAktaKelahiran.file' => 'Akta Kelahiran harus berupa file yang valid.',
         'fileAktaKelahiran.mimes' => 'Akta Kelahiran harus berupa JPG, JPEG, PNG, WebP, atau PDF.',
-        'fileAktaKelahiran.max' => 'Ukuran Akta Kelahiran maksimal 2 MB.',
+        'fileAktaKelahiran.max' => 'Ukuran Akta Kelahiran maksimal 5 MB.',
 
         'filePasFoto.image' => 'Pas foto harus berupa gambar.',
         'filePasFoto.mimes' => 'Pas foto harus berupa JPG, JPEG, PNG, atau WebP.',
-        'filePasFoto.max' => 'Ukuran pas foto maksimal 2 MB.',
+        'filePasFoto.max' => 'Ukuran pas foto maksimal 5 MB.',
 
         'fileDokumenPendukung.file' => 'Dokumen pendukung harus berupa file yang valid.',
         'fileDokumenPendukung.mimes' => 'Dokumen pendukung harus berupa JPG, JPEG, PNG, WebP, atau PDF.',
-        'fileDokumenPendukung.max' => 'Ukuran dokumen pendukung maksimal 2 MB.',
+        'fileDokumenPendukung.max' => 'Ukuran dokumen pendukung maksimal 5 MB.',
 
         // =========================================================
         // PERTANYAAN TAMBAHAN
@@ -1344,6 +1366,7 @@ class Edit extends Component
             'ayah_pendidikan',
             'ayah_pekerjaan',
             'ayah_penghasilan',
+            'bersedia_orang_tua_asuh',
             'ayah_whatsapp',
 
             // Data ibu
@@ -1366,6 +1389,7 @@ class Edit extends Component
             'wali_tanggal_lahir',
             'wali_berkebutuhan_khusus',
             'wali_pekerjaan',
+            'wali_penghasilan',
             'wali_whatsapp',
         ]);
     }
@@ -1848,7 +1872,7 @@ class Edit extends Component
         $this->resetValidation();
 
         $this->dispatchBrowserEvent('alertify-success', [
-            'message' => 'Perubahan data pendaftar berhasil disimpan.',
+            'message' => 'Perubahan data calon siswa berhasil disimpan.',
         ]);
 
         $this->emit('pendaftaranTersimpan');

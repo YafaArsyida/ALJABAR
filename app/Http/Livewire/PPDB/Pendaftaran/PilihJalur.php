@@ -41,7 +41,7 @@ class PilihJalur extends Component
             'jalurTerpilih' => ['required', 'integer'],
         ], [
             'jalurTerpilih.required' =>
-                'Silakan pilih salah satu jalur pendaftaran.',
+                'Silakan pilih salah satu jalur pendataan.',
             'jalurTerpilih.integer' =>
                 'Pilihan jalur tidak valid.',
         ]);
@@ -57,7 +57,7 @@ class PilihJalur extends Component
 
             if (!$periode) {
                 throw ValidationException::withMessages([
-                    'jalurTerpilih' => 'Periode PPDB sudah tidak aktif.',
+                    'jalurTerpilih' => 'Periode SPMB sudah tidak aktif.',
                 ]);
             }
 
@@ -71,7 +71,7 @@ class PilihJalur extends Component
             if ($sudahMendaftar) {
                 throw ValidationException::withMessages([
                     'jalurTerpilih' =>
-                        'Anda sudah memiliki pendaftaran pada periode ini.',
+                        'Anda sudah memiliki data pendataan pada periode ini.',
                 ]);
             }
 
@@ -84,7 +84,7 @@ class PilihJalur extends Component
             if (!$gelombang) {
                 throw ValidationException::withMessages([
                     'jalurTerpilih' =>
-                        'Belum ada gelombang pendaftaran yang aktif.',
+                        'Belum ada gelombang SPMB yang aktif.',
                 ]);
             }
 

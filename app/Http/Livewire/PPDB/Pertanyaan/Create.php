@@ -131,11 +131,11 @@ class Create extends Component
      */
     protected $messages = [
         'ppdb_periode_id.required' =>
-            'Periode PPDB belum dipilih.',
+            'Periode SPMB belum dipilih.',
         'ppdb_periode_id.integer' =>
-            'Periode PPDB tidak valid.',
+            'Periode SPMB tidak valid.',
         'ppdb_periode_id.exists' =>
-            'Periode PPDB yang dipilih tidak ditemukan.',
+            'Periode SPMB yang dipilih tidak ditemukan.',
 
         'pertanyaan.required' =>
             'Pertanyaan wajib diisi.',
@@ -254,7 +254,7 @@ class Create extends Component
             DB::commit();
 
             $this->dispatchBrowserEvent('alertify-success', [
-                'message' => 'Pertanyaan PPDB berhasil ditambahkan.',
+                'message' => 'Pertanyaan SPMB berhasil ditambahkan.',
             ]);
 
             $this->dispatchBrowserEvent('hide-modal', [
@@ -276,7 +276,7 @@ class Create extends Component
 
             $this->dispatchBrowserEvent('alertify-error', [
                 'message' =>
-                    'Pertanyaan PPDB gagal disimpan. Silakan coba kembali.',
+                    'Pertanyaan SPMB gagal disimpan. Silakan coba kembali.',
             ]);
         }
     }

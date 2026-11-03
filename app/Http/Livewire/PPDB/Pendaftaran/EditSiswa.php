@@ -99,7 +99,7 @@ class EditSiswa extends Component
         if (! $this->bolehUbahData($pendaftaran->status)) {
             abort(
                 403,
-                'Pendaftaran tidak dapat diubah pada status saat ini.'
+                'Data pendataan tidak dapat diubah pada status saat ini.'
             );
         }
     }
@@ -411,7 +411,7 @@ class EditSiswa extends Component
             if (!$pendaftaran) {
                 throw ValidationException::withMessages([
                     'nama_siswa' =>
-                        'Pendaftaran tidak ditemukan atau bukan milik Anda.',
+                        'Data pendataan tidak ditemukan atau bukan milik Anda.',
                 ]);
             }
 

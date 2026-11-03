@@ -68,6 +68,47 @@ class Index extends Component
         $this->resetPage();
     }
 
+    public function unduhLaporan()
+    {
+        if (! $this->selectedJenjang || ! $this->selectedTahunAjar) {
+            $this->dispatchBrowserEvent('alertify-error', [
+                'message' => 'Pilih jenjang dan tahun ajaran terlebih dahulu.',
+            ]);
+
+            return;
+        }
+
+        if (! $this->periodeAktifTersedia()) {
+            $this->dispatchBrowserEvent('alertify-error', [
+                'message' => 'Periode SPMB aktif tidak tersedia untuk pilihan tersebut.',
+            ]);
+
+            return;
+        }
+
+        $this->dispatchBrowserEvent('alertify-success', [
+            'message' => 'Laporan PDF sedang disiapkan.',
+        ]);
+
+        $url = route('ppdb.admin.laporan.pdf', [
+            'jenjang' => $this->selectedJenjang,
+            'tahun' => $this->selectedTahunAjar,
+            'jalur' => $this->filterJalur,
+            'search' => $this->search,
+        ]);
+
+        $this->emit('openNewTab', $url);
+    }
+
+    protected function periodeAktifTersedia(): bool
+    {
+        return PPDBPeriode::query()
+            ->where('ms_jenjang_id', $this->selectedJenjang)
+            ->where('ms_tahun_ajar_id', $this->selectedTahunAjar)
+            ->where('status', 'aktif')
+            ->exists();
+    }
+
     public function render()
     {
         $periode = null;

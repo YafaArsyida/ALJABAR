@@ -44,8 +44,8 @@
                     <div>
                         <h5 class="fw-bold mb-1">Pengaturan SPMB</h5>
                         <small class="text-muted">
-                            Atur jadwal penerimaan dan persyaratan
-                            yang akan ditampilkan pada portal SPMB.
+                            Kelola periode, gelombang, jalur seleksi, dan pertanyaan
+                            untuk pendataan SPMB Tahun Ajaran 2027/2028.
                         </small>
                     </div>
                 </div>

@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Formulir Pendaftaran PPDB</title>
+    <title>Formulir Pendataan SPMB Tahun Ajaran 2027/2028</title>
 
     <style>
         @page {
@@ -178,6 +178,17 @@
             font-size: 8px;
         }
 
+        .photo-box.has-photo {
+            padding-top: 0;
+            overflow: hidden;
+        }
+
+        .photo-box img {
+            display: block;
+            width: 88px;
+            height: 113px;
+        }
+
         .small-note {
             /* font-size: 9px; */
             width: 95%;
@@ -209,9 +220,9 @@
 
                 {{-- JUDUL --}}
                 <td class="header-title">
-                    <h2>PANITIA PPDB</h2>
+                    <h2>PANITIA SPMB</h2>
                     <h3>{{ $namaJenjang ?? '-' }}</h3>
-                    <p>TAHUN PELAJARAN 2027/2028</p>
+                    <p>TAHUN AJARAN 2027/2028</p>
                 </td>
 
                 {{-- LOGO YAYASAN --}}
@@ -240,7 +251,7 @@
         </div>
 
         <div class="meta-item">
-            <span class="meta-label">Nomor Pendaftaran</span>
+            <span class="meta-label">Nomor Pendataan</span>
             <span class="meta-separator">:</span>
             <span>
                 {{ $pendaftaran->nomor_pendaftaran ?? '-' }}
@@ -249,7 +260,7 @@
     </div>
 
     {{-- REGISTRASI PESERTA DIDIK --}}
-    <div class="section-title">REGISTRASI PESERTA DIDIK</div>
+    <div class="section-title">PENDATAAN PESERTA DIDIK</div>
     @php
         $dataRegistrasi = [
             [
@@ -685,14 +696,18 @@
     <p class="small-note">
         Yang bertanda tangan sebagai orang tua/wali atau siswa bertanggung
         jawab secara hukum terhadap kebenaran data yang tercantum dalam
-        formulir pendaftaran ini.
+        formulir pendataan ini.
     </p>
 
     <table class="signature-layout">
         <tr>
             <td>
-                <div class="photo-box">
-                    FOTO SISWA
+                <div class="photo-box{{ $fotoSiswa ? ' has-photo' : '' }}">
+                    @if ($fotoSiswa)
+                        <img src="{{ $fotoSiswa }}" alt="Pas foto siswa">
+                    @else
+                        FOTO SISWA
+                    @endif
                 </div>
             </td>
             <td>

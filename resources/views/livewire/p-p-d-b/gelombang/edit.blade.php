@@ -21,10 +21,10 @@
 
                     <div>
                         <h5 class="fw-bold mb-1" id="ModalEditGelombangLabel">
-                            Edit Gelombang PPDB
+                            Edit Gelombang SPMB
                         </h5>
                         <small class="text-muted">
-                            Perbarui identitas, jadwal, kuota, dan biaya pendaftaran.
+                            Perbarui identitas, jadwal, kuota, dan biaya gelombang SPMB.
                         </small>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     {{-- KONTEKS PERIODE --}}
                     <section class="mb-4">
                         <div class="mb-3">
-                            <h6 class="fw-semibold mb-1">Periode PPDB</h6>
+                            <h6 class="fw-semibold mb-1">Periode SPMB</h6>
                             <small class="text-muted">
                                 Gelombang tetap terhubung dengan periode asalnya.
                             </small>
@@ -86,7 +86,7 @@
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">Identitas Gelombang</h6>
                             <small class="text-muted">
-                                Perbarui nama gelombang pendaftaran.
+                                Perbarui nama gelombang.
                             </small>
                         </div>
 
@@ -113,9 +113,9 @@
                     {{-- JADWAL --}}
                     <section class="mb-4">
                         <div class="mb-3">
-                            <h6 class="fw-semibold mb-1">Jadwal Pendaftaran</h6>
+                            <h6 class="fw-semibold mb-1">Jadwal Pendataan</h6>
                             <small class="text-muted">
-                                Sesuaikan jadwal dengan rentang periode PPDB.
+                                Sesuaikan jadwal dengan rentang periode SPMB.
                             </small>
                         </div>
 
@@ -163,7 +163,7 @@
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">Kuota dan Biaya</h6>
                             <small class="text-muted">
-                                Perbarui kapasitas dan biaya pendaftaran.
+                                Perbarui kuota calon siswa dan biaya SPMB.
                             </small>
                         </div>
 
@@ -191,7 +191,7 @@
 
                             <div class="col-md-6">
                                 <label for="edit_biaya_gelombang" class="form-label">
-                                    Biaya Pendaftaran
+                                    Biaya SPMB
                                     <span class="text-danger">*</span>
                                 </label>
 
@@ -214,7 +214,7 @@
                                 </div>
 
                                 <small class="text-muted">
-                                    Isi 0 jika pendaftaran gratis.
+                                    Isi 0 jika tidak ada biaya.
                                 </small>
                             </div>
                         </div>
@@ -225,7 +225,7 @@
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">Status Gelombang</h6>
                             <small class="text-muted">
-                                Atur status gelombang sesuai kondisi penerimaan.
+                                Atur status gelombang sesuai pelaksanaan SPMB.
                             </small>
                         </div>
 

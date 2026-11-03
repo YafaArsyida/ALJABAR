@@ -103,7 +103,7 @@ class PPDBBerkasController extends Controller
         $pdf = Pdf::loadView(
             'reports.ppdb.kartu-aljabar',
             $data
-        )->setPaper('a4', 'landscape');
+        )->setPaper('a4', 'portrait');
 
         return $pdf->stream(
             'kartu-aljabar-' . $pendaftaran->getKey() . '.pdf'

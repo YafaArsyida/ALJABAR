@@ -78,6 +78,7 @@ class Create extends Component
     public $ayah_pendidikan = '';
     public $ayah_pekerjaan = '';
     public $ayah_penghasilan = '';
+    public $bersedia_orang_tua_asuh = false;
     public $ayah_whatsapp = '';
 
     // =========================================================
@@ -105,6 +106,7 @@ class Create extends Component
     public $wali_tanggal_lahir = '';
     public $wali_berkebutuhan_khusus = 'Tidak';
     public $wali_pekerjaan = '';
+    public $wali_penghasilan = '';
     public $wali_whatsapp = '';
     
 
@@ -210,6 +212,7 @@ class Create extends Component
             'ayah_pendidikan',
             'ayah_pekerjaan',
             'ayah_penghasilan',
+            'bersedia_orang_tua_asuh',
             'ayah_whatsapp',
 
             'ibu_nama',
@@ -230,6 +233,7 @@ class Create extends Component
             'wali_tanggal_lahir',
             'wali_berkebutuhan_khusus',
             'wali_pekerjaan',
+            'wali_penghasilan',
             'wali_whatsapp',
 
             'alamat_lengkap',
@@ -268,7 +272,7 @@ class Create extends Component
             $this->periodeId = null;
 
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Periode PPDB tidak tersedia atau sudah tidak aktif.',
+                'message' => 'Periode SPMB tidak tersedia atau sudah tidak aktif.',
             ]);
 
             return;
@@ -461,7 +465,7 @@ class Create extends Component
             ],
             'ayah_pekerjaan' => ['nullable', 'string', 'max:100'],
             'ayah_penghasilan' => [
-                'nullable',
+                'required',
                 Rule::in([
                     'TIDAK_ADA', 'KURANG_1JT', '1JT_3JT',
                     '3JT_5JT', '5JT_7JT', 'LEBIH_7JT',
@@ -490,7 +494,7 @@ class Create extends Component
             ],
             'ibu_pekerjaan' => ['nullable', 'string', 'max:100'],
             'ibu_penghasilan' => [
-                'nullable',
+                'required',
                 Rule::in([
                     'TIDAK_ADA', 'KURANG_1JT', '1JT_3JT',
                     '3JT_5JT', '5JT_7JT', 'LEBIH_7JT',
@@ -531,10 +535,19 @@ class Create extends Component
                 Rule::in(['Ya', 'Tidak']),
             ],
             'wali_pekerjaan' => ['nullable', 'string', 'max:100'],
+            'wali_penghasilan' => [
+                Rule::requiredIf($this->gunakan_wali),
+                'nullable',
+                Rule::in([
+                    'TIDAK_ADA', 'KURANG_1JT', '1JT_3JT',
+                    '3JT_5JT', '5JT_7JT', 'LEBIH_7JT',
+                ]),
+            ],
             'wali_whatsapp' => [
                 Rule::requiredIf($this->gunakan_wali),
                 'nullable', 'string', 'max:20',
             ],
+            'bersedia_orang_tua_asuh' => ['boolean'],
 
             // Alamat
             'alamat_lengkap' => ['required', 'string', 'max:1000'],
@@ -592,14 +605,14 @@ class Create extends Component
 
             'jenjang_asal' => [
                 'required',
-                'in:TK,RA,PAUD,TIDAK_ADA',
+                'in:TK,RA,SD,PAUD,TIDAK_ADA',
             ],
 
             'tahun_lulus' => [
                 'nullable',
                 'integer',
                 'min:' . (date('Y') - 10),
-                'max:' . date('Y'),
+                'max:' . max((int) date('Y'), 2027),
             ],
 
             'nomor_ijazah' => [
@@ -624,25 +637,25 @@ class Create extends Component
                 'nullable',
                 'file',
                 'mimes:jpg,jpeg,png,webp,pdf',
-                'max:2048',
+                'max:5120',
             ],
             'fileAktaKelahiran' => [
                 'nullable',
                 'file',
                 'mimes:jpg,jpeg,png,webp,pdf',
-                'max:2048',
+                'max:5120',
             ],
             'filePasFoto' => [
                 'nullable',
                 'image',
                 'mimes:jpg,jpeg,png,webp',
-                'max:2048',
+                'max:5120',
             ],
             'fileDokumenPendukung' => [
                 'nullable',
                 'file',
                 'mimes:jpg,jpeg,png,webp,pdf',
-                'max:2048',
+                'max:5120',
             ],
         ];
     }
@@ -700,10 +713,10 @@ class Create extends Component
         // =========================================================
         // PARAMETER PENDAFTARAN
         // =========================================================
-        'periodeId.required' => 'Periode PPDB wajib dipilih.',
-        'periodeId.integer' => 'Periode PPDB tidak valid.',
-        'jalurTerpilih.required' => 'Jalur pendaftaran wajib dipilih.',
-        'jalurTerpilih.integer' => 'Jalur pendaftaran tidak valid.',
+        'periodeId.required' => 'Periode SPMB wajib dipilih.',
+        'periodeId.integer' => 'Periode SPMB tidak valid.',
+        'jalurTerpilih.required' => 'Jalur seleksi wajib dipilih.',
+        'jalurTerpilih.integer' => 'Jalur seleksi tidak valid.',
 
         // =========================================================
         // DATA CALON SISWA
@@ -798,6 +811,7 @@ class Create extends Component
         'ayah_pendidikan.in' => 'Pilihan pendidikan ayah tidak valid.',
         'ayah_pekerjaan.max' => 'Pekerjaan ayah maksimal 100 karakter.',
         'ayah_penghasilan.in' => 'Pilihan penghasilan ayah tidak valid.',
+        'ayah_penghasilan.required' => 'Penghasilan ayah wajib dipilih.',
 
         // =========================================================
         // DATA IBU
@@ -817,6 +831,7 @@ class Create extends Component
         'ibu_pendidikan.in' => 'Pilihan pendidikan ibu tidak valid.',
         'ibu_pekerjaan.max' => 'Pekerjaan ibu maksimal 100 karakter.',
         'ibu_penghasilan.in' => 'Pilihan penghasilan ibu tidak valid.',
+        'ibu_penghasilan.required' => 'Penghasilan ibu wajib dipilih.',
 
         // =========================================================
         // PENGATURAN WALI
@@ -841,10 +856,13 @@ class Create extends Component
         'wali_berkebutuhan_khusus.in' => 'Status kebutuhan khusus wali tidak valid.',
 
         'wali_pekerjaan.max' => 'Pekerjaan wali maksimal 100 karakter.',
+        'wali_penghasilan.required' => 'Penghasilan wali wajib dipilih.',
+        'wali_penghasilan.in' => 'Pilihan penghasilan wali tidak valid.',
 
         'wali_whatsapp.required' => 'Nomor WhatsApp wali wajib diisi.',
         'wali_whatsapp.string' => 'Nomor WhatsApp wali harus berupa teks.',
         'wali_whatsapp.max' => 'Nomor WhatsApp wali maksimal 20 karakter.',
+        'bersedia_orang_tua_asuh.boolean' => 'Pilihan kesediaan menjadi orang tua asuh tidak valid.',
 
 
         // =========================================================
@@ -919,28 +937,28 @@ class Create extends Component
         'fileKartuKeluarga.mimes' =>
             'Kartu Keluarga harus berupa JPG, JPEG, PNG, WebP, atau PDF.',
         'fileKartuKeluarga.max' =>
-            'Ukuran Kartu Keluarga maksimal 2 MB.',
+            'Ukuran Kartu Keluarga maksimal 5 MB.',
 
         'fileAktaKelahiran.file' =>
             'Akta Kelahiran harus berupa file yang valid.',
         'fileAktaKelahiran.mimes' =>
             'Akta Kelahiran harus berupa JPG, JPEG, PNG, WebP, atau PDF.',
         'fileAktaKelahiran.max' =>
-            'Ukuran Akta Kelahiran maksimal 2 MB.',
+            'Ukuran Akta Kelahiran maksimal 5 MB.',
 
         'filePasFoto.image' =>
             'Pas foto harus berupa gambar.',
         'filePasFoto.mimes' =>
             'Pas foto harus berupa JPG, JPEG, PNG, atau WebP.',
         'filePasFoto.max' =>
-            'Ukuran pas foto maksimal 2 MB.',
+            'Ukuran pas foto maksimal 5 MB.',
 
         'fileDokumenPendukung.file' =>
             'Dokumen pendukung harus berupa file yang valid.',
         'fileDokumenPendukung.mimes' =>
             'Dokumen pendukung harus berupa JPG, JPEG, PNG, WebP, atau PDF.',
         'fileDokumenPendukung.max' =>
-            'Ukuran dokumen pendukung maksimal 2 MB.',
+            'Ukuran dokumen pendukung maksimal 5 MB.',
 
         // PERTANYAAN TAMBAHAN 
         'jawaban.*.required' =>
@@ -1047,6 +1065,7 @@ class Create extends Component
             'ayah_pendidikan',
             'ayah_pekerjaan',
             'ayah_penghasilan',
+            'bersedia_orang_tua_asuh',
             'ayah_whatsapp',
 
             // Data ibu
@@ -1069,6 +1088,7 @@ class Create extends Component
             'wali_tanggal_lahir',
             'wali_berkebutuhan_khusus',
             'wali_pekerjaan',
+            'wali_penghasilan',
             'wali_whatsapp',
         ]);
     }
@@ -1279,7 +1299,7 @@ class Create extends Component
 
                 if (! $periode) {
                     throw ValidationException::withMessages([
-                        'periodeId' => 'Periode PPDB tidak tersedia atau sudah tidak aktif.',
+                        'periodeId' => 'Periode SPMB tidak tersedia atau sudah tidak aktif.',
                     ]);
                 }
 
@@ -1293,7 +1313,7 @@ class Create extends Component
                 if (!$gelombang) {
                     throw ValidationException::withMessages([
                         'jalurTerpilih' =>
-                            'Belum ada gelombang pendaftaran yang aktif.',
+                            'Belum ada gelombang pendataan yang aktif.',
                     ]);
                 }
 
@@ -1311,7 +1331,7 @@ class Create extends Component
 
                 if (! $jalur) {
                     throw ValidationException::withMessages([
-                        'jalurTerpilih' => 'Jalur pendaftaran tidak tersedia untuk periode ini.',
+                        'jalurTerpilih' => 'Jalur seleksi tidak tersedia untuk periode ini.',
                     ]);
                 }
 
@@ -1333,7 +1353,7 @@ class Create extends Component
 
                     if ($jumlahPendaftar >= (int) $jalur->kuota) {
                         throw ValidationException::withMessages([
-                            'jalurTerpilih' => 'Kuota jalur pendaftaran sudah penuh.',
+                            'jalurTerpilih' => 'Kuota jalur seleksi sudah penuh.',
                         ]);
                     }
                 }
@@ -1517,7 +1537,7 @@ class Create extends Component
             $this->resetForm();
 
             $this->dispatchBrowserEvent('alertify-success', [
-                'message' => 'Draft pendaftaran berhasil disimpan.',
+                'message' => 'Data calon siswa berhasil disimpan.',
             ]);
 
             $this->emit('pendaftaranTersimpan');

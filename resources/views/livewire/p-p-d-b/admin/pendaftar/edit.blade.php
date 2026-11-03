@@ -21,14 +21,14 @@
                 <h5
                     class="fw-semibold mb-1"
                     id="offcanvasEditPendaftaranLabel">
-                    Edit Data Pendaftaran
+                    Edit Data Pendataan
                 </h5>
 
                 <p class="text-muted small mb-0">
                     @if ($pendaftaranId)
-                        Perbarui data calon siswa, orang tua/wali, dan dokumen pendaftaran.
+                        Perbarui data calon siswa, orang tua/wali, dan dokumen pendukung.
                     @else
-                        Memuat data pendaftaran...
+                        Memuat data pendataan...
                     @endif
                 </p>
             </div>
@@ -229,7 +229,7 @@
                     </div>
 
                     <p class="text-muted mb-0">
-                        Memuat formulir pendaftaran...
+                        Memuat formulir pendataan...
                     </p>
                 </div>
             </div>
@@ -249,7 +249,7 @@
                     </div>
 
                     <p class="text-muted mb-0">
-                        Memuat data pendaftaran...
+                        Memuat data pendataan...
                     </p>
                 </div>
             </div>
@@ -352,7 +352,7 @@
 
             <div class="text-muted small">
                 <i class="ri-information-line me-1"></i>
-                Periksa kembali perubahan sebelum menyimpan data pendaftaran.
+                Periksa kembali perubahan sebelum menyimpan data pendataan.
             </div>
 
             <div class="d-flex gap-2 flex-shrink-0">

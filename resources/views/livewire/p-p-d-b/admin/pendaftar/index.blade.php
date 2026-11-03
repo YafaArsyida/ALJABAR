@@ -14,11 +14,11 @@
 
                     <div>
                         <h5 class="fw-bold mb-1">
-                            Data Pendaftar PPDB
+                            Pendataan Calon Siswa SPMB
                         </h5>
 
                         <small class="text-muted">
-                            Kelola data pendaftar, verifikasi berkas, dan bantu calon siswa melakukan pendaftaran.
+                            Kelola data calon siswa, periksa berkas, dan bantu keluarga mengisi pendataan SPMB.
                         </small>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
             @if ($selectedJenjang && $selectedTahunAjar && $periode)
                 <div class="d-flex gap-2 flex-wrap">
 
-                    {{-- BANTU PENDAFTARAN --}}
+                    {{-- BANTU PENDATAAN --}}
                     <button
                         type="button"
                         class="btn btn-primary rounded-pill px-4"
@@ -38,7 +38,7 @@
                         wire:click="$emit('bukaBantuPendaftaran', {{ $periode->ppdb_periode_id }})">
 
                         <i class="ri-user-add-line me-1"></i>
-                        Bantu Pendaftaran
+                        Bantu Pendataan
                     </button>
 
                 </div>
@@ -63,7 +63,7 @@
                         id="searchData"
                         class="form-control search"
                         wire:model.debounce.400ms="search"
-                        placeholder="Cari nama atau nomor pendaftaran...">
+                        placeholder="Cari nama atau nomor pendataan...">
 
                     <i class="ri-search-line search-icon"></i>
                 </div>
@@ -114,7 +114,7 @@
                 <label
                     for="filterJalur"
                     class="form-label small text-muted text-uppercase fw-medium mb-2">
-                    Jalur Pendaftaran
+                    Jalur Seleksi
                 </label>
 
                 <select
@@ -142,7 +142,7 @@
             class="text-muted small mb-3">
 
             <span class="spinner-border spinner-border-sm me-1"></span>
-            Memuat data pendaftar...
+            Memuat data calon siswa...
         </div>
 
         {{-- Tabel --}}
@@ -153,11 +153,11 @@
                         <tr class="text-uppercase">
                             <th class="text-center" style="width: 60px;">No.</th>
                             <th>Calon Siswa</th>
-                            <th>Nomor Pendaftaran</th>
+                            <th>Nomor Pendataan</th>
                             <th>Jalur</th>
                             <th>Sumber</th>
                             <th>Akun</th>
-                            <th>Tanggal Daftar</th>
+                            <th>Tanggal Pendataan</th>
                             <th>Status</th>
                             <th class="text-center">Aksi</th>
                         </tr>
@@ -237,7 +237,7 @@
                                             href="#ModalDetailPendaftar"
                                             data-bs-toggle="modal"
                                             class="btn btn-soft-primary btn-sm rounded-pill px-3 text-nowrap"
-                                            title="Detail Pendaftar"
+                                            title="Detail Pendataan"
                                             wire:click.prevent="$emit('loadDetailPendaftar', {{ $item->ppdb_pendaftaran_id }})">
                                             <i class="ri-eye-line me-1"></i>
                                             Detail
@@ -309,19 +309,20 @@
 
                                         {{-- RESET PASSWORD --}}
                                         @if ($item->ms_pengguna && $item->ms_pengguna->peran === 'ORANG_TUA')
-                                            <a
-                                                href="#ModalKonfirmasiReset"
+                                            <button
+                                                type="button"
                                                 data-bs-toggle="modal"
+                                                data-bs-target="#ModalKonfirmasiReset"
                                                 class="btn btn-soft-danger btn-sm rounded-pill px-3 text-nowrap"
                                                 title="Reset Password"
-                                                wire:click.prevent="$emit(
+                                                wire:click="$emit(
                                                     'resetPassword',
                                                     {{ $item->ms_pengguna->ms_pengguna_id }}
                                                 )"
                                             >
                                                 <i class="ri-lock-unlock-line me-1"></i>
                                                 Reset
-                                            </a>
+                                            </button>
                                         @endif
 
                                     </div>
@@ -337,7 +338,7 @@
                                         </div>
                                     </div>
 
-                                    <h6 class="mb-1">Pendaftar tidak ditemukan</h6>
+                                    <h6 class="mb-1">Calon siswa tidak ditemukan</h6>
 
                                     <p class="text-muted mb-3">
                                         Tidak ada data yang sesuai dengan pencarian atau filter.
@@ -372,7 +373,7 @@
                             <span class="fw-semibold">
                                 {{ $pendaftar->total() }}
                             </span>
-                            data pendaftar
+                            calon siswa
                         </div>
                         <div>
                             {{ $pendaftar->links() }}

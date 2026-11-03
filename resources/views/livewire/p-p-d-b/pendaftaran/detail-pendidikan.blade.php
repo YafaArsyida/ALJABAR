@@ -56,6 +56,10 @@
                             RA
                             @break
 
+                        @case('SD')
+                            SD
+                            @break
+
                         @case('PAUD')
                             PAUD
                             @break
@@ -134,7 +138,7 @@
 
                             <small class="text-muted">
                                 Calon siswa tercatat belum pernah bersekolah
-                                di TK, RA, atau PAUD.
+                                di RA, TK, SD, atau PAUD.
                             </small>
                         </div>
                     </div>

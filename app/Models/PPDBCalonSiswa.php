@@ -59,6 +59,13 @@ class PPDBCalonSiswa extends Model
         'deleted_at' => 'datetime',
     ];
 
+    public function setNamaSiswaAttribute($value): void
+    {
+        $this->attributes['nama_siswa'] = $value === null
+            ? null
+            : mb_strtoupper($value, 'UTF-8');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Relasi

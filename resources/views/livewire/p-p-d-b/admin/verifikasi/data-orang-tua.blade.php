@@ -125,7 +125,7 @@
                                         Rp1.000.000–Rp3.000.000
                                         @break
                                     @case('3JT_5JT')
-                                        Rp3.000.000–Rp5.000.000
+                                        Lebih dari Rp3.000.000 hingga Rp5.000.000
                                         @break
                                     @case('5JT_7JT')
                                         Rp5.000.000–Rp7.000.000
@@ -252,7 +252,7 @@
                                         Rp1.000.000–Rp3.000.000
                                         @break
                                     @case('3JT_5JT')
-                                        Rp3.000.000–Rp5.000.000
+                                        Lebih dari Rp3.000.000 hingga Rp5.000.000
                                         @break
                                     @case('5JT_7JT')
                                         Rp5.000.000–Rp7.000.000
@@ -364,12 +364,59 @@
                                 <small class="text-muted d-block mb-1">Nomor Telepon / WhatsApp</small>
                                 <div class="fw-semibold">{{ $orangTua->telepon_wali ?: '-' }}</div>
                             </div>
+
+                            <div class="col-md-6">
+                                <small class="text-muted d-block mb-1">Penghasilan Wali per Bulan</small>
+                                <div class="fw-semibold">
+                                    @switch($orangTua->penghasilan_wali)
+                                        @case('TIDAK_ADA')
+                                            Tidak Berpenghasilan
+                                            @break
+                                        @case('KURANG_1JT')
+                                            Kurang dari Rp1.000.000
+                                            @break
+                                        @case('1JT_3JT')
+                                            Rp1.000.000–Rp3.000.000
+                                            @break
+                                        @case('3JT_5JT')
+                                            Lebih dari Rp3.000.000 hingga Rp5.000.000
+                                            @break
+                                        @case('5JT_7JT')
+                                            Rp5.000.000–Rp7.000.000
+                                            @break
+                                        @case('LEBIH_7JT')
+                                            Lebih dari Rp7.000.000
+                                            @break
+                                        @default
+                                            -
+                                    @endswitch
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            @endif
+                @endif
+
+                <div class="card border rounded-4 shadow-none mb-4">
+                    <div class="card-body">
+                        <small class="text-muted d-block mb-1">Kesediaan Menjadi Orang Tua Asuh</small>
+                        <div class="fw-semibold">
+                            @switch($orangTua->bersedia_orang_tua_asuh)
+                                @case('ya')
+                                    Ya
+                                    @break
+                                @case('tidak')
+                                    Tidak
+                                    @break
+                                @default
+                                    -
+                            @endswitch
+                        </div>
+                    </div>
+                </div>
         @else
-            <div class="text-center py-5">
+                <div class="text-center py-5">
                 <div class="avatar-md mx-auto mb-3">
                     <div class="avatar-title bg-light text-muted rounded-circle fs-24">
                         <i class="ri-team-line"></i>
@@ -378,7 +425,7 @@
 
                 <h6 class="fw-semibold mb-1">Data orang tua belum diisi</h6>
                 <p class="text-muted small mb-0">
-                    Informasi orang tua atau wali belum tersedia pada pendaftaran ini.
+                    Informasi orang tua atau wali belum tersedia pada pendataan ini.
                 </p>
             </div>
         @endif

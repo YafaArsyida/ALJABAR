@@ -77,7 +77,7 @@ class Edit extends Component
         ]);
 
         $this->dispatchBrowserEvent('alertify-success', [
-            'message' => 'Periode PPDB berhasil diperbarui.',
+            'message' => 'Periode SPMB berhasil diperbarui.',
         ]);
 
         $this->emit('refreshPeriodes');

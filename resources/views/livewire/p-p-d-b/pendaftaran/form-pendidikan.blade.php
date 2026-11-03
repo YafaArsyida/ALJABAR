@@ -34,6 +34,7 @@
                     >
                         <option value="TK">TK</option>
                         <option value="RA">RA</option>
+                        <option value="SD">SD</option>
                         <option value="PAUD">PAUD</option>
                         <option value="TIDAK_ADA">
                             Belum Pernah Bersekolah
@@ -52,7 +53,7 @@
                     {{-- ASAL SEKOLAH --}}
                     <div class="col-md-6">
                         <label for="asal-sekolah" class="form-label">
-                            Nama TK/RA/PAUD
+                            Nama Pendidikan Sebelumnya
                         </label>
 
                         <input
@@ -65,57 +66,6 @@
                         >
 
                         @error('asal_sekolah')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-
-                    {{-- NPSN --}}
-                    <div class="col-md-6">
-                        <label for="npsn-asal-sekolah" class="form-label">
-                            NPSN
-                            <span class="text-muted fw-normal">
-                                (Opsional)
-                            </span>
-                        </label>
-
-                        <input
-                            type="text"
-                            id="npsn-asal-sekolah"
-                            class="form-control @error('npsn_asal_sekolah') is-invalid @enderror"
-                            wire:model.defer="npsn_asal_sekolah"
-                            placeholder="Masukkan 8 digit NPSN"
-                            maxlength="8"
-                            inputmode="numeric"
-                        >
-
-                        @error('npsn_asal_sekolah')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-
-                    {{-- ALAMAT TK --}}
-                    <div class="col-12">
-                        <label for="alamat-asal-sekolah" class="form-label">
-                            Alamat Sekolah Asal
-                            <span class="text-muted fw-normal">
-                                (Opsional)
-                            </span>
-                        </label>
-
-                        <textarea
-                            id="alamat-asal-sekolah"
-                            class="form-control @error('alamat_asal_sekolah') is-invalid @enderror"
-                            wire:model.defer="alamat_asal_sekolah"
-                            rows="3"
-                            maxlength="1000"
-                            placeholder="Masukkan alamat lengkap TK asal"
-                        ></textarea>
-
-                        @error('alamat_asal_sekolah')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -138,7 +88,7 @@
                         >
                             <option value="">Pilih tahun lulus</option>
 
-                            @for ($tahun = date('Y'); $tahun >= date('Y') - 3; $tahun--)
+                            @for ($tahun = max((int) date('Y'), 2027); $tahun >= max((int) date('Y'), 2027) - 3; $tahun--)
                                 <option value="{{ $tahun }}">
                                     {{ $tahun }}
                                 </option>
@@ -152,25 +102,23 @@
                         @enderror
                     </div>
 
-                    {{-- NOMOR IJAZAH --}}
-                    <div class="col-md-6">
-                        <label for="nomor-ijazah" class="form-label">
-                            Nomor Peserta / Bukti Kelulusan
-                            <span class="text-muted fw-normal">
-                                (Opsional)
-                            </span>
+                    {{-- ALAMAT PENDIDIKAN SEBELUMNYA --}}
+                    <div class="col-12">
+                        <label for="alamat-asal-sekolah" class="form-label">
+                            Alamat Pendidikan Sebelumnya
+                            <span class="text-muted fw-normal">(Opsional)</span>
                         </label>
 
-                        <input
-                            type="text"
-                            id="nomor-ijazah"
-                            class="form-control @error('nomor_ijazah') is-invalid @enderror"
-                            wire:model.defer="nomor_ijazah"
-                            placeholder="Masukkan nomor jika tersedia"
-                            maxlength="100"
-                        >
+                        <textarea
+                            id="alamat-asal-sekolah"
+                            class="form-control @error('alamat_asal_sekolah') is-invalid @enderror"
+                            wire:model.defer="alamat_asal_sekolah"
+                            rows="3"
+                            maxlength="1000"
+                            placeholder="Masukkan alamat lengkap pendidikan sebelumnya"
+                        ></textarea>
 
-                        @error('nomor_ijazah')
+                        @error('alamat_asal_sekolah')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -185,7 +133,7 @@
 
                                 <small class="text-muted">
                                     Tidak masalah jika calon siswa belum pernah
-                                    bersekolah di TK, RA, atau PAUD.
+                                    bersekolah di RA, TK, SD, atau PAUD.
                                     Informasi sekolah sebelumnya tidak perlu diisi.
                                 </small>
                             </div>
@@ -200,9 +148,8 @@
                                 <i class="ri-information-line fs-18 text-primary"></i>
 
                                 <small class="text-muted">
-                                    Isi data sesuai informasi sekolah sebelumnya.
-                                    NPSN dan nomor bukti kelulusan boleh dikosongkan
-                                    jika tidak tersedia.
+                                    Isi nama, tahun lulus, dan alamat sesuai
+                                    informasi pendidikan sebelumnya.
                                 </small>
                             </div>
                         </div>

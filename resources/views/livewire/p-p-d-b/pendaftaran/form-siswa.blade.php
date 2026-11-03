@@ -15,7 +15,8 @@
                     <div>
                         <h5 class="fw-bold mb-1">Data Calon Siswa</h5>
                         <small class="text-muted">
-                            Lengkapi identitas calon siswa sesuai dengan dokumen resmi.
+                            Lengkapi identitas calon siswa untuk SPMB Tahun Ajaran 2027/2028
+                            sesuai dokumen resmi.
                         </small>
                     </div>
 

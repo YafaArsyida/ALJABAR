@@ -15,7 +15,7 @@
 
                 <p class="text-muted small mb-0">
                     Lengkapi informasi tambahan yang ditetapkan
-                    sekolah untuk periode pendaftaran ini.
+                    sekolah untuk periode SPMB ini.
                 </p>
             </div>
         </div>
@@ -146,7 +146,7 @@
 
                 <p class="text-muted mb-0">
                     Tidak ada pertanyaan tambahan aktif
-                    untuk periode PPDB ini.
+                    untuk periode SPMB ini.
                 </p>
             </div>
         @endif
@@ -166,7 +166,7 @@
                 class="form-check-label"
                 for="pernyataan-kebenaran"
             >
-                Orang tua/wali menyatakan bahwa seluruh data dan jawaban dalam formulir pendaftaran ini telah sesuai dengan informasi yang diberikan dan dapat dipertanggungjawabkan.
+                Orang tua/wali menyatakan bahwa seluruh data dan jawaban dalam formulir pendataan ini telah sesuai dengan informasi yang diberikan dan dapat dipertanggungjawabkan.
             </label>
 
             @error('pernyataan')

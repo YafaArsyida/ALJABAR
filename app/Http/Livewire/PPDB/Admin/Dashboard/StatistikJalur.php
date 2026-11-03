@@ -60,23 +60,23 @@ class StatistikJalur extends Component
 
         $statistik = [
             [
-                'label' => 'Total Pendaftar',
+                'label' => 'Total Calon Siswa',
                 'value' => number_format($totalPendaftar, 0, ',', '.'),
-                'description' => 'Seluruh pendaftar pada periode ini',
+                'description' => 'Seluruh calon siswa yang terdata pada periode ini',
                 'color' => 'primary',
                 'icon' => 'mdi-account-group-outline',
             ],
             [
                 'label' => 'Menunggu Verifikasi',
                 'value' => number_format($menungguVerifikasi, 0, ',', '.'),
-                'description' => 'Pendaftaran perlu diperiksa',
+                'description' => 'Data SPMB yang perlu diperiksa',
                 'color' => 'info',
                 'icon' => 'mdi-clipboard-text-clock-outline',
             ],
             [
                 'label' => 'Perlu Perbaikan',
                 'value' => number_format($perluPerbaikan, 0, ',', '.'),
-                'description' => 'Menunggu perbaikan dari orang tua',
+                'description' => 'Menunggu perbaikan data dari orang tua',
                 'color' => 'warning',
                 'icon' => 'mdi-file-edit-outline',
             ],

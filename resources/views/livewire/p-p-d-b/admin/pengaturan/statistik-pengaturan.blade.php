@@ -19,7 +19,7 @@
                                 TOTAL PERIODE
                             </div>
                             <div class="fs-5 fw-semibold text-dark">
-                                Periode Pendaftaran
+                                Periode SPMB
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                 TOTAL GELOMBANG
                             </div>
                             <div class="fs-5 fw-semibold text-dark">
-                                Gelombang Pendaftaran
+                                Gelombang SPMB
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                                 TOTAL JALUR
                             </div>
                             <div class="fs-5 fw-semibold text-dark">
-                                Jalur Penerimaan
+                                Jalur Seleksi SPMB
                             </div>
                         </div>
                     </div>

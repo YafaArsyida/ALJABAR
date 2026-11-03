@@ -47,7 +47,7 @@
                 </div>
 
                 <h6 class="fw-semibold mb-1">
-                    Belum Ada Periode PPDB
+                    Belum Ada Periode SPMB
                 </h6>
 
                 <p class="text-muted small mb-0">
@@ -67,7 +67,7 @@
                 <div class="flex-grow-1">
                     <h5 class="mb-1">
                         {{ number_format($menungguVerifikasi, 0, ',', '.') }}
-                        pendaftaran
+                        calon siswa
                     </h5>
 
                     <p class="text-muted small mb-2">
@@ -93,7 +93,7 @@
                 <div class="flex-grow-1">
                     <h5 class="mb-1">
                         {{ number_format($perluPerbaikan, 0, ',', '.') }}
-                        pendaftaran
+                        calon siswa
                     </h5>
 
                     <p class="text-muted small mb-2">
@@ -102,7 +102,7 @@
 
                     <a href="{{ route('ppdb.admin.pendaftar') }}"
                        class="link-primary fw-medium small">
-                        Lihat pendaftar
+                        Lihat data calon siswa
                         <i class="mdi mdi-arrow-right ms-1"></i>
                     </a>
                 </div>
@@ -117,15 +117,15 @@
                 </div>
 
                 <div class="flex-grow-1">
-                    <h5 class="mb-1">Bantu pendaftaran</h5>
+                    <h5 class="mb-1">Bantu pendataan</h5>
 
                     <p class="text-muted small mb-2">
-                        Layani orang tua yang membutuhkan bantuan mendaftar.
+                        Bantu orang tua yang memerlukan pendampingan pendataan.
                     </p>
 
                     <a href="{{ route('ppdb.admin.pendaftar') }}"
                        class="link-primary fw-medium small">
-                        Mulai pendaftaran
+                        Mulai pendataan
                         <i class="mdi mdi-arrow-right ms-1"></i>
                     </a>
                 </div>

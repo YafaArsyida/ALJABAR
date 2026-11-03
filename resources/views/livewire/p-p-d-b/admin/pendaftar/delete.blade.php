@@ -44,11 +44,11 @@
                         </span>
 
                         <h3 class="fw-bold mb-2" id="deletePendaftaranLabel">
-                            Hapus Pendaftaran PPDB
+                            Hapus Data Calon Siswa
                         </h3>
 
                         <p class="text-muted mb-0 lh-lg px-lg-4">
-                            Pendaftaran beserta seluruh data formulir
+                            Data calon siswa beserta seluruh formulir
                             dan berkas terkait akan dihapus dari daftar aktif.
                         </p>
                     </div>
@@ -66,7 +66,7 @@
                                 <p class="text-muted mb-0 fs-13">
                                     Data formulir akan dihapus.
                                     Akun orang tua tetap tersedia untuk
-                                    pendaftaran berikutnya.
+                                    pendataan berikutnya.
                                 </p>
                             </div>
                         </div>

@@ -250,7 +250,7 @@ class FormSiswa extends Component
             ->first();
 
         if (!$periode) {
-            abort(403, 'Periode PPDB tidak aktif.');
+            abort(403, 'Periode SPMB tidak aktif.');
         }
 
         $pendaftaran = PPDBPendaftaran::query()
@@ -261,7 +261,7 @@ class FormSiswa extends Component
             ->first();
 
         if (!$pendaftaran) {
-            abort(403, 'Pendaftaran tidak ditemukan atau bukan milik Anda.');
+            abort(403, 'Data pendataan tidak ditemukan atau bukan milik Anda.');
         }
 
         return $pendaftaran;
@@ -282,7 +282,7 @@ class FormSiswa extends Component
             if (!$pendaftaran) {
                 throw ValidationException::withMessages([
                     'nama_siswa' =>
-                        'Pendaftaran tidak ditemukan. Silakan periksa kembali.',
+                        'Data pendataan tidak ditemukan. Silakan periksa kembali.',
                 ]);
             }
 

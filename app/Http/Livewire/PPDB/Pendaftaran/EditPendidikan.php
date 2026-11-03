@@ -97,24 +97,15 @@ class EditPendidikan extends Component
                 'max:255',
             ],
             'alamat_asal_sekolah' => 'nullable|string|max:1000',
-            'npsn_asal_sekolah' => [
-                'nullable',
-                'regex:/^\d{8}$/',
-            ],
             'jenjang_asal' => [
                 'required',
-                'in:TK,RA,PAUD,TIDAK_ADA',
+                'in:TK,RA,SD,PAUD,TIDAK_ADA',
             ],
             'tahun_lulus' => [
                 'nullable',
                 'integer',
                 'min:' . (date('Y') - 10),
-                'max:' . date('Y'),
-            ],
-            'nomor_ijazah' => [
-                'nullable',
-                'string',
-                'max:100',
+                'max:' . max((int) date('Y'), 2027),
             ],
         ];
     }
@@ -122,10 +113,8 @@ class EditPendidikan extends Component
     protected $messages = [
         'asal_sekolah.max' => 'Nama sekolah maksimal 255 karakter.',
 
-        'alamat_asal_sekolah.string' => 'Alamat TK harus berupa teks.',
-        'alamat_asal_sekolah.max' => 'Alamat TK maksimal 1000 karakter.',
-
-        'npsn_asal_sekolah.regex' => 'NPSN harus terdiri dari 8 digit angka.',
+        'alamat_asal_sekolah.string' => 'Alamat pendidikan sebelumnya harus berupa teks.',
+        'alamat_asal_sekolah.max' => 'Alamat pendidikan sebelumnya maksimal 1000 karakter.',
 
         'jenjang_asal.required' => 'Jenjang pendidikan asal wajib dipilih.',
 
@@ -137,7 +126,6 @@ class EditPendidikan extends Component
 
         'tahun_lulus.max' => 'Tahun lulus tidak boleh melebihi tahun berjalan.',
 
-        'nomor_ijazah.max' => 'Nomor ijazah maksimal 100 karakter.',
     ];
 
     

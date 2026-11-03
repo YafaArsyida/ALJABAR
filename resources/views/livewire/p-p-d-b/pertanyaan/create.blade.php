@@ -25,7 +25,7 @@
                         </h5>
 
                         <small class="text-muted">
-                            Susun pertanyaan kuisioner untuk calon siswa.
+                            Susun pertanyaan kuesioner untuk formulir pendataan calon siswa.
                         </small>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                     <section class="mb-4">
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">
-                                Periode PPDB
+                                Periode SPMB
                             </h6>
 
                             <small class="text-muted">
@@ -171,7 +171,7 @@
                         <div class="bg-light rounded-3 p-3 mb-3">
                             <small class="text-muted d-block mb-2">
                                 <i class="ri-eye-line me-1"></i>
-                                Gambaran jawaban calon siswa
+                                Contoh jawaban calon siswa
                             </small>
 
                             @if ($jenis === 'teks')
@@ -335,12 +335,12 @@
                                             for="create_wajib_diisi"
                                             class="form-check-label fw-medium"
                                         >
-                                            Wajib diisi calon siswa
+                                            Wajib dijawab calon siswa
                                         </label>
                                     </div>
 
                                     <small class="text-muted d-block mt-1">
-                                        Jika dinonaktifkan, calon siswa boleh melewati pertanyaan ini.
+                                        Jika dinonaktifkan, pertanyaan ini boleh dilewati.
                                     </small>
 
                                     @error('wajib_diisi')

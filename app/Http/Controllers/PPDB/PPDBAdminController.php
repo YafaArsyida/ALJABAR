@@ -4,6 +4,10 @@ namespace App\Http\Controllers\PPDB;
 
 use App\Http\Controllers\Controller;
 use App\Models\PPDBBerkas;
+use App\Models\PPDBPendaftaran;
+use App\Services\PPDB\PPDBBerkasArsipService;
+use App\Services\Reports\PPDBLaporanPendataanReportService;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -92,6 +96,43 @@ class PPDBAdminController extends Controller
     public function laporan()
     {
         return view('ppdb.admin.laporan');
+    }
+
+    public function cetakLaporan(
+        Request $request,
+        PPDBLaporanPendataanReportService $reportService
+    ) {
+        $filters = $request->validate([
+            'jenjang' => ['required', 'integer'],
+            'tahun' => ['required', 'integer'],
+            'jalur' => ['nullable', 'integer'],
+            'search' => ['nullable', 'string', 'max:150'],
+        ]);
+
+        $data = $reportService->getData($filters);
+
+        return Pdf::loadView('reports.ppdb.laporan-pendataan', $data)
+            ->setPaper('a4', 'landscape')
+            ->download('laporan-pendataan-spmb.pdf');
+    }
+
+    public function unduhBerkas(
+        $pendaftaranId,
+        PPDBBerkasArsipService $arsipService
+    ) {
+        $pendaftaran = PPDBPendaftaran::query()
+            ->with('ppdb_calon_siswa')
+            ->where('status', 'diterima')
+            ->findOrFail($pendaftaranId);
+
+        $arsip = $arsipService->buatArsip(
+            (int) $pendaftaran->getKey(),
+            $pendaftaran->ppdb_calon_siswa?->nama_siswa ?? 'Calon-Siswa'
+        );
+
+        return response()
+            ->download($arsip['path'], $arsip['nama'])
+            ->deleteFileAfterSend(true);
     }
 
     public function pengaturan()

@@ -13,6 +13,17 @@
     $totalStep = count($steps);
     $stepAktif = max(1, min($stepAktif ?? 1, $totalStep));
     $persentase = round(($stepAktif / $totalStep) * 100);
+    $currentStep = min(max((int) ($pendaftaran->current_step ?? 0), 0), $totalStep);
+    $routeStep = [
+        1 => 'ppdb.pendaftaran.jalur',
+        2 => 'ppdb.pendaftaran.data-siswa',
+        3 => 'ppdb.pendaftaran.orang-tua',
+        4 => 'ppdb.pendaftaran.alamat',
+        5 => 'ppdb.pendaftaran.pendidikan',
+        6 => 'ppdb.pendaftaran.berkas',
+        7 => 'ppdb.pendaftaran.review',
+        8 => 'ppdb.pendaftaran.status',
+    ];
 @endphp
 
 <div class="card border shadow-none rounded-4 mb-4">
@@ -20,9 +31,9 @@
 
         <div class="d-flex flex-column flex-md-row justify-content-between gap-2 mb-3">
             <div>
-                <h6 class="fw-semibold mb-1">Progress Pendaftaran</h6>
+                <h6 class="fw-semibold mb-1">{{ $judulProgress ?? 'Progres Pendataan SPMB' }}</h6>
                 <small class="text-muted">
-                    Lengkapi setiap langkah untuk menyelesaikan pendaftaran.
+                    {{ $deskripsiProgress ?? 'Lengkapi setiap langkah untuk menyelesaikan pendataan SPMB.' }}
                 </small>
             </div>
 
@@ -35,7 +46,7 @@
             class="progress rounded-pill"
             style="height: 8px;"
             role="progressbar"
-            aria-label="Progress pendaftaran"
+            aria-label="{{ $labelProgress ?? 'Progres pendataan SPMB' }}"
             aria-valuenow="{{ $persentase }}"
             aria-valuemin="0"
             aria-valuemax="100"
@@ -51,10 +62,22 @@
                 @php
                     $selesai = $nomor < $stepAktif;
                     $aktif = $nomor === $stepAktif;
+                    $bisaDibuka = $pendaftaran && $nomor <= $currentStep;
                 @endphp
 
-                <div class="d-flex align-items-center gap-2
-                    {{ $selesai ? 'text-success' : ($aktif ? 'text-primary' : 'text-muted') }}">
+                @if ($bisaDibuka)
+                    <a
+                        href="{{ route($routeStep[$nomor], [
+                            'jenjang' => request()->route('jenjang'),
+                        ]) }}"
+                        class="d-flex align-items-center gap-2 text-decoration-none
+                            {{ $selesai ? 'text-success' : ($aktif ? 'text-primary' : 'text-muted') }}"
+                        aria-label="Buka langkah {{ $nama }}"
+                    >
+                @else
+                    <div class="d-flex align-items-center gap-2
+                        {{ $selesai ? 'text-success' : ($aktif ? 'text-primary' : 'text-muted') }}">
+                @endif
 
                     <div class="avatar-xs">
                         <div class="avatar-title rounded-circle fs-12
@@ -75,7 +98,11 @@
                     <span class="small {{ $aktif ? 'fw-semibold' : '' }}">
                         {{ $nama }}
                     </span>
-                </div>
+                @if ($bisaDibuka)
+                    </a>
+                @else
+                    </div>
+                @endif
             @endforeach
         </div>
 

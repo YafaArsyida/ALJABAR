@@ -44,11 +44,11 @@
                     </span>
 
                     <h4 class="fw-bold mb-2" id="perbaikanLabel">
-                        Minta Perbaikan Pendaftaran
+                        Minta Perbaikan Pendataan
                     </h4>
 
                     <p class="text-muted mb-0 lh-lg">
-                        Pendaftaran akan dikembalikan kepada orang tua
+                        Pendataan akan dikembalikan kepada orang tua
                         untuk diperbaiki. Tuliskan bagian yang perlu
                         dilengkapi atau diperbaiki dengan jelas.
                     </p>
@@ -94,7 +94,7 @@
                             <h6 class="fw-semibold mb-1">Perhatian</h6>
                             <p class="text-muted mb-0 fs-13">
                                 Catatan akan ditampilkan kepada orang tua
-                                pada halaman status pendaftaran.
+                                pada halaman status pendataan.
                             </p>
                         </div>
                     </div>

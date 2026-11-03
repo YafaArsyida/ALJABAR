@@ -46,12 +46,12 @@
                     </span>
 
                     <h3 class="fw-bold mb-2" id="diterimaLabel">
-                        Terima Pendaftaran?
+                        Terima Calon Siswa?
                     </h3>
 
                     <p class="text-muted mb-0 lh-lg px-lg-3">
                         Pastikan data calon siswa dan dokumen persyaratan
-                        sudah diperiksa. Pendaftaran akan ditandai
+                        sudah diperiksa. Data pendataan akan ditandai
                         <strong>diterima</strong> setelah Anda mengonfirmasi.
                     </p>
                 </div>

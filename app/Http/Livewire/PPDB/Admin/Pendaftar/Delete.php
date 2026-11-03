@@ -23,7 +23,7 @@ class Delete extends Component
     {
         if (! $this->ppdb_pendaftaran_id) {
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Pilih pendaftaran yang akan dihapus.',
+                'message' => 'Pilih data calon siswa yang akan dihapus.',
             ]);
 
             return;
@@ -37,7 +37,7 @@ class Delete extends Component
             if (! $pendaftaran) {
 
                 $this->dispatchBrowserEvent('alertify-error', [
-                    'message' => 'Pendaftaran tidak ditemukan atau sudah dihapus.',
+                    'message' => 'Data calon siswa tidak ditemukan atau sudah dihapus.',
                 ]);
 
                 $this->reset('ppdb_pendaftaran_id');
@@ -54,7 +54,7 @@ class Delete extends Component
             ]);
 
             $this->dispatchBrowserEvent('alertify-success', [
-                'message' => "Pendaftaran {$nomorPendaftaran} berhasil dihapus.",
+                'message' => "Data calon siswa dengan nomor pendataan {$nomorPendaftaran} berhasil dihapus.",
             ]);
 
             $this->reset('ppdb_pendaftaran_id');
@@ -67,7 +67,7 @@ class Delete extends Component
             report($e);
 
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Pendaftaran gagal dihapus. Silakan coba kembali.',
+                'message' => 'Data calon siswa gagal dihapus. Silakan coba kembali.',
             ]);
         }
     }

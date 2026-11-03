@@ -17,6 +17,8 @@ class PPDBKartuAljabarService
         $jalur = $pendaftaran->ppdb_jalur;
 
         $tanggalLahir = $siswa?->tanggal_lahir;
+        $kodeJalur = mb_strtolower(trim((string) $jalur?->kode_jalur));
+        $namaJalur = mb_strtolower(trim((string) $jalur?->nama_jalur));
 
         return [
             'judul' => 'KARTU ALJABAR (AL HIDAYAH JEJAK BARU)',
@@ -34,6 +36,8 @@ class PPDBKartuAljabarService
 
             'jenis_kelamin' => $siswa?->jenis_kelamin ?? '-',
             'nama_jalur' => $jalur?->nama_jalur ?? '-',
+            'is_jalur_alumni' => str_contains($kodeJalur, 'alumni')
+                || str_contains($namaJalur, 'alumni'),
 
             // Prioritas nomor telepon ayah, kemudian ibu, lalu wali.
             'telepon' => $orangTua?->telepon_ayah

@@ -3,16 +3,16 @@
     {{-- FORM PENCARIAN STATUS --}}
     <div class="card border-0 shadow rounded-4 p-4 p-lg-5 bg-white text-body ppdb-status-lookup">
         <h4 class="fs-5 fw-semibold mb-2">
-            Cek status pendaftaran
+            Cek status pendataan
         </h4>
 
         <p class="text-muted mb-4">
-            Siapkan nomor pendaftaran yang Anda terima setelah mengirim formulir.
+            Siapkan nomor pendataan yang Anda terima setelah mengirim formulir.
         </p>
 
         <form wire:submit.prevent="cekStatus">
             <label for="ppdb-registration-number" class="form-label fw-semibold">
-                Nomor pendaftaran
+                Nomor pendataan
             </label>
 
             <input
@@ -20,7 +20,7 @@
                 class="form-control @error('nomorPendaftaran') is-invalid @enderror"
                 id="ppdb-registration-number"
                 wire:model.defer="nomorPendaftaran"
-                placeholder="Contoh: PPDB-2027-0001"
+                placeholder="Masukkan nomor pendataan"
                 autocomplete="off"
                 aria-describedby="ppdb-registration-hint"
             >
@@ -30,7 +30,7 @@
             @enderror
 
             <small class="form-text" id="ppdb-registration-hint">
-                Masukkan nomor sesuai bukti pendaftaran.
+                Masukkan nomor sesuai bukti pendataan.
             </small>
 
             @if ($pesanStatus)
@@ -68,7 +68,7 @@
             <div>
                 <strong class="d-block mb-1">Sudah memiliki akun?</strong>
                 <span class="small text-muted">
-                    Masuk ke Portal Pendaftar untuk melihat detail.
+                    Masuk ke Portal SPMB untuk melihat detail status pendataan.
                 </span>
             </div>
 
@@ -110,10 +110,10 @@
                                 class="modal-title mb-1 text-dark"
                                 id="ModalStatusPendaftaranLabel"
                             >
-                                Status Pendaftaran
+                                Status Pendataan
                             </h5>
                             <p class="text-muted small mb-0">
-                                Informasi penerimaan peserta didik baru
+                                Informasi status pendataan calon peserta didik
                             </p>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                         <div class="text-center py-5">
                             <div class="spinner-border text-primary mb-3"></div>
                             <p class="text-muted mb-0">
-                                Memuat informasi pendaftaran...
+                                Memuat informasi pendataan...
                             </p>
                         </div>
                     @else
@@ -156,7 +156,7 @@
                         <div class="card border rounded-4 shadow-none mb-3">
                             <div class="card-body p-3 p-md-4">
                                 <div class="text-muted small mb-1">
-                                    Nomor Pendaftaran
+                                    Nomor Pendataan
                                 </div>
 
                                 <h5 class="text-primary fw-bold mb-3">
@@ -183,7 +183,7 @@
 
                                     <div>
                                         <div class="text-muted small mb-1">
-                                            Jalur Pendaftaran
+                                            Jalur Pendataan
                                         </div>
                                         <div class="fw-semibold text-dark">
                                             {{ $pendaftaran['nama_jalur'] ?? '-' }}
@@ -201,7 +201,7 @@
 
                                     <div>
                                         <div class="text-muted small mb-1">
-                                            Status Pendaftaran
+                                            Status Pendataan
                                         </div>
                                         <span class="badge rounded-pill px-3 py-2 {{ $statusClass[$pendaftaran['status'] ?? ''] ?? 'bg-secondary-subtle text-secondary' }}">
                                             {{ $statusLabel[$pendaftaran['status'] ?? ''] ?? ucfirst($pendaftaran['status'] ?? '-') }}
@@ -210,7 +210,7 @@
 
                                     <div>
                                         <div class="text-muted small mb-1">
-                                            Pendaftaran
+                                            Tanggal Pendataan
                                         </div>
                                         <div class="text-dark">
                                             @if (!empty($pendaftaran['created_at']))
@@ -251,17 +251,17 @@
                         @if (($pendaftaran['status'] ?? null) === 'draft')
                             <div class="alert alert-info rounded-4 mt-3 mb-0">
                                 <i class="ri-information-line me-1"></i>
-                                Pendaftaran Anda masih berupa draft. Silakan masuk ke portal untuk melanjutkan dan mengirim pendaftaran.
+                                Data pendataan Anda masih berupa draf. Silakan masuk ke portal untuk melanjutkan dan mengirim formulir pendataan.
                             </div>
                         @elseif (($pendaftaran['status'] ?? null) === 'pengecekan')
                             <div class="alert alert-warning rounded-4 mt-3 mb-0">
                                 <i class="ri-time-line me-1"></i>
-                                Pendaftaran sedang diperiksa oleh panitia. Silakan periksa kembali status secara berkala.
+                                Data pendataan sedang diperiksa oleh panitia. Silakan periksa kembali status secara berkala.
                             </div>
                         @elseif (($pendaftaran['status'] ?? null) === 'diterima')
                             <div class="alert alert-success rounded-4 mt-3 mb-0">
                                 <i class="ri-checkbox-circle-line me-1"></i>
-                                Selamat! Pendaftaran Anda telah diterima.
+                                Selamat! Data pendataan Anda telah diterima.
                             </div>
                         @endif
                     @endif
@@ -282,7 +282,7 @@
                         class="btn btn-primary rounded-pill px-4"
                     >
                         <i class="ri-login-box-line me-1"></i>
-                        Portal Pendaftar
+                        Portal SPMB
                     </a>
                 </div>
 

@@ -29,7 +29,7 @@
                             {{ number_format($totalAntrian, 0, ',', '.') }}
                         </div>
                         <div class="text-muted small">
-                            Pendaftaran
+                            Pendataan
                         </div>
                     </div>
 
@@ -66,7 +66,7 @@
                             {{ number_format($menungguPemeriksaan, 0, ',', '.') }}
                         </div>
                         <div class="text-muted small">
-                            Pendaftaran
+                            Pendataan
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@
                             {{ number_format($totalPerbaikan, 0, ',', '.') }}
                         </div>
                         <div class="text-muted small">
-                            Pendaftaran
+                            Pendataan
                         </div>
                     </div>
 

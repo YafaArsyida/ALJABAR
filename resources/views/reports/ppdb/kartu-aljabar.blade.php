@@ -10,8 +10,8 @@
             ========================================================= */
 
             @page {
-                size: A4 landscape;
-                margin: 10mm;
+                size: A4 portrait;
+                margin: 0;
             }
 
             * {
@@ -29,19 +29,36 @@
 
             .page-content {
                 position: relative;
-                width: 100%;
+                top: 10mm;
+                width: 277mm;
+                margin-left: 10mm;
             }
 
-            .page-break {
-                page-break-after: always;
+            .card-side {
+                position: relative;
+                width: 210mm;
+                height: 148.5mm;
+                overflow: hidden;
+                page-break-inside: avoid;
             }
 
-            /* Background untuk seluruh halaman PDF */
-            .page-background {
-                position: fixed;
+            .landscape-canvas {
+                position: absolute;
+                top: 5mm;
+                left: 7mm;
                 width: 297mm;
                 height: 210mm;
-                z-index: -1000;
+                transform: scale(0.66);
+                transform-origin: top left;
+            }
+
+            .page-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 297mm;
+                height: 210mm;
+                z-index: 0;
             }
 
             .page-background img {
@@ -274,9 +291,15 @@
 
             .page-2-content {
                 position: relative;
-                width: 100%;
-                margin-top: 15mm;
+                width: 277mm;
+                margin-left: 10mm;
+                margin-top: 5mm;
                 padding: 0 1mm;
+                z-index: 1;
+            }
+
+            .landscape-canvas > .page-content {
+                z-index: 1;
             }
 
             .student-header,
@@ -546,7 +569,7 @@
             .payment-note {
                 padding: 2mm 2mm 2.5mm;
                 color: #bd2035;
-                font-size: 8px;
+                font-size: 6px;
                 font-style: italic;
                 font-weight: bold;
                 line-height: 1.4;
@@ -558,19 +581,17 @@
 
     <body>
 
-        {{-- BACKGROUND DIGUNAKAN PADA SEMUA HALAMAN --}}
-        <div class="page-background">
-            <img
-                src="{{ public_path('assets/pdf/kartu-aljabar-background.webp') }}"
-                alt=""
-            >
-        </div>
+        <div class="card-side">
+            <div class="landscape-canvas">
+                <div class="page-background">
+                    <img
+                        src="{{ public_path('assets/pdf/kartu-aljabar-background.webp') }}"
+                        alt=""
+                    >
+                </div>
 
-        {{-- ==========================================================
-            HALAMAN 1: KARTU ALJABAR
-        =========================================================== --}}
-
-        <div class="page-content">
+                {{-- HALAMAN PERTAMA KARTU --}}
+                <div class="page-content">
             <table class="school-header">
                 <tr>
                     {{-- LOGO SEKOLAH --}}
@@ -666,11 +687,21 @@
                 </tr>
             </table>
 
+                </div>
+            </div>
         </div>
 
-        <div class="page-break"></div>
+        <div class="card-side">
+            <div class="landscape-canvas">
+                <div class="page-background">
+                    <img
+                        src="{{ public_path('assets/pdf/kartu-aljabar-background.webp') }}"
+                        alt=""
+                    >
+                </div>
 
-        <div class="page-content page-2-content">
+                {{-- HALAMAN KEDUA KARTU --}}
+                <div class="page-content page-2-content">
 
             {{-- ======================================================
                 HEADER IDENTITAS SISWA
@@ -761,20 +792,21 @@
                                     </div>
                                     --}}
 
-                                    {{-- POTONGAN --}}
-                                    <div class="category-heading category-heading-potongan">
-                                        Potongan
-                                    </div>
+                                    @if ($is_jalur_alumni ?? false)
+                                        <div class="category-heading category-heading-potongan">
+                                            Potongan
+                                        </div>
 
-                                    <div class="category-subitem">
-                                        <span class="category-checkbox"></span>
-                                        Pengembangan 100% (November - Desember)
-                                    </div>
+                                        <div class="category-subitem">
+                                            <span class="category-checkbox"></span>
+                                            Pengembangan 100% + APP 10%
+                                        </div>
 
-                                    <div class="category-subitem">
-                                        <span class="category-checkbox"></span>
-                                        Kakak Adik (20% APP)
-                                    </div>
+                                        <div class="category-subitem">
+                                            <span class="category-checkbox"></span>
+                                            Kakak Adik APP 20%
+                                        </div>
+                                    @endif
 
                                 </div>
                             </div>
@@ -786,7 +818,7 @@
                             <table class="activity-table">
                                 <thead>
                                     <tr>
-                                        <th>Januari – Februari</th>
+                                        <th>Januari – April</th>
                                         <th>Mei – Juni</th>
                                     </tr>
                                 </thead>
@@ -1020,6 +1052,8 @@
                 </tbody>
             </table>
 
+        </div>
+            </div>
         </div>
     </body>
 </html>

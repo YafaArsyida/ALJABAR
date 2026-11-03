@@ -32,7 +32,7 @@ class Perbaikan extends Component
             $this->reset(['pendaftaranId', 'catatanPerbaikan']);
 
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Pendaftaran tidak tersedia untuk diperiksa.',
+                'message' => 'Data pendataan tidak tersedia untuk diperiksa.',
             ]);
 
             return;
@@ -65,7 +65,7 @@ class Perbaikan extends Component
         if (!$pendaftaran || $pendaftaran->status !== 'pengecekan') {
             $this->dispatchBrowserEvent('notifikasi', [
                 'type' => 'error',
-                'message' => 'Status pendaftaran sudah berubah atau data tidak ditemukan.',
+                'message' => 'Status pendataan sudah berubah atau data tidak ditemukan.',
             ]);
 
             return;
@@ -84,7 +84,7 @@ class Perbaikan extends Component
         ]);
 
         $this->dispatchBrowserEvent('alertify-success', [
-            'message' => 'Pendaftaran berhasil dikembalikan',
+            'message' => 'Pendataan berhasil dikembalikan untuk diperbaiki.',
         ]);
 
         $this->reset([

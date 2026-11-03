@@ -15,8 +15,8 @@
                         Data Orang Tua/Wali
                     </h5>
                     <small class="text-muted">
-                        Lengkapi informasi orang tua atau wali calon siswa.
-                        Informasi domisili calon siswa saat ini.
+                        Lengkapi informasi orang tua atau wali calon siswa untuk
+                        SPMB Tahun Ajaran 2027/2028, termasuk domisili saat ini.
                     </small>
                 </div>
             </div>
@@ -146,15 +146,18 @@
 
                         {{-- Penghasilan --}}
                         <div class="col-md-6">
-                            <label class="form-label" for="ayah-penghasilan">Penghasilan per Bulan</label>
+                            <label class="form-label" for="ayah-penghasilan">
+                                Penghasilan Ayah per Bulan <span class="text-danger">*</span>
+                            </label>
                             <select id="ayah-penghasilan"
                                 class="form-select @error('ayah_penghasilan') is-invalid @enderror"
-                                wire:model.defer="ayah_penghasilan">
-                                <option value="">Pilih rentang penghasilan</option>
+                                wire:model="ayah_penghasilan"
+                                required>
+                                <option value="">Pilih penghasilan ayah</option>
                                 <option value="TIDAK_ADA">Tidak Berpenghasilan</option>
                                 <option value="KURANG_1JT">Kurang dari Rp1.000.000</option>
                                 <option value="1JT_3JT">Rp1.000.000–Rp3.000.000</option>
-                                <option value="3JT_5JT">Rp3.000.000–Rp5.000.000</option>
+                                <option value="3JT_5JT">Lebih dari Rp3.000.000 hingga Rp5.000.000</option>
                                 <option value="5JT_7JT">Rp5.000.000–Rp7.000.000</option>
                                 <option value="LEBIH_7JT">Lebih dari Rp7.000.000</option>
                             </select>
@@ -304,15 +307,18 @@
 
                         {{-- Penghasilan --}}
                         <div class="col-md-6">
-                            <label class="form-label" for="ibu-penghasilan">Penghasilan per Bulan</label>
+                            <label class="form-label" for="ibu-penghasilan">
+                                Penghasilan Ibu per Bulan <span class="text-danger">*</span>
+                            </label>
                             <select id="ibu-penghasilan"
                                 class="form-select @error('ibu_penghasilan') is-invalid @enderror"
-                                wire:model.defer="ibu_penghasilan">
-                                <option value="">Pilih rentang penghasilan</option>
+                                wire:model="ibu_penghasilan"
+                                required>
+                                <option value="">Pilih penghasilan ibu</option>
                                 <option value="TIDAK_ADA">Tidak Berpenghasilan</option>
                                 <option value="KURANG_1JT">Kurang dari Rp1.000.000</option>
                                 <option value="1JT_3JT">Rp1.000.000–Rp3.000.000</option>
-                                <option value="3JT_5JT">Rp3.000.000–Rp5.000.000</option>
+                                <option value="3JT_5JT">Lebih dari Rp3.000.000 hingga Rp5.000.000</option>
                                 <option value="5JT_7JT">Rp5.000.000–Rp7.000.000</option>
                                 <option value="LEBIH_7JT">Lebih dari Rp7.000.000</option>
                             </select>
@@ -475,6 +481,28 @@
                                 @enderror
                             </div>
 
+                            {{-- Penghasilan --}}
+                            <div class="col-md-6">
+                                <label class="form-label" for="wali-penghasilan">
+                                    Penghasilan Wali per Bulan <span class="text-danger">*</span>
+                                </label>
+                                <select id="wali-penghasilan"
+                                    class="form-select @error('wali_penghasilan') is-invalid @enderror"
+                                    wire:model="wali_penghasilan"
+                                    required>
+                                    <option value="">Pilih penghasilan wali</option>
+                                    <option value="TIDAK_ADA">Tidak Berpenghasilan</option>
+                                    <option value="KURANG_1JT">Kurang dari Rp1.000.000</option>
+                                    <option value="1JT_3JT">Rp1.000.000–Rp3.000.000</option>
+                                    <option value="3JT_5JT">Lebih dari Rp3.000.000 hingga Rp5.000.000</option>
+                                    <option value="5JT_7JT">Rp5.000.000–Rp7.000.000</option>
+                                    <option value="LEBIH_7JT">Lebih dari Rp7.000.000</option>
+                                </select>
+                                @error('wali_penghasilan')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             {{-- WhatsApp --}}
                             <div class="col-md-6">
                                 <label class="form-label" for="wali-whatsapp">
@@ -503,6 +531,25 @@
                     @endif
                 </div>
             </div>
+
+            @if ($perluOrangTuaAsuh)
+                <div class="card border rounded-4 shadow-none mb-4">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input @error('bersedia_orang_tua_asuh') is-invalid @enderror"
+                                type="checkbox"
+                                id="bersedia-orang-tua-asuh"
+                                wire:model.defer="bersedia_orang_tua_asuh">
+                            <label class="form-check-label fw-semibold" for="bersedia-orang-tua-asuh">
+                                Apakah bersedia menjadi orang tua asuh?
+                            </label>
+                            @error('bersedia_orang_tua_asuh')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+            @endif
 
             {{-- ACTION --}}
             <div class="d-flex flex-column flex-sm-row justify-content-between gap-2">

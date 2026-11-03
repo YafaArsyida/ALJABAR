@@ -21,10 +21,10 @@
 
                     <div>
                         <h5 class="fw-bold mb-1" id="ModalEditJalurLabel">
-                            Edit Jalur PPDB
+                            Edit Jalur Seleksi SPMB
                         </h5>
                         <small class="text-muted">
-                            Perbarui identitas, kuota, biaya, dan status jalur pendaftaran.
+                            Perbarui identitas, kuota, biaya, dan status jalur seleksi.
                         </small>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                     {{-- PERIODE --}}
                     <section class="mb-4">
                         <div class="mb-3">
-                            <h6 class="fw-semibold mb-1">Periode PPDB</h6>
+                            <h6 class="fw-semibold mb-1">Periode SPMB</h6>
                             <small class="text-muted">
                                 Jalur tetap terhubung dengan periode asalnya.
                             </small>
@@ -81,7 +81,7 @@
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">Identitas Jalur</h6>
                             <small class="text-muted">
-                                Tentukan kode dan nama jalur penerimaan siswa.
+                                Tentukan kode dan nama jalur seleksi calon siswa.
                             </small>
                         </div>
 
@@ -148,7 +148,7 @@
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">Kuota dan Biaya</h6>
                             <small class="text-muted">
-                                Atur kapasitas penerimaan dan biaya pendaftaran.
+                                Atur kuota calon siswa dan biaya jalur SPMB.
                             </small>
                         </div>
 
@@ -175,7 +175,7 @@
 
                             <div class="col-md-6">
                                 <label for="edit_biaya_jalur" class="form-label">
-                                    Biaya Pendaftaran <span class="text-danger">*</span>
+                                    Biaya SPMB <span class="text-danger">*</span>
                                 </label>
 
                                 <div class="input-group">
@@ -199,7 +199,7 @@
                                 @enderror
 
                                 <small class="text-muted">
-                                    Isi 0 jika pendaftaran gratis.
+                                    Isi 0 jika tidak ada biaya.
                                 </small>
                             </div>
                         </div>
@@ -210,7 +210,7 @@
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">Status Jalur</h6>
                             <small class="text-muted">
-                                Jalur nonaktif tidak ditawarkan untuk pendaftaran baru.
+                                Jalur nonaktif tidak tersedia untuk pendataan baru.
                             </small>
                         </div>
 

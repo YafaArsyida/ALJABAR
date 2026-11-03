@@ -14,7 +14,6 @@
                 </h5>
                 <small class="text-muted">
                     Lengkapi informasi orang tua atau wali calon siswa.
-                    Informasi domisili calon siswa saat ini.
                 </small>
             </div>
         </div>
@@ -55,6 +54,9 @@
                             class="form-control @error('ayah_nama') is-invalid @enderror"
                             wire:model.defer="ayah_nama"
                             placeholder="Masukkan nama lengkap">
+                        <small class="text-muted">
+                            Nama akan disimpan dengan huruf kapital.
+                        </small>
                         @error('ayah_nama')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -148,15 +150,17 @@
 
                     {{-- Penghasilan --}}
                     <div class="col-md-6">
-                        <label class="form-label" for="bantu-ayah-penghasilan">Penghasilan per Bulan</label>
+                        <label class="form-label" for="bantu-ayah-penghasilan">
+                            Penghasilan per Bulan <span class="text-danger">*</span>
+                        </label>
                         <select id="bantu-ayah-penghasilan"
                             class="form-select @error('ayah_penghasilan') is-invalid @enderror"
-                            wire:model.defer="ayah_penghasilan">
+                            wire:model="ayah_penghasilan">
                             <option value="">Pilih rentang penghasilan</option>
                             <option value="TIDAK_ADA">Tidak Berpenghasilan</option>
                             <option value="KURANG_1JT">Kurang dari Rp1.000.000</option>
                             <option value="1JT_3JT">Rp1.000.000–Rp3.000.000</option>
-                            <option value="3JT_5JT">Rp3.000.000–Rp5.000.000</option>
+                            <option value="3JT_5JT">Lebih dari Rp3.000.000 hingga Rp5.000.000</option>
                             <option value="5JT_7JT">Rp5.000.000–Rp7.000.000</option>
                             <option value="LEBIH_7JT">Lebih dari Rp7.000.000</option>
                         </select>
@@ -216,6 +220,9 @@
                             class="form-control @error('ibu_nama') is-invalid @enderror"
                             wire:model.defer="ibu_nama"
                             placeholder="Masukkan nama lengkap">
+                        <small class="text-muted">
+                            Nama akan disimpan dengan huruf kapital.
+                        </small>
                         @error('ibu_nama')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -309,15 +316,17 @@
 
                     {{-- Penghasilan --}}
                     <div class="col-md-6">
-                        <label class="form-label" for="bantu-ibu-penghasilan">Penghasilan per Bulan</label>
+                        <label class="form-label" for="bantu-ibu-penghasilan">
+                            Penghasilan per Bulan <span class="text-danger">*</span>
+                        </label>
                         <select id="bantu-ibu-penghasilan"
                             class="form-select @error('ibu_penghasilan') is-invalid @enderror"
-                            wire:model.defer="ibu_penghasilan">
+                            wire:model="ibu_penghasilan">
                             <option value="">Pilih rentang penghasilan</option>
                             <option value="TIDAK_ADA">Tidak Berpenghasilan</option>
                             <option value="KURANG_1JT">Kurang dari Rp1.000.000</option>
                             <option value="1JT_3JT">Rp1.000.000–Rp3.000.000</option>
-                            <option value="3JT_5JT">Rp3.000.000–Rp5.000.000</option>
+                            <option value="3JT_5JT">Lebih dari Rp3.000.000 hingga Rp5.000.000</option>
                             <option value="5JT_7JT">Rp5.000.000–Rp7.000.000</option>
                             <option value="LEBIH_7JT">Lebih dari Rp7.000.000</option>
                         </select>
@@ -420,6 +429,9 @@
                                 maxlength="150"
                                 placeholder="Masukkan nama lengkap"
                             >
+                            <small class="text-muted">
+                                Nama akan disimpan dengan huruf kapital.
+                            </small>
 
                             @error('wali_nama')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -527,6 +539,31 @@
                             @enderror
                         </div>
 
+                        {{-- Penghasilan --}}
+                        <div class="col-md-6">
+                            <label class="form-label" for="bantu-wali-penghasilan">
+                                Penghasilan per Bulan <span class="text-danger">*</span>
+                            </label>
+
+                            <select
+                                id="bantu-wali-penghasilan"
+                                class="form-select @error('wali_penghasilan') is-invalid @enderror"
+                                wire:model="wali_penghasilan"
+                            >
+                                <option value="">Pilih rentang penghasilan</option>
+                                <option value="TIDAK_ADA">Tidak Berpenghasilan</option>
+                                <option value="KURANG_1JT">Kurang dari Rp1.000.000</option>
+                                <option value="1JT_3JT">Rp1.000.000–Rp3.000.000</option>
+                                <option value="3JT_5JT">Lebih dari Rp3.000.000 hingga Rp5.000.000</option>
+                                <option value="5JT_7JT">Rp5.000.000–Rp7.000.000</option>
+                                <option value="LEBIH_7JT">Lebih dari Rp7.000.000</option>
+                            </select>
+
+                            @error('wali_penghasilan')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         {{-- WhatsApp --}}
                         <div class="col-md-6">
                             <label class="form-label" for="bantu-wali-whatsapp">
@@ -567,6 +604,31 @@
             </div>
 
         </div>
+
+        @if (
+            in_array($ayah_penghasilan, ['3JT_5JT', '5JT_7JT', 'LEBIH_7JT'], true)
+            || in_array($ibu_penghasilan, ['3JT_5JT', '5JT_7JT', 'LEBIH_7JT'], true)
+            || ($gunakan_wali && in_array($wali_penghasilan, ['3JT_5JT', '5JT_7JT', 'LEBIH_7JT'], true))
+        )
+            <div class="card border rounded-4 shadow-none mt-4 mb-0">
+                <div class="card-body">
+                    <div class="form-check">
+                        <input
+                            class="form-check-input @error('bersedia_orang_tua_asuh') is-invalid @enderror"
+                            type="checkbox"
+                            id="bantu-bersedia-orang-tua-asuh"
+                            wire:model.defer="bersedia_orang_tua_asuh"
+                        >
+                        <label class="form-check-label fw-semibold" for="bantu-bersedia-orang-tua-asuh">
+                            Apakah bersedia menjadi orang tua asuh?
+                        </label>
+                        @error('bersedia_orang_tua_asuh')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        @endif
 
     </div>
 </div>

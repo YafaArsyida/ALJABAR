@@ -146,32 +146,34 @@
             }
 
             // Copy clipboard
-            window.copyToClipboard = function(text) {
+            window.copyToClipboard = function(text, label = 'Nomor pendaftaran') {
                 if (!text) {
                     if (window.alertify) {
-                        alertify.error('Nomor pendaftaran tidak tersedia.');
+                        alertify.error(label + ' tidak tersedia.');
                     } else {
-                        alert('Nomor pendaftaran tidak tersedia.');
+                        alert(label + ' tidak tersedia.');
                     }
-                    return;
+                    return Promise.resolve(false);
                 }
 
-                navigator.clipboard.writeText(text)
+                return navigator.clipboard.writeText(text)
                     .then(() => {
                         if (window.alertify) {
-                            alertify.success('Nomor pendaftaran berhasil disalin!');
+                            alertify.success(label + ' berhasil disalin!');
                         } else {
-                            alert('Nomor pendaftaran berhasil disalin!');
+                            alert(label + ' berhasil disalin!');
                         }
+                        return true;
                     })
                     .catch(err => {
                         console.error('Gagal menyalin:', err);
 
                         if (window.alertify) {
-                            alertify.error('Gagal menyalin nomor pendaftaran.');
+                            alertify.error('Gagal menyalin ' + label.toLowerCase() + '.');
                         } else {
-                            alert('Gagal menyalin nomor pendaftaran.');
+                            alert('Gagal menyalin ' + label.toLowerCase() + '.');
                         }
+                        return false;
                     });
             };
 

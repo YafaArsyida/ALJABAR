@@ -20,7 +20,7 @@
                 <h5
                     class="fw-semibold mb-1"
                     id="offcanvasPemeriksaanPendaftaranLabel">
-                    Pemeriksaan Pendaftaran
+                    Pemeriksaan Pendataan SPMB
                 </h5>
 
                 <p class="text-muted small mb-0">
@@ -51,7 +51,7 @@
             <div class="text-center py-5">
                 <div class="spinner-border text-primary mb-3"></div>
                 <p class="text-muted mb-0">
-                    Memuat informasi pendaftar...
+                    Memuat informasi calon siswa...
                 </p>
             </div>
         @else
@@ -71,7 +71,7 @@
                 ];
             @endphp
 
-            {{-- INFORMASI PENDAFTARAN --}}
+            {{-- INFORMASI PENDATAAN --}}
             <div class="bg-white border-bottom p-3 p-md-4">
                 <div class="card border rounded-4 shadow-none mb-0">
                     <div class="card-body p-3 p-md-4">
@@ -79,7 +79,7 @@
 
                             <div class="col-12 col-md">
                                 <div class="text-muted small mb-1">
-                                    Nomor Pendaftaran
+                                    Nomor Pendataan
                                 </div>
 
                                 <h5 class="text-primary fw-bold mb-2">
@@ -322,7 +322,7 @@
 
                         <div>
                             <div class="fw-semibold small">
-                                Pemeriksaan Pendaftaran
+                                Pemeriksaan Pendataan
                             </div>
                             <small class="text-muted">
                                 Pastikan data dan berkas telah diperiksa sebelum mengambil keputusan.
@@ -347,7 +347,7 @@
                             Minta Perbaikan
                         </button>
 
-                        {{-- TERIMA PENDAFTARAN --}}
+                        {{-- TERIMA CALON SISWA --}}
                         <button
                             type="button"
                             class="btn btn-success rounded-pill px-4"
@@ -362,7 +362,7 @@
                             @endif
                         >
                             <i class="ri-checkbox-circle-line me-1"></i>
-                            Terima Pendaftaran
+                            Terima Calon Siswa
                         </button>
                     </div>
                 </div>

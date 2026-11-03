@@ -71,7 +71,7 @@ class Delete extends Component
                 DB::rollBack();
 
                 $this->dispatchBrowserEvent('alertify-error', [
-                    'message' => 'Pertanyaan tidak dapat dihapus karena sudah memiliki jawaban pendaftar.',
+                    'message' => 'Pertanyaan tidak dapat dihapus karena sudah memiliki jawaban calon siswa.',
                 ]);
 
                 return;

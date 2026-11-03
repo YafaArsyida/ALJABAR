@@ -13,7 +13,8 @@
             <div>
                 <h5 class="fw-bold mb-1">Ubah Data Calon Siswa</h5>
                 <small class="text-muted">
-                    Perbarui identitas calon siswa dengan benar.
+                    Perbarui identitas calon siswa untuk SPMB Tahun Ajaran 2027/2028
+                    sesuai dokumen resmi.
                 </small>
             </div>
         </div>

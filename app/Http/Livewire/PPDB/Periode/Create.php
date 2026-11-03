@@ -106,7 +106,7 @@ class Create extends Component
             DB::commit();
 
             $this->dispatchBrowserEvent('alertify-success', [
-                'message' => 'Periode PPDB berhasil ditambahkan.',
+                'message' => 'Periode SPMB berhasil ditambahkan.',
             ]);
 
             $this->dispatchBrowserEvent('hide-modal', [
@@ -130,7 +130,7 @@ class Create extends Component
             report($e);
 
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Periode PPDB gagal disimpan. Silakan coba kembali.',
+                'message' => 'Periode SPMB gagal disimpan. Silakan coba kembali.',
             ]);
         }
     }

@@ -12,10 +12,10 @@
     
                     <div>
                         <h5 class="fw-bold mb-1">
-                            Pilihan Jalur Pendaftaran
+                            Pilihan Jalur Pendataan SPMB
                         </h5>
                         <small>
-                            Informasi pilihan jalur pendaftaran Anda.
+                            Informasi jalur SPMB yang telah Anda pilih.
                         </small>
                     </div>
                 </div>
@@ -56,11 +56,11 @@
             <div wire:key="mode-detail-jalur-{{ $pendaftaranId }}">
                 <div class="row g-3">
 
-                    {{-- NOMOR PENDAFTARAN --}}
+                    {{-- NOMOR PENDATAAN --}}
                     <div class="col-12">
                         <div class="p-3 bg-light rounded-3">
                             <div class="text-muted small mb-1">
-                                Nomor Pendaftaran
+                                Nomor Pendataan
                             </div>
 
                             <div class="fw-bold text-primary">
@@ -69,10 +69,10 @@
                         </div>
                     </div>
 
-                    {{-- JALUR PENDAFTARAN --}}
+                    {{-- JALUR PENDATAAN --}}
                     <div class="col-md-6">
                         <div class="text-muted small mb-1">
-                            Jalur Pendaftaran
+                            Jalur Pendataan
                         </div>
 
                         <div class="fw-semibold">
@@ -81,10 +81,10 @@
                         </div>
                     </div>
 
-                    {{-- GELOMBANG PENDAFTARAN --}}
+                    {{-- GELOMBANG SPMB --}}
                     <div class="col-md-6">
                         <div class="text-muted small mb-1">
-                            Gelombang Pendaftaran
+                            Gelombang SPMB
                         </div>
 
                         <div class="fw-semibold">
@@ -93,10 +93,10 @@
                         </div>
                     </div>
 
-                    {{-- TANGGAL PENDAFTARAN --}}
+                    {{-- TANGGAL PENDATAAN --}}
                     <div class="col-md-6">
                         <div class="text-muted small mb-1">
-                            Tanggal Pendaftaran
+                            Tanggal Pendataan
                         </div>
 
                         <div class="fw-semibold">
@@ -106,10 +106,10 @@
                         </div>
                     </div>
 
-                    {{-- STATUS PENDAFTARAN --}}
+                    {{-- STATUS PENDATAAN --}}
                     <div class="col-md-6">
                         <div class="text-muted small mb-1">
-                            Status Pendaftaran
+                            Status Pendataan
                         </div>
 
                         <div class="fw-semibold">
@@ -264,7 +264,7 @@
                                     {{-- <div class="mt-auto pt-3 border-top">
                                         <div class="d-flex justify-content-between align-items-start gap-3 mb-2">
                                             <span class="text-muted small">
-                                                Biaya pendaftaran
+                                                Biaya pendataan
                                             </span>
 
                                             <span class="fw-semibold small text-end">
@@ -326,7 +326,7 @@
 
                         <h6 class="fw-semibold mb-1">Belum Ada Jalur Tersedia</h6>
                         <p class="text-muted small mb-0">
-                            Saat ini belum ada jalur pendaftaran yang dapat dipilih.
+                            Saat ini belum ada jalur pendataan yang dapat dipilih.
                         </p>
                     </div>
                 @endif

@@ -21,10 +21,10 @@
 
                     <div>
                         <h5 class="fw-bold mb-1" id="ModalDetailJalurLabel">
-                            Detail Jalur PPDB
+                            Detail Jalur Seleksi SPMB
                         </h5>
                         <small class="text-muted">
-                            Informasi jalur penerimaan, kuota, biaya, dan periode pendaftaran siswa baru.
+                            Informasi jalur seleksi, kuota, biaya, dan periode SPMB.
                         </small>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                                 Identitas Jalur
                             </h6>
                             <small class="text-muted">
-                                Informasi utama jalur penerimaan siswa baru.
+                                Informasi utama jalur seleksi SPMB.
                             </small>
                         </div>
 
@@ -79,14 +79,14 @@
                         </div>
                     </section>
 
-                    {{-- PERIODE PPDB --}}
+                    {{-- PERIODE SPMB --}}
                     <section class="mb-4">
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">
-                                Periode PPDB
+                                Periode SPMB
                             </h6>
                             <small class="text-muted">
-                                Informasi periode dan tahun ajaran jalur penerimaan.
+                                Informasi periode dan tahun ajaran jalur seleksi.
                             </small>
                         </div>
 
@@ -121,13 +121,13 @@
                                 Kuota dan Biaya
                             </h6>
                             <small class="text-muted">
-                                Batas penerimaan dan biaya pendaftaran yang ditetapkan untuk jalur ini.
+                                Kuota calon siswa dan biaya SPMB untuk jalur ini.
                             </small>
                         </div>
 
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <label class="form-label">Kuota Penerimaan</label>
+                                <label class="form-label">Kuota Calon Siswa</label>
                                 <div class="form-control bg-light">
                                     {{ number_format($jalurDetail->kuota ?? 0, 0, ',', '.') }}
                                     siswa
@@ -135,7 +135,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label">Biaya Pendaftaran</label>
+                                <label class="form-label">Biaya SPMB</label>
                                 <div class="form-control bg-light text-break">
                                     Rp {{ number_format((float) $jalurDetail->biaya_pendaftaran, 0, ',', '.') }}
                                 </div>
@@ -150,7 +150,7 @@
                                 Status Jalur
                             </h6>
                             <small class="text-muted">
-                                Status konfigurasi jalur penerimaan siswa baru.
+                                Status konfigurasi jalur seleksi SPMB.
                             </small>
                         </div>
 

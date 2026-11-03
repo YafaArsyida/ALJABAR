@@ -48,11 +48,11 @@
                         </span>
 
                         <h3 class="fw-bold mb-2" id="deleteGelombangLabel">
-                            Hapus Gelombang PPDB
+                            Hapus Gelombang SPMB
                         </h3>
 
                         <p class="text-muted mb-0 lh-lg px-lg-4">
-                            Data gelombang pendaftaran akan dihapus dari sistem.
+                            Data gelombang SPMB akan dihapus dari sistem.
                             Tindakan ini tidak dapat dibatalkan.
                         </p>
                     </div>
@@ -68,7 +68,7 @@
                                 <h6 class="fw-semibold mb-1">Perhatian</h6>
                                 <p class="text-muted mb-0 fs-13">
                                     Pastikan gelombang tidak memiliki data
-                                    pendaftaran siswa yang masih digunakan
+                                    pendataan siswa yang masih berjalan
                                     sebelum melanjutkan penghapusan.
                                 </p>
                             </div>

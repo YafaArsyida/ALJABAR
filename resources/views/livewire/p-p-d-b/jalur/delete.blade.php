@@ -48,11 +48,11 @@
                         </span>
 
                         <h3 class="fw-bold mb-2" id="deleteJalurLabel">
-                            Hapus Jalur PPDB
+                            Hapus Jalur Seleksi
                         </h3>
 
                         <p class="text-muted mb-0 lh-lg px-lg-4">
-                            Data jalur pendaftaran akan dihapus dari sistem.
+                            Data jalur seleksi akan dihapus dari sistem.
                             Tindakan ini tidak dapat dibatalkan.
                         </p>
                     </div>
@@ -67,9 +67,9 @@
                             <div>
                                 <h6 class="fw-semibold mb-1">Perhatian</h6>
                                 <p class="text-muted mb-0 fs-13">
-                                    Jalur yang sudah digunakan dalam pendaftaran
-                                    siswa tidak dapat dihapus. Periksa data
-                                    pendaftaran sebelum melanjutkan.
+                                    Jalur yang sudah digunakan dalam pendataan
+                                    calon siswa tidak dapat dihapus. Periksa data
+                                    terkait sebelum melanjutkan.
                                 </p>
                             </div>
                         </div>

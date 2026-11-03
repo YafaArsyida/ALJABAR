@@ -36,7 +36,7 @@
                 ],
                 [
                     'judul' => 'Pas Foto',
-                    'deskripsi' => 'Foto calon siswa untuk keperluan administrasi pendaftaran.',
+                    'deskripsi' => 'Foto calon siswa untuk melengkapi pendataan SPMB.',
                     'ikon' => 'ri-image-line',
                     'berkas' => $pasFoto,
                     'wajib' => true,

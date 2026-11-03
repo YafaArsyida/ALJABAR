@@ -1,6 +1,6 @@
 @extends('template_portal_ppdb.v_template')
 
-@section('title', 'Review Pendaftaran')
+@section('title', 'Ringkasan Pendataan SPMB')
 
 @section('content')
 
@@ -14,7 +14,7 @@
                     'stepAktif' => $stepAktif
                 ])
 
-                {{-- Review Pendaftaran --}}
+                {{-- Ringkasan Pendataan --}}
                 @php
                     $calonSiswa = $pendaftaran->ppdb_calon_siswa;
                     $orangTua = $pendaftaran->ppdb_orangtua;
@@ -58,7 +58,7 @@
                                 </div>
 
                                 <div>
-                                    <h5 class="fw-bold mb-1">Review Pendaftaran</h5>
+                                    <h5 class="fw-bold mb-1">Ringkasan Pendataan SPMB</h5>
                                     <small class="text-muted">
                                         Pastikan informasi yang Anda masukkan sudah benar.
                                     </small>
@@ -75,7 +75,7 @@
                             <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
                                 <div>
                                     <div class="text-muted small mb-1">
-                                        Nomor Pendaftaran
+                                        Nomor Pendataan
                                     </div>
 
                                     <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
@@ -86,7 +86,7 @@
                                         @if (!empty($pendaftaran->nomor_pendaftaran))
                                             <button type="button"
                                                 class="btn btn-sm btn-light btn-icon rounded-circle"
-                                                title="Salin nomor pendaftaran"
+                                                title="Salin nomor pendataan"
                                                 onclick="copyToClipboard(@js($pendaftaran->nomor_pendaftaran))">
                                                 <i class="ri-file-copy-line"></i>
                                             </button>
@@ -474,7 +474,7 @@
                                     </div>
                                     <div>
                                         <h6 class="mb-1">Berkas Persyaratan</h6>
-                                        <p class="text-muted small mb-0">Dokumen pendukung pendaftaran</p>
+                                        <p class="text-muted small mb-0">Dokumen pendukung pendataan SPMB</p>
                                     </div>
                                 </div>
 
@@ -550,7 +550,7 @@
                                     <div>
                                         <h6 class="fw-semibold mb-1">Informasi Tambahan</h6>
                                         <small class="text-muted">
-                                            Jawaban atas pertanyaan tambahan pendaftaran
+                                            Jawaban atas pertanyaan tambahan SPMB
                                         </small>
                                     </div>
                                 </div>
@@ -587,13 +587,13 @@
 
                                     <div>
                                         <h6 class="fw-semibold mb-1">
-                                            Pendaftaran sudah dikirim
+                                            Pendataan sudah dikirim
                                         </h6>
 
                                         <p class="text-muted small mb-0">
-                                            Anda dapat melihat informasi pendaftaran ini.
+                                            Anda dapat melihat ringkasan pendataan ini.
                                             Perubahan data mengikuti ketentuan dan proses
-                                            verifikasi panitia PPDB.
+                                            verifikasi panitia SPMB.
                                         </p>
                                     </div>
                                 </div>
@@ -609,12 +609,12 @@
                                     Dashboard
                                 </a>
 
-                                {{-- STATUS PENDAFTARAN --}}
+                                {{-- STATUS PENDATAAN --}}
                                 <a href="{{ route('ppdb.pendaftaran.status', [
                                         'jenjang' => $pendaftaran->ppdb_periode->ms_jenjang->slug,
                                     ]) }}"
                                     class="btn btn-primary rounded-pill px-4">
-                                    Status Pendaftaran
+                                    Status Pendataan
                                     <i class="ri-arrow-right-line ms-1"></i>
                                 </a>
                             </div>

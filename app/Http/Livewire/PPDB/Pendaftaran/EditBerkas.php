@@ -40,10 +40,10 @@ class EditBerkas extends Component
     }
 
     protected $messages = [
-        'fileKartuKeluarga.max' => 'Ukuran Kartu Keluarga maksimal 2 MB.',
-        'fileAktaKelahiran.max' => 'Ukuran Akta Kelahiran maksimal 2 MB.',
-        'filePasFoto.max' => 'Ukuran pas foto maksimal 2 MB.',
-        'fileDokumenPendukung.max' => 'Ukuran dokumen pendukung maksimal 2 MB.',
+        'fileKartuKeluarga.max' => 'Ukuran Kartu Keluarga maksimal 5 MB.',
+        'fileAktaKelahiran.max' => 'Ukuran Akta Kelahiran maksimal 5 MB.',
+        'filePasFoto.max' => 'Ukuran pas foto maksimal 5 MB.',
+        'fileDokumenPendukung.max' => 'Ukuran dokumen pendukung maksimal 5 MB.',
         '*.mimes' => 'Format file harus JPG, JPEG, PNG, WebP, atau PDF.',
     ];
 
@@ -116,10 +116,10 @@ class EditBerkas extends Component
     protected function aturanValidasi()
     {
         return [
-            'fileKartuKeluarga' => 'nullable|file|max:2048|mimes:jpg,jpeg,png,webp,pdf',
-            'fileAktaKelahiran' => 'nullable|file|max:2048|mimes:jpg,jpeg,png,webp,pdf',
-            'filePasFoto' => 'nullable|file|max:2048|mimes:jpg,jpeg,png,webp',
-            'fileDokumenPendukung' => 'nullable|file|max:2048|mimes:jpg,jpeg,png,webp,pdf',
+            'fileKartuKeluarga' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
+            'fileAktaKelahiran' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
+            'filePasFoto' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp',
+            'fileDokumenPendukung' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
         ];
     }
 

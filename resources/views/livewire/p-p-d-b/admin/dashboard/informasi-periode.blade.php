@@ -15,7 +15,7 @@
                 </h5>
 
                 <p class="text-muted mb-0">
-                    Periode pendaftaran
+                    Periode SPMB
                     {{ $periode->tanggal_mulai
                         ? \Carbon\Carbon::parse($periode->tanggal_mulai)
                             ->translatedFormat('d F Y')

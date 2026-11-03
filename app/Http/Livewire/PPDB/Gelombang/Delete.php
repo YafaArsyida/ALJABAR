@@ -42,7 +42,7 @@ class Delete extends Component
                 DB::rollBack();
 
                 $this->dispatchBrowserEvent('alertify-error', [
-                    'message' => 'Gelombang PPDB tidak ditemukan.',
+                    'message' => 'Gelombang SPMB tidak ditemukan.',
                 ]);
 
                 return;

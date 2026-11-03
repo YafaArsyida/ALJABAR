@@ -47,7 +47,9 @@ class EditOrangTua extends Component
     public $wali_tanggal_lahir = '';
     public $wali_berkebutuhan_khusus = 'Tidak';
     public $wali_pekerjaan = '';
+    public $wali_penghasilan = '';
     public $wali_whatsapp = '';
+    public $bersedia_orang_tua_asuh = false;
 
     public function mount($pendaftaranId)
     {
@@ -98,7 +100,7 @@ class EditOrangTua extends Component
         if (! $this->bolehUbahData($pendaftaran->status)) {
             abort(
                 403,
-                'Pendaftaran tidak dapat diubah pada status saat ini.'
+                'Data pendataan tidak dapat diubah pada status saat ini.'
             );
         }
     }
@@ -152,7 +154,8 @@ class EditOrangTua extends Component
             || filled($orangTua->telepon_wali)
             || filled($orangTua->tempat_lahir_wali)
             || filled($orangTua->tanggal_lahir_wali)
-            || filled($orangTua->berkebutuhan_khusus_wali);
+            || filled($orangTua->berkebutuhan_khusus_wali)
+            || filled($orangTua->penghasilan_wali);
 
         $this->wali_hubungan = $orangTua->hubungan_wali ?? '';
         $this->wali_nama = $orangTua->nama_wali ?? '';
@@ -168,7 +171,10 @@ class EditOrangTua extends Component
             $orangTua->berkebutuhan_khusus_wali ?? 'Tidak';
 
         $this->wali_pekerjaan = $orangTua->pekerjaan_wali ?? '';
+        $this->wali_penghasilan = $orangTua->penghasilan_wali ?? '';
         $this->wali_whatsapp = $orangTua->telepon_wali ?? '';
+        $this->bersedia_orang_tua_asuh =
+            $orangTua->bersedia_orang_tua_asuh === 'ya';
     }
 
     protected function rules()
@@ -202,7 +208,7 @@ class EditOrangTua extends Component
             ],
             'ayah_pekerjaan' => ['nullable', 'string', 'max:100'],
             'ayah_penghasilan' => [
-                'nullable',
+                'required',
                 Rule::in([
                     'TIDAK_ADA',
                     'KURANG_1JT',
@@ -242,7 +248,7 @@ class EditOrangTua extends Component
             ],
             'ibu_pekerjaan' => ['nullable', 'string', 'max:100'],
             'ibu_penghasilan' => [
-                'nullable',
+                'required',
                 Rule::in([
                     'TIDAK_ADA',
                     'KURANG_1JT',
@@ -297,12 +303,25 @@ class EditOrangTua extends Component
                 Rule::in(['Ya', 'Tidak']),
             ],
             'wali_pekerjaan' => ['nullable', 'string', 'max:100'],
+            'wali_penghasilan' => [
+                Rule::requiredIf($this->gunakan_wali),
+                'nullable',
+                Rule::in([
+                    'TIDAK_ADA',
+                    'KURANG_1JT',
+                    '1JT_3JT',
+                    '3JT_5JT',
+                    '5JT_7JT',
+                    'LEBIH_7JT',
+                ]),
+            ],
             'wali_whatsapp' => [
                 Rule::requiredIf($this->gunakan_wali),
                 'nullable',
                 'string',
                 'max:20',
             ],
+            'bersedia_orang_tua_asuh' => ['boolean'],
         ];
     }
 
@@ -319,6 +338,8 @@ class EditOrangTua extends Component
             'Pilihan kebutuhan khusus ayah wajib diisi.',
         'ayah_berkebutuhan_khusus.in' =>
             'Pilihan kebutuhan khusus ayah tidak valid.',
+        'ayah_penghasilan.required' => 'Penghasilan ayah wajib dipilih.',
+        'ayah_penghasilan.in' => 'Pilihan penghasilan ayah tidak valid.',
 
         // Data ibu
         'ibu_nama.required' => 'Nama ibu wajib diisi.',
@@ -332,6 +353,8 @@ class EditOrangTua extends Component
             'Pilihan kebutuhan khusus ibu wajib diisi.',
         'ibu_berkebutuhan_khusus.in' =>
             'Pilihan kebutuhan khusus ibu tidak valid.',
+        'ibu_penghasilan.required' => 'Penghasilan ibu wajib dipilih.',
+        'ibu_penghasilan.in' => 'Pilihan penghasilan ibu tidak valid.',
 
         // Data wali
         'wali_hubungan.required' => 'Hubungan dengan wali wajib dipilih.',
@@ -350,6 +373,8 @@ class EditOrangTua extends Component
         'wali_whatsapp.required' => 'Nomor WhatsApp wali wajib diisi.',
         'wali_whatsapp.max' =>
             'Nomor WhatsApp wali maksimal 20 karakter.',
+        'wali_penghasilan.required' => 'Penghasilan wali wajib dipilih.',
+        'wali_penghasilan.in' => 'Pilihan penghasilan wali tidak valid.',
     ];
 
     /**
@@ -365,6 +390,7 @@ class EditOrangTua extends Component
                 'wali_tempat_lahir',
                 'wali_tanggal_lahir',
                 'wali_pekerjaan',
+                'wali_penghasilan',
                 'wali_whatsapp',
             ]);
 
@@ -378,8 +404,34 @@ class EditOrangTua extends Component
                 'wali_tanggal_lahir',
                 'wali_berkebutuhan_khusus',
                 'wali_pekerjaan',
+                'wali_penghasilan',
                 'wali_whatsapp',
             ]);
+        }
+    }
+
+    public function updated($propertyName)
+    {
+        if ($propertyName === 'gunakan_wali' && ! $this->gunakan_wali) {
+            $this->wali_penghasilan = '';
+            $this->resetValidation(['wali_penghasilan']);
+        }
+
+        if (
+            in_array($propertyName, [
+                'ayah_penghasilan',
+                'ibu_penghasilan',
+                'wali_penghasilan',
+                'gunakan_wali',
+            ], true)
+            && ! PPDBOrangTuaService::penghasilanDiAtasTigaJuta([
+                'ayah_penghasilan' => $this->ayah_penghasilan,
+                'ibu_penghasilan' => $this->ibu_penghasilan,
+                'wali_penghasilan' => $this->wali_penghasilan,
+                'gunakan_wali' => $this->gunakan_wali,
+            ])
+        ) {
+            $this->bersedia_orang_tua_asuh = false;
         }
     }
 
@@ -403,7 +455,7 @@ class EditOrangTua extends Component
 
             if (!$pendaftaran) {
                 throw ValidationException::withMessages([
-                    'ayah_nama' => 'Pendaftaran tidak ditemukan. Silakan periksa kembali.',
+                    'ayah_nama' => 'Data pendataan tidak ditemukan. Silakan periksa kembali.',
                 ]);
             }
 
@@ -411,7 +463,7 @@ class EditOrangTua extends Component
             if (!$this->bolehUbahData($pendaftaran->status)) {
                 throw ValidationException::withMessages([
                     'ayah_nama' =>
-                        'Status pendaftaran sudah berubah. Data tidak dapat diperbarui.',
+                        'Status pendataan sudah berubah. Data tidak dapat diperbarui.',
                 ]);
             }
 
@@ -451,6 +503,12 @@ class EditOrangTua extends Component
 
         return view('livewire.p-p-d-b.pendaftaran.edit-orang-tua', [
             'pendaftaran' => $pendaftaran,
+            'perluOrangTuaAsuh' => PPDBOrangTuaService::penghasilanDiAtasTigaJuta([
+                'ayah_penghasilan' => $this->ayah_penghasilan,
+                'ibu_penghasilan' => $this->ibu_penghasilan,
+                'wali_penghasilan' => $this->wali_penghasilan,
+                'gunakan_wali' => $this->gunakan_wali,
+            ]),
         ]);
     }
 }

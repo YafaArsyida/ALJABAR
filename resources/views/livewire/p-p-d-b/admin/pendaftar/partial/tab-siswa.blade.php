@@ -50,6 +50,9 @@
                             maxlength="150"
                             placeholder="Nama sesuai dokumen resmi"
                         >
+                        <small class="text-muted">
+                            Nama akan disimpan dengan huruf kapital.
+                        </small>
                         @error('nama_siswa')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

@@ -45,12 +45,12 @@
                         </span>
 
                         <h3 class="fw-bold mb-2" id="deletePeriodeLabel">
-                            Hapus Periode PPDB
+                            Hapus Periode SPMB
                         </h3>
 
                         <p class="text-muted mb-0 lh-lg px-lg-4">
-                            Data periode pendaftaran akan dihapus secara permanen
-                            dari sistem. Tindakan ini tidak dapat dibatalkan.
+                            Data periode SPMB akan dihapus secara permanen dari
+                            sistem. Tindakan ini tidak dapat dibatalkan.
                         </p>
                     </div>
 
@@ -68,8 +68,8 @@
 
                                 <p class="text-muted mb-0 fs-13">
                                     Periode tidak dapat dihapus jika masih memiliki
-                                    gelombang pendaftaran. Pastikan data terkait
-                                    sudah tidak digunakan sebelum melanjutkan.
+                                    gelombang SPMB. Pastikan data terkait sudah
+                                    tidak digunakan sebelum melanjutkan.
                                 </p>
                             </div>
                         </div>

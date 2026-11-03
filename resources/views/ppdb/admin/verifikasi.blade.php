@@ -4,7 +4,7 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid" style="max-width: 100%">
-        {{-- Informasi periode PPDB --}}
+        {{-- Informasi periode SPMB --}}
         <div class="row">
             <div class="col-12">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">

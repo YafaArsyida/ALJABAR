@@ -94,7 +94,7 @@ class PertanyaanTambahan extends Component
             $this->muatData();
 
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Pendaftaran sudah dikirim dan tidak dapat diubah.',
+                'message' => 'Data SPMB sudah dikirim dan tidak dapat diubah.',
             ]);
 
             return false;
@@ -228,7 +228,7 @@ class PertanyaanTambahan extends Component
 
                 $this->dispatchBrowserEvent('alertify-error', [
                     'message' =>
-                        'Pendaftaran sudah dikirim sebelumnya.',
+                        'Data SPMB sudah dikirim sebelumnya.',
                 ]);
 
                 return;
@@ -315,7 +315,7 @@ class PertanyaanTambahan extends Component
             ]);
 
             $this->dispatchBrowserEvent('alertify-success', [
-                'message' => 'Pendaftaran berhasil dikirim.',
+                'message' => 'Data SPMB berhasil dikirim.',
             ]);
 
             $this->muatData();
@@ -345,7 +345,7 @@ class PertanyaanTambahan extends Component
             report($e);
 
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Pendaftaran gagal dikirim. Silakan coba kembali.',
+                'message' => 'Data SPMB gagal dikirim. Silakan coba kembali.',
             ]);
         }
     }

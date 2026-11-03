@@ -1,6 +1,6 @@
 @extends('template_portal_ppdb.v_template')
 
-@section('title', 'Data Orang Tua/Wali')
+@section('title', 'Data Orang Tua/Wali SPMB')
 
 @section('content')
 <div class="page-content">
@@ -11,12 +11,15 @@
 
                 {{-- PROGRESS PENDAFTARAN --}}
                 @include('ppdb.orang-tua.layouts.progress-pendaftaran', [
-                    'stepAktif' => $stepAktif
+                    'stepAktif' => $stepAktif,
+                    'judulProgress' => 'Progres Pendataan',
+                    'deskripsiProgress' => 'Lengkapi setiap langkah untuk menyelesaikan pendataan.',
+                    'labelProgress' => 'Progres pendataan',
                 ])
 
                 {{-- MAIN CARD --}}
                 @if (!$periode)
-                    {{-- Periode PPDB belum aktif --}}
+                    {{-- Periode SPMB belum aktif --}}
                     <div class="card border-0 shadow-sm rounded-4">
                         <div class="card-body p-4 text-center">
                             <div class="avatar-md mx-auto mb-3">
@@ -25,10 +28,10 @@
                                 </div>
                             </div>
 
-                            <h5 class="mb-2">Pendaftaran Belum Dibuka</h5>
+                            <h5 class="mb-2">Pendataan SPMB Belum Dibuka</h5>
                             <p class="text-muted mb-0">
-                                Periode PPDB belum tersedia. Silakan kembali
-                                ketika pendaftaran sudah dibuka.
+                                Periode SPMB belum tersedia. Silakan kembali
+                                saat pendataan sudah dibuka.
                             </p>
                         </div>
                     </div>
@@ -42,10 +45,10 @@
                                 </div>
                             </div>
 
-                            <h5 class="mb-2">Pilih Jalur Pendaftaran</h5>
+                            <h5 class="mb-2">Pilih Jalur Pendataan</h5>
 
                             <p class="text-muted mb-4">
-                                Anda belum memilih jalur pendaftaran.
+                                Anda belum memilih jalur pendataan.
                                 Silakan pilih jalur terlebih dahulu sebelum
                                 mengisi data calon siswa.
                             </p>
@@ -55,7 +58,7 @@
                                 ]) }}"
                                 class="btn btn-primary rounded-pill px-4">
                                 <i class="ri-route-line me-1"></i>
-                                Pilih Jalur Pendaftaran
+                                Pilih Jalur Pendataan
                             </a>
                         </div>
                     </div>
@@ -72,8 +75,8 @@
 
                             <h5 class="mb-2">Lengkapi Data Siswa</h5>
                             <p class="text-muted mb-4">
-                                Silakan pilih jalur pendaftaran dan lengkapi data
-                                calon siswa sebelum mengisi data orang tua.
+                                Silakan pilih jalur pendataan dan lengkapi data
+                                calon siswa SPMB sebelum mengisi data orang tua/wali.
                             </p>
 
                             <a href="{{ route('ppdb.pendaftaran.data-siswa', [

@@ -11,16 +11,16 @@
                 </div>
 
                 <div>
-                    <h5 class="fw-bold mb-1">Pendaftaran Terbaru</h5>
+                    <h5 class="fw-bold mb-1">Pendataan Terbaru</h5>
                     <small class="text-muted">
-                        Daftar calon siswa yang terakhir mendaftar.
+                        Daftar calon siswa yang terakhir didata.
                     </small>
                 </div>
             </div>
 
             <a href="{{ route('ppdb.admin.pendaftar') }}"
                 class="btn btn-outline-primary rounded-pill">
-                Lihat Semua Pendaftar
+                    Lihat Semua Calon Siswa
                 <i class="mdi mdi-arrow-right ms-1"></i>
             </a>
         </div>
@@ -54,7 +54,7 @@
                 </div>
 
                 <h6 class="fw-semibold mb-1">
-                    Belum Ada Periode PPDB
+                    Belum Ada Periode SPMB
                 </h6>
 
                 <p class="text-muted small mb-0">
@@ -71,11 +71,11 @@
                 </div>
 
                 <h6 class="fw-semibold mb-1">
-                    Belum Ada Pendaftar
+                    Belum Ada Data Pendataan
                 </h6>
 
                 <p class="text-muted small mb-0">
-                    Belum ada pendaftar pada periode ini.
+                    Belum ada calon siswa yang terdata pada periode ini.
                 </p>
             </div>
         @else
@@ -84,7 +84,7 @@
                     <thead class="table-light">
                         <tr>
                             <th scope="col">Calon Siswa</th>
-                            <th scope="col">Nomor Pendaftaran</th>
+                            <th scope="col">Nomor Pendataan</th>
                             <th scope="col">Jalur</th>
                             <th scope="col">Sumber</th>
                             <th scope="col">Tanggal</th>

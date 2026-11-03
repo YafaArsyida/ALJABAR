@@ -21,7 +21,7 @@
                                 </h5>
 
                                 <small class="text-muted">
-                                    Pantau perkembangan pendaftaran putra-putri Anda melalui portal SPMB.
+                                    Pantau perkembangan pendataan putra-putri Anda melalui portal SPMB.
                                 </small>
                             </div>
                         </div>
@@ -35,13 +35,13 @@
                                         'label' => 'Belum Dikirim',
                                         'class' => 'bg-secondary-subtle text-secondary',
                                         'icon' => 'ri-draft-line',
-                                        'deskripsi' => 'Lengkapi data dan kirim pendaftaran Anda.',
+                                        'deskripsi' => 'Lengkapi data dan kirim formulir pendataan Anda.',
                                     ],
                                     'pengecekan' => [
                                         'label' => 'Terdaftar',
                                         'class' => 'bg-primary-subtle text-primary',
                                         'icon' => 'ri-checkbox-circle-line',
-                                        'deskripsi' => 'Pendaftaran berhasil dikirim.',
+                                        'deskripsi' => 'Pendataan berhasil dikirim.',
                                     ],
                                     'perbaikan' => [
                                         'label' => 'Perlu Revisi',
@@ -67,7 +67,7 @@
                                     'label' => 'Dalam Proses',
                                     'class' => 'bg-secondary-subtle text-secondary',
                                     'icon' => 'ri-information-line',
-                                    'deskripsi' => 'Silakan periksa status pendaftaran secara berkala.',
+                                    'deskripsi' => 'Silakan periksa status pendataan secara berkala.',
                                 ];
 
                                 $bolehEdit = in_array($pendaftaran->status, [
@@ -80,7 +80,7 @@
                                 <div class="d-flex flex-column flex-lg-row justify-content-between gap-3">
                                     <div class="flex-grow-1">
                                         <div class="text-muted small mb-1">
-                                            Nomor Pendaftaran
+                                            Nomor Pendataan
                                         </div>
 
                                         <div class="d-flex align-items-center gap-2 flex-wrap mb-3">
@@ -91,7 +91,7 @@
                                             @if (!empty($pendaftaran->nomor_pendaftaran))
                                                 <button type="button"
                                                     class="btn btn-sm btn-light btn-icon rounded-circle"
-                                                    title="Salin nomor pendaftaran"
+                                                    title="Salin nomor pendataan"
                                                     onclick="copyToClipboard(@js($pendaftaran->nomor_pendaftaran))">
                                                     <i class="ri-file-copy-line"></i>
                                                 </button>
@@ -182,11 +182,11 @@
                                 </div>
 
                                 <h5 class="fw-semibold mb-2">
-                                    Belum Ada Pendaftaran
+                                    Belum Ada Pendataan
                                 </h5>
 
                                 <p class="text-muted mb-4 mx-auto" style="max-width: 380px;">
-                                    Mulai proses SPMB dengan memilih jalur pendaftaran yang tersedia.
+                                    Mulai proses SPMB dengan memilih jalur yang tersedia.
                                 </p>
 
                                 @if ($periode)
@@ -195,7 +195,7 @@
                                     ]) }}"
                                         class="btn btn-primary rounded-pill px-4">
                                         <i class="ri-arrow-right-line me-1"></i>
-                                        Mulai Pendaftaran
+                                        Mulai Pendataan
                                     </a>
                                 @else
                                     <div class="d-inline-flex align-items-center gap-2 text-muted small">
@@ -228,8 +228,8 @@
                                         </h5>
 
                                         <p class="text-muted mb-3">
-                                            Panitia meminta Anda memperbaiki data pendaftaran.
-                                            Silakan baca catatan berikut dan lakukan perbaikan
+                                            Panitia meminta Anda memperbaiki data pendataan.
+                                            Silakan baca catatan berikut dan perbarui data
                                             sebelum mengirim ulang.
                                         </p>
 
@@ -270,7 +270,7 @@
 
                                 <div>
                                     <h5 class="fw-bold mb-1">
-                                        Progres Pendaftaran
+                                        Progres Pendataan
                                     </h5>
 
                                     <small class="text-muted">
@@ -284,7 +284,7 @@
                             @php
                                 $steps = [
                                     1 => [
-                                        'label' => 'Jalur Pendaftaran',
+                                        'label' => 'Jalur Pendataan',
                                         'route' => 'ppdb.pendaftaran.jalur',
                                         'icon' => 'ri-route-line',
                                     ],
@@ -319,7 +319,7 @@
                                         'icon' => 'ri-checkbox-circle-line',
                                     ],
                                     8 => [
-                                        'label' => 'Status Pendaftaran',
+                                        'label' => 'Status Pendataan',
                                         'route' => 'ppdb.pendaftaran.status',
                                         'icon' => 'ri-time-line',
                                     ],
@@ -449,7 +449,7 @@
                                         ]) }}"
                                         class="btn btn-primary rounded-pill px-4">
                                         <i class="ri-edit-line me-1"></i>
-                                        {{ $status === 'perbaikan' ? 'Perbaiki Data' : 'Lanjutkan Pendaftaran' }}
+                                        {{ $status === 'perbaikan' ? 'Perbaiki Data' : 'Lanjutkan Pendataan' }}
                                     </a>
                                 </div>
                             @endif
@@ -474,7 +474,7 @@
                                     </h5>
 
                                     <small class="text-muted">
-                                        Periode penerimaan peserta didik baru.
+                                        Informasi SPMB Tahun Ajaran 2027/2028.
                                     </small>
                                 </div>
                             </div>
@@ -482,46 +482,81 @@
 
                         <div class="card-body">
                             <h6 class="fw-bold mb-3">
-                                {{ $periode->nama_periode }}
+                                Jadwal SPMB Tahun Ajaran 2027/2028
                             </h6>
 
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="border rounded-3 p-3 h-100">
                                         <small class="text-muted d-block mb-2">
-                                            <i class="ri-calendar-check-line me-1"></i>
-                                            Pendaftaran Dibuka
+                                            <i class="ri-calendar-event-line me-1"></i>
+                                            November 2026
                                         </small>
-
                                         <div class="fw-semibold">
-                                            {{ $periode->tanggal_mulai
-                                                ? \Carbon\Carbon::parse($periode->tanggal_mulai)->translatedFormat('d F Y')
-                                                : '-' }}
+                                            Tahap Pendataan
                                         </div>
+                                        <small class="text-muted">
+                                            Wawancara wali murid, pengisian formulir,
+                                            dan pengumpulan persyaratan SPMB.
+                                        </small>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="border rounded-3 p-3 h-100">
                                         <small class="text-muted d-block mb-2">
-                                            <i class="ri-calendar-close-line me-1"></i>
-                                            Pendaftaran Ditutup
+                                            <i class="ri-calendar-check-line me-1"></i>
+                                            Januari – Februari 2027
                                         </small>
-
                                         <div class="fw-semibold">
-                                            {{ $periode->tanggal_selesai
-                                                ? \Carbon\Carbon::parse($periode->tanggal_selesai)->translatedFormat('d F Y')
-                                                : '-' }}
+                                            Pengukuran Seragam
                                         </div>
+                                        <small class="text-muted">
+                                            Pengukuran seragam dan pembayaran buku
+                                            untuk kebutuhan satu tahun.
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="border rounded-3 p-3 h-100">
+                                        <small class="text-muted d-block mb-2">
+                                            <i class="ri-calendar-check-line me-1"></i>
+                                            Maret – April 2027
+                                        </small>
+                                        <div class="fw-semibold">
+                                            Skrining Psikologi
+                                        </div>
+                                        <small class="text-muted">
+                                            Pelaksanaan skrining serta pembayaran kegiatan,
+                                            SPP Juli, dan perlengkapan.
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="border rounded-3 p-3 h-100">
+                                        <small class="text-muted d-block mb-2">
+                                            <i class="ri-calendar-check-line me-1"></i>
+                                            Mei – Juni 2027
+                                        </small>
+                                        <div class="fw-semibold">
+                                            Persiapan Tahun Ajaran Baru
+                                        </div>
+                                        <small class="text-muted">
+                                            Pengambilan buku, seragam, dan Golden Gate,
+                                            serta pembayaran alat penunjang pendidikan
+                                            dan biaya pengembangan.
+                                        </small>
                                     </div>
                                 </div>
                             </div>
 
-                            @if (filled($periode->deskripsi))
-                                <p class="text-muted mb-0 mt-3">
-                                    {{ $periode->deskripsi }}
-                                </p>
-                            @endif
+                            <p class="text-muted small mb-0 mt-3">
+                                <i class="ri-information-line me-1"></i>
+                                Jadwal kegiatan dan pembayaran dapat diinformasikan
+                                lebih lanjut melalui panitia SPMB.
+                            </p>
                         </div>
                     </div>
                 @endif

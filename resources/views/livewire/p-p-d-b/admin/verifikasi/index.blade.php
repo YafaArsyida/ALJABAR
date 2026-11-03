@@ -28,7 +28,7 @@
             @if ($selectedJenjang && $selectedTahunAjar && $periode)
                 <div class="d-flex gap-2 flex-wrap">
 
-                    {{-- BANTU PENDAFTARAN --}}
+                    {{-- BANTU PENDATAAN --}}
                     <button
                         type="button"
                         class="btn btn-primary rounded-pill px-4"
@@ -38,7 +38,7 @@
                         wire:click="$emit('bukaBantuPendaftaran', {{ $periode->ppdb_periode_id }})">
 
                         <i class="ri-user-add-line me-1"></i>
-                        Bantu Pendaftaran
+                        Bantu Pendataan
                     </button>
 
                 </div>
@@ -63,7 +63,7 @@
                         type="text"
                         id="searchData"
                         class="form-control search"
-                        placeholder="Cari nama atau nomor pendaftaran..."
+                        placeholder="Cari nama atau nomor pendataan..."
                         wire:model.debounce.400ms="cari">
 
                     <i class="ri-search-line search-icon"></i>
@@ -143,7 +143,7 @@
                             <th class="text-center" style="width: 60px;">No.</th>
                             <th class="text-center" style="width: 70px;">Hapus</th>
                             <th>Calon Siswa</th>
-                            <th>Nomor Pendaftaran</th>
+                            <th>Nomor Pendataan</th>
                             <th>Jalur</th>
                             <th>Dokumen</th>
                             <th>Tanggal Dikirim</th>
@@ -170,7 +170,7 @@
                                         )"
                                         data-bs-trigger="hover"
                                         data-bs-placement="top"
-                                        title="Hapus Pendaftaran">
+                                        title="Hapus Pendataan">
 
                                         <i class="ri-delete-bin-5-fill fs-14"></i>
                                     </a>
@@ -212,7 +212,7 @@
                                     </div>
                                 </td>
 
-                                {{-- Nomor pendaftaran --}}
+                                {{-- Nomor pendataan --}}
                                 <td>
                                     <span class="fw-medium">
                                         {{ $item->nomor_pendaftaran }}
@@ -295,7 +295,7 @@
                                             class="btn btn-primary btn-sm rounded-pill px-3 text-nowrap"
                                             data-bs-toggle="offcanvas"
                                             data-bs-target="#offcanvasPemeriksaanPendaftaran"
-                                            title="Periksa Dokumen Pendaftaran"
+                                            title="Periksa Dokumen Pendataan"
                                             wire:click.prevent="$emit('bukaPemeriksaan', {{ $item->ppdb_pendaftaran_id }})">
 
                                             <i class="ri-eye-line align-bottom me-1"></i>
@@ -308,7 +308,7 @@
                                             class="btn {{ $item->status === 'diterima' ? 'btn-outline-dark' : 'btn-outline-danger' }} btn-sm rounded-pill px-3 text-nowrap"
                                             data-bs-toggle="offcanvas"
                                             data-bs-target="#offcanvasEditPendaftaran"
-                                            title="{{ $item->status === 'diterima' ? 'Pendaftaran sudah diterima dan tidak dapat diedit' : 'Edit Data Pendaftaran' }}"
+                                            title="{{ $item->status === 'diterima' ? 'Pendataan sudah diterima dan tidak dapat diedit' : 'Edit Data Pendataan' }}"
                                             wire:click.prevent="$emit('bukaEditPendaftaran', {{ $item->ppdb_pendaftaran_id }})"
                                             @disabled($item->status === 'diterima')
                                         >
@@ -412,11 +412,11 @@
                                     </div>
 
                                     <h6 class="fw-semibold mb-1">
-                                        Pendaftar tidak ditemukan
+                                        Calon siswa tidak ditemukan
                                     </h6>
 
                                     <p class="text-muted mb-3">
-                                        Tidak ada pendaftar yang sesuai dengan pencarian atau filter.
+                                        Tidak ada calon siswa yang sesuai dengan pencarian atau filter.
                                     </p>
 
                                     <button
@@ -447,7 +447,7 @@
                             <span class="fw-semibold">
                                 {{ $antrean->total() }}
                             </span>
-                            pendaftar
+                            calon siswa
                         </div>
 
                         <div>

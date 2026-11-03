@@ -14,11 +14,11 @@
 
                         <div>
                             <h5 class="fw-bold mb-1">
-                                Periode Pendaftaran
+                                Periode SPMB
                             </h5>
 
                             <small class="text-muted">
-                                Kelola periode PPDB dan jadwal penerimaan siswa jenjang <strong>{{ $namaJenjang ?: 'Jenjang belum dipilih' }} · {{ $namaTahunAjar ?: 'Tahun ajaran belum dipilih' }} </strong>.
+                                Kelola periode dan jadwal pendataan SPMB untuk jenjang <strong>{{ $namaJenjang ?: 'Jenjang belum dipilih' }} · {{ $namaTahunAjar ?: 'Tahun ajaran belum dipilih' }} </strong>.
                             </small>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                         </h5>
 
                         <p class="text-muted mb-0">
-                            Untuk melihat data periode PPDB, harap pilih
+                            Untuk melihat data periode SPMB, pilih
                             Jenjang dan Tahun Ajar terlebih dahulu.
                         </p>
                     </div>
@@ -102,7 +102,7 @@
                                     <th>Nama Periode</th>
                                     <th>Jenjang</th>
                                     <th>Tahun Ajaran</th>
-                                    <th>Jadwal Pendaftaran</th>
+                                    <th>Jadwal Pendataan</th>
                                     <th>Gelombang</th>
                                     <th>Status</th>
                                     <th class="text-end">Aksi</th>
@@ -142,7 +142,7 @@
                                             </h6>
 
                                             <small class="text-muted">
-                                                {{ $periode->deskripsi ?: 'Periode penerimaan siswa baru' }}
+                                                {{ $periode->deskripsi ?: 'Periode SPMB' }}
                                             </small>
                                         </td>
 
@@ -227,11 +227,11 @@
                                                 <i class="ri-calendar-event-line fs-1 text-muted"></i>
 
                                                 <h5 class="mt-2">
-                                                    Belum Ada Periode Pendaftaran
+                                                    Belum Ada Periode SPMB
                                                 </h5>
 
                                                 <p class="text-muted mb-0">
-                                                    Tidak ditemukan periode PPDB yang sesuai
+                                                    Tidak ditemukan periode SPMB yang sesuai
                                                     dengan pilihan atau pencarian.
                                                 </p>
                                             </div>

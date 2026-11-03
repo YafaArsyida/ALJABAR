@@ -31,7 +31,7 @@
                         <h6 class="fw-semibold mb-1">Ketentuan Unggah Dokumen</h6>
                         <p class="text-muted small mb-0">
                             Format JPG, JPEG, PNG, WebP, atau PDF dengan ukuran maksimal
-                            2 MB per file. Pas foto harus berupa gambar.
+                            5 MB per file. Pas foto harus berupa gambar.
                             Gambar akan dikonversi menjadi WebP saat disimpan.
                             PDF tetap dalam format PDF.
                         </p>

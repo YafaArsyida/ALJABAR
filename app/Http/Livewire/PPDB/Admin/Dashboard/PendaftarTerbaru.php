@@ -74,7 +74,7 @@ class PendaftarTerbaru extends Component
                             'sumber' => $pendaftar->ms_pengguna
                                 && $pendaftar->ms_pengguna->peran === 'ORANG_TUA'
                                     ? 'Orang tua'
-                                    : 'Petugas PPDB',
+                                    : 'Petugas SPMB',
 
                             'tanggal' => $pendaftar->created_at
                                 ? $pendaftar->created_at->translatedFormat('d M Y')

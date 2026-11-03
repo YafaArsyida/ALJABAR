@@ -20,11 +20,11 @@
 
                     <div>
                         <h5 class="fw-bold mb-1" id="ModalAddJalurLabel">
-                            Tambah Jalur Pendaftaran
+                            Tambah Jalur Seleksi
                         </h5>
 
                         <small class="text-muted">
-                            Atur identitas, kuota, dan biaya jalur PPDB.
+                            Atur identitas dan kuota jalur seleksi SPMB.
                         </small>
                     </div>
                 </div>
@@ -50,11 +50,11 @@
                         </small>
                     </div>
 
-                    {{-- PERIODE PPDB --}}
+                    {{-- PERIODE SPMB --}}
                     <section class="mb-4">
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">
-                                Periode PPDB
+                                Periode SPMB
                             </h6>
 
                             <small class="text-muted">
@@ -100,7 +100,7 @@
                             </h6>
 
                             <small class="text-muted">
-                                Tentukan kode dan nama jalur pendaftaran.
+                                Tentukan kode dan nama jalur seleksi.
                             </small>
                         </div>
 
@@ -198,7 +198,7 @@
                             </h6>
 
                             <small class="text-muted">
-                                Tentukan kapasitas dan biaya pendaftaran jalur.
+                                Tentukan kuota calon siswa dan biaya jalur SPMB.
                             </small>
                         </div>
 
@@ -237,7 +237,7 @@
                                     for="create_biaya_jalur"
                                     class="form-label"
                                 >
-                                    Biaya Pendaftaran
+                                    Biaya SPMB
                                     <span class="text-danger">*</span>
                                 </label>
 

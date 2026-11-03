@@ -20,10 +20,10 @@
 
                     <div>
                         <h5 class="fw-bold mb-1" id="ModalDetailPertanyaanLabel">
-                            Detail Pertanyaan PPDB
+                            Detail Pertanyaan SPMB
                         </h5>
                         <small class="text-muted">
-                            Informasi pertanyaan, jenis jawaban, dan pengaturan pengisian formulir pendaftaran.
+                            Informasi pertanyaan, jenis jawaban, dan ketentuan pengisian formulir pendataan.
                         </small>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                                     Opsi Jawaban
                                 </h6>
                                 <small class="text-muted">
-                                    Pilihan yang dapat dipilih oleh pendaftar.
+                                    Pilihan yang dapat dipilih calon siswa.
                                 </small>
                             </div>
 
@@ -174,7 +174,7 @@
                                 Pengaturan Pertanyaan
                             </h6>
                             <small class="text-muted">
-                                Ketentuan pengisian dan status pertanyaan pada formulir PPDB.
+                                Ketentuan pengisian dan status pertanyaan pada formulir pendataan SPMB.
                             </small>
                         </div>
 
@@ -221,11 +221,11 @@
                         </div>
                     </section>
 
-                    {{-- PERIODE PPDB --}}
+                    {{-- PERIODE SPMB --}}
                     <section>
                         <div class="mb-3">
                             <h6 class="fw-semibold mb-1">
-                                Periode PPDB
+                                Periode SPMB
                             </h6>
                             <small class="text-muted">
                                 Periode dan tahun ajaran tempat pertanyaan ini digunakan.

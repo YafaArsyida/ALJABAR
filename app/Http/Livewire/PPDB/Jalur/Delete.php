@@ -42,7 +42,7 @@ class Delete extends Component
                 DB::rollBack();
 
                 $this->dispatchBrowserEvent('alertify-error', [
-                    'message' => 'Jalur PPDB tidak ditemukan.',
+                    'message' => 'Jalur seleksi tidak ditemukan.',
                 ]);
 
                 return;
@@ -57,7 +57,7 @@ class Delete extends Component
                 DB::rollBack();
 
                 $this->dispatchBrowserEvent('alertify-error', [
-                    'message' => 'Jalur tidak dapat dihapus karena sudah digunakan dalam pendaftaran siswa.',
+                    'message' => 'Jalur tidak dapat dihapus karena sudah digunakan dalam pendataan calon siswa.',
                 ]);
 
                 return;

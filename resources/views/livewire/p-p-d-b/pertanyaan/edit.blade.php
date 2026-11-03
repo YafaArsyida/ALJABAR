@@ -20,10 +20,10 @@
 
                     <div>
                         <h5 class="fw-bold mb-1" id="ModalEditPertanyaanLabel">
-                            Edit Pertanyaan PPDB
+                            Edit Pertanyaan SPMB
                         </h5>
                         <small class="text-muted">
-                            Perbarui teks pertanyaan, jenis jawaban, dan pengaturan pengisian.
+                            Perbarui pertanyaan, jenis jawaban, dan ketentuan pengisian formulir pendataan.
                         </small>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
 
                                 <div class="flex-grow-1">
                                     <h6 class="fw-semibold mb-1">
-                                        Periode PPDB
+                                        Periode SPMB
                                     </h6>
 
                                     @if ($periode)
@@ -69,7 +69,7 @@
                                         </small>
                                     @else
                                         <small class="text-muted">
-                                            Periode akan ditampilkan setelah data pertanyaan dimuat.
+                                            Periode SPMB akan ditampilkan setelah data pertanyaan dimuat.
                                         </small>
                                     @endif
                                 </div>
@@ -300,7 +300,7 @@
                                 </label>
 
                                 <small class="text-muted d-block mt-1">
-                                    Jika diaktifkan, pendaftar harus menjawab pertanyaan ini sebelum mengirim formulir.
+                                    Jika diaktifkan, calon siswa wajib menjawab pertanyaan ini sebelum mengirim data pendataan.
                                 </small>
                             </div>
                         </div>

@@ -17,7 +17,7 @@
 
                         <p class="text-muted small mb-0">
                             Lengkapi informasi tambahan berikut
-                            sebelum mengirim pendaftaran.
+                            sebelum mengirim data SPMB.
                         </p>
                     </div>
                 </div>
@@ -139,7 +139,7 @@
                         </h6>
 
                         <p class="text-muted small mb-0">
-                            Anda dapat melanjutkan ke pengiriman pendaftaran.
+                            Anda dapat melanjutkan ke pengiriman data SPMB.
                         </p>
                     </div>
                 @endif
@@ -188,7 +188,7 @@
 
                         <span wire:loading.remove wire:target="bukaKonfirmasi">
                             <i class="ri-send-plane-line me-1"></i>
-                            Kirim Pendaftaran
+                            Kirim Data SPMB
                         </span>
 
                         <span wire:loading wire:target="bukaKonfirmasi">
@@ -250,13 +250,13 @@
                                 class="fw-bold mb-2"
                                 id="ModalKonfirmasiKirimLabel"
                             >
-                                Kirim Pendaftaran Sekarang?
+                                Kirim Data SPMB Sekarang?
                             </h3>
 
                             <p class="text-muted mb-0 lh-lg px-lg-3">
                                 Pastikan seluruh data calon siswa, orang tua/wali,
                                 alamat, pendidikan, dan berkas yang Anda isi sudah benar.
-                                Periksa kembali sebelum mengirim pendaftaran.
+                                Periksa kembali sebelum mengirim data SPMB.
                             </p>
                         </div>
 
@@ -273,8 +273,8 @@
                                     </h6>
 
                                     <p class="text-muted mb-0 fs-13">
-                                        Setelah dikirim, pendaftaran akan memasuki
-                                        proses verifikasi panitia SPMB. Perubahan
+                                        Setelah dikirim, data SPMB akan memasuki
+                                        proses verifikasi panitia. Perubahan
                                         data selanjutnya mengikuti ketentuan yang
                                         berlaku di sekolah.
                                     </p>
@@ -304,7 +304,7 @@
                         >
                             <span wire:loading.remove wire:target="kirimPendaftaran">
                                 <i class="ri-send-plane-line me-1"></i>
-                                Ya, Kirim Pendaftaran
+                                Ya, Kirim Data SPMB
                             </span>
 
                             <span wire:loading wire:target="kirimPendaftaran">

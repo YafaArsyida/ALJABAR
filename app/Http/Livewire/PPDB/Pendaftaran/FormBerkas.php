@@ -40,25 +40,25 @@ class FormBerkas extends Component
                 'nullable',
                 'file',
                 'mimes:jpg,jpeg,png,webp,pdf',
-                'max:2048',
+                'max:5120',
             ],
             'fileAktaKelahiran' => [
                 'nullable',
                 'file',
                 'mimes:jpg,jpeg,png,webp,pdf',
-                'max:2048',
+                'max:5120',
             ],
             'filePasFoto' => [
                 'nullable',
                 'image',
                 'mimes:jpg,jpeg,png,webp',
-                'max:2048',
+                'max:5120',
             ],
             'fileDokumenPendukung' => [
                 'nullable',
                 'file',
                 'mimes:jpg,jpeg,png,webp,pdf',
-                'max:2048',
+                'max:5120',
             ],
         ];
     }
@@ -68,7 +68,7 @@ class FormBerkas extends Component
         'fileAktaKelahiran.required' => 'Silakan pilih file Akta Kelahiran.',
         'filePasFoto.required' => 'Silakan pilih pas foto calon siswa.',
         '*.mimes' => 'Format file harus JPG, JPEG, PNG, WebP, atau PDF.',
-        '*.max' => 'Ukuran file maksimal 2 MB.',
+        '*.max' => 'Ukuran file maksimal 5 MB.',
     ];
 
     public function mount($periodeId = null, $pendaftaranId = null)
@@ -167,7 +167,7 @@ class FormBerkas extends Component
             $property => [
                 'required',
                 'file',
-                'max:2048',
+                'max:5120',
                 'mimes:jpg,jpeg,png,webp,pdf',
             ],
         ];
@@ -206,10 +206,10 @@ class FormBerkas extends Component
     protected function aturanBerkas()
     {
         return [
-            'fileKartuKeluarga' => 'nullable|file|max:2048|mimes:jpg,jpeg,png,webp,pdf',
-            'fileAktaKelahiran' => 'nullable|file|max:2048|mimes:jpg,jpeg,png,webp,pdf',
-            'filePasFoto' => 'nullable|file|max:2048|mimes:jpg,jpeg,png,webp',
-            'fileDokumenPendukung' => 'nullable|file|max:2048|mimes:jpg,jpeg,png,webp,pdf',
+            'fileKartuKeluarga' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
+            'fileAktaKelahiran' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
+            'filePasFoto' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp',
+            'fileDokumenPendukung' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
         ];
     }
 

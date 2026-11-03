@@ -26,10 +26,10 @@
                                 </div>
                             </div>
 
-                            <h5 class="mb-2">Pendaftaran Belum Dibuka</h5>
+                            <h5 class="mb-2">Pendataan SPMB Belum Dibuka</h5>
                             <p class="text-muted mb-0">
-                                Periode PPDB belum tersedia. Silakan kembali
-                                ketika pendaftaran sudah dibuka.
+                                Periode pendataan SPMB belum tersedia. Silakan
+                                kembali ketika pendataan sudah dibuka.
                             </p>
                         </div>
                     </div>
@@ -42,12 +42,12 @@
                                 </div>
                             </div>
 
-                            <h5 class="mb-2">Pilih Jalur Pendaftaran</h5>
+                            <h5 class="mb-2">Pilih Jalur SPMB</h5>
 
                             <p class="text-muted mb-4">
-                                Anda belum memilih jalur pendaftaran.
-                                Silakan pilih jalur terlebih dahulu sebelum
-                                mengisi data calon siswa.
+                                Anda belum memilih jalur SPMB. Silakan pilih
+                                jalur terlebih dahulu sebelum mengisi data
+                                calon siswa.
                             </p>
 
                             <a href="{{ route('ppdb.pendaftaran.jalur', [
@@ -55,7 +55,7 @@
                                 ]) }}"
                                 class="btn btn-primary rounded-pill px-4">
                                 <i class="ri-route-line me-1"></i>
-                                Pilih Jalur Pendaftaran
+                                Pilih Jalur SPMB
                             </a>
                         </div>
                     </div>
@@ -71,8 +71,8 @@
                             <h5 class="mb-2">Lengkapi Data Alamat</h5>
 
                             <p class="text-muted mb-4">
-                                Silakan lengkapi data alamat calon siswa agar proses
-                                pendaftaran dapat dilanjutkan.
+                                Silakan lengkapi data alamat calon siswa agar
+                                pendataan dapat dilanjutkan.
                             </p>
 
                             <a href="{{ route('ppdb.pendaftaran.data-siswa', [

@@ -21,10 +21,10 @@
 
                         <div>
                             <h5 class="modal-title mb-1" id="ModalDetailPendaftarLabel">
-                                Detail Pendaftar
+                                Detail Pendataan SPMB
                             </h5>
                             <p class="text-muted small mb-0">
-                                Ringkasan informasi calon siswa baru
+                                Ringkasan data calon siswa SPMB Tahun Ajaran 2027/2028
                             </p>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                         <div class="text-center py-5">
                             <div class="spinner-border text-primary mb-3"></div>
                             <p class="text-muted mb-0">
-                                Memuat informasi pendaftar...
+                                Memuat informasi pendataan...
                             </p>
                         </div>
                     @else
@@ -68,13 +68,13 @@
                         @endphp
 
                         
-                        {{-- Informasi Pendaftaran --}}
+                        {{-- Informasi Pendataan --}}
                         <div class="card border rounded-4 shadow-none mb-4">
                             <div class="card-body p-3 p-md-4">
                                 <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
                                     <div>
                                         <div class="text-muted small mb-1">
-                                            Nomor Pendaftaran
+                                            Nomor Pendataan
                                         </div>
 
                                         <h5 class="text-primary fw-bold mb-3">
@@ -182,7 +182,7 @@
                                 <div>
                                     <h6 class="mb-1">Data Orang Tua / Wali</h6>
                                     <p class="text-muted small mb-0">
-                                        Informasi keluarga dan kontak
+                                        Informasi keluarga, pekerjaan, penghasilan, dan kesediaan orang tua asuh
                                     </p>
                                 </div>
                             </div>
@@ -196,8 +196,33 @@
                                         </div>
 
                                         <div class="col-md-6">
+                                            <div class="text-muted small mb-1">NIK Ayah</div>
+                                            <div>{{ $orangTua->nik_ayah ?: '-' }}</div>
+                                        </div>
+
+                                        <div class="col-md-6">
                                             <div class="text-muted small mb-1">Telepon Ayah</div>
                                             <div>{{ $orangTua->telepon_ayah ?? '-' }}</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="text-muted small mb-1">Pekerjaan Ayah</div>
+                                            <div>{{ $orangTua->pekerjaan_ayah ?: '-' }}</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="text-muted small mb-1">Penghasilan Ayah per Bulan</div>
+                                            <div>
+                                                @switch($orangTua->penghasilan_ayah)
+                                                    @case('TIDAK_ADA') Tidak Berpenghasilan @break
+                                                    @case('KURANG_1JT') Kurang dari Rp1.000.000 @break
+                                                    @case('1JT_3JT') Rp1.000.000–Rp3.000.000 @break
+                                                    @case('3JT_5JT') Lebih dari Rp3.000.000 hingga Rp5.000.000 @break
+                                                    @case('5JT_7JT') Rp5.000.000–Rp7.000.000 @break
+                                                    @case('LEBIH_7JT') Lebih dari Rp7.000.000 @break
+                                                    @default -
+                                                @endswitch
+                                            </div>
                                         </div>
 
                                         <div class="col-md-6">
@@ -206,8 +231,33 @@
                                         </div>
 
                                         <div class="col-md-6">
+                                            <div class="text-muted small mb-1">NIK Ibu</div>
+                                            <div>{{ $orangTua->nik_ibu ?: '-' }}</div>
+                                        </div>
+
+                                        <div class="col-md-6">
                                             <div class="text-muted small mb-1">Telepon Ibu</div>
                                             <div>{{ $orangTua->telepon_ibu ?? '-' }}</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="text-muted small mb-1">Pekerjaan Ibu</div>
+                                            <div>{{ $orangTua->pekerjaan_ibu ?: '-' }}</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="text-muted small mb-1">Penghasilan Ibu per Bulan</div>
+                                            <div>
+                                                @switch($orangTua->penghasilan_ibu)
+                                                    @case('TIDAK_ADA') Tidak Berpenghasilan @break
+                                                    @case('KURANG_1JT') Kurang dari Rp1.000.000 @break
+                                                    @case('1JT_3JT') Rp1.000.000–Rp3.000.000 @break
+                                                    @case('3JT_5JT') Lebih dari Rp3.000.000 hingga Rp5.000.000 @break
+                                                    @case('5JT_7JT') Rp5.000.000–Rp7.000.000 @break
+                                                    @case('LEBIH_7JT') Lebih dari Rp7.000.000 @break
+                                                    @default -
+                                                @endswitch
+                                            </div>
                                         </div>
 
                                         @if (filled($orangTua->nama_wali))
@@ -221,10 +271,61 @@
                                             </div>
 
                                             <div class="col-md-6">
+                                                <div class="text-muted small mb-1">NIK Wali</div>
+                                                <div>{{ $orangTua->nik_wali ?: '-' }}</div>
+                                            </div>
+
+                                            <div class="col-md-6">
                                                 <div class="text-muted small mb-1">Telepon Wali</div>
                                                 <div>{{ $orangTua->telepon_wali ?? '-' }}</div>
                                             </div>
+
+                                            <div class="col-md-6">
+                                                <div class="text-muted small mb-1">Hubungan dengan Calon Siswa</div>
+                                                <div>
+                                                    @switch($orangTua->hubungan_wali)
+                                                        @case('KAKEK') Kakek @break
+                                                        @case('NENEK') Nenek @break
+                                                        @case('PAMAN') Paman @break
+                                                        @case('BIBI') Bibi @break
+                                                        @case('SAUDARA') Saudara @break
+                                                        @case('LAINNYA') Lainnya @break
+                                                        @default -
+                                                    @endswitch
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="text-muted small mb-1">Pekerjaan Wali</div>
+                                                <div>{{ $orangTua->pekerjaan_wali ?: '-' }}</div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="text-muted small mb-1">Penghasilan Wali per Bulan</div>
+                                                <div>
+                                                    @switch($orangTua->penghasilan_wali)
+                                                        @case('TIDAK_ADA') Tidak Berpenghasilan @break
+                                                        @case('KURANG_1JT') Kurang dari Rp1.000.000 @break
+                                                        @case('1JT_3JT') Rp1.000.000–Rp3.000.000 @break
+                                                        @case('3JT_5JT') Lebih dari Rp3.000.000 hingga Rp5.000.000 @break
+                                                        @case('5JT_7JT') Rp5.000.000–Rp7.000.000 @break
+                                                        @case('LEBIH_7JT') Lebih dari Rp7.000.000 @break
+                                                        @default -
+                                                    @endswitch
+                                                </div>
+                                            </div>
                                         @endif
+
+                                        <div class="col-md-6">
+                                            <div class="text-muted small mb-1">Kesediaan Menjadi Orang Tua Asuh</div>
+                                            <div>
+                                                @switch($orangTua->bersedia_orang_tua_asuh)
+                                                    @case('ya') Ya @break
+                                                    @case('tidak') Tidak @break
+                                                    @default -
+                                                @endswitch
+                                            </div>
+                                        </div>
                                     </div>
                                 @else
                                     <p class="text-muted mb-0">
@@ -296,7 +397,7 @@
                                     <div>
                                         <h6 class="mb-1">Riwayat Pendidikan</h6>
                                         <p class="text-muted small mb-0">
-                                            Informasi sekolah asal
+                                            Informasi pendidikan sebelumnya
                                         </p>
                                     </div>
                                 </div>
@@ -305,28 +406,40 @@
                                     <div class="row g-3">
                                         <div class="col-md-6">
                                             <div class="text-muted small mb-1">Jenjang Asal</div>
-                                            <div>{{ $pendidikan->jenjang_asal ?? '-' }}</div>
+                                            <div>
+                                                @switch($pendidikan->jenjang_asal)
+                                                    @case('TK') TK @break
+                                                    @case('RA') RA @break
+                                                    @case('SD') SD @break
+                                                    @case('PAUD') PAUD @break
+                                                    @case('TIDAK_ADA') Belum Pernah Bersekolah @break
+                                                    @default -
+                                                @endswitch
+                                            </div>
                                         </div>
 
-                                        <div class="col-md-6">
-                                            <div class="text-muted small mb-1">Nama Sekolah</div>
-                                            <div>{{ $pendidikan->asal_sekolah ?? '-' }}</div>
-                                        </div>
+                                        @if ($pendidikan->jenjang_asal !== 'TIDAK_ADA')
+                                            <div class="col-md-6">
+                                                <div class="text-muted small mb-1">Nama Pendidikan Sebelumnya</div>
+                                                <div>{{ $pendidikan->asal_sekolah ?: '-' }}</div>
+                                            </div>
 
-                                        <div class="col-md-6">
-                                            <div class="text-muted small mb-1">NPSN Sekolah Asal</div>
-                                            <div>{{ $pendidikan->npsn_asal_sekolah ?? '-' }}</div>
-                                        </div>
+                                            <div class="col-md-6">
+                                                <div class="text-muted small mb-1">Tahun Lulus</div>
+                                                <div>{{ $pendidikan->tahun_lulus ?: '-' }}</div>
+                                            </div>
 
-                                        <div class="col-md-6">
-                                            <div class="text-muted small mb-1">Tahun Lulus</div>
-                                            <div>{{ $pendidikan->tahun_lulus ?? '-' }}</div>
-                                        </div>
-
-                                        @if (filled($pendidikan->alamat_asal_sekolah))
+                                            @if (filled($pendidikan->alamat_asal_sekolah))
+                                                <div class="col-12">
+                                                    <div class="text-muted small mb-1">Alamat Pendidikan Sebelumnya</div>
+                                                    <div>{{ $pendidikan->alamat_asal_sekolah }}</div>
+                                                </div>
+                                            @endif
+                                        @else
                                             <div class="col-12">
-                                                <div class="text-muted small mb-1">Alamat Sekolah Asal</div>
-                                                <div>{{ $pendidikan->alamat_asal_sekolah }}</div>
+                                                <div class="text-muted small">
+                                                    Calon siswa belum pernah bersekolah di jenjang sebelumnya.
+                                                </div>
                                             </div>
                                         @endif
                                     </div>
@@ -348,7 +461,7 @@
                                     <div>
                                         <h6 class="mb-1">Berkas Persyaratan</h6>
                                         <p class="text-muted small mb-0">
-                                            Dokumen pendukung pendaftaran
+                                            Dokumen pendukung pendataan
                                         </p>
                                     </div>
                                 </div>
@@ -401,7 +514,7 @@
                                     <div>
                                         <h6 class="mb-1">Informasi Tambahan</h6>
                                         <p class="text-muted small mb-0">
-                                            Jawaban pertanyaan pendaftaran
+                                            Jawaban pertanyaan pendataan
                                         </p>
                                     </div>
                                 </div>
