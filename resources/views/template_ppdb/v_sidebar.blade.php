@@ -58,6 +58,15 @@
                     </a>
                 </li>
 
+                @if (in_array(strtoupper(Auth::user()->peran ?? ''), ['SUPERADMIN', 'ADMIN', 'PETUGAS_PPDB'], true))
+                    <li class="nav-item">
+                        <a href="{{ route('ppdb.admin.akses-petugas') }}" class="nav-link menu-link {{ request()->routeIs('ppdb.admin.akses-petugas') ? 'active' : '' }}">
+                            <i class="mdi mdi-account-key-outline"></i>
+                            <span>Akses Petugas</span>
+                        </a>
+                    </li>
+                @endif
+
                 <li class="menu-title"><span>OPERASIONAL SPMB</span></li>
 
                 <li class="nav-item">

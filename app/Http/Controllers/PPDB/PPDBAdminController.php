@@ -139,4 +139,9 @@ class PPDBAdminController extends Controller
     {
         return view('ppdb.admin.pengaturan');
     }
+
+    public function aksesPetugas()
+    {
+        return view('ppdb.admin.akses-petugas');
+    }
 }

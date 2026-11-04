@@ -294,7 +294,7 @@ Route::post('/logout', [
 //     Route::middleware(['auth'])->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 //     Route::get('/administrasi/manajemen-kepegawaian',  [ManajemenKepegawaian::class, 'index'])->name('administrasi.manajemen-kepegawaian');
-Route::middleware(['auth', 'peran:SUPERADMIN,ADMIN,KEUANGAN,PANITIA_PPDB'])->group(function () {
+Route::middleware(['auth', 'peran:SUPERADMIN,ADMIN,KEUANGAN,PETUGAS_PPDB'])->group(function () {
     /*
     |--------------------------------------------------------------------------
     | PPDB
@@ -340,6 +340,10 @@ Route::middleware(['auth', 'peran:SUPERADMIN,ADMIN,KEUANGAN,PANITIA_PPDB'])->gro
 
             Route::get('/pengaturan', [PPDBAdminController::class, 'pengaturan'])
                 ->name('pengaturan');
+
+            Route::get('/akses-petugas', [PPDBAdminController::class, 'aksesPetugas'])
+                ->middleware('peran:SUPERADMIN,ADMIN,PETUGAS_PPDB')
+                ->name('akses-petugas');
 
             Route::get('/berkas/preview/{berkasId}', [PPDBAdminController::class, 'showBerkas',])
                 ->name('berkas.preview');
