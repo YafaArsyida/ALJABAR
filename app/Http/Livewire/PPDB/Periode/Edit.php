@@ -14,6 +14,7 @@ class Edit extends Component
     public $deskripsi;
     public $tanggal_mulai;
     public $tanggal_selesai;
+    public $tautan_grup;
     public $status;
 
     protected $listeners = [
@@ -36,6 +37,7 @@ class Edit extends Component
         $this->tanggal_selesai = $periode->tanggal_selesai
             ? \Carbon\Carbon::parse($periode->tanggal_selesai)->format('Y-m-d')
             : null;
+        $this->tautan_grup = $periode->tautan_grup;
         $this->status = $periode->status;
     }
 
@@ -46,6 +48,7 @@ class Edit extends Component
             'deskripsi' => 'nullable|string',
             'tanggal_mulai' => 'required|date',
             'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
+            'tautan_grup' => 'nullable|url|max:2048',
             'status' => 'required',
         ];
     }
@@ -55,6 +58,8 @@ class Edit extends Component
         'tanggal_mulai.required' => 'Tanggal mulai wajib diisi.',
         'tanggal_selesai.required' => 'Tanggal selesai wajib diisi.',
         'tanggal_selesai.after_or_equal' => 'Tanggal selesai harus setelah atau sama dengan tanggal mulai.',
+        'tautan_grup.url' => 'Tautan grup harus berupa URL yang valid.',
+        'tautan_grup.max' => 'Tautan grup maksimal 2048 karakter.',
         'status.required' => 'Status periode wajib dipilih.',
     ];
 
@@ -69,6 +74,7 @@ class Edit extends Component
             'deskripsi' => $this->deskripsi,
             'tanggal_mulai' => $this->tanggal_mulai,
             'tanggal_selesai' => $this->tanggal_selesai,
+            'tautan_grup' => $this->tautan_grup ?: null,
             'status' => $this->status,
         ]);
 

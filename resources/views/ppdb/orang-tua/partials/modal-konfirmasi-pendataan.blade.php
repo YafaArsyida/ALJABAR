@@ -9,6 +9,12 @@
             . ($pendaftaran->nomor_pendaftaran ?? '-')
             . "\nTanggal pendataan: "
             . $tanggalPendataan;
+        $tautanGrup = $pendaftaran->ppdb_periode?->tautan_grup;
+        $skemaTautanGrup = is_string($tautanGrup)
+            ? strtolower((string) parse_url($tautanGrup, PHP_URL_SCHEME))
+            : '';
+        $tautanGrupValid = in_array($skemaTautanGrup, ['http', 'https'], true)
+            && filter_var($tautanGrup, FILTER_VALIDATE_URL);
     @endphp
 
     <div
@@ -51,7 +57,11 @@
                         Bergabung ke Grup SPMB
                     </h3>
                     <p class="text-muted mb-4">
-                        Salin pesan konfirmasi, bergabung ke grup WhatsApp SPMB, lalu tempel dan kirim pesan tersebut untuk menyelesaikan pendataan.
+                        @if ($tautanGrupValid)
+                            Salin pesan konfirmasi, bergabung ke grup WhatsApp SPMB, lalu tempel dan kirim pesan tersebut untuk menyelesaikan pendataan.
+                        @else
+                            Tautan grup WhatsApp untuk periode ini belum tersedia. Silakan hubungi panitia SPMB untuk mendapatkan informasi lebih lanjut.
+                        @endif
                     </p>
                     <div class="border rounded-4 p-3 text-start mb-3">
                         <div class="text-muted small mb-1">Pesan konfirmasi</div>
@@ -61,22 +71,24 @@
                     <button
                         type="button"
                         class="btn btn-outline-primary rounded-pill px-4"
-                        onclick="copyToClipboard(@js($pesanKonfirmasi), 'Pesan konfirmasi').then(disalin => { if (disalin) document.getElementById('tombolMasukGrup').classList.remove('d-none'); });">
+                        onclick="copyToClipboard(@js($pesanKonfirmasi), 'Pesan konfirmasi').then(disalin => { const tombol = document.getElementById('tombolMasukGrup'); if (disalin && tombol) tombol.classList.remove('d-none'); });">
                         <i class="ri-file-copy-line me-1"></i>
                         Salin Pesan
                     </button>
                 </div>
 
                 <div class="modal-footer border-0 pt-0 px-4 pb-4 justify-content-center">
-                    <a
-                        id="tombolMasukGrup"
-                        href="https://chat.whatsapp.com/I6W6WhjlHMHBQOvSAPV1Ov?s=cl&amp;p=a&amp;iam=2"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-success rounded-pill px-4 d-none">
-                        <i class="ri-whatsapp-line me-1"></i>
-                        Konfirmasi Masuk Grup
-                    </a>
+                    @if ($tautanGrupValid)
+                        <a
+                            id="tombolMasukGrup"
+                            href="{{ $tautanGrup }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-success rounded-pill px-4 d-none">
+                            <i class="ri-whatsapp-line me-1"></i>
+                            Konfirmasi Masuk Grup
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>

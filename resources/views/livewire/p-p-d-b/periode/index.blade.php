@@ -100,6 +100,7 @@
                                     <th width="30px">No</th>
                                     <th class="text-center">hapus</th>
                                     <th>Nama Periode</th>
+                                    <th>Grup WhatsApp</th>
                                     <th>Jenjang</th>
                                     <th>Tahun Ajaran</th>
                                     <th>Jadwal Pendataan</th>
@@ -144,6 +145,35 @@
                                             <small class="text-muted">
                                                 {{ $periode->deskripsi ?: 'Periode SPMB' }}
                                             </small>
+                                        </td>
+
+                                        {{-- TAUTAN GRUP --}}
+                                        <td>
+                                            @if ($periode->tautan_grup)
+                                                @php
+                                                    $skemaTautanGrup = strtolower(
+                                                        (string) parse_url(
+                                                            $periode->tautan_grup,
+                                                            PHP_URL_SCHEME
+                                                        )
+                                                    );
+                                                @endphp
+                                                @if (in_array($skemaTautanGrup, ['http', 'https'], true))
+                                                    <a
+                                                        href="{{ $periode->tautan_grup }}"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        class="btn btn-soft-success btn-sm rounded-pill px-3"
+                                                    >
+                                                        <i class="ri-whatsapp-line me-1"></i>
+                                                        Buka Grup
+                                                    </a>
+                                                @else
+                                                    <span class="text-muted">Tautan tidak valid</span>
+                                                @endif
+                                            @else
+                                                <span class="text-muted">Belum diatur</span>
+                                            @endif
                                         </td>
 
                                         {{-- JENJANG --}}
@@ -222,7 +252,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="8">
+                                        <td colspan="10">
                                             <div class="noresult text-center py-4">
                                                 <i class="ri-calendar-event-line fs-1 text-muted"></i>
 

@@ -98,6 +98,38 @@
                                     {{ $periodeDetail->keterangan ?: '-' }}
                                 </div>
                             </div>
+
+                            <div class="col-12">
+                                <label class="form-label">
+                                    Tautan Grup WhatsApp
+                                </label>
+
+                                <div class="form-control bg-light text-break">
+                                    @if ($periodeDetail->tautan_grup)
+                                        @php
+                                            $skemaTautanGrup = strtolower(
+                                                (string) parse_url(
+                                                    $periodeDetail->tautan_grup,
+                                                    PHP_URL_SCHEME
+                                                )
+                                            );
+                                        @endphp
+                                        @if (in_array($skemaTautanGrup, ['http', 'https'], true))
+                                            <a
+                                                href="{{ $periodeDetail->tautan_grup }}"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {{ $periodeDetail->tautan_grup }}
+                                            </a>
+                                        @else
+                                            {{ $periodeDetail->tautan_grup }}
+                                        @endif
+                                    @else
+                                        Belum diatur
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     </section>
 

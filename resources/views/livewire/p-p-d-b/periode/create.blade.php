@@ -242,6 +242,37 @@
                         </div>
                     </section>
 
+                    {{-- TAUTAN GRUP --}}
+                    <section class="mb-4">
+                        <div class="mb-3">
+                            <h6 class="fw-semibold mb-1">
+                                Grup WhatsApp SPMB
+                            </h6>
+                            <small class="text-muted">
+                                Tautan ini digunakan calon siswa untuk bergabung
+                                ke grup sesuai jenjang dan tahun ajaran.
+                            </small>
+                        </div>
+
+                        <div class="mb-0">
+                            <label for="create_tautan_grup" class="form-label">
+                                Tautan Grup
+                            </label>
+                            <input
+                                type="url"
+                                id="create_tautan_grup"
+                                wire:model.defer="tautan_grup"
+                                class="form-control @error('tautan_grup') is-invalid @enderror"
+                                placeholder="https://chat.whatsapp.com/..."
+                            >
+                            @error('tautan_grup')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </section>
+
                     {{-- STATUS --}}
                     <section>
                         <div class="mb-3">

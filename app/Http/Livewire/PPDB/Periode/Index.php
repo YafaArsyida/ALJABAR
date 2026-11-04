@@ -61,11 +61,17 @@ class Index extends Component
                 ->where('ms_tahun_ajar_id', $this->selectedTahunAjar)
                 ->when(
                     $this->search,
-                    fn ($q) => $q->where(
-                        'nama_periode',
-                        'like',
-                        '%' . $this->search . '%'
-                    )
+                    fn ($q) => $q->where(function ($query) {
+                        $query->where(
+                            'nama_periode',
+                            'like',
+                            '%' . $this->search . '%'
+                        )->orWhere(
+                            'tautan_grup',
+                            'like',
+                            '%' . $this->search . '%'
+                        );
+                    })
                 )
                 ->with([
                     'ms_tahun_ajar',

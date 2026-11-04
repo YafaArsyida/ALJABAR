@@ -19,6 +19,7 @@ class PPDBPeriode extends Model
         'nama_periode',
         'tanggal_mulai',
         'tanggal_selesai',
+        'tautan_grup',
         'status',
         'deskripsi',
     ];
@@ -26,6 +27,7 @@ class PPDBPeriode extends Model
     protected $casts = [
         'tanggal_mulai'   => 'date',
         'tanggal_selesai' => 'date',
+        'tautan_grup'     => 'string',
     ];
 
     public function ms_tahun_ajar()

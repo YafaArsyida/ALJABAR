@@ -19,6 +19,8 @@ class Create extends Component
 
     public $tanggal_selesai = '';
 
+    public $tautan_grup = '';
+
     public $status = 'aktif';
 
     public $deskripsi = '';
@@ -50,6 +52,7 @@ class Create extends Component
             'ms_tahun_ajar_id' => 'required|exists:ms_tahun_ajar,ms_tahun_ajar_id',
             'tanggal_mulai' => 'required|date',
             'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
+            'tautan_grup' => 'nullable|url|max:2048',
             'status' => 'required|in:aktif,nonaktif',
             'deskripsi' => 'nullable|string|max:1000',
         ];
@@ -70,6 +73,8 @@ class Create extends Component
         'tanggal_selesai.required' => 'Tanggal selesai wajib diisi.',
         'tanggal_selesai.date' => 'Tanggal selesai tidak valid.',
         'tanggal_selesai.after_or_equal' => 'Tanggal selesai harus sama dengan atau setelah tanggal mulai.',
+        'tautan_grup.url' => 'Tautan grup harus berupa URL yang valid.',
+        'tautan_grup.max' => 'Tautan grup maksimal 2048 karakter.',
         'status.required' => 'Status periode wajib dipilih.',
         'status.in' => 'Status periode tidak valid.',
         'deskripsi.max' => 'Deskripsi maksimal 1000 karakter.',
@@ -99,6 +104,7 @@ class Create extends Component
                 'ms_tahun_ajar_id' => $this->ms_tahun_ajar_id,
                 'tanggal_mulai' => $this->tanggal_mulai,
                 'tanggal_selesai' => $this->tanggal_selesai,
+                'tautan_grup' => $this->tautan_grup ?: null,
                 'status' => $this->status,
                 'deskripsi' => $this->deskripsi,
             ]);
@@ -145,6 +151,7 @@ class Create extends Component
         $this->ms_tahun_ajar_id = null;
         $this->tanggal_mulai = '';
         $this->tanggal_selesai = '';
+        $this->tautan_grup = '';
         $this->status = 'aktif';
         $this->deskripsi = '';
     }
