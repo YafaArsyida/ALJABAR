@@ -148,6 +148,39 @@
                     bootstrapModal.show();
                 }
             });
+
+            // Copy clipboard
+            window.copyToClipboard = function(text, label = 'Nomor pendaftaran') {
+                if (!text) {
+                    if (window.alertify) {
+                        alertify.error(label + ' tidak tersedia.');
+                    } else {
+                        alert(label + ' tidak tersedia.');
+                    }
+                    return Promise.resolve(false);
+                }
+
+                return navigator.clipboard.writeText(text)
+                    .then(() => {
+                        if (window.alertify) {
+                            alertify.success(label + ' berhasil disalin!');
+                        } else {
+                            alert(label + ' berhasil disalin!');
+                        }
+                        return true;
+                    })
+                    .catch(err => {
+                        console.error('Gagal menyalin:', err);
+
+                        if (window.alertify) {
+                            alertify.error('Gagal menyalin ' + label.toLowerCase() + '.');
+                        } else {
+                            alert('Gagal menyalin ' + label.toLowerCase() + '.');
+                        }
+                        return false;
+                    });
+            };
+            
             // modal
             Livewire.on('openNewTab', (url) => {
                 setTimeout(function() {

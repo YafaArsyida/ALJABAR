@@ -175,6 +175,8 @@
                                 <th>Nomor Pendataan</th>
                                 <th>Jalur</th>
                                 <th>Status</th>
+                                <th>Kontak Orang Tua/Wali</th>
+                                <th>Sumber Pendataan</th>
                                 <th class="text-center" style="min-width: 420px;">
                                     Aksi
                                 </th>
@@ -210,6 +212,34 @@
                                     <td class="text-nowrap text-success">
                                         <i class="ri-check-double-line fs-17 align-middle me-1"></i>
                                         Diterima
+                                    </td>
+
+                                    {{-- KONTAK ORANG TUA/WALI --}}
+                                    <td>
+                                        @php
+                                            $orangTua = $item->ppdb_orangtua;
+                                            $kontakWhatsApp = [
+                                                'Ayah' => $orangTua->telepon_ayah ?? null,
+                                                'Ibu' => $orangTua->telepon_ibu ?? null,
+                                                'Wali' => $orangTua->telepon_wali ?? null,
+                                            ];
+                                        @endphp
+
+                                        @foreach ($kontakWhatsApp as $label => $nomor)
+                                            <div class="text-nowrap">
+                                                <span class="text-muted">{{ $label }}:</span>
+                                                {{ filled($nomor) ? $nomor : '-' }}
+                                            </div>
+                                        @endforeach
+                                    </td>
+
+                                    {{-- SUMBER PENDATAAN --}}
+                                    <td class="text-nowrap">
+                                        @if ($item->ms_pengguna_id)
+                                            Portal Orang Tua
+                                        @else
+                                            Dibantu Petugas
+                                        @endif
                                     </td>
 
                                     {{-- AKSI --}}
@@ -256,68 +286,16 @@
                                                 Berkas
                                             </a>
 
-                                            {{-- Kontak WhatsApp --}}
-                                            @php
-                                                $orangTua = $item->ppdb_orangtua;
-
-                                                $kontakWhatsApp = [
-                                                    'Ayah' => $orangTua->telepon_ayah ?? null,
-                                                    'Ibu' => $orangTua->telepon_ibu ?? null,
-                                                    'Wali' => $orangTua->telepon_wali ?? null,
-                                                ];
-
-                                                $kontakTersedia = collect($kontakWhatsApp)
-                                                    ->filter(fn ($nomor) => filled($nomor));
-                                            @endphp
-                                            <div class="dropdown">
-                                                <button
-                                                    type="button"
-                                                    class="btn btn-soft-success btn-sm rounded-pill px-3 text-nowrap"
-                                                    data-bs-toggle="dropdown"
-                                                    aria-expanded="false"
-                                                    title="Hubungi orang tua">
-                                                    <i class="ri-whatsapp-line me-1"></i>
-                                                    Hubungi
-                                                    <i class="ri-arrow-down-s-line ms-1"></i>
-                                                </button>
-
-                                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-                                                    <li>
-                                                        <h6 class="dropdown-header">Hubungi Orang Tua</h6>
-                                                    </li>
-
-                                                    @forelse ($kontakTersedia as $label => $nomor)
-                                                        @php
-                                                            $nomorBersih = preg_replace('/\D/', '', $nomor);
-
-                                                            if (str_starts_with($nomorBersih, '0')) {
-                                                                $nomorBersih = '62' . substr($nomorBersih, 1);
-                                                            } elseif (str_starts_with($nomorBersih, '8')) {
-                                                                $nomorBersih = '62' . $nomorBersih;
-                                                            }
-                                                        @endphp
-
-                                                        @if ($nomorBersih)
-                                                            <li>
-                                                                <a
-                                                                    href="https://wa.me/{{ $nomorBersih }}"
-                                                                    target="_blank"
-                                                                    rel="noopener noreferrer"
-                                                                    class="dropdown-item py-2">
-                                                                    <i class="ri-whatsapp-line text-success me-2"></i>
-                                                                    WhatsApp {{ $label }}
-                                                                </a>
-                                                            </li>
-                                                        @endif
-                                                    @empty
-                                                        <li>
-                                                            <span class="dropdown-item-text text-muted small">
-                                                                Nomor kontak belum tersedia.
-                                                            </span>
-                                                        </li>
-                                                    @endforelse
-                                                </ul>
-                                            </div>
+                                            {{-- KONFIRMASI PENDATAAN --}}
+                                            <button
+                                                type="button"
+                                                class="btn btn-soft-success btn-sm rounded-pill px-3 text-nowrap"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalKonfirmasiPendataan-{{ $item->ppdb_pendaftaran_id }}"
+                                                title="Konfirmasi pendataan">
+                                                <i class="ri-whatsapp-line me-1"></i>
+                                                Konfirmasi
+                                            </button>
 
                                         </div>
                                     </td>
@@ -327,7 +305,7 @@
                             @empty
 
                                 <tr>
-                                    <td colspan="6" class="text-center py-5">
+                                    <td colspan="8" class="text-center py-5">
 
                                         <div class="avatar-md mx-auto mb-3">
                                             <div class="avatar-title bg-light text-muted rounded-circle fs-24">
@@ -393,6 +371,107 @@
 
                         </div>
                     </div>
+
+                    @foreach ($pendaftar as $item)
+                        @php
+                            $tanggalKonfirmasi = $item->submitted_at ?? $item->created_at;
+                            $pesanKonfirmasi = "Nama siswa: "
+                                . ($item->ppdb_calon_siswa->nama_siswa ?? '-')
+                                . "\nNomor pendataan: "
+                                . ($item->nomor_pendaftaran ?? '-')
+                                . "\nTanggal pendataan: "
+                                . ($tanggalKonfirmasi
+                                    ? \Carbon\Carbon::parse($tanggalKonfirmasi)
+                                        ->locale('id')
+                                        ->translatedFormat('d F Y')
+                                    : '-');
+                            $tautanGrup = $periode->tautan_grup;
+                            $skemaTautanGrup = is_string($tautanGrup)
+                                ? strtolower((string) parse_url($tautanGrup, PHP_URL_SCHEME))
+                                : '';
+                            $tautanGrupValid = in_array($skemaTautanGrup, ['http', 'https'], true)
+                                && filter_var($tautanGrup, FILTER_VALIDATE_URL);
+                            $modalId = 'modalKonfirmasiPendataan-' . $item->ppdb_pendaftaran_id;
+                            $tombolGrupId = 'tombolMasukGrup-' . $item->ppdb_pendaftaran_id;
+                        @endphp
+
+                        <div
+                            wire:ignore.self
+                            class="modal fade"
+                            id="{{ $modalId }}"
+                            tabindex="-1"
+                            aria-labelledby="{{ $modalId }}Label"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                                    <div class="modal-header border-0 pb-0">
+                                        <button
+                                            type="button"
+                                            class="btn btn-light btn-icon rounded-circle ms-auto"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Tutup">
+                                            <i class="ri-close-line fs-18"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="modal-body px-4 pb-4 pt-2 text-center">
+                                        <div class="mb-4">
+                                            <div class="avatar-xl mx-auto">
+                                                <div class="avatar-title bg-success-subtle text-success rounded-circle">
+                                                    <lord-icon
+                                                        src="https://cdn.lordicon.com/sbnjyzil.json"
+                                                        trigger="loop"
+                                                        colors="primary:#198754,secondary:#198754"
+                                                        style="width:70px;height:70px">
+                                                    </lord-icon>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill mb-3">
+                                            Konfirmasi Pendataan
+                                        </span>
+                                        <h3 class="fw-bold mb-2" id="{{ $modalId }}Label">
+                                            Bergabung ke Grup SPMB
+                                        </h3>
+                                        <p class="text-muted mb-4">
+                                            @if ($tautanGrupValid)
+                                                Salin pesan ini, lalu buka grup WhatsApp SPMB untuk mengirim konfirmasi menggunakan WhatsApp petugas.
+                                            @else
+                                                Tautan grup WhatsApp untuk periode ini belum tersedia. Silakan hubungi pengelola SPMB.
+                                            @endif
+                                        </p>
+                                        <div class="border rounded-4 p-3 text-start mb-3">
+                                            <div class="text-muted small mb-1">Pesan konfirmasi</div>
+                                            <div class="fw-medium text-break" style="white-space: pre-line">{{ $pesanKonfirmasi }}</div>
+                                        </div>
+
+                                        <button
+                                            type="button"
+                                            class="btn btn-outline-primary rounded-pill px-4"
+                                            onclick="copyToClipboard(@js($pesanKonfirmasi), 'Pesan konfirmasi').then(disalin => { const tombol = document.getElementById(@js($tombolGrupId)); if (disalin && tombol) tombol.classList.remove('d-none'); });">
+                                            <i class="ri-file-copy-line me-1"></i>
+                                            Salin Pesan
+                                        </button>
+                                    </div>
+
+                                    @if ($tautanGrupValid)
+                                        <div class="modal-footer border-0 pt-0 px-4 pb-4 justify-content-center">
+                                            <a
+                                                id="{{ $tombolGrupId }}"
+                                                href="{{ $tautanGrup }}"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn btn-success rounded-pill px-4 d-none">
+                                                <i class="ri-whatsapp-line me-1"></i>
+                                                Konfirmasi Masuk Grup
+                                            </a>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         @endif

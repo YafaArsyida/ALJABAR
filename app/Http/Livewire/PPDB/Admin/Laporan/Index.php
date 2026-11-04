@@ -149,6 +149,7 @@ class Index extends Component
         $query = PPDBPendaftaran::query()
             ->with([
                 'ppdb_calon_siswa',
+                'ppdb_orangtua',
                 'ppdb_jalur',
             ])
             ->where('status', 'diterima');
