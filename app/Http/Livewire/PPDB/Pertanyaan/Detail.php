@@ -26,10 +26,9 @@ class Detail extends Component
         $pertanyaanDetail = null;
 
         if ($this->selectedPertanyaanDetail) {
-            $pertanyaanDetail = PPDBPertanyaan::with([
-                'ppdb_periode.ms_jenjang',
-                'ppdb_periode.ms_tahun_ajar',
-            ])->find($this->selectedPertanyaanDetail);
+            $pertanyaanDetail = PPDBPertanyaan::with(
+                'ppdb_periode.ms_jenjang'
+            )->find($this->selectedPertanyaanDetail);
         }
         return view('livewire.p-p-d-b.pertanyaan.detail',[
             'pertanyaanDetail' => $pertanyaanDetail,

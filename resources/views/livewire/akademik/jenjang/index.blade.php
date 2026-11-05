@@ -44,7 +44,7 @@
 
                 <div class="search-box">
                     <input type="text" id="searchData" class="form-control search" wire:model.debounce.300ms="search"
-                        placeholder="Cari nama, deskripsi, atau lainnya...">
+                        placeholder="Cari nama, slug, alamat, atau deskripsi...">
                     <i class="ri-search-line search-icon"></i>
                 </div>
             </div>
@@ -65,6 +65,14 @@
             </div>
         </div>
         <!--end row-->
+        <div
+            wire:loading.delay
+            wire:target="search,selectedStatus,gotoPage,nextPage,previousPage,toggleStatus,refreshJenjangs"
+            class="text-muted small mb-3"
+        >
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data jenjang...
+        </div>
         <div class="live-preview">
             <div class="table-responsive">
                 <table class="table table-hover table-nowrap align-middle" style="width:100%">
@@ -72,7 +80,9 @@
                         <tr>
                             <th class="text-uppercase text-center" width="50px">status</th>
                             <th class="text-uppercase">jenjang</th>
+                            <th class="text-uppercase">slug</th>
                             <th class="text-uppercase">alamat</th>
+                            <th class="text-uppercase">deskripsi</th>
                             <th class="text-uppercase text-center">aksi</th>
                         </tr>
                     </thead>
@@ -83,11 +93,14 @@
                                 <div class="form-check ps-3 form-switch form-switch-md" dir="ltr" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Ubah Status">
                                     <input type="checkbox" class="form-check-input" id="customSwitchsizemd-{{ $item->ms_jenjang_id }}" 
                                         {{ $item->status == 'Aktif' ? 'checked' : '' }}
+                                        wire:loading.attr="disabled" wire:target="toggleStatus"
                                         wire:change="toggleStatus('{{ $item->ms_jenjang_id }}', $event.target.checked)">
                                 </div>
                             </td>
                             <td>{{ $item->nama_jenjang }}</td>
+                            <td>{{ $item->slug }}</td>
                             <td>{{ $item->alamat }}</td>
+                            <td>{{ $item->deskripsi }}</td>
                             <td>
                                 <div class="d-flex justify-content-center gap-2">
                                     {{-- EDIT --}}
@@ -109,7 +122,7 @@
                         </tr>
                         @empty
                             <tr>
-                                <td colspan="5">
+                                <td colspan="6">
                                     <div class="noresult text-center py-3">
                                         <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" 
                                                 colors="primary:#405189,secondary:#08a88a" 

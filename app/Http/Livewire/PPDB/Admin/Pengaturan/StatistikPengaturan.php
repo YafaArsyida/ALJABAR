@@ -10,19 +10,17 @@ use App\Models\PPDBJalur;
 class StatistikPengaturan extends Component
 {
     public $selectedJenjang = null;
-    public $selectedTahunAjar = null;
 
     protected $listeners = [
         'parameterUpdated' => 'updateParameters',
     ];
 
     /**
-     * Menerima perubahan parameter jenjang dan tahun ajar.
+     * Menerima perubahan parameter jenjang.
      */
-    public function updateParameters($jenjangId = null, $tahunAjarId = null)
+    public function updateParameters($jenjangId = null)
     {
         $this->selectedJenjang = $jenjangId;
-        $this->selectedTahunAjar = $tahunAjarId;
     }
 
     public function render()
@@ -31,10 +29,9 @@ class StatistikPengaturan extends Component
         $totalGelombang = 0;
         $totalJalur = 0;
 
-        if ($this->selectedJenjang && $this->selectedTahunAjar) {
+        if ($this->selectedJenjang) {
             $periodeQuery = PPDBPeriode::query()
-                ->where('ms_jenjang_id', $this->selectedJenjang)
-                ->where('ms_tahun_ajar_id', $this->selectedTahunAjar);
+                ->where('ms_jenjang_id', $this->selectedJenjang);
 
             $periodeIds = (clone $periodeQuery)
                 ->select('ppdb_periode_id');

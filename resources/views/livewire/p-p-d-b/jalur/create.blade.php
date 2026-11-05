@@ -80,8 +80,6 @@
                         @if ($periode)
                             <small class="text-muted d-block mt-2">
                                 {{ $periode->ms_jenjang?->nama_jenjang ?? '-' }}
-                                <span class="mx-1">·</span>
-                                {{ $periode->ms_tahun_ajar?->nama_tahun_ajar ?? '-' }}
                             </small>
                         @endif
 

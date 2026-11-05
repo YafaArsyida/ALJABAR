@@ -3,6 +3,7 @@
 
     <head>
         @include('template.v_head')
+        @livewireStyles
     </head>
 
     <body>

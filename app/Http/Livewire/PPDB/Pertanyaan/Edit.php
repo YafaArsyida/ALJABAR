@@ -257,10 +257,8 @@ class Edit extends Component
         $periode = null;
 
         if ($this->ppdb_periode_id) {
-            $periode = PPDBPeriode::with([
-                'ms_jenjang',
-                'ms_tahun_ajar',
-            ])->find($this->ppdb_periode_id);
+            $periode = PPDBPeriode::with('ms_jenjang')
+                ->find($this->ppdb_periode_id);
         }
 
         return view('livewire.p-p-d-b.pertanyaan.edit',[

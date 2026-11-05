@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            @if ($selectedJenjang && $selectedTahunAjar && $selectedPeriode)
+            @if ($selectedJenjang && $selectedPeriode)
                 <div class="d-flex gap-2 flex-wrap">
                     <button
                         type="button"
@@ -48,7 +48,7 @@
     {{-- BODY --}}
     <div class="card-body">
 
-        @if (!$selectedJenjang || !$selectedTahunAjar)
+        @if (!$selectedJenjang)
 
             {{-- EMPTY STATE PARAMETER --}}
             <div class="text-center py-5">
@@ -59,12 +59,11 @@
                 </div>
 
                 <h6 class="fw-semibold mb-1">
-                    Pilih Jenjang dan Tahun Ajaran
+                    Pilih Jenjang
                 </h6>
 
                 <p class="text-muted mb-0">
-                    Pilih jenjang dan tahun ajaran terlebih dahulu
-                    untuk melihat jalur seleksi SPMB.
+                    Pilih jenjang terlebih dahulu untuk melihat jalur seleksi SPMB.
                 </p>
             </div>
 

@@ -14,7 +14,6 @@ class PPDBPeriode extends Model
     protected $primaryKey = 'ppdb_periode_id'; // Nama kolom primary key
 
     protected $fillable = [
-        'ms_tahun_ajar_id',
         'ms_jenjang_id',
         'nama_periode',
         'tanggal_mulai',
@@ -29,13 +28,6 @@ class PPDBPeriode extends Model
         'tanggal_selesai' => 'date',
         'tautan_grup'     => 'string',
     ];
-
-    public function ms_tahun_ajar()
-    {
-        return $this->belongsTo(
-            TahunAjar::class, 'ms_tahun_ajar_id', 'ms_tahun_ajar_id'
-        );
-    }
 
     public function ms_jenjang()
     {

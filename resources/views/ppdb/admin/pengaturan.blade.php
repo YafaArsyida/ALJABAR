@@ -12,9 +12,9 @@
                             {{-- INFORMASI PERIODE --}}
                             @livewire('p-p-d-b.admin.dashboard.informasi-periode')
 
-                            {{-- PARAMETER JENJANG & TAHUN AJAR --}}
+                            {{-- PARAMETER JENJANG --}}
                             <div class="flex-shrink-0">
-                                @livewire('p-p-d-b.parameter.jenjang-tahun-ajar')
+                                @livewire('p-p-d-b.parameter.jenjang')
                             </div>
 
                         </div>
@@ -45,7 +45,7 @@
                         <h5 class="fw-bold mb-1">Pengaturan SPMB</h5>
                         <small class="text-muted">
                             Kelola periode, gelombang, jalur seleksi, dan pertanyaan
-                            untuk pendataan SPMB Tahun Ajaran 2027/2028.
+                            berdasarkan jenjang penerimaan.
                         </small>
                     </div>
                 </div>

@@ -85,14 +85,6 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <label class="form-label">
-                                    Tahun Ajaran
-                                </label>
-                                <div class="form-control bg-light text-break">
-                                    {{ $gelombangDetail->ppdb_periode?->ms_tahun_ajar?->nama_tahun_ajar ?: '-' }}
-                                </div>
-                            </div>
                         </div>
                     </section>
 

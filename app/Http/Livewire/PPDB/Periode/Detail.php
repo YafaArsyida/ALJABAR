@@ -23,10 +23,7 @@ class Detail extends Component
         $periodeDetail = null;
 
         if ($this->selectedPeriodeDetail) {
-            $periodeDetail = PPDBPeriode::with([
-                'ms_jenjang',
-                'ms_tahun_ajar',
-            ])
+            $periodeDetail = PPDBPeriode::with('ms_jenjang')
                 ->withCount('ppdb_gelombang')
                 ->find($this->selectedPeriodeDetail);
         }

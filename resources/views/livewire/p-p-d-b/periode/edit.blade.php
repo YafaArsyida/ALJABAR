@@ -59,12 +59,12 @@
                                 Konteks SPMB
                             </h6>
                             <small class="text-muted">
-                                Jenjang dan tahun ajaran tidak berubah saat periode diedit.
+                                Jenjang periode tidak berubah saat periode diedit.
                             </small>
                         </div>
 
                         <div class="row g-3">
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <label class="form-label">Jenjang</label>
                                 <input
                                     type="text"
@@ -78,19 +78,6 @@
                                 >
                             </div>
 
-                            <div class="col-md-6">
-                                <label class="form-label">Tahun Ajaran</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    value="{{ \App\Models\TahunAjar::find($ms_tahun_ajar_id)?->nama_tahun_ajar ?? 'Belum dipilih' }}"
-                                    readonly
-                                >
-                                <input
-                                    type="hidden"
-                                    wire:model="ms_tahun_ajar_id"
-                                >
-                            </div>
                         </div>
                     </section>
 
@@ -118,7 +105,7 @@
                                 id="edit_nama_periode"
                                 wire:model.defer="nama_periode"
                                 class="form-control @error('nama_periode') is-invalid @enderror"
-                                placeholder="Contoh: SPMB Tahun Ajaran 2027/2028"
+                                placeholder="Contoh: Penerimaan Siswa Baru Gelombang Utama"
                             >
                             @error('nama_periode')
                                 <div class="invalid-feedback">

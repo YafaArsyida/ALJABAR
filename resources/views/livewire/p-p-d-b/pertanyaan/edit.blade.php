@@ -64,8 +64,6 @@
 
                                         <small class="text-muted">
                                             {{ $periode->ms_jenjang?->nama_jenjang ?: '-' }}
-                                            &middot;
-                                            {{ $periode->ms_tahun_ajar?->nama_tahun_ajar ?: '-' }}
                                         </small>
                                     @else
                                         <small class="text-muted">

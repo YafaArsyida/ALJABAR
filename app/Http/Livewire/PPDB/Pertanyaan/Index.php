@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\PPDB\Pertanyaan;
 
 use App\Models\Jenjang;
-use App\Models\TahunAjar;
 use App\Models\PPDBPeriode;
 use App\Models\PPDBPertanyaan;
 use Livewire\Component;
@@ -16,12 +15,10 @@ class Index extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $selectedJenjang;
-    public $selectedTahunAjar;
     public $parameterLoaded = false;
 
     public $search = '';
     public $namaJenjang = '';
-    public $namaTahunAjar = '';
     public $selectedPeriode = '';
 
     protected $listeners = [
@@ -30,18 +27,14 @@ class Index extends Component
     ];
 
     /**
-     * Memperbarui parameter jenjang dan tahun ajaran.
+     * Memperbarui parameter jenjang.
      */
-    public function updateParameters($jenjang, $tahunAjar)
+    public function updateParameters($jenjang)
     {
         $this->selectedJenjang = $jenjang;
-        $this->selectedTahunAjar = $tahunAjar;
 
         $this->namaJenjang = Jenjang::whereKey($jenjang)
             ->value('nama_jenjang') ?? '-';
-
-        $this->namaTahunAjar = TahunAjar::whereKey($tahunAjar)
-            ->value('nama_tahun_ajar') ?? '-';
 
         $this->parameterLoaded = true;
         $this->selectedPeriode = '';
@@ -70,44 +63,23 @@ class Index extends Component
         $this->resetPage();
     }
 
-    public function updatedSelectedTahunAjar()
-    {
-        $this->resetPage();
-    }
-
     public function render()
     {
          $pertanyaans = collect();
         $select_periode = collect();
 
-        if ($this->selectedJenjang && $this->selectedTahunAjar) {
+        if ($this->selectedJenjang) {
             $select_periode = PPDBPeriode::query()
                 ->where('ms_jenjang_id', $this->selectedJenjang)
-                ->where('ms_tahun_ajar_id', $this->selectedTahunAjar)
                 ->orderBy('nama_periode')
                 ->get();
         }
 
-        if (
-            $this->parameterLoaded
-            && $this->selectedJenjang
-            && $this->selectedTahunAjar
-        ) {
+        if ($this->parameterLoaded && $this->selectedJenjang) {
             $pertanyaans = PPDBPertanyaan::query()
-                ->with([
-                    'ppdb_periode.ms_jenjang',
-                    'ppdb_periode.ms_tahun_ajar',
-                ])
+                ->with('ppdb_periode.ms_jenjang')
                 ->whereHas('ppdb_periode', function ($query) {
-                    $query
-                        ->where(
-                            'ms_jenjang_id',
-                            $this->selectedJenjang
-                        )
-                        ->where(
-                            'ms_tahun_ajar_id',
-                            $this->selectedTahunAjar
-                        );
+                    $query->where('ms_jenjang_id', $this->selectedJenjang);
                 })
                 ->when($this->search, function ($query) {
                     $query->where(function ($query) {

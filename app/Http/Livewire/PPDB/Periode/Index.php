@@ -4,7 +4,6 @@ namespace App\Http\Livewire\PPDB\Periode;
 
 use App\Models\Jenjang;
 use App\Models\PPDBPeriode;
-use App\Models\TahunAjar;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -18,10 +17,8 @@ class Index extends Component
 
     public $search = '';
     public $selectedJenjang = null;
-    public $selectedTahunAjar = null;
 
     public $namaJenjang = '';
-    public $namaTahunAjar = '';
 
     protected $listeners = [
         'refreshPeriodes' => '$refresh',
@@ -29,15 +26,13 @@ class Index extends Component
     ];
 
     /**
-     * Memperbarui parameter jenjang dan tahun ajaran.
+     * Memperbarui parameter jenjang.
      */
-    public function updateParameters($jenjang, $tahunAjar)
+    public function updateParameters($jenjang)
     {
         $this->selectedJenjang = $jenjang;
-        $this->selectedTahunAjar = $tahunAjar;
 
         $this->namaJenjang = Jenjang::whereKey($jenjang)->value('nama_jenjang') ?? '-';
-        $this->namaTahunAjar = TahunAjar::whereKey($tahunAjar)->value('nama_tahun_ajar') ?? '-';
 
         $this->parameterLoaded = true;
 
@@ -55,10 +50,9 @@ class Index extends Component
     {
         $periodes = collect();
 
-        if ($this->parameterLoaded) {
+        if ($this->parameterLoaded && $this->selectedJenjang) {
             $periodes = PPDBPeriode::query()
                 ->where('ms_jenjang_id', $this->selectedJenjang)
-                ->where('ms_tahun_ajar_id', $this->selectedTahunAjar)
                 ->when(
                     $this->search,
                     fn ($q) => $q->where(function ($query) {
@@ -73,10 +67,7 @@ class Index extends Component
                         );
                     })
                 )
-                ->with([
-                    'ms_tahun_ajar',
-                    'ms_jenjang',
-                ])
+                ->with('ms_jenjang')
                 ->withCount('ppdb_gelombang')
                 ->paginate(12);
         }

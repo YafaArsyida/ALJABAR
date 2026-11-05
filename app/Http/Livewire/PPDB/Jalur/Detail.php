@@ -26,10 +26,9 @@ class Detail extends Component
         $jalurDetail = null;
 
         if ($this->selectedJalurDetail) {
-            $jalurDetail = PPDBJalur::with([
-                'ppdb_periode.ms_jenjang',
-                'ppdb_periode.ms_tahun_ajar',
-            ])->find($this->selectedJalurDetail);
+            $jalurDetail = PPDBJalur::with(
+                'ppdb_periode.ms_jenjang'
+            )->find($this->selectedJalurDetail);
         }
         return view('livewire.p-p-d-b.jalur.detail',[
             'jalurDetail' => $jalurDetail,

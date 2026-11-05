@@ -18,14 +18,15 @@
                             </h5>
 
                             <small class="text-muted">
-                                Kelola periode dan jadwal pendataan SPMB untuk jenjang <strong>{{ $namaJenjang ?: 'Jenjang belum dipilih' }} · {{ $namaTahunAjar ?: 'Tahun ajaran belum dipilih' }} </strong>.
+                                Kelola periode dan jadwal pendataan SPMB untuk jenjang
+                                <strong>{{ $namaJenjang ?: 'Jenjang belum dipilih' }}</strong>.
                             </small>
                         </div>
                     </div>
                 </div>
 
                 {{-- ACTION --}}
-                @if ($selectedJenjang && $selectedTahunAjar)
+                @if ($selectedJenjang)
                     <div class="d-flex gap-2 flex-wrap">
                         <button
                             type="button"
@@ -34,8 +35,7 @@
                             data-bs-target="#ModalAddPeriode"
                             wire:click.prevent="$emit(
                                 'showCreatePeriode',
-                                {{ $selectedJenjang }},
-                                {{ $selectedTahunAjar }}
+                                {{ $selectedJenjang }}
                             )"
                         >
                             <i class="ri-add-line me-1"></i>
@@ -73,7 +73,7 @@
             </div>
             {{-- DATA --}}
             <div class="live-preview">
-                @if (!$selectedJenjang || !$selectedTahunAjar)
+                @if (!$selectedJenjang)
                     <div class="text-center py-4">
                         <lord-icon
                             src="https://cdn.lordicon.com/msoeawqm.json"
@@ -84,12 +84,12 @@
                         </lord-icon>
 
                         <h5 class="mt-2">
-                            Silakan Pilih Jenjang dan Tahun Ajar
+                            Silakan Pilih Jenjang
                         </h5>
 
                         <p class="text-muted mb-0">
                             Untuk melihat data periode SPMB, pilih
-                            Jenjang dan Tahun Ajar terlebih dahulu.
+                            Jenjang terlebih dahulu.
                         </p>
                     </div>
                 @else
@@ -102,7 +102,6 @@
                                     <th>Nama Periode</th>
                                     <th>Grup WhatsApp</th>
                                     <th>Jenjang</th>
-                                    <th>Tahun Ajaran</th>
                                     <th>Jadwal Pendataan</th>
                                     <th>Gelombang</th>
                                     <th>Status</th>
@@ -181,11 +180,6 @@
                                             {{ $periode->ms_jenjang->nama_jenjang ?? 'Tidak diketahui' }}
                                         </td>
 
-                                        {{-- TAHUN AJARAN --}}
-                                        <td>
-                                            {{ $periode->ms_tahun_ajar->nama_tahun_ajar ?? 'Tidak diketahui' }}
-                                        </td>
-
                                         {{-- JADWAL PENDAFTARAN --}}
                                         <td>
                                             <div>
@@ -252,7 +246,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="10">
+                                        <td colspan="9">
                                             <div class="noresult text-center py-4">
                                                 <i class="ri-calendar-event-line fs-1 text-muted"></i>
 

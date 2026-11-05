@@ -13,8 +13,6 @@ class Create extends Component
 
     public $ms_jenjang_id;
 
-    public $ms_tahun_ajar_id;
-
     public $tanggal_mulai = '';
 
     public $tanggal_selesai = '';
@@ -32,13 +30,12 @@ class Create extends Component
     /**
      * Menyiapkan form tambah periode.
      */
-    public function showCreatePeriode($jenjang, $tahunAjar)
+    public function showCreatePeriode($jenjang)
     {
         $this->resetValidation();
         $this->resetInput();
 
         $this->ms_jenjang_id = $jenjang;
-        $this->ms_tahun_ajar_id = $tahunAjar;
     }
 
     /**
@@ -49,7 +46,6 @@ class Create extends Component
         return [
             'nama_periode' => 'required|string|max:255',
             'ms_jenjang_id' => 'required|exists:ms_jenjang,ms_jenjang_id',
-            'ms_tahun_ajar_id' => 'required|exists:ms_tahun_ajar,ms_tahun_ajar_id',
             'tanggal_mulai' => 'required|date',
             'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
             'tautan_grup' => 'nullable|url|max:2048',
@@ -66,8 +62,6 @@ class Create extends Component
         'nama_periode.max' => 'Nama periode maksimal 255 karakter.',
         'ms_jenjang_id.required' => 'Jenjang belum dipilih.',
         'ms_jenjang_id.exists' => 'Jenjang yang dipilih tidak valid.',
-        'ms_tahun_ajar_id.required' => 'Tahun ajaran belum dipilih.',
-        'ms_tahun_ajar_id.exists' => 'Tahun ajaran yang dipilih tidak valid.',
         'tanggal_mulai.required' => 'Tanggal mulai wajib diisi.',
         'tanggal_mulai.date' => 'Tanggal mulai tidak valid.',
         'tanggal_selesai.required' => 'Tanggal selesai wajib diisi.',
@@ -101,7 +95,6 @@ class Create extends Component
             PPDBPeriode::create([
                 'nama_periode' => $this->nama_periode,
                 'ms_jenjang_id' => $this->ms_jenjang_id,
-                'ms_tahun_ajar_id' => $this->ms_tahun_ajar_id,
                 'tanggal_mulai' => $this->tanggal_mulai,
                 'tanggal_selesai' => $this->tanggal_selesai,
                 'tautan_grup' => $this->tautan_grup ?: null,
@@ -148,7 +141,6 @@ class Create extends Component
     {
         $this->nama_periode = '';
         $this->ms_jenjang_id = null;
-        $this->ms_tahun_ajar_id = null;
         $this->tanggal_mulai = '';
         $this->tanggal_selesai = '';
         $this->tautan_grup = '';

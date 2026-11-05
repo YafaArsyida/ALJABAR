@@ -9,8 +9,6 @@ use App\Models\PPDBJalur;
 class InformasiPeriode extends Component
 {
     public $selectedJenjang = null;
-    public $selectedTahunAjar = null;
-
     protected $listeners = [
         'parameterUpdated' => 'updateParameters',
     ];
@@ -18,7 +16,6 @@ class InformasiPeriode extends Component
     public function updateParameters($jenjangId = null, $tahunAjarId = null)
     {
         $this->selectedJenjang = $jenjangId;
-        $this->selectedTahunAjar = $tahunAjarId;
     }
 
 
@@ -27,11 +24,11 @@ class InformasiPeriode extends Component
         $periode = null;
         $kuota = 0;
 
-        if ($this->selectedJenjang && $this->selectedTahunAjar) {
+        if ($this->selectedJenjang) {
             $periode = PPDBPeriode::query()
                 ->where('ms_jenjang_id', $this->selectedJenjang)
-                ->where('ms_tahun_ajar_id', $this->selectedTahunAjar)
                 ->where('status', 'aktif')
+                ->orderByDesc('tanggal_mulai')
                 ->first();
 
             if ($periode) {

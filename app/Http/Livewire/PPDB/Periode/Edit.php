@@ -9,7 +9,6 @@ class Edit extends Component
 {
     public $ppdb_periode_id;
     public $ms_jenjang_id;
-    public $ms_tahun_ajar_id;
     public $nama_periode;
     public $deskripsi;
     public $tanggal_mulai;
@@ -27,7 +26,6 @@ class Edit extends Component
 
         $this->ppdb_periode_id = $periode->ppdb_periode_id;
         $this->ms_jenjang_id = $periode->ms_jenjang_id;
-        $this->ms_tahun_ajar_id = $periode->ms_tahun_ajar_id;
         $this->nama_periode = $periode->nama_periode;
         $this->deskripsi = $periode->deskripsi;
         $this->tanggal_mulai = $periode->tanggal_mulai

@@ -49,12 +49,10 @@
                 </h5>
 
                 <p class="text-muted mb-0">
-                    @if (!$selectedJenjang || !$selectedTahunAjar)
-                        Silakan pilih jenjang dan tahun ajar
-                        untuk melihat informasi periode.
+                    @if (!$selectedJenjang)
+                        Silakan pilih jenjang untuk melihat informasi periode.
                     @else
-                        Belum ada periode aktif untuk jenjang
-                        dan tahun ajar yang dipilih.
+                        Belum ada periode aktif untuk jenjang yang dipilih.
                     @endif
                 </p>
             </div>

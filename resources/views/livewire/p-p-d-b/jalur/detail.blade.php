@@ -86,7 +86,7 @@
                                 Periode SPMB
                             </h6>
                             <small class="text-muted">
-                                Informasi periode dan tahun ajaran jalur seleksi.
+                                Informasi periode dan jenjang jalur seleksi.
                             </small>
                         </div>
 
@@ -105,12 +105,6 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <label class="form-label">Tahun Ajaran</label>
-                                <div class="form-control bg-light text-break">
-                                    {{ $jalurDetail->ppdb_periode?->ms_tahun_ajar?->nama_tahun_ajar ?: '-' }}
-                                </div>
-                            </div>
                         </div>
                     </section>
 

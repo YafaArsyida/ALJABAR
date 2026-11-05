@@ -51,6 +51,8 @@ class Index extends Component
 
         $jenjangs = $query->where(function ($query) {
             $query->where('nama_jenjang', 'like', '%' . $this->search . '%')
+                ->orWhere('slug', 'like', '%' . $this->search . '%')
+                ->orWhere('alamat', 'like', '%' . $this->search . '%')
                 ->orWhere('deskripsi', 'like', '%' . $this->search . '%');
         })
             ->orderBy('urutan', 'ASC')

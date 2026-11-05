@@ -300,10 +300,8 @@ class Create extends Component
     {
         return view('livewire.p-p-d-b.pertanyaan.create',[
             'periode' => $this->ppdb_periode_id
-                ? PPDBPeriode::with([
-                    'ms_jenjang',
-                    'ms_tahun_ajar',
-                ])->find($this->ppdb_periode_id)
+                ? PPDBPeriode::with('ms_jenjang')
+                    ->find($this->ppdb_periode_id)
                 : null,
         ]);
     }

@@ -27,22 +27,37 @@
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-lg-6">
-                            <label for="nama_jenjang" class="form-label">Nama Jenjang</label>
-                            <input type="text" wire:model="nama_jenjang" id="nama_jenjang"  class="form-control" placeholder="SD/SMP/SMA" />
+                            <label for="create_nama_jenjang" class="form-label">Nama Jenjang</label>
+                            <input type="text" wire:model="nama_jenjang" id="create_nama_jenjang" class="form-control" placeholder="SD/SMP/SMA" />
                             @error('nama_jenjang') 
                                 <footer class="text-danger mt-0">{{ $message }}</footer>
                             @enderror
                         </div>
                         <div class="col-lg-6">
-                            <label for="urutan" class="form-label">Urutan</label>
-                            <input type="number" wire:model="urutan" class="form-control" placeholder="1, 2, 3, ..." />
+                            <label for="create_urutan" class="form-label">Urutan</label>
+                            <input type="number" wire:model="urutan" id="create_urutan" class="form-control" placeholder="1, 2, 3, ..." />
                             @error('urutan') 
                                 <footer class="text-danger mt-0">{{ $message }}</footer>
                             @enderror
                         </div>
                         <div class="col-lg-12">
+                            <label for="create_alamat" class="form-label">Alamat</label>
+                            <textarea id="create_alamat" wire:model="alamat" class="form-control" rows="2" placeholder="Alamat jenjang"></textarea>
+                            @error('alamat')
+                                <footer class="text-danger mt-0">{{ $message }}</footer>
+                            @enderror
+                        </div>
+                        <div class="col-lg-12">
+                            <label for="create_slug" class="form-label">Slug</label>
+                            <input type="text" id="create_slug" wire:model="slug" class="form-control" placeholder="slug-jenjang">
+                            <small class="text-muted">Slug dibuat otomatis dari nama dan dapat disunting.</small>
+                            @error('slug')
+                                <footer class="text-danger mt-0">{{ $message }}</footer>
+                            @enderror
+                        </div>
+                        <div class="col-lg-12">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <input type="text" wire:model="deskripsi" class="form-control" placeholder="SD N Alamanah/SMP Al..." />
+                            <textarea id="deskripsi" wire:model="deskripsi" class="form-control" rows="3" placeholder="Deskripsi jenjang"></textarea>
                             @error('deskripsi') 
                                 <footer class="text-danger mt-0">{{ $message }}</footer>
                             @enderror
@@ -54,9 +69,20 @@
                         <i class="ri-close-line me-1"></i>
                         Tutup
                     </button>
-                    <button type="submit" class="btn btn-primary rounded-pill px-4">
-                        <i class="ri-save-3-line me-1"></i>
-                        Simpan
+                    <button
+                        type="submit"
+                        class="btn btn-primary rounded-pill px-4"
+                        wire:loading.attr="disabled"
+                        wire:target="save"
+                    >
+                        <span wire:loading.remove wire:target="save">
+                            <i class="ri-save-3-line me-1"></i>
+                            Simpan
+                        </span>
+                        <span wire:loading wire:target="save">
+                            <span class="spinner-border spinner-border-sm me-1"></span>
+                            Menyimpan...
+                        </span>
                     </button>
                 </div>
             </form>

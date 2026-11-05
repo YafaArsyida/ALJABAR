@@ -12,53 +12,59 @@
 
             {{-- BODY --}}
             <div class="modal-body px-4 pb-5 pt-2 text-center">
-                {{-- ICON --}}
-                <div class="mb-4">
-                    <div class="avatar-xl mx-auto">
-                        <div class="avatar-title bg-danger-subtle text-danger rounded-circle">
-                            <lord-icon
-                                src="https://cdn.lordicon.com/gsqxdxog.json"
-                                trigger="loop"
-                                colors="primary:#dc3545,secondary:#dc3545"
-                                style="width:70px;height:70px">
-                            </lord-icon>
+                <div wire:loading.delay wire:target="setJenjangId" class="py-5">
+                    <div class="spinner-border text-primary mb-3"></div>
+                    <p class="text-muted mb-0">Memuat informasi jenjang...</p>
+                </div>
+                <div wire:loading.remove wire:target="setJenjangId">
+                    {{-- ICON --}}
+                    <div class="mb-4">
+                        <div class="avatar-xl mx-auto">
+                            <div class="avatar-title bg-danger-subtle text-danger rounded-circle">
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/gsqxdxog.json"
+                                    trigger="loop"
+                                    colors="primary:#dc3545,secondary:#dc3545"
+                                    style="width:70px;height:70px">
+                                </lord-icon>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {{-- TITLE --}}
-                <div class="mb-2">
-                    <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill mb-3">
-                        Konfirmasi Penghapusan
-                    </span>
+                    {{-- TITLE --}}
+                    <div class="mb-2">
+                        <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill mb-3">
+                            Konfirmasi Penghapusan
+                        </span>
 
-                    <h3 class="fw-bold mb-2" id="deleteRecordLabel">
-                        Hapus Jenjang
-                    </h3>
+                        <h3 class="fw-bold mb-2" id="deleteRecordLabel">
+                            Hapus Jenjang
+                        </h3>
 
-                    <p class="text-muted mb-0 lh-lg px-lg-4">
-                        Data jenjang akan dihapus secara permanen
-                        dari sistem. Tindakan ini tidak dapat dibatalkan.
-                    </p>
-                </div>
+                        <p class="text-muted mb-0 lh-lg px-lg-4">
+                            Data jenjang akan dihapus secara permanen
+                            dari sistem. Tindakan ini tidak dapat dibatalkan.
+                        </p>
+                    </div>
 
-                {{-- WARNING --}}
-                <div class="alert alert-light border rounded-4 text-start mt-4 mb-0">
-                    <div class="d-flex align-items-start gap-3">
-                        <div class="flex-shrink-0">
-                            <i class="ri-error-warning-line text-warning fs-20"></i>
-                        </div>
+                    {{-- WARNING --}}
+                    <div class="alert alert-light border rounded-4 text-start mt-4 mb-0">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="flex-shrink-0">
+                                <i class="ri-error-warning-line text-warning fs-20"></i>
+                            </div>
 
-                        <div>
-                            <h6 class="fw-semibold mb-1">
-                                Perhatian
-                            </h6>
+                            <div>
+                                <h6 class="fw-semibold mb-1">
+                                    Perhatian
+                                </h6>
 
-                            <p class="text-muted mb-0 fs-13">
-                                Pastikan jenjang tidak memiliki
-                                data kelas, siswa, atau relasi data
-                                penting sebelum melakukan penghapusan.
-                            </p>
+                                <p class="text-muted mb-0 fs-13">
+                                    Pastikan jenjang tidak memiliki
+                                    data kelas, siswa, atau relasi data
+                                    penting sebelum melakukan penghapusan.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -72,10 +78,21 @@
                     Batal
                 </button>
 
-                <button type="button" class="btn btn-danger rounded-pill px-4"
-                    wire:click="deleteJenjang">
-                    <i class="ri-delete-bin-6-line me-1"></i>
-                    Ya, Hapus
+                <button
+                    type="button"
+                    class="btn btn-danger rounded-pill px-4"
+                    wire:click="deleteJenjang"
+                    wire:loading.attr="disabled"
+                    wire:target="deleteJenjang,setJenjangId"
+                >
+                    <span wire:loading.remove wire:target="deleteJenjang">
+                        <i class="ri-delete-bin-6-line me-1"></i>
+                        Ya, Hapus
+                    </span>
+                    <span wire:loading wire:target="deleteJenjang">
+                        <span class="spinner-border spinner-border-sm me-1"></span>
+                        Menghapus...
+                    </span>
                 </button>
             </div>
         </div>
