@@ -161,6 +161,7 @@
                                 </td>
 
                                 <td class="text-center">
+                                    @if ($periode->status === 'aktif')
                                     <a href="#ModalDeletePendaftaran"
                                         data-bs-toggle="modal"
                                         class="text-danger d-inline-block remove-item-btn"
@@ -174,6 +175,11 @@
 
                                         <i class="ri-delete-bin-5-fill fs-14"></i>
                                     </a>
+                                    @else
+                                        <span class="text-muted" title="Periode historis hanya dapat dilihat">
+                                            <i class="ri-lock-line fs-14"></i>
+                                        </span>
+                                    @endif
                                 </td>
 
                                 {{-- Calon siswa --}}
@@ -310,7 +316,7 @@
                                             data-bs-target="#offcanvasEditPendaftaran"
                                             title="{{ $item->status === 'diterima' ? 'Pendataan sudah diterima dan tidak dapat diedit' : 'Edit Data Pendataan' }}"
                                             wire:click.prevent="$emit('bukaEditPendaftaran', {{ $item->ppdb_pendaftaran_id }})"
-                                            @disabled($item->status === 'diterima')
+                                            @disabled($item->status === 'diterima' || $periode->status !== 'aktif')
                                         >
                                             <i class="ri-edit-line align-bottom me-1"></i>
                                             Edit
@@ -411,14 +417,29 @@
                                         </div>
                                     </div>
 
-                                    <h6 class="fw-semibold mb-1">
-                                        Calon siswa tidak ditemukan
-                                    </h6>
+                                    @if (!$selectedJenjang)
+                                        <h6 class="fw-semibold mb-1">Pilih Jenjang</h6>
+                                        <p class="text-muted mb-3">
+                                            Pilih jenjang dan periode untuk melihat antrean verifikasi.
+                                        </p>
+                                    @elseif (!$selectedPeriode)
+                                        <h6 class="fw-semibold mb-1">Pilih Periode</h6>
+                                        <p class="text-muted mb-3">
+                                            Belum ada periode aktif. Pilih periode yang tersedia untuk melihat datanya.
+                                        </p>
+                                    @elseif (!$periode)
+                                        <h6 class="fw-semibold mb-1">Periode tidak tersedia</h6>
+                                        <p class="text-muted mb-3">
+                                            Periode yang dipilih tidak tersedia atau bukan milik jenjang tersebut.
+                                        </p>
+                                    @else
+                                        <h6 class="fw-semibold mb-1">Calon siswa tidak ditemukan</h6>
+                                        <p class="text-muted mb-3">
+                                            Tidak ada calon siswa yang sesuai dengan pencarian atau filter.
+                                        </p>
+                                    @endif
 
-                                    <p class="text-muted mb-3">
-                                        Tidak ada calon siswa yang sesuai dengan pencarian atau filter.
-                                    </p>
-
+                                    @if ($periode)
                                     <button
                                         type="button"
                                         class="btn btn-sm btn-light"
@@ -426,6 +447,7 @@
                                         <i class="ri-refresh-line me-1"></i>
                                         Reset Filter
                                     </button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforelse

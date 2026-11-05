@@ -104,11 +104,12 @@ class PPDBAdminController extends Controller
     ) {
         $filters = $request->validate([
             'jenjang' => ['required', 'integer'],
+            'periode' => ['required', 'integer'],
             'jalur' => ['nullable', 'integer'],
             'search' => ['nullable', 'string', 'max:150'],
         ]);
 
-        $data = $reportService->getData($filters);
+        $data = $reportService->getData($filters, $request->user()->getKey());
 
         return Pdf::loadView('reports.ppdb.laporan-pendataan', $data)
             ->setPaper('a4', 'landscape')

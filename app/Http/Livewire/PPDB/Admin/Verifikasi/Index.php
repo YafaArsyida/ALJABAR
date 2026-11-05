@@ -4,6 +4,8 @@ namespace App\Http\Livewire\PPDB\Admin\Verifikasi;
 
 use App\Models\PPDBPendaftaran;
 use App\Models\PPDBPeriode;
+use App\Models\Jenjang;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,13 +16,14 @@ class Index extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $selectedJenjang = null;
+    public $selectedPeriode = null;
 
     public $cari = '';
     public $filterStatus = 'pengecekan';
     public $filterDokumen = '';
 
     protected $listeners = [
-        'parameterUpdated' => 'updateParameters',
+        'dashboardParametersUpdated' => 'updateParameters',
         'pendaftaranTersimpan' => '$refresh',
         'pendaftaranDiperbarui' => '$refresh',
     ];
@@ -31,12 +34,24 @@ class Index extends Component
         'filterDokumen' => ['except' => ''],
     ];
 
-    /**
-     * Menerima perubahan parameter jenjang.
-     */
-    public function updateParameters($jenjangId = null)
+    public function updateParameters($jenjangId = null, $periodeId = null)
     {
-        $this->selectedJenjang = $jenjangId;
+        $jenjang = Jenjang::query()
+            ->whereKey($jenjangId)
+            ->where('status', 'Aktif')
+            ->whereHas('ms_pengguna', function ($query) {
+                $query->whereKey(Auth::id());
+            })
+            ->first();
+
+        $this->selectedJenjang = $jenjang?->ms_jenjang_id;
+        $this->selectedPeriode = $this->selectedJenjang && $periodeId
+            ? PPDBPeriode::query()
+                ->forAuthorizedJenjang(Auth::id())
+                ->whereKey($periodeId)
+                ->where('ms_jenjang_id', $this->selectedJenjang)
+                ->value('ppdb_periode_id')
+            : null;
 
         $this->resetPage();
     }
@@ -75,16 +90,11 @@ class Index extends Component
     {
         $periode = null;
 
-        // Gunakan periode aktif terbaru untuk jenjang yang dipilih.
-        if ($this->selectedJenjang) {
+        if ($this->selectedJenjang && $this->selectedPeriode) {
             $periode = PPDBPeriode::query()
-                ->where(
-                    'ms_jenjang_id',
-                    $this->selectedJenjang
-                )
-                ->where('status', 'aktif')
-                ->orderByDesc('tanggal_mulai')
-                ->orderByDesc('ppdb_periode_id')
+                ->forAuthorizedJenjang(Auth::id())
+                ->whereKey($this->selectedPeriode)
+                ->where('ms_jenjang_id', $this->selectedJenjang)
                 ->first();
         }
 
@@ -104,7 +114,7 @@ class Index extends Component
                 $periode->ppdb_periode_id
             );
         } else {
-            // Jenjang belum dipilih atau periode aktif tidak ditemukan.
+            // Jenjang atau periode belum dipilih atau pasangan tidak valid.
             $query->whereRaw('1 = 0');
         }
 

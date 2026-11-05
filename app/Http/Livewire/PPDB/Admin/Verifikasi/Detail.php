@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\PPDB\Admin\Verifikasi;
 
 use App\Models\PPDBPendaftaran;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Detail extends Component
@@ -25,6 +26,9 @@ class Detail extends Component
         $this->pendaftaranId = $id;
 
         $this->pendaftaran = PPDBPendaftaran::query()
+            ->whereHas('ppdb_periode', function ($query) {
+                $query->forAuthorizedJenjang(Auth::id());
+            })
             ->with([
                 'ppdb_periode',
                 'ppdb_gelombang',

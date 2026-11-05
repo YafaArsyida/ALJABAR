@@ -27,7 +27,7 @@
             </div>
 
             {{-- UNDUH LAPORAN --}}
-            @if ($selectedJenjang && $periode)
+            @if ($selectedJenjang && $selectedPeriode && $periode)
                 <div class="d-flex align-items-center gap-2 flex-wrap">
                     <button
                         type="button"
@@ -68,6 +68,20 @@
                     untuk menampilkan laporan calon siswa yang diterima pada SPMB.
                 </p>
             </div>
+        @elseif (!$selectedPeriode)
+            <div class="text-center py-4">
+                <div class="avatar-md mx-auto mb-3">
+                    <div class="avatar-title bg-warning-subtle text-warning rounded-circle fs-24">
+                        <i class="ri-calendar-close-line"></i>
+                    </div>
+                </div>
+
+                <h6 class="mb-1">Pilih Periode</h6>
+
+                <p class="text-muted mb-0">
+                    Tidak ada periode aktif. Pilih periode lain yang tersedia untuk melihat laporan.
+                </p>
+            </div>
         {{-- PERIODE TIDAK TERSEDIA --}}
         @elseif (!$periode)
 
@@ -81,7 +95,7 @@
                 <h6 class="mb-1">Periode SPMB Tidak Tersedia</h6>
 
                 <p class="text-muted mb-0">
-                    Tidak ditemukan periode SPMB aktif untuk jenjang yang dipilih.
+                    Periode SPMB yang dipilih tidak tersedia atau bukan milik jenjang tersebut.
                 </p>
             </div>
 

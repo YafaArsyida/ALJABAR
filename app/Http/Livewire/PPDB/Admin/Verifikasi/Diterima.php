@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\PPDB\Admin\Verifikasi;
 
 use App\Models\PPDBPendaftaran;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Diterima extends Component
@@ -20,7 +21,7 @@ class Diterima extends Component
     {
         $this->pendaftaranId = $id;
 
-        $pendaftaran = PPDBPendaftaran::find($id);
+        $pendaftaran = $this->pendaftaranDapatDiproses($id);
 
         if (
             !$pendaftaran ||
@@ -50,7 +51,7 @@ class Diterima extends Component
                 'ID pendataan tidak valid.',
         ]);
 
-        $pendaftaran = PPDBPendaftaran::find(
+        $pendaftaran = $this->pendaftaranDapatDiproses(
             $this->pendaftaranId
         );
 
@@ -94,5 +95,16 @@ class Diterima extends Component
     public function render()
     {
         return view('livewire.p-p-d-b.admin.verifikasi.diterima');
+    }
+
+    private function pendaftaranDapatDiproses($id): ?PPDBPendaftaran
+    {
+        return PPDBPendaftaran::query()
+            ->whereKey($id)
+            ->whereHas('ppdb_periode', function ($query) {
+                $query->forAuthorizedJenjang(Auth::id())
+                    ->where('status', 'aktif');
+            })
+            ->first();
     }
 }

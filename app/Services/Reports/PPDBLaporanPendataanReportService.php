@@ -10,22 +10,26 @@ use App\Http\Controllers\HelperController;
 
 class PPDBLaporanPendataanReportService
 {
-    public function getData(array $filters): array
+    public function getData(array $filters, $userId): array
     {
-        $jenjang = Jenjang::findOrFail($filters['jenjang']);
+        $jenjang = Jenjang::query()
+            ->whereKey($filters['jenjang'])
+            ->where('status', 'Aktif')
+            ->whereHas('ms_pengguna', function ($query) use ($userId) {
+                $query->whereKey($userId);
+            })
+            ->firstOrFail();
 
         $periode = PPDBPeriode::query()
+            ->forAuthorizedJenjang($userId)
+            ->whereKey($filters['periode'])
             ->where('ms_jenjang_id', $jenjang->getKey())
-            ->where('status', 'aktif')
-            ->orderByDesc('tanggal_mulai')
-            ->orderByDesc('ppdb_periode_id')
             ->firstOrFail();
 
         $jalur = null;
         if (! empty($filters['jalur'])) {
             $jalur = PPDBJalur::query()
                 ->where('ppdb_periode_id', $periode->getKey())
-                ->where('status', 'aktif')
                 ->findOrFail($filters['jalur']);
         }
 

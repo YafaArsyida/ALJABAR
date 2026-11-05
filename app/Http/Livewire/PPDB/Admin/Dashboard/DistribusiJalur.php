@@ -6,18 +6,21 @@ use Livewire\Component;
 use App\Models\PPDBPeriode;
 use App\Models\PPDBJalur;
 use App\Models\PPDBPendaftaran;
+use Illuminate\Support\Facades\Auth;
 
 class DistribusiJalur extends Component
 {
     public $selectedJenjang = null;
+    public $selectedPeriode = null;
 
     protected $listeners = [
-        'parameterUpdated' => 'updateParameters',
+        'dashboardParametersUpdated' => 'updateParameters',
     ];
 
-    public function updateParameters($jenjangId = null)
+    public function updateParameters($jenjangId = null, $periodeId = null)
     {
         $this->selectedJenjang = $jenjangId;
+        $this->selectedPeriode = $periodeId;
     }
 
     public function render()
@@ -26,12 +29,11 @@ class DistribusiJalur extends Component
         $jalurPendaftaran = collect();
         $totalPendaftar = 0;
 
-        if ($this->selectedJenjang) {
+        if ($this->selectedJenjang && $this->selectedPeriode) {
             $periode = PPDBPeriode::query()
+                ->forAuthorizedJenjang(Auth::id())
+                ->whereKey($this->selectedPeriode)
                 ->where('ms_jenjang_id', $this->selectedJenjang)
-                ->where('status', 'aktif')
-                ->orderByDesc('tanggal_mulai')
-                ->orderByDesc('ppdb_periode_id')
                 ->first();
 
             if ($periode) {

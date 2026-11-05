@@ -51,6 +51,8 @@
                 <p class="text-muted mb-0">
                     @if (!$selectedJenjang)
                         Silakan pilih jenjang untuk melihat informasi periode.
+                    @elseif ($dashboardParametersReceived && !$selectedPeriode)
+                        Pilih periode untuk melihat informasi SPMB.
                     @else
                         Belum ada periode aktif untuk jenjang yang dipilih.
                     @endif

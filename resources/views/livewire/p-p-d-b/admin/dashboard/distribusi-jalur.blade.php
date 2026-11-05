@@ -20,7 +20,7 @@
 
     {{-- BODY --}}
     <div class="card-body">
-        @if (!$selectedJenjang)
+        @if (!$selectedJenjang || !$selectedPeriode)
             <div class="text-center py-4">
                 <div class="avatar-md mx-auto mb-3">
                     <div class="avatar-title bg-light text-muted rounded-circle fs-3">
@@ -33,7 +33,7 @@
                 </h6>
 
                 <p class="text-muted small mb-0">
-                    Pilih jenjang untuk melihat distribusi jalur.
+                    Pilih jenjang dan periode untuk melihat distribusi jalur.
                 </p>
             </div>
 

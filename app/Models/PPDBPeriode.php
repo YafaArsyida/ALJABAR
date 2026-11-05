@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PPDBPeriode extends Model
@@ -40,5 +41,14 @@ class PPDBPeriode extends Model
         return $this->hasMany(
             PPDBGelombang::class, 'ppdb_periode_id', 'ppdb_periode_id'
         );
+    }
+
+    public function scopeForAuthorizedJenjang(Builder $query, $userId): Builder
+    {
+        return $query->whereIn('ms_jenjang_id', function ($subquery) use ($userId) {
+            $subquery->select('ms_jenjang_id')
+                ->from('ms_akses_jenjang')
+                ->where('ms_pengguna_id', $userId);
+        });
     }
 }

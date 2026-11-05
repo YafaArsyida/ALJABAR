@@ -25,7 +25,7 @@
             </div>
 
             {{-- ACTION --}}
-            @if ($selectedJenjang && $periode)
+            @if ($selectedJenjang && $periode && $periode->status === 'aktif')
                 <div class="d-flex gap-2 flex-wrap">
 
                     {{-- BANTU PENDATAAN --}}
@@ -338,13 +338,29 @@
                                         </div>
                                     </div>
 
-                                    <h6 class="mb-1">Calon siswa tidak ditemukan</h6>
+                                    @if (!$selectedJenjang)
+                                        <h6 class="mb-1">Pilih Jenjang</h6>
+                                        <p class="text-muted mb-3">
+                                            Pilih jenjang dan periode untuk melihat data calon siswa.
+                                        </p>
+                                    @elseif (!$selectedPeriode)
+                                        <h6 class="mb-1">Pilih Periode</h6>
+                                        <p class="text-muted mb-3">
+                                            Belum ada periode aktif. Pilih periode yang tersedia untuk melihat datanya.
+                                        </p>
+                                    @elseif (!$periode)
+                                        <h6 class="mb-1">Periode tidak tersedia</h6>
+                                        <p class="text-muted mb-3">
+                                            Periode yang dipilih tidak tersedia atau bukan milik jenjang tersebut.
+                                        </p>
+                                    @else
+                                        <h6 class="mb-1">Calon siswa tidak ditemukan</h6>
+                                        <p class="text-muted mb-3">
+                                            Tidak ada data yang sesuai dengan pencarian atau filter.
+                                        </p>
+                                    @endif
 
-                                    <p class="text-muted mb-3">
-                                        Tidak ada data yang sesuai dengan pencarian atau filter.
-                                    </p>
-
-                                    @if ($search || $filterStatus || $filterJalur || $filterSumber)
+                                    @if ($periode && ($search || $filterStatus || $filterJalur || $filterSumber))
                                         <button
                                             type="button"
                                             class="btn btn-sm btn-light"

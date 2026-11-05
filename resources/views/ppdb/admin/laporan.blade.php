@@ -14,9 +14,9 @@
                             {{-- INFORMASI PERIODE --}}
                             @livewire('p-p-d-b.admin.dashboard.informasi-periode')
 
-                            {{-- PARAMETER JENJANG --}}
+                            {{-- PARAMETER JENJANG DAN PERIODE --}}
                             <div class="flex-shrink-0">
-                                @livewire('p-p-d-b.parameter.jenjang')
+                                @livewire('p-p-d-b.parameter.jenjang-periode')
                             </div>
 
                         </div>
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        {{-- Rekapitulasi per jenjang --}}
+        {{-- Rekapitulasi per periode --}}
         <div class="row">
             <div class="col-xxl-12">
                 @livewire('p-p-d-b.admin.laporan.index') 

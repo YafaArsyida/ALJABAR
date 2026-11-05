@@ -264,6 +264,7 @@ class Create extends Component
         ]);
 
         $periode = PPDBPeriode::query()
+            ->forAuthorizedJenjang(Auth::id())
             ->whereKey($periodeId)
             ->where('status', 'aktif')
             ->first();
@@ -1292,6 +1293,7 @@ class Create extends Component
                 // -------------------------------------------------
 
                 $periode = PPDBPeriode::query()
+                    ->forAuthorizedJenjang(Auth::id())
                     ->whereKey($data['periodeId'])
                     ->where('status', 'aktif')
                     ->lockForUpdate()
@@ -1593,6 +1595,7 @@ class Create extends Component
 
         if ($this->periodeId) {
             $periode = PPDBPeriode::query()
+                ->forAuthorizedJenjang(Auth::id())
                 ->with([
                     'ms_jenjang',
                 ])

@@ -3,10 +3,12 @@
 namespace App\Http\Livewire\PPDB\Admin\Laporan;
 
 use App\Models\PPDBJalur;
+use App\Models\Jenjang;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\PPDBPeriode;
 use App\Models\PPDBPendaftaran;
+use Illuminate\Support\Facades\Auth;
 
 class Index extends Component
 {
@@ -15,12 +17,13 @@ class Index extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $selectedJenjang = null;
+    public $selectedPeriode = null;
 
     public $search = '';
     public $filterJalur = '';
 
     protected $listeners = [
-        'parameterUpdated' => 'updateParameters',
+        'dashboardParametersUpdated' => 'updateParameters',
         'pendaftaranTersimpan' => '$refresh',
         'pendaftaranDiperbarui' => '$refresh',
     ];
@@ -29,15 +32,26 @@ class Index extends Component
         'search' => ['except' => ''],
     ];
 
-    /**
-     * Menerima perubahan jenjang.
-     */
-    public function updateParameters($jenjangId = null)
+    public function updateParameters($jenjangId = null, $periodeId = null)
     {
-        $this->selectedJenjang = $jenjangId;
+        $jenjang = Jenjang::query()
+            ->whereKey($jenjangId)
+            ->where('status', 'Aktif')
+            ->whereHas('ms_pengguna', function ($query) {
+                $query->whereKey(Auth::id());
+            })
+            ->first();
+
+        $this->selectedJenjang = $jenjang?->ms_jenjang_id;
+        $this->selectedPeriode = $this->selectedJenjang && $periodeId
+            ? PPDBPeriode::query()
+                ->forAuthorizedJenjang(Auth::id())
+                ->whereKey($periodeId)
+                ->where('ms_jenjang_id', $this->selectedJenjang)
+                ->value('ppdb_periode_id')
+            : null;
 
         $this->filterJalur = '';
-
         $this->resetPage();
     }
 
@@ -66,17 +80,17 @@ class Index extends Component
 
     public function unduhLaporan()
     {
-        if (! $this->selectedJenjang) {
+        if (! $this->selectedJenjang || ! $this->selectedPeriode) {
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Pilih jenjang terlebih dahulu.',
+                'message' => 'Pilih jenjang dan periode terlebih dahulu.',
             ]);
 
             return;
         }
 
-        if (! $this->periodeAktifTersedia()) {
+        if (! $this->periodeTerpilihTersedia()) {
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Periode SPMB aktif tidak tersedia untuk pilihan tersebut.',
+                'message' => 'Periode SPMB tidak tersedia untuk pilihan tersebut.',
             ]);
 
             return;
@@ -88,6 +102,7 @@ class Index extends Component
 
         $url = route('ppdb.admin.laporan.pdf', [
             'jenjang' => $this->selectedJenjang,
+            'periode' => $this->selectedPeriode,
             'jalur' => $this->filterJalur,
             'search' => $this->search,
         ]);
@@ -95,13 +110,12 @@ class Index extends Component
         $this->emit('openNewTab', $url);
     }
 
-    protected function periodeAktifTersedia(): bool
+    protected function periodeTerpilihTersedia(): bool
     {
         return PPDBPeriode::query()
+            ->forAuthorizedJenjang(Auth::id())
+            ->whereKey($this->selectedPeriode)
             ->where('ms_jenjang_id', $this->selectedJenjang)
-            ->where('status', 'aktif')
-            ->orderByDesc('tanggal_mulai')
-            ->orderByDesc('ppdb_periode_id')
             ->exists();
     }
 
@@ -111,25 +125,25 @@ class Index extends Component
 
         $daftarJalur = collect();
 
-        // Gunakan periode aktif terbaru untuk jenjang yang dipilih.
-        if ($this->selectedJenjang) {
+        if ($this->selectedJenjang && $this->selectedPeriode) {
             $periode = PPDBPeriode::query()
-                ->where(
-                    'ms_jenjang_id',
-                    $this->selectedJenjang
-                )
-                ->where('status', 'aktif')
-                ->orderByDesc('tanggal_mulai')
-                ->orderByDesc('ppdb_periode_id')
+                ->forAuthorizedJenjang(Auth::id())
+                ->whereKey($this->selectedPeriode)
+                ->where('ms_jenjang_id', $this->selectedJenjang)
                 ->first();
 
             if ($periode) {
-                $daftarJalur = PPDBJalur::query()
+                $daftarJalurQuery = PPDBJalur::query()
                     ->where(
                         'ppdb_periode_id',
                         $periode->ppdb_periode_id
-                    )
-                    ->where('status', 'aktif')
+                    );
+
+                if ($periode->status === 'aktif') {
+                    $daftarJalurQuery->where('status', 'aktif');
+                }
+
+                $daftarJalur = $daftarJalurQuery
                     ->orderBy('nama_jalur')
                     ->get();
             }
@@ -151,8 +165,7 @@ class Index extends Component
                 $periode->ppdb_periode_id
             );
         } else {
-            // Jangan tampilkan data jika parameter
-            // atau periode aktif belum valid.
+            // Jangan tampilkan data jika pasangan parameter tidak valid.
             $query->whereRaw('1 = 0');
         }
 

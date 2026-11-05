@@ -339,7 +339,7 @@
                             data-bs-toggle="modal"
                             data-bs-target="#ModalKonfirmasiPerbaikan"
                             wire:click="$emit('bukaPerbaikan', {{ $pendaftaranId }})"
-                            @if (!$pendaftaran || $pendaftaran->status !== 'pengecekan')
+                            @if (!$pendaftaran || $pendaftaran->status !== 'pengecekan' || $pendaftaran->ppdb_periode?->status !== 'aktif')
                                 disabled
                             @endif
                         >
@@ -356,7 +356,8 @@
                             wire:click="$emit('bukaDiterima', {{ $pendaftaranId }})"
                             @if (
                                 !$pendaftaran ||
-                                !in_array($pendaftaran->status, ['pengecekan', 'perbaikan'])
+                                !in_array($pendaftaran->status, ['pengecekan', 'perbaikan']) ||
+                                $pendaftaran->ppdb_periode?->status !== 'aktif'
                             )
                                 disabled
                             @endif

@@ -5,18 +5,36 @@ namespace App\Http\Livewire\PPDB\Admin\Pendaftar;
 use Livewire\Component;
 use App\Models\PPDBPeriode;
 use App\Models\PPDBPendaftaran;
+use App\Models\Jenjang;
+use Illuminate\Support\Facades\Auth;
 
 class StatistikPendaftar extends Component
 {
     public $selectedJenjang = null;
+    public $selectedPeriode = null;
 
     protected $listeners = [
-        'parameterUpdated' => 'updateParameters',
+        'dashboardParametersUpdated' => 'updateParameters',
     ];
 
-    public function updateParameters($jenjangId = null)
+    public function updateParameters($jenjangId = null, $periodeId = null)
     {
-        $this->selectedJenjang = $jenjangId;
+        $jenjang = Jenjang::query()
+            ->whereKey($jenjangId)
+            ->where('status', 'Aktif')
+            ->whereHas('ms_pengguna', function ($query) {
+                $query->whereKey(Auth::id());
+            })
+            ->first();
+
+        $this->selectedJenjang = $jenjang?->ms_jenjang_id;
+        $this->selectedPeriode = $this->selectedJenjang && $periodeId
+            ? PPDBPeriode::query()
+                ->forAuthorizedJenjang(Auth::id())
+                ->whereKey($periodeId)
+                ->where('ms_jenjang_id', $this->selectedJenjang)
+                ->value('ppdb_periode_id')
+            : null;
     }
 
     public function render()
@@ -26,12 +44,11 @@ class StatistikPendaftar extends Component
         $terverifikasi = 0;
         $perluPerbaikan = 0;
 
-        if ($this->selectedJenjang) {
+        if ($this->selectedJenjang && $this->selectedPeriode) {
             $periode = PPDBPeriode::query()
+                ->forAuthorizedJenjang(Auth::id())
+                ->whereKey($this->selectedPeriode)
                 ->where('ms_jenjang_id', $this->selectedJenjang)
-                ->where('status', 'aktif')
-                ->orderByDesc('tanggal_mulai')
-                ->orderByDesc('ppdb_periode_id')
                 ->first();
 
             if ($periode) {

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\PPDB\Admin\Verifikasi;
 
 use App\Models\PPDBPendaftaran;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Perbaikan extends Component
@@ -26,7 +27,7 @@ class Perbaikan extends Component
 
         $this->pendaftaranId = $id;
 
-        $pendaftaran = PPDBPendaftaran::find($id);
+        $pendaftaran = $this->pendaftaranDapatDiproses($id);
 
         if (!$pendaftaran || $pendaftaran->status !== 'pengecekan') {
             $this->reset(['pendaftaranId', 'catatanPerbaikan']);
@@ -58,7 +59,7 @@ class Perbaikan extends Component
                 'Catatan perbaikan maksimal 2000 karakter.',
         ]);
 
-        $pendaftaran = PPDBPendaftaran::find(
+        $pendaftaran = $this->pendaftaranDapatDiproses(
             $this->pendaftaranId
         );
 
@@ -100,5 +101,16 @@ class Perbaikan extends Component
     public function render()
     {
         return view('livewire.p-p-d-b.admin.verifikasi.perbaikan');
+    }
+
+    private function pendaftaranDapatDiproses($id): ?PPDBPendaftaran
+    {
+        return PPDBPendaftaran::query()
+            ->whereKey($id)
+            ->whereHas('ppdb_periode', function ($query) {
+                $query->forAuthorizedJenjang(Auth::id())
+                    ->where('status', 'aktif');
+            })
+            ->first();
     }
 }
