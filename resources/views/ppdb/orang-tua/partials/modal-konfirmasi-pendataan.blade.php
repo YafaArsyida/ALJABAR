@@ -1,8 +1,11 @@
 @if ($pendaftaran->status !== 'draft')
     @php
         $tanggalPendataan = $pendaftaran->submitted_at
-            ? \Carbon\Carbon::parse($pendaftaran->submitted_at)->translatedFormat('d F Y')
+            ? \Carbon\Carbon::parse($pendaftaran->submitted_at)
+                ->locale('id')
+                ->translatedFormat('d F Y')
             : '-';
+            
         $pesanKonfirmasi = "Nama siswa: "
             . ($pendaftaran->ppdb_calon_siswa->nama_siswa ?? '-')
             . "\nNomor pendataan: "
