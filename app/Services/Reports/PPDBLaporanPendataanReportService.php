@@ -6,7 +6,6 @@ use App\Models\Jenjang;
 use App\Models\PPDBJalur;
 use App\Models\PPDBPendaftaran;
 use App\Models\PPDBPeriode;
-use App\Models\TahunAjar;
 use App\Http\Controllers\HelperController;
 
 class PPDBLaporanPendataanReportService
@@ -14,12 +13,12 @@ class PPDBLaporanPendataanReportService
     public function getData(array $filters): array
     {
         $jenjang = Jenjang::findOrFail($filters['jenjang']);
-        $tahunAjar = TahunAjar::findOrFail($filters['tahun']);
 
         $periode = PPDBPeriode::query()
             ->where('ms_jenjang_id', $jenjang->getKey())
-            ->where('ms_tahun_ajar_id', $tahunAjar->getKey())
             ->where('status', 'aktif')
+            ->orderByDesc('tanggal_mulai')
+            ->orderByDesc('ppdb_periode_id')
             ->firstOrFail();
 
         $jalur = null;
@@ -70,7 +69,6 @@ class PPDBLaporanPendataanReportService
         return [
             'judul' => 'Laporan Pendataan SPMB',
             'jenjang' => $jenjang->nama_jenjang,
-            'tahunAjar' => $tahunAjar->nama_tahun_ajar,
             'periode' => $periode->nama_periode,
             'jalur' => $jalur?->nama_jalur ?? 'Semua jalur',
             'pencarian' => $search !== '' ? $search : 'Semua calon siswa',

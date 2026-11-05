@@ -15,7 +15,6 @@ class Index extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $selectedJenjang = null;
-    public $selectedTahunAjar = null;
 
     public $search = '';
     public $filterJalur = '';
@@ -31,14 +30,11 @@ class Index extends Component
     ];
 
     /**
-     * Menerima perubahan jenjang dan tahun ajar.
+     * Menerima perubahan jenjang.
      */
-    public function updateParameters(
-        $jenjangId = null,
-        $tahunAjarId = null
-    ) {
+    public function updateParameters($jenjangId = null)
+    {
         $this->selectedJenjang = $jenjangId;
-        $this->selectedTahunAjar = $tahunAjarId;
 
         $this->filterJalur = '';
 
@@ -70,9 +66,9 @@ class Index extends Component
 
     public function unduhLaporan()
     {
-        if (! $this->selectedJenjang || ! $this->selectedTahunAjar) {
+        if (! $this->selectedJenjang) {
             $this->dispatchBrowserEvent('alertify-error', [
-                'message' => 'Pilih jenjang dan tahun ajaran terlebih dahulu.',
+                'message' => 'Pilih jenjang terlebih dahulu.',
             ]);
 
             return;
@@ -92,7 +88,6 @@ class Index extends Component
 
         $url = route('ppdb.admin.laporan.pdf', [
             'jenjang' => $this->selectedJenjang,
-            'tahun' => $this->selectedTahunAjar,
             'jalur' => $this->filterJalur,
             'search' => $this->search,
         ]);
@@ -104,8 +99,9 @@ class Index extends Component
     {
         return PPDBPeriode::query()
             ->where('ms_jenjang_id', $this->selectedJenjang)
-            ->where('ms_tahun_ajar_id', $this->selectedTahunAjar)
             ->where('status', 'aktif')
+            ->orderByDesc('tanggal_mulai')
+            ->orderByDesc('ppdb_periode_id')
             ->exists();
     }
 
@@ -115,22 +111,16 @@ class Index extends Component
 
         $daftarJalur = collect();
 
-        // Cari periode berdasarkan parameter jenjang
-        // dan tahun ajar yang dipilih.
-        if (
-            $this->selectedJenjang &&
-            $this->selectedTahunAjar
-        ) {
+        // Gunakan periode aktif terbaru untuk jenjang yang dipilih.
+        if ($this->selectedJenjang) {
             $periode = PPDBPeriode::query()
                 ->where(
                     'ms_jenjang_id',
                     $this->selectedJenjang
                 )
-                ->where(
-                    'ms_tahun_ajar_id',
-                    $this->selectedTahunAjar
-                )
                 ->where('status', 'aktif')
+                ->orderByDesc('tanggal_mulai')
+                ->orderByDesc('ppdb_periode_id')
                 ->first();
 
             if ($periode) {

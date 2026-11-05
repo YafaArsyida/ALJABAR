@@ -9,16 +9,14 @@ use App\Models\PPDBPendaftaran;
 class StatistikJalur extends Component
 {
     public $selectedJenjang = null;
-    public $selectedTahunAjar = null;
 
     protected $listeners = [
         'parameterUpdated' => 'updateParameters',
     ];
 
-    public function updateParameters($jenjangId = null, $tahunAjarId = null)
+    public function updateParameters($jenjangId = null)
     {
         $this->selectedJenjang = $jenjangId;
-        $this->selectedTahunAjar = $tahunAjarId;
     }
 
     public function render()
@@ -28,12 +26,12 @@ class StatistikJalur extends Component
         $perluPerbaikan = 0;
         $diterima = 0;
 
-        // Query hanya dijalankan jika kedua parameter tersedia.
-        if ($this->selectedJenjang && $this->selectedTahunAjar) {
+        if ($this->selectedJenjang) {
             $periode = PPDBPeriode::query()
                 ->where('ms_jenjang_id', $this->selectedJenjang)
-                ->where('ms_tahun_ajar_id', $this->selectedTahunAjar)
                 ->where('status', 'aktif')
+                ->orderByDesc('tanggal_mulai')
+                ->orderByDesc('ppdb_periode_id')
                 ->first();
 
             if ($periode) {

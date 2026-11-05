@@ -29,6 +29,7 @@ class InformasiPeriode extends Component
                 ->where('ms_jenjang_id', $this->selectedJenjang)
                 ->where('status', 'aktif')
                 ->orderByDesc('tanggal_mulai')
+                ->orderByDesc('ppdb_periode_id')
                 ->first();
 
             if ($periode) {

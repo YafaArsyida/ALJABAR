@@ -9,7 +9,6 @@ use App\Models\PPDBPendaftaran;
 class StatistikVerifikasi extends Component
 {
     public $selectedJenjang = null;
-    public $selectedTahunAjar = null;
 
     protected $listeners = [
         'parameterUpdated' => 'updateParameters',
@@ -17,12 +16,11 @@ class StatistikVerifikasi extends Component
     ];
 
     /**
-     * Menerima perubahan parameter periode PPDB.
+     * Menerima perubahan parameter jenjang.
      */
-    public function updateParameters($jenjangId = null, $tahunAjarId = null)
+    public function updateParameters($jenjangId = null)
     {
         $this->selectedJenjang = $jenjangId;
-        $this->selectedTahunAjar = $tahunAjarId;
     }
 
     public function render()
@@ -31,11 +29,12 @@ class StatistikVerifikasi extends Component
         $menungguPemeriksaan = 0;
         $totalPerbaikan = 0;
 
-        if ($this->selectedJenjang && $this->selectedTahunAjar) {
+        if ($this->selectedJenjang) {
             $periode = PPDBPeriode::query()
                 ->where('ms_jenjang_id', $this->selectedJenjang)
-                ->where('ms_tahun_ajar_id', $this->selectedTahunAjar)
                 ->where('status', 'aktif')
+                ->orderByDesc('tanggal_mulai')
+                ->orderByDesc('ppdb_periode_id')
                 ->first();
 
             if ($periode) {

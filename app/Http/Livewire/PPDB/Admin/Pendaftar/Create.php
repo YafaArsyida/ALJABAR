@@ -1595,7 +1595,6 @@ class Create extends Component
             $periode = PPDBPeriode::query()
                 ->with([
                     'ms_jenjang',
-                    'ms_tahun_ajar',
                 ])
                 ->whereKey($this->periodeId)
                 ->where('status', 'aktif')

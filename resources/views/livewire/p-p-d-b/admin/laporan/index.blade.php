@@ -27,7 +27,7 @@
             </div>
 
             {{-- UNDUH LAPORAN --}}
-            @if ($selectedJenjang && $selectedTahunAjar && $periode)
+            @if ($selectedJenjang && $periode)
                 <div class="d-flex align-items-center gap-2 flex-wrap">
                     <button
                         type="button"
@@ -53,7 +53,7 @@
     <div class="card-body">
 
         {{-- PARAMETER BELUM DIPILIH --}}
-        @if (!$selectedJenjang || !$selectedTahunAjar)
+        @if (!$selectedJenjang)
             <div class="text-center py-4">
                 <div class="avatar-md mx-auto mb-3">
                     <div class="avatar-title bg-light text-muted rounded-circle fs-24">
@@ -64,7 +64,7 @@
                 <h6 class="mb-1">Pilih Parameter Laporan</h6>
 
                 <p class="text-muted mb-0">
-                    Silakan pilih jenjang dan tahun ajaran terlebih dahulu
+                    Silakan pilih jenjang terlebih dahulu
                     untuk menampilkan laporan calon siswa yang diterima pada SPMB.
                 </p>
             </div>
@@ -81,8 +81,7 @@
                 <h6 class="mb-1">Periode SPMB Tidak Tersedia</h6>
 
                 <p class="text-muted mb-0">
-                    Tidak ditemukan periode SPMB aktif untuk kombinasi
-                    jenjang dan tahun ajaran yang dipilih.
+                    Tidak ditemukan periode SPMB aktif untuk jenjang yang dipilih.
                 </p>
             </div>
 

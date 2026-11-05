@@ -139,7 +139,7 @@
             <td width="70%">
                 <div class="report-kicker">LAPORAN SPMB</div>
                 <div class="report-title">{{ $judul }}</div>
-                <div>{{ $jenjang }} &middot; Tahun Ajaran {{ $tahunAjar }}</div>
+                <div>{{ $jenjang }}</div>
             </td>
             <td class="printed" width="30%" valign="top">
                 DICETAK<br>

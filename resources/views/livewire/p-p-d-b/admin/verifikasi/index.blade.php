@@ -25,7 +25,7 @@
             </div>
 
             {{-- ACTION --}}
-            @if ($selectedJenjang && $selectedTahunAjar && $periode)
+            @if ($selectedJenjang && $periode)
                 <div class="d-flex gap-2 flex-wrap">
 
                     {{-- BANTU PENDATAAN --}}

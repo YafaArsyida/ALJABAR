@@ -14,7 +14,6 @@ class Index extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $selectedJenjang = null;
-    public $selectedTahunAjar = null;
 
     public $cari = '';
     public $filterStatus = 'pengecekan';
@@ -33,12 +32,11 @@ class Index extends Component
     ];
 
     /**
-     * Menerima perubahan parameter jenjang dan tahun ajar.
+     * Menerima perubahan parameter jenjang.
      */
-    public function updateParameters($jenjangId = null, $tahunAjarId = null)
+    public function updateParameters($jenjangId = null)
     {
         $this->selectedJenjang = $jenjangId;
-        $this->selectedTahunAjar = $tahunAjarId;
 
         $this->resetPage();
     }
@@ -77,21 +75,16 @@ class Index extends Component
     {
         $periode = null;
 
-        // Cari periode aktif berdasarkan parameter terpilih.
-        if (
-            $this->selectedJenjang &&
-            $this->selectedTahunAjar
-        ) {
+        // Gunakan periode aktif terbaru untuk jenjang yang dipilih.
+        if ($this->selectedJenjang) {
             $periode = PPDBPeriode::query()
                 ->where(
                     'ms_jenjang_id',
                     $this->selectedJenjang
                 )
-                ->where(
-                    'ms_tahun_ajar_id',
-                    $this->selectedTahunAjar
-                )
                 ->where('status', 'aktif')
+                ->orderByDesc('tanggal_mulai')
+                ->orderByDesc('ppdb_periode_id')
                 ->first();
         }
 
@@ -111,7 +104,7 @@ class Index extends Component
                 $periode->ppdb_periode_id
             );
         } else {
-            // Parameter belum lengkap atau periode tidak ditemukan.
+            // Jenjang belum dipilih atau periode aktif tidak ditemukan.
             $query->whereRaw('1 = 0');
         }
 

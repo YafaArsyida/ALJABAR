@@ -28,7 +28,7 @@
 
     {{-- BODY --}}
     <div class="card-body">
-        @if (!$selectedJenjang || !$selectedTahunAjar)
+        @if (!$selectedJenjang)
             <div class="text-center py-4">
                 <div class="avatar-md mx-auto mb-3">
                     <div class="avatar-title bg-light text-muted rounded-circle fs-3">
@@ -41,7 +41,7 @@
                 </h6>
 
                 <p class="text-muted small mb-0">
-                    Pilih jenjang dan tahun ajar untuk melihat antrean pekerjaan.
+                    Pilih jenjang untuk melihat pendataan terbaru.
                 </p>
             </div>
 

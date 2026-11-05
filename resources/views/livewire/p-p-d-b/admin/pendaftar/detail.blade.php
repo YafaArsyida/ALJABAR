@@ -24,7 +24,7 @@
                                 Detail Pendataan SPMB
                             </h5>
                             <p class="text-muted small mb-0">
-                                Ringkasan data calon siswa SPMB Tahun Ajaran 2027/2028
+                                Ringkasan data calon siswa
                             </p>
                         </div>
                     </div>

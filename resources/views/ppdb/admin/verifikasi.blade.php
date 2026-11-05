@@ -14,9 +14,9 @@
                             {{-- INFORMASI PERIODE --}}
                             @livewire('p-p-d-b.admin.dashboard.informasi-periode')
 
-                            {{-- PARAMETER JENJANG & TAHUN AJAR --}}
+                            {{-- PARAMETER JENJANG --}}
                             <div class="flex-shrink-0">
-                                @livewire('p-p-d-b.parameter.jenjang-tahun-ajar')
+                                @livewire('p-p-d-b.parameter.jenjang')
                             </div>
 
                         </div>

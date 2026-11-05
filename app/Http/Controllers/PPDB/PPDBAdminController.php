@@ -104,7 +104,6 @@ class PPDBAdminController extends Controller
     ) {
         $filters = $request->validate([
             'jenjang' => ['required', 'integer'],
-            'tahun' => ['required', 'integer'],
             'jalur' => ['nullable', 'integer'],
             'search' => ['nullable', 'string', 'max:150'],
         ]);
