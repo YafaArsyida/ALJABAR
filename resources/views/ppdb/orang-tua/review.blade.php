@@ -439,13 +439,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6">
-                                            <div class="text-muted small mb-1">NPSN Sekolah</div>
-                                            <div>
-                                                {{ $pendidikan->npsn_asal_sekolah ?? '-' }}
-                                            </div>
-                                        </div>
-
                                         @if (filled($pendidikan->alamat_asal_sekolah))
                                             <div class="col-12">
                                                 <div class="text-muted small mb-1">Alamat Sekolah Asal</div>

@@ -86,17 +86,6 @@
                     </span>
                 </div>
 
-                {{-- NPSN --}}
-                <div class="col-md-6">
-                    <small class="text-muted d-block mb-1">
-                        NPSN
-                    </small>
-
-                    <span class="fw-semibold">
-                        {{ $pendidikan->npsn_asal_sekolah ?: '-' }}
-                    </span>
-                </div>
-
                 {{-- ALAMAT ASAL SEKOLAH --}}
                 <div class="col-md-6">
                     <small class="text-muted d-block mb-1">
@@ -116,17 +105,6 @@
 
                     <span class="fw-semibold">
                         {{ $pendidikan->tahun_lulus ?: '-' }}
-                    </span>
-                </div>
-
-                {{-- NOMOR IJAZAH --}}
-                <div class="col-md-6">
-                    <small class="text-muted d-block mb-1">
-                        Nomor Peserta / Bukti Kelulusan
-                    </small>
-
-                    <span class="fw-semibold">
-                        {{ $pendidikan->nomor_ijazah ?: '-' }}
                     </span>
                 </div>
 
