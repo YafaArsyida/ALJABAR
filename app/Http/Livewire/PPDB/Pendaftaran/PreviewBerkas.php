@@ -32,7 +32,7 @@ class PreviewBerkas extends Component
 
         $isAdmin = in_array(
             strtoupper($user->peran ?? ''),
-            ['SUPERADMIN', 'ADMIN', 'KEUANGAN', 'PANITIA_PPDB'],
+            ['SUPERADMIN', 'ADMIN', 'KEUANGAN', 'PETUGAS_PPDB'],
             true
         );
 

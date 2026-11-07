@@ -31,7 +31,7 @@ class PPDBBerkasController extends Controller
             'SUPERADMIN',
             'ADMIN',
             'KEUANGAN',
-            'PANITIA_PPDB',
+            'PETUGAS_PPDB',
         ], true);
 
         $isPemilik = (string) $pendaftaran->ms_pengguna_id
@@ -84,7 +84,7 @@ class PPDBBerkasController extends Controller
         $peranAdmin = [
             'SUPERADMIN',
             'ADMIN',
-            'PANITIA_PPDB',
+            'PETUGAS_PPDB',
         ];
 
         $isAdmin = in_array($peran, $peranAdmin, true);
@@ -130,7 +130,7 @@ class PPDBBerkasController extends Controller
         $peranAdmin = [
             'SUPERADMIN',
             'ADMIN',
-            'PANITIA_PPDB',
+            'PETUGAS_PPDB',
         ];
 
         $isAdmin = in_array($peran, $peranAdmin, true);

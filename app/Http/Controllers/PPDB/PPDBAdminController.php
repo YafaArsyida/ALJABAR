@@ -31,7 +31,7 @@ class PPDBAdminController extends Controller
         abort_unless(
             in_array(
                 $peran,
-                ['SUPERADMIN', 'ADMIN', 'KEUANGAN', 'PANITIA_PPDB'],
+                ['SUPERADMIN', 'ADMIN', 'KEUANGAN', 'PETUGAS_PPDB'],
                 true
             ),
             403
