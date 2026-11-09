@@ -294,7 +294,7 @@
                 position: relative;
                 width: 277mm;
                 margin-left: 10mm;
-                margin-top: 10mm;
+                margin-top: 8mm;
                 padding: 0 1mm;
                 z-index: 1;
             }
@@ -305,7 +305,7 @@
 
             .student-header,
             .info-row {
-                width: 90%;
+                width: 96%;
                 margin-right: auto;
                 margin-left: auto;
                 table-layout: fixed;
@@ -521,8 +521,25 @@
             .payment-table th,
             .payment-table td {
                 padding: 1.5mm 1.2mm;
-                border: 1px solid var(--color-border);
+                border: 0;
+                border-right: 1px solid var(--color-border);
+                border-bottom: 1px solid var(--color-border);
                 vertical-align: top;
+            }
+
+            .payment-table tr:first-child > th,
+            .payment-table tr:first-child > td {
+                border-top: 1px solid var(--color-border);
+            }
+
+            .payment-table tr > th:last-child,
+            .payment-table tr > td:last-child {
+                border-right: 0;
+            }
+
+            .payment-table tr:last-child > th,
+            .payment-table tr:last-child > td {
+                border-bottom: 0;
             }
 
             .payment-table th,
@@ -949,11 +966,10 @@
 
                                     </tbody>
                                 </table>
-                                {{-- CATATAN SKRINING PSIKOLOGI --}}
-                                <div class="payment-note">
-                                    *Jika skrining psikologi susulan akan dikenai biaya tambahan sebesar Rp100.000.
-                                </div>
-
+                            </div>
+                            {{-- CATATAN SKRINING PSIKOLOGI --}}
+                            <div class="payment-note">
+                                *Jika skrining psikologi susulan akan dikenai biaya tambahan sebesar Rp100.000.
                             </div>
                         </td>
 
