@@ -210,7 +210,7 @@
                                             ]) }}"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            class="btn btn-danger rounded-pill px-4"
+                                            class="btn btn-primary rounded-pill px-4"
                                         >
                                             <i class="ri-printer-line me-1"></i>
                                             Cetak Kartu Aljabar

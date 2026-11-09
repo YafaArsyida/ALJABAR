@@ -30,6 +30,7 @@
                     <div>
                         <h6 class="fw-semibold mb-1">Ketentuan Unggah Dokumen</h6>
                         <p class="text-muted small mb-0">
+                            Semua berkas bersifat opsional.
                             Format JPG, JPEG, PNG, WebP, atau PDF dengan ukuran maksimal
                             5 MB per file. Pas foto harus berupa gambar.
                             Gambar akan dikonversi menjadi WebP saat disimpan.
@@ -49,7 +50,7 @@
                             </div>
                         </div>
                         <div class="flex-grow-1">
-                            <h6 class="fw-semibold mb-1">Kartu Keluarga <span class="text-danger">*</span></h6>
+                            <h6 class="fw-semibold mb-1">Kartu Keluarga</h6>
                             <p class="text-muted small mb-2">
                                 Unggah salinan Kartu Keluarga yang masih terbaca.
                             </p>
@@ -158,7 +159,7 @@
                             </div>
                         </div>
                         <div class="flex-grow-1">
-                            <h6 class="fw-semibold mb-1">Akta Kelahiran <span class="text-danger">*</span></h6>
+                            <h6 class="fw-semibold mb-1">Akta Kelahiran</h6>
                             <p class="text-muted small mb-2">
                                 Unggah salinan akta kelahiran calon siswa.
                             </p>
@@ -261,7 +262,7 @@
                             </div>
                         </div>
                         <div class="flex-grow-1">
-                            <h6 class="fw-semibold mb-1">Pas Foto <span class="text-danger">*</span></h6>
+                            <h6 class="fw-semibold mb-1">Pas Foto</h6>
                             <p class="text-muted small mb-2">
                                 Unggah pas foto calon siswa. Format PDF tidak diperbolehkan.
                             </p>

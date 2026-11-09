@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -35,38 +34,10 @@ class FormBerkas extends Component
 
     protected function rules()
     {
-        return [
-            'fileKartuKeluarga' => [
-                'nullable',
-                'file',
-                'mimes:jpg,jpeg,png,webp,pdf',
-                'max:5120',
-            ],
-            'fileAktaKelahiran' => [
-                'nullable',
-                'file',
-                'mimes:jpg,jpeg,png,webp,pdf',
-                'max:5120',
-            ],
-            'filePasFoto' => [
-                'nullable',
-                'image',
-                'mimes:jpg,jpeg,png,webp',
-                'max:5120',
-            ],
-            'fileDokumenPendukung' => [
-                'nullable',
-                'file',
-                'mimes:jpg,jpeg,png,webp,pdf',
-                'max:5120',
-            ],
-        ];
+        return $this->aturanBerkas();
     }
 
     protected $messages = [
-        'fileKartuKeluarga.required' => 'Silakan pilih file Kartu Keluarga.',
-        'fileAktaKelahiran.required' => 'Silakan pilih file Akta Kelahiran.',
-        'filePasFoto.required' => 'Silakan pilih pas foto calon siswa.',
         '*.mimes' => 'Format file harus JPG, JPEG, PNG, WebP, atau PDF.',
         '*.max' => 'Ukuran file maksimal 5 MB.',
     ];
@@ -142,19 +113,15 @@ class FormBerkas extends Component
         return [
             'KARTU_KELUARGA' => [
                 'property' => 'fileKartuKeluarga',
-                'wajib' => true,
             ],
             'AKTA_KELAHIRAN' => [
                 'property' => 'fileAktaKelahiran',
-                'wajib' => true,
             ],
             'PAS_FOTO' => [
                 'property' => 'filePasFoto',
-                'wajib' => true,
             ],
             'DOKUMEN_PENDUKUNG' => [
                 'property' => 'fileDokumenPendukung',
-                'wajib' => false,
             ],
         ];
     }
@@ -162,15 +129,9 @@ class FormBerkas extends Component
     protected function aturanValidasi($jenis)
     {
         $property = $this->jenisBerkas()[$jenis]['property'];
+        $aturan = $this->aturanBerkas();
 
-        return [
-            $property => [
-                'required',
-                'file',
-                'max:5120',
-                'mimes:jpg,jpeg,png,webp,pdf',
-            ],
-        ];
+        return [$property => $aturan[$property]];
     }
 
     public function updatedFileKartuKeluarga()
@@ -208,7 +169,7 @@ class FormBerkas extends Component
         return [
             'fileKartuKeluarga' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
             'fileAktaKelahiran' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
-            'filePasFoto' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp',
+            'filePasFoto' => 'nullable|image|max:5120|mimes:jpg,jpeg,png,webp',
             'fileDokumenPendukung' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
         ];
     }
@@ -223,33 +184,6 @@ class FormBerkas extends Component
         $this->validate($this->aturanBerkas());
 
         $daftarInput = $this->daftarInputBerkas();
-
-        $berkasTersimpan = PPDBBerkas::query()
-            ->where(
-                'ppdb_pendaftaran_id', $pendaftaran->ppdb_pendaftaran_id
-            )
-            ->get()
-            ->keyBy('jenis_berkas');
-
-        // Tiga berkas wajib harus tersedia dari unggahan lama atau baru.
-        $wajib = [
-            'KARTU_KELUARGA',
-            'AKTA_KELAHIRAN',
-            'PAS_FOTO',
-        ];
-
-        foreach ($wajib as $jenis) {
-            $property = $daftarInput[$jenis];
-
-            if (
-                ! $this->{$property}
-                && ! $berkasTersimpan->has($jenis)
-            ) {
-                throw ValidationException::withMessages([
-                    $property => 'Berkas ini wajib diunggah.',
-                ]);
-            }
-        }
 
         $fileBaru = [];
         $pathLama = [];
@@ -287,33 +221,6 @@ class FormBerkas extends Component
                     ->firstOrFail();
 
                 $this->pastikanBolehUnggah($pendaftaranTerkunci);
-
-                // Periksa kembali berkas wajib berdasarkan data terbaru.
-                $berkasTerkini = PPDBBerkas::query()
-                    ->where(
-                        'ppdb_pendaftaran_id',
-                        $pendaftaranTerkunci->ppdb_pendaftaran_id
-                    )
-                    ->lockForUpdate()
-                    ->get()
-                    ->keyBy('jenis_berkas');
-
-                foreach ([
-                    'KARTU_KELUARGA',
-                    'AKTA_KELAHIRAN',
-                    'PAS_FOTO',
-                ] as $jenis) {
-                    $property = $this->daftarInputBerkas()[$jenis];
-
-                    if (
-                        ! isset($fileBaru[$jenis])
-                        && ! $berkasTerkini->has($jenis)
-                    ) {
-                        throw ValidationException::withMessages([
-                            $property => 'Berkas ini wajib diunggah.',
-                        ]);
-                    }
-                }
 
                 foreach ($fileBaru as $jenis => $data) {
                     $berkas = PPDBBerkas::query()

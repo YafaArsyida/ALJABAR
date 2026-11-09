@@ -13,7 +13,7 @@
                 <div>
                     <h5 class="fw-bold mb-1">Ubah Berkas Persyaratan</h5>
                     <small class="text-muted">
-                        Perbarui dokumen yang telah diunggah jika diperlukan.
+                        Unggah berkas pengganti jika diperlukan. Jika dikosongkan, berkas lama tetap tersimpan.
                     </small>
                 </div>
             </div>
@@ -30,6 +30,7 @@
                 <div>
                     <h6 class="fw-semibold mb-1">Ketentuan Unggah Dokumen</h6>
                     <p class="text-muted small mb-0">
+                        Semua berkas bersifat opsional.
                         Format JPG, JPEG, PNG, WebP, atau PDF dengan ukuran maksimal
                         5 MB per file. Pas foto harus berupa gambar.
                         Gambar akan dikonversi menjadi WebP saat disimpan.
@@ -56,7 +57,6 @@
 
                         <h6 class="fw-semibold mb-1">
                             Kartu Keluarga
-                            <span class="text-danger">*</span>
                         </h6>
 
                         <p class="text-muted small mb-2">
@@ -214,7 +214,6 @@
 
                         <h6 class="fw-semibold mb-1">
                             Akta Kelahiran
-                            <span class="text-danger">*</span>
                         </h6>
 
                         <p class="text-muted small mb-2">
@@ -373,7 +372,6 @@
 
                         <h6 class="fw-semibold mb-1">
                             Pas Foto
-                            <span class="text-danger">*</span>
                         </h6>
 
                         <p class="text-muted small mb-2">

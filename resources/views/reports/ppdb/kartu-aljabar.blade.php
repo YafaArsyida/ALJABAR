@@ -27,6 +27,23 @@
                 color: #222;
             }
 
+            :root {
+                --color-primary: #2185f4;
+                --color-border: #0756a8;
+                --color-border-dark: #064786;
+                --color-payment: #eaf3ff;
+                --color-payment-text: #123b66;
+                --color-white: #fff;
+
+                --font-body: 10px;
+                --font-small: 8.5px;
+                --font-heading: 12px;
+                --font-subheading: 10px;
+
+                --line-body: 1.4;
+                --line-compact: 1.25;
+            }
+
             .page-content {
                 position: relative;
                 top: 10mm;
@@ -111,6 +128,7 @@
             .school-info h2 {
                 margin: 0 0 3mm;
                 color: #84212b;
+                /* color: var(--color-border-dark); */
                 font-size: 30px;
                 font-weight: bold;
                 line-height: 1.2;
@@ -133,7 +151,7 @@
             .header-divider td {
                 height: 0;
                 padding: 0;
-                border-top: 3px solid #333;
+                border-top: 3px solid var(--color-border);
                 font-size: 0;
                 line-height: 0;
             }
@@ -212,8 +230,8 @@
             .requirement-text {
                 padding: 2.5mm 3mm;
                 border-radius: 2mm;
-                background-color: #bd2035;
-                color: #fff;
+                background-color: var(--color-primary);
+                color: var(--color-white);
                 font-size: 10.5px;
                 font-weight: bold;
                 line-height: 1.25;
@@ -228,7 +246,7 @@
                 display: inline-block;
                 width: 19mm;
                 height: 8mm;
-                border: 1.2px solid #871628;
+                border: 1.2px solid var(--color-border);
                 border-radius: 5mm;
                 background-color: #fff;
             }
@@ -237,7 +255,7 @@
                 width: 49mm;
                 margin: 0 auto;
                 padding: 5mm 3mm;
-                border: 2px solid #e56c20;
+                border: 2px solid var(--color-primary);
                 border-radius: 5mm;
                 background-color: #fff;
                 text-align: center;
@@ -268,23 +286,6 @@
             5. DESIGN SYSTEM HALAMAN KEDUA
             ========================================================= */
 
-            :root {
-                --color-primary: #b32332;
-                --color-border: #a92b35;
-                --color-border-dark: #8e1c29;
-                --color-payment: #ff994b;
-                --color-payment-text: #54291b;
-                --color-white: #fff;
-
-                --font-body: 10px;
-                --font-small: 8.5px;
-                --font-heading: 12px;
-                --font-subheading: 10px;
-
-                --line-body: 1.4;
-                --line-compact: 1.25;
-            }
-
             /* =========================================================
             6. AREA KONTEN DAN TATA LETAK
             ========================================================= */
@@ -293,7 +294,7 @@
                 position: relative;
                 width: 277mm;
                 margin-left: 10mm;
-                margin-top: 5mm;
+                margin-top: 10mm;
                 padding: 0 1mm;
                 z-index: 1;
             }
@@ -312,7 +313,7 @@
 
             .student-header {
                 margin-bottom: 2mm;
-                border: 1.2px solid #bd2035;
+                border: 1.2px solid var(--color-primary);
                 border-collapse: separate;
                 border-spacing: 0;
                 border-radius: 5mm;
@@ -569,6 +570,7 @@
             .payment-note {
                 padding: 2mm 2mm 2.5mm;
                 color: #bd2035;
+                /* color: var(--color-border); */
                 font-size: 6px;
                 font-style: italic;
                 font-weight: bold;

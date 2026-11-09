@@ -298,7 +298,7 @@
                                         {{-- PERIKSA --}}
                                         <button
                                             type="button"
-                                            class="btn btn-primary btn-sm rounded-pill px-3 text-nowrap"
+                                            class="btn btn-outline-primary btn-sm rounded-pill px-3 text-nowrap"
                                             data-bs-toggle="offcanvas"
                                             data-bs-target="#offcanvasPemeriksaanPendaftaran"
                                             title="Periksa Dokumen Pendataan"
@@ -330,7 +330,7 @@
                                                 ]) }}"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn btn-danger btn-sm rounded-pill px-3 text-nowrap"
+                                                class="btn btn-primary btn-sm rounded-pill px-3 text-nowrap"
                                                 title="Cetak Kartu Aljabar"
                                             >
                                                 <i class="ri-printer-line align-bottom me-1"></i>

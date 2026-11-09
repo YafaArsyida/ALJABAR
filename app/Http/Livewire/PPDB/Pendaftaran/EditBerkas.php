@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Throwable;
@@ -118,7 +117,7 @@ class EditBerkas extends Component
         return [
             'fileKartuKeluarga' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
             'fileAktaKelahiran' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
-            'filePasFoto' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp',
+            'filePasFoto' => 'nullable|image|max:5120|mimes:jpg,jpeg,png,webp',
             'fileDokumenPendukung' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,webp,pdf',
         ];
     }
@@ -133,32 +132,6 @@ class EditBerkas extends Component
         $this->validate($this->aturanValidasi());
 
         $daftarInput = $this->daftarInputBerkas();
-
-        $berkasTersimpan = PPDBBerkas::query()
-            ->where(
-                'ppdb_pendaftaran_id',
-                $pendaftaran->ppdb_pendaftaran_id
-            )
-            ->get()
-            ->keyBy('jenis_berkas');
-
-        // Berkas wajib harus tersedia dari unggahan lama atau baru.
-        foreach ([
-            'KARTU_KELUARGA',
-            'AKTA_KELAHIRAN',
-            'PAS_FOTO',
-        ] as $jenis) {
-            $property = $daftarInput[$jenis];
-
-            if (
-                ! $this->{$property}
-                && ! $berkasTersimpan->has($jenis)
-            ) {
-                throw ValidationException::withMessages([
-                    $property => 'Berkas ini wajib diunggah.',
-                ]);
-            }
-        }
 
         $fileBaru = [];
         $pathLama = [];
@@ -185,7 +158,6 @@ class EditBerkas extends Component
             DB::transaction(function () use (
                 $pendaftaran,
                 $fileBaru,
-                $daftarInput,
                 &$pathLama
             ) {
                 $pendaftaranTerkunci = PPDBPendaftaran::query()
@@ -198,34 +170,6 @@ class EditBerkas extends Component
                     ->firstOrFail();
 
                 $this->pastikanBolehUbah($pendaftaranTerkunci);
-
-                // Ambil kondisi berkas terbaru di dalam transaksi.
-                $berkasTerkini = PPDBBerkas::query()
-                    ->where(
-                        'ppdb_pendaftaran_id',
-                        $pendaftaranTerkunci->ppdb_pendaftaran_id
-                    )
-                    ->lockForUpdate()
-                    ->get()
-                    ->keyBy('jenis_berkas');
-
-                // Pastikan berkas wajib tetap tersedia.
-                foreach ([
-                    'KARTU_KELUARGA',
-                    'AKTA_KELAHIRAN',
-                    'PAS_FOTO',
-                ] as $jenis) {
-                    $property = $daftarInput[$jenis];
-
-                    if (
-                        ! isset($fileBaru[$jenis])
-                        && ! $berkasTerkini->has($jenis)
-                    ) {
-                        throw ValidationException::withMessages([
-                            $property => 'Berkas ini wajib diunggah.',
-                        ]);
-                    }
-                }
 
                 foreach ($fileBaru as $jenis => $data) {
                     $berkas = PPDBBerkas::query()
