@@ -641,7 +641,7 @@
                     {{-- LOGO SPMB --}}
                     <td class="logo-cell">
                         <img
-                            src="{{ public_path('assets/pdf/spmb.png') }}"
+                            src="{{ public_path('assets/pdf/spmb.webp') }}"
                             class="spmb-logo"
                             alt="Logo SPMB"
                         >
@@ -769,7 +769,7 @@
 
                         <td class="student-spmb">
                             <img
-                                src="{{ public_path('assets/pdf/spmb.png') }}"
+                                src="{{ public_path('assets/pdf/spmb.webp') }}"
                                 alt="Logo SPMB"
                             >
                         </td>
