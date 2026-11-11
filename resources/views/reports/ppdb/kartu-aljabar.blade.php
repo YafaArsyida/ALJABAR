@@ -666,7 +666,7 @@
             </div>
 
             <div class="document-subtitle">
-                Syarat Pendataan SPMB Tahun Pelajaran 2026/2027
+                Syarat Pendataan SPMB Tahun Pelajaran 2027/2028
             </div>
 
             <table class="requirements-layout">

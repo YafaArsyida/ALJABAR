@@ -1,5 +1,5 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header border-0 ">
+    {{-- <div class="card-header border-0 ">
         <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
             <div class="flex-grow-1">
                 <h4 class="mb-1">
@@ -11,7 +11,7 @@
             </div>
 
         </div>
-    </div>
+    </div> --}}
     <div class="card-body">
         <!-- SUMMARY CARD -->
         <div class="p-3 rounded-3 text-white bg-primary mb-4">

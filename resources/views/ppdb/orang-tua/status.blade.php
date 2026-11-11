@@ -204,7 +204,7 @@
                                             Konfirmasi Pendataan
                                         </button>
 
-                                        <a
+                                        {{-- <a
                                             href="{{ route('ppdb.kartu-aljabar.pdf', [
                                                 'pendaftaranId' => $pendaftaran->ppdb_pendaftaran_id,
                                             ]) }}"
@@ -214,7 +214,7 @@
                                         >
                                             <i class="ri-printer-line me-1"></i>
                                             Cetak Kartu Aljabar
-                                        </a>
+                                        </a> --}}
                                     @endif
                                 </div>
                             </div>

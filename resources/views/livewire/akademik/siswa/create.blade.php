@@ -40,11 +40,12 @@
             </div>
 
 
-            <form wire:submit.prevent="save">
-
+            <form wire:submit.prevent="save"
+                class="d-flex flex-column flex-grow-1"
+                style="min-height: 0; overflow: hidden;">
                 {{-- BODY --}}
-                <div class="modal-body px-4 pt-2 pb-4">
-
+                <div class="modal-body px-4 pt-2 pb-4 flex-grow-1 overflow-auto"
+                    style="min-height: 0;">
                     {{-- CONTEXT --}}
                     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4 pb-3 border-bottom">
 
@@ -374,7 +375,7 @@
 
 
                 {{-- FOOTER --}}
-                <div class="modal-footer border-0 px-4 pb-4 pt-2">
+                <div class="modal-footer border-0 px-4 pb-4 pt-2 flex-shrink-0">
 
                     <button type="button"
                         class="btn btn-light rounded-pill px-4"

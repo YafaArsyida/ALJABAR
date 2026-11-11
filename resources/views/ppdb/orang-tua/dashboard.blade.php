@@ -148,27 +148,13 @@
                                                 Lihat Status
                                             </a>
 
-                                            @if ($pendaftaran->status !== 'draft')
-                                                <a
-                                                    href="{{ route('ppdb.kartu-aljabar.pdf', [
-                                                        'pendaftaranId' => $pendaftaran->ppdb_pendaftaran_id,
-                                                    ]) }}"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    class="btn btn-primary rounded-pill px-4"
-                                                >
-                                                    <i class="ri-printer-line me-1"></i>
-                                                    Cetak Kartu Aljabar
-                                                </a>
-                                            @else
-                                                <a href="{{ route('ppdb.pendaftaran.review', [
-                                                    'jenjang' => $jenjang->slug,
-                                                ]) }}"
-                                                    class="btn btn-light rounded-pill">
-                                                    <i class="ri-eye-line me-1"></i>
-                                                    Preview Data
-                                                </a>
-                                            @endif
+                                            <a href="{{ route('ppdb.pendaftaran.review', [
+                                                'jenjang' => $jenjang->slug,
+                                            ]) }}"
+                                                class="btn btn-primary rounded-pill">
+                                                <i class="ri-eye-line me-1"></i>
+                                                Preview Data
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
