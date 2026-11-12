@@ -73,7 +73,7 @@ class PPDBBerkasController extends Controller
                 'ppdb_calon_siswa',
                 'ppdb_orangtua',
                 'ppdb_jalur',
-                'ppdb_periode',
+                'ppdb_periode.ms_jenjang',
             ])
             ->findOrFail($pendaftaranId);
 
@@ -98,11 +98,9 @@ class PPDBBerkasController extends Controller
         abort_unless($pendaftaran->status !== 'draft', 403);
 
         // Ambil data berdasarkan pendaftaran yang dipilih.
-        $data = $kartuService->getData($pendaftaran);
-
         $pdf = Pdf::loadView(
-            'reports.ppdb.kartu-aljabar',
-            $data
+            $kartuService->getView($pendaftaran),
+            $kartuService->getData($pendaftaran)
         )->setPaper('a4', 'portrait');
 
         return $pdf->stream(

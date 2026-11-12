@@ -3,7 +3,7 @@
 <html lang="id">
     <head>
         <meta charset="UTF-8">
-        <title>Kartu Aljabar</title>
+        <title>Kartu Aljabar KB</title>
         <style>
             /* =========================================================
             1. PENGATURAN GLOBAL DAN HALAMAN
@@ -28,11 +28,13 @@
             }
 
             :root {
-                --color-primary: #2185f4;
-                --color-border: #0756a8;
-                --color-border-dark: #064786;
-                --color-payment: #eaf3ff;
-                --color-payment-text: #123b66;
+                --color-primary: #df6262;
+                --color-border: #b83b3b;
+                --color-border-dark: #8e2c2c;
+                --color-payment: #fbecec;
+                --color-payment-text: #702c2c;
+                --color-school-title: #a93232;
+                --color-note: #a93232;
                 --color-white: #fff;
 
                 --font-body: 10px;
@@ -127,7 +129,7 @@
 
             .school-info h2 {
                 margin: 0 0 3mm;
-                color: #84212b;
+                color: var(--color-school-title);
                 /* color: var(--color-border-dark); */
                 font-size: 30px;
                 font-weight: bold;
@@ -586,7 +588,7 @@
 
             .payment-note {
                 padding: 2mm 2mm 2.5mm;
-                color: #bd2035;
+                color: var(--color-note);
                 /* color: var(--color-border); */
                 font-size: 6px;
                 font-style: italic;
@@ -624,7 +626,7 @@
 
                     {{-- IDENTITAS SEKOLAH --}}
                     <td class="school-info">
-                        <h2>SD ISLAM AL HIDAYAH</h2>
+                        <h2>KB AL HIDAYAH</h2>
 
                         <p>
                             Dusun Kebonan RT 04/RW 01, Desa Kebonan,
@@ -673,17 +675,12 @@
                 <tr>
                     <td class="requirements">
                         <table class="requirement-table">
-                            @foreach ($persyaratan as $item)
-                                <tr>
-                                    <td class="requirement-text">
-                                        {{ $item }}
-                                    </td>
-
-                                    <td class="requirement-check">
-                                        <span class="check-box"></span>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            <tr><td class="requirement-text">Fotokopi akta kelahiran 1 lembar</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Fotokopi Kartu Keluarga 1 lembar</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Fotokopi KTP ayah dan ibu</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Pas foto 3 × 4 berlatar belakang merah</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Membayar biaya pendaftaran, skrining, dan seragam</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Menyiapkan soft file KK dan akta kelahiran</td><td class="requirement-check"><span class="check-box"></span></td></tr>
                         </table>
                     </td>
 
