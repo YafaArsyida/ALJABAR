@@ -1,24 +1,29 @@
  <div class="card" id="produkList">
-    <div class="card-header border-0">
-        <div class="row align-items-center gy-3">
-            <div class="col-sm">
-                <h5 class="card-title mb-0">Administrasi Produk KoperasiPintar</h5>
-                <p class="text-muted mb-0">KoperasiPintar > Administrasi Produk</p>
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+        <div class="d-flex align-items-center flex-wrap gap-3">
+            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-store-2-line"></i>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="fw-bold mb-1">Administrasi Produk KoperasiPintar</h5>
+                    <small class="text-muted">Kelola produk koperasi untuk jenjang terpilih.</small>
+                </div>
             </div>
-            <div class="col-sm-auto">
-                <div class="d-flex gap-1 flex-wrap">
-                    <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" 
+            <div class="d-flex gap-2 flex-wrap flex-shrink-0">
+                    <button type="button" class="btn btn-primary rounded-pill px-4 add-btn" data-bs-toggle="modal" 
                         data-bs-target="#ModalTambahProdukKoperasi"
                         wire:click="$emit('showCreateProdukKoperasi', {{ $selectedJenjang ?? 'null' }})">
                         <i class="ri-add-line align-bottom me-1"></i> Tambah Produk
                     </button>
-                    <button type="button" class="btn btn-info">
+                    <button type="button" class="btn btn-primary rounded-pill px-4">
                         <i class="ri-file-download-line align-bottom me-1"></i> Import
                     </button>
-                    <button class="btn btn-soft-danger" id="remove-actions" onClick="deleteMultiple()">
+                    <button class="btn btn-soft-danger rounded-pill px-4" id="remove-actions" onClick="deleteMultiple()">
                         <i class="ri-delete-bin-2-line"></i>
                     </button>
-                </div>
             </div>
         </div>
     </div>

@@ -156,6 +156,7 @@ class Index extends Component
                 'ppdb_orangtua',
                 'ppdb_jalur',
             ])
+            ->withCount('ppdb_berkas')
             ->where('status', 'diterima');
 
         // Batasi laporan ke periode terpilih.

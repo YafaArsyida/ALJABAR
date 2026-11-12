@@ -3,11 +3,11 @@
     <div class="card">
 
         {{-- HEADER --}}
-        <div class="card-header">
+        <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
             <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
                 <div>
                     <div class="d-flex align-items-center gap-3">
-                        <div class="avatar-sm">
+                        <div class="avatar-sm flex-shrink-0">
                             <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
                                 <i class="ri-questionnaire-line"></i>
                             </div>

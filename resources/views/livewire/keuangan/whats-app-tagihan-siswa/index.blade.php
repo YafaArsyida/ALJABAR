@@ -1,6 +1,6 @@
 {{-- Because she competes with no one, no one can compete with her. --}}
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header">
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
         <div class="d-flex align-items-center flex-wrap gap-3">
             {{-- HEADER --}}
             <div class="flex-grow-1">

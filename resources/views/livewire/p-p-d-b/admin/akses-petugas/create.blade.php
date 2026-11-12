@@ -35,7 +35,8 @@
                     </button>
                 </div>
 
-                <form wire:submit.prevent="save">
+                <form wire:submit.prevent="save" class="d-flex flex-column flex-grow-1"
+                style="min-height: 0; overflow: hidden;">
 
                     {{-- BODY --}}
                     <div class="modal-body px-4 pt-2 pb-4">

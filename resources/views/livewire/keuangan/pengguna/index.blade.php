@@ -1,20 +1,23 @@
 <div class="card">
-    <div class="card-header border-0">
-        <div class="d-flex align-items-center">
-            <h5 class="card-title mb-0 flex-grow-1">Akses Jenjang Petugas</h5>
-            <div class="flex-shrink-0">
-                <div class="d-flex gap-2 flex-wrap">
-                    <button 
-                        class="btn btn-primary"
-                        data-bs-toggle="modal" 
-                        data-bs-target="#ModalAddPengguna" 
-                        data-bs-trigger="hover" 
-                        data-bs-placement="top" 
-                        title="Petugas Baru">
-                        <i class="ri-group-line"></i> Petugas Baru
-                    </button>
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+        <div class="d-flex align-items-center flex-wrap gap-3">
+            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-user-settings-line"></i>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="fw-bold mb-1">Akses Jenjang Petugas</h5>
+                    <small class="text-muted">Kelola petugas dan akses jenjang pendidikan.</small>
                 </div>
             </div>
+            <button class="btn btn-primary rounded-pill px-4 flex-shrink-0"
+                data-bs-toggle="modal" data-bs-target="#ModalAddPengguna" data-bs-trigger="hover"
+                data-bs-placement="top" title="Petugas Baru">
+                <i class="ri-user-add-line me-1"></i>
+                Tambah Petugas
+            </button>
         </div>
     </div>
     <div class="card-body border border-dashed border-end-0 border-start-0">

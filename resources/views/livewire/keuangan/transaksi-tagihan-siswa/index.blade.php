@@ -1,6 +1,6 @@
 
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header">
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
         <!-- Header -->
         <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
             <div class="flex-grow-1">
@@ -203,7 +203,7 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
             <div class="d-flex align-items-center gap-3">
-                <div class="avatar-sm">
+                <div class="avatar-sm flex-shrink-0">
                     <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
                         <i class="ri-calendar-event-line"></i>
                     </div>
@@ -412,4 +412,3 @@
         </div> --}}
     </div>
 </div>
-

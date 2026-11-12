@@ -353,12 +353,12 @@
 
                     <li class="menu-title"><span data-key="t-menu">sistem</span></li>
                     <!-- Jenjang & Tahun Ajaran -->
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link menu-link {{ request()->routeIs('keuangan.sistem.jenjang-tahun-ajar') ? 'active' : '' }}" 
                             href="{{ route('keuangan.sistem.jenjang-tahun-ajar') }}">
                             <i class="mdi mdi-calendar-outline"></i> <span data-key="t-tahun-ajaran">Jenjang & Tahun Ajaran</span>
                         </a>
-                    </li>
+                    </li> --}}
     
                     <!-- Akses Petugas -->
                     <li class="nav-item">

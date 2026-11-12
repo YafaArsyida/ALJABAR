@@ -1,6 +1,13 @@
 
 <div class="card border-0 shadow-sm rounded-4 mb-4">
 
+    @if (session('error'))
+        <div class="alert alert-warning alert-dismissible fade show m-3 mb-0" role="alert">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Tutup"></button>
+        </div>
+    @endif
+
     {{-- HEADER --}}
     <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3">
@@ -8,7 +15,7 @@
             {{-- TITLE --}}
             <div>
                 <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm">
+                    <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
                             <i class="ri-file-chart-line"></i>
                         </div>
@@ -288,16 +295,29 @@
                                             </a>
 
                                             {{-- UNDUH BERKAS PENDATAAN --}}
-                                            <a
-                                                href="{{ route('ppdb.admin.laporan.berkas.zip', [
-                                                    'pendaftaranId' => $item->ppdb_pendaftaran_id,
-                                                ]) }}"
-                                                class="btn btn-soft-primary btn-sm rounded-pill px-3 text-nowrap"
-                                                title="Unduh berkas pendataan"
-                                            >
-                                                <i class="ri-download-2-line me-1"></i>
-                                                Berkas
-                                            </a>
+                                            @if ($item->ppdb_berkas_count > 0)
+                                                <a
+                                                    href="{{ route('ppdb.admin.laporan.berkas.zip', [
+                                                        'pendaftaranId' => $item->ppdb_pendaftaran_id,
+                                                    ]) }}"
+                                                    class="btn btn-soft-primary btn-sm rounded-pill px-3 text-nowrap"
+                                                    title="Unduh berkas pendataan"
+                                                >
+                                                    <i class="ri-download-2-line me-1"></i>
+                                                    Berkas
+                                                </a>
+                                            @else
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-light btn-sm rounded-pill px-3 text-nowrap"
+                                                    title="Berkas pendataan belum diunggah"
+                                                    aria-label="Berkas pendataan belum diunggah"
+                                                    disabled
+                                                >
+                                                    <i class="ri-download-2-line me-1"></i>
+                                                    Belum ada berkas
+                                                </button>
+                                            @endif
 
                                             {{-- KONFIRMASI PENDATAAN --}}
                                             <button

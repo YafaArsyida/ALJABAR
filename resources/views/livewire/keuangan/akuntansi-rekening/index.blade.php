@@ -1,11 +1,19 @@
 <div class="card">
-    <div class="card-header border-0 pb-0">
-        <div class="d-flex align-items-center">
-            <h5 class="card-title mb-0 flex-grow-1">Akuntansi Rekening</h5>
-            <div class="flex-shrink-0">
-                <div class="d-flex gap-2 flex-wrap">
-                    <button data-bs-toggle="modal" data-bs-target="#CreateAkuntansiRekening" wire:click.prevent="$emit('CreateAkuntansiRekening')" class="btn btn-primary"><i class="ri-play-list-add-line me-1 align-bottom"></i> Rekening Baru</button>
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+        <div class="d-flex align-items-center flex-wrap gap-3">
+            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-book-2-line"></i>
+                    </div>
                 </div>
+                <div>
+                    <h5 class="fw-bold mb-1">Akuntansi Rekening</h5>
+                    <small class="text-muted">Kelola daftar rekening akuntansi sekolah.</small>
+                </div>
+            </div>
+            <div class="flex-shrink-0">
+                <button data-bs-toggle="modal" data-bs-target="#CreateAkuntansiRekening" wire:click.prevent="$emit('CreateAkuntansiRekening')" class="btn btn-primary rounded-pill px-4"><i class="ri-play-list-add-line me-1 align-bottom"></i> Rekening Baru</button>
             </div>
         </div>
     </div>

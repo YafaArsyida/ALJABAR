@@ -1,18 +1,23 @@
 <div class="card" id="generusList">
-    <div class="card-header border-0">
-        <div class="row align-items-center gy-3">
-            <div class="col-sm">
-                <h5 class="card-title mb-0">Data Pegawai</h5>
-            </div>
-
-            <div class="col-sm-auto">
-                <div class="d-flex gap-1 flex-wrap">
-                    <button data-bs-toggle="modal" data-bs-target="#ModalImportKontakPegawai" wire:click.prevent="$emit('showImportKontakPegawai', {{ $selectedJenjang }})" class="btn btn-success"><i class="ri-whatsapp-line me-1 align-bottom"></i> Import Kontak</button>
-                    <button data-bs-toggle="modal" data-bs-target="#ModalImportEduCardPegawai" wire:click.prevent="$emit('showImportEduCardPegawai', {{ $selectedJenjang }})" class="btn btn-warning"><i class="ri-bank-card-line me-1 align-bottom"></i> Import EduCard</button>
-                    <button data-bs-toggle="modal" data-bs-target="#ModalImportPegawai" wire:click.prevent="$emit('showImportPegawai', {{ $selectedJenjang }})" class="btn btn-secondary"><i class="ri-contacts-line me-1 align-bottom"></i> Import Pegawai</button>
-                    <button data-bs-toggle="modal" data-bs-target="#ModalPegawaiCreate" wire:click.prevent="$emit('PegawaiCreate', {{ $selectedJenjang }})" class="btn btn-primary"><i class="ri-play-list-add-line align-bottom me-1"></i>Pegawai Baru</button>
-                    <button data-bs-toggle="modal" data-bs-target="#ModalPegawaiExport" class="btn btn-soft-success"><i class="ri-file-excel-2-line align-bottom me-1"></i> Export</button>
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+        <div class="d-flex align-items-center flex-wrap gap-3">
+            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-team-line"></i>
+                    </div>
                 </div>
+                <div>
+                    <h5 class="fw-bold mb-1">Data Pegawai</h5>
+                    <small class="text-muted">Kelola data dan informasi pegawai.</small>
+                </div>
+            </div>
+            <div class="d-flex gap-2 flex-wrap flex-shrink-0">
+                <button data-bs-toggle="modal" data-bs-target="#ModalImportKontakPegawai" wire:click.prevent="$emit('showImportKontakPegawai', {{ $selectedJenjang }})" class="btn btn-primary rounded-pill px-4"><i class="ri-whatsapp-line me-1 align-bottom"></i> Import Kontak</button>
+                <button data-bs-toggle="modal" data-bs-target="#ModalImportEduCardPegawai" wire:click.prevent="$emit('showImportEduCardPegawai', {{ $selectedJenjang }})" class="btn btn-primary rounded-pill px-4"><i class="ri-bank-card-line me-1 align-bottom"></i> Import EduCard</button>
+                <button data-bs-toggle="modal" data-bs-target="#ModalImportPegawai" wire:click.prevent="$emit('showImportPegawai', {{ $selectedJenjang }})" class="btn btn-primary rounded-pill px-4"><i class="ri-contacts-line me-1 align-bottom"></i> Import Pegawai</button>
+                <button data-bs-toggle="modal" data-bs-target="#ModalPegawaiCreate" wire:click.prevent="$emit('PegawaiCreate', {{ $selectedJenjang }})" class="btn btn-primary rounded-pill px-4"><i class="ri-play-list-add-line align-bottom me-1"></i>Pegawai Baru</button>
+                <button data-bs-toggle="modal" data-bs-target="#ModalPegawaiExport" class="btn btn-primary rounded-pill px-4"><i class="ri-file-excel-2-line align-bottom me-1"></i> Export</button>
             </div>
         </div>
     </div>

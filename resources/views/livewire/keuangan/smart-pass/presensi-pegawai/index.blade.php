@@ -102,14 +102,20 @@
             <div class="card shadow-sm h-100">
     
                 <!-- HEADER -->
-                <div class="card-header">
-                    <h5 class="card-title mb-0">
-                        <i class="ri-history-line me-1"></i>
-                        Riwayat Absensi
-                    </h5>
-                    <small class="text-muted">
-                        Data absensi hari ini
-                    </small>
+                <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+                    <div class="d-flex align-items-center flex-wrap gap-3">
+                        <div class="d-flex align-items-center gap-3 flex-grow-1">
+                            <div class="avatar-sm flex-shrink-0">
+                                <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                                    <i class="ri-history-line"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Riwayat Absensi</h5>
+                                <small class="text-muted">Data absensi hari ini</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
     
                 <!-- BODY -->

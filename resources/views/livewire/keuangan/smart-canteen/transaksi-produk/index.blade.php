@@ -1,5 +1,5 @@
 <div id="produkList" class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header">
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
         <div class="row align-items-center g-3">
             {{-- INFORMASI PENGGUNA --}}
             <div class="col-xxl-7 col-md-6">

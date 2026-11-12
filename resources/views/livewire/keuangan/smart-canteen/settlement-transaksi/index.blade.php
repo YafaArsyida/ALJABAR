@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xxl-12">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-            <div class="card-header">
+            <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
                     {{-- HEADER --}}
                     <div class="flex-grow-1">
@@ -58,7 +58,7 @@
                                     </h2>
                                 </div>
 
-                                <div class="avatar-sm">
+                                <div class="avatar-sm flex-shrink-0">
                                     <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
                                         <i class="ri-wallet-3-line"></i>
                                     </div>
@@ -119,7 +119,7 @@
     </div>
     <div class="col-xxl-12">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-            <div class="card-header">
+            <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
 
                     <div class="flex-grow-1">

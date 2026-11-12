@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xxl-12">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-            <div class="card-header">
+            <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
                 <div class="d-flex align-items-center flex-wrap gap-3">
 
                     {{-- JUDUL --}}
@@ -337,7 +337,7 @@
                             <div class="d-flex align-items-start gap-3">
                                 {{-- ICON --}}
                                 <div class="flex-shrink-0">
-                                    <div class="avatar-sm">
+                                    <div class="avatar-sm flex-shrink-0">
                                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
                                             <i class="ri-exchange-funds-line fs-18"></i>
                                         </div>

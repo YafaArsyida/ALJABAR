@@ -1,5 +1,5 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header">
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
         <div class="d-flex align-items-center flex-wrap gap-3">
             {{-- Judul --}}
             <div class="flex-grow-1">
@@ -26,10 +26,8 @@
             <div class="flex-shrink-0">
                 <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddPengguna"
                     class="btn btn-primary rounded-pill px-4 d-inline-flex align-items-center gap-1">
-                    <i class="ri-add-line align-bottom"></i>
-                    <span>
-                        Petugas Baru
-                    </span>
+                    <i class="ri-user-add-line me-1"></i>
+                    Tambah Petugas
                 </button>
             </div>
         </div>

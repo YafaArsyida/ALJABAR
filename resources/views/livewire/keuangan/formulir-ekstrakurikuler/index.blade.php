@@ -27,7 +27,7 @@
                     {{-- Step 1 --}}
                     <div class="mb-4">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="avatar-sm">
+                            <div class="avatar-sm flex-shrink-0">
                                 <div class="avatar-title bg-danger-subtle text-danger rounded-circle">
                                     <span class="fw-semibold">01</span>
                                 </div>

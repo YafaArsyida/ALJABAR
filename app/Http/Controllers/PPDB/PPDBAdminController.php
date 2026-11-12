@@ -125,6 +125,15 @@ class PPDBAdminController extends Controller
             ->where('status', 'diterima')
             ->findOrFail($pendaftaranId);
 
+        if (! PPDBBerkas::query()
+            ->where('ppdb_pendaftaran_id', $pendaftaran->getKey())
+            ->exists()) {
+            return redirect()->back()->with(
+                'error',
+                'Berkas pendataan calon siswa ini belum diunggah.'
+            );
+        }
+
         $arsip = $arsipService->buatArsip(
             (int) $pendaftaran->getKey(),
             $pendaftaran->ppdb_calon_siswa?->nama_siswa ?? 'Calon-Siswa'

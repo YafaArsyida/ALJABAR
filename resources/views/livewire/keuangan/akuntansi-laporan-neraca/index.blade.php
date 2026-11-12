@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-xxl-6">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-           <div class="card-header">
+           <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
                 <div class="d-flex align-items-center flex-wrap gap-3">
                     <div class="flex-grow-1">
                         <div class="d-flex align-items-center gap-3">
@@ -377,7 +377,7 @@
                         <div class="alert alert-light border rounded-4 text-start mt-4 mb-0">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="flex-shrink-0">
-                                    <div class="avatar-sm">
+                                    <div class="avatar-sm flex-shrink-0">
                                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
                                             <i class="ri-bar-chart-box-line fs-18"></i>
                                         </div>

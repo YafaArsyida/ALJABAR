@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-between align-items-start w-100">
             <!-- Kiri -->
             <div class="d-flex align-items-center gap-3">
-                <div class="avatar-sm">
+                <div class="avatar-sm flex-shrink-0">
                     <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-18">
                         <i class="ri-file-chart-line"></i>
                     </div>
@@ -27,7 +27,7 @@
         <div class="row justify-content-center">
             <div class="col-xxl-4">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-                    <div class="card-header">
+                    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
                         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
                             {{-- TITLE --}}
                             <div>

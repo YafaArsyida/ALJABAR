@@ -1,18 +1,24 @@
 <div class="card">
-    <div class="card-header border-0 pb-0">
-        <div class="d-flex align-items-center">
-            <div class="flex-grow-1">
-                <h5 class="card-title mb-0">SmartPass X FingerSpot Pegawai</h5>
-            </div>
-            <div class="flex-shrink-0">
-                <div class="d-flex gap-2 flex-wrap">
-                    <button wire:click="cetakLaporan" class="btn btn-danger d-inline-flex align-items-center gap-1">
-                        <i class="ri-printer-line align-bottom"></i>
-                        <span>Cetak Laporan</span>
-                    </button>
-                    <button data-bs-toggle="modal" data-bs-target="#ExportLaporanExcel" class="btn btn-soft-success"><i
-                            class="ri-file-excel-2-line pb-0"></i> Export</button>
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+        <div class="d-flex align-items-center flex-wrap gap-3">
+            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-fingerprint-line"></i>
+                    </div>
                 </div>
+                <div>
+                    <h5 class="fw-bold mb-1">SmartPass X FingerSpot Pegawai</h5>
+                    <small class="text-muted">Tinjau dan ekspor data presensi pegawai.</small>
+                </div>
+            </div>
+            <div class="d-flex gap-2 flex-wrap flex-shrink-0">
+                <button wire:click="cetakLaporan" class="btn btn-primary rounded-pill px-4 d-inline-flex align-items-center gap-1">
+                    <i class="ri-printer-line align-bottom"></i>
+                    <span>Cetak Laporan</span>
+                </button>
+                <button data-bs-toggle="modal" data-bs-target="#ExportLaporanExcel" class="btn btn-primary rounded-pill px-4"><i
+                        class="ri-file-excel-2-line pb-0"></i> Export</button>
             </div>
         </div>
     </div>

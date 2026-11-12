@@ -6,7 +6,7 @@
             {{-- TITLE --}}
             <div>
                 <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm">
+                    <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
                             <i class="ri-file-search-line"></i>
                         </div>

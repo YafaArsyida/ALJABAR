@@ -1,17 +1,22 @@
 {{-- Stop trying to control. --}}
 <div class="card">
-    <div class="card-header border-0 pb-0">
-        <div class="d-flex align-items-center">
-            <div class="flex-grow-1">
-                <h5 class="card-title mb-0">Laporan Mutasi Kas</h5>
-                {{-- <p class="mb-0">Transaksi akan ditampilkan dari semua petugas untuk memastikan penghitungan yang akurat dan terkini.</p> --}}
-            </div>
-            <div class="flex-shrink-0">
-                <div class="d-flex gap-2 flex-wrap">
-                    <button type="button" class="btn btn-info" data-bs-toggle="offcanvas" data-bs-target="#filterTabungan" aria-controls="filterTabungan"><i class="ri-filter-3-line align-bottom me-1"></i> Fliters</button>
-                    <button data-bs-toggle="modal" data-bs-target="#ExportTabunganSiswa" wire:click.prevent="" class="btn btn-soft-success"><i class="ri-file-excel-2-line"></i> Export</button>
-                    {{-- <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTransaksi" aria-controls="offcanvasTransaksi" class="btn btn-primary shadow-none"><i class="ri-file-excel-2-line"></i> Transaksi</button> --}}
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+        <div class="d-flex align-items-center flex-wrap gap-3">
+            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-exchange-funds-line"></i>
+                    </div>
                 </div>
+                <div>
+                    <h5 class="fw-bold mb-1">Laporan Mutasi Kas</h5>
+                    <small class="text-muted">Tinjau dan ekspor riwayat mutasi kas.</small>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap gap-2 flex-shrink-0">
+                <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="offcanvas" data-bs-target="#filterTabungan" aria-controls="filterTabungan"><i class="ri-filter-3-line align-bottom me-1"></i> Fliters</button>
+                <button data-bs-toggle="modal" data-bs-target="#ExportTabunganSiswa" wire:click.prevent="" class="btn btn-primary rounded-pill px-4"><i class="ri-file-excel-2-line"></i> Export</button>
+                {{-- <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTransaksi" aria-controls="offcanvasTransaksi" class="btn btn-primary shadow-none"><i class="ri-file-excel-2-line"></i> Transaksi</button> --}}
             </div>
         </div>
     </div>

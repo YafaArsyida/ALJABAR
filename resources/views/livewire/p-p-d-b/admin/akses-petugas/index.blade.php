@@ -1,26 +1,31 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
     <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
-        <div class="d-flex align-items-center gap-3">
-            <div class="avatar-sm flex-shrink-0">
-                <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                    <i class="ri-user-line"></i>
+        <div class="d-flex align-items-center flex-wrap gap-3">
+
+            {{-- INFORMASI --}}
+            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-user-line"></i>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="fw-bold mb-1">Akses Petugas SPMB</h5>
+                    <small class="text-muted">
+                        Kelola akun petugas dan hak akses jenjang pendidikan.
+                    </small>
                 </div>
             </div>
-            <div>
-                <h5 class="fw-bold mb-1">Akses Petugas SPMB</h5>
-                <small class="text-muted">
-                    Kelola akun petugas PPDB serta jenjang yang dapat diakses.
-                    Akun dari modul lain tidak ditampilkan.
-                </small>
-            </div>
-            <button
-                type="button"
-                class="btn btn-primary rounded-pill px-4 ms-auto"
-                wire:click="$emit('showCreatePetugas')"
-            >
+
+            {{-- TOMBOL --}}
+            <button type="button"
+                class="btn btn-primary rounded-pill px-4 flex-shrink-0"
+                wire:click="$emit('showCreatePetugas')">
                 <i class="ri-user-add-line me-1"></i>
                 Tambah Petugas
             </button>
+
         </div>
     </div>
 
