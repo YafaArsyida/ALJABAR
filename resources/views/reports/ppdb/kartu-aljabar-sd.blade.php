@@ -606,7 +606,7 @@
             <div class="landscape-canvas">
                 <div class="page-background">
                     <img
-                        src="{{ public_path('assets/pdf/kartu-aljabar-background.webp') }}"
+                        src="{{ public_path('assets/pdf/kartu-aljabar-background.jpg') }}"
                         alt=""
                     >
                 </div>
@@ -711,7 +711,7 @@
             <div class="landscape-canvas">
                 <div class="page-background">
                     <img
-                        src="{{ public_path('assets/pdf/kartu-aljabar-background.webp') }}"
+                        src="{{ public_path('assets/pdf/kartu-aljabar-background.jpg') }}"
                         alt=""
                     >
                 </div>
