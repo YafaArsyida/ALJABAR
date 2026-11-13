@@ -35,10 +35,6 @@ class Edit extends Component
             ->pluck('ms_jenjang.ms_jenjang_id')
             ->map(fn ($id) => (string) $id)
             ->all();
-
-        $this->dispatchBrowserEvent('show-modal', [
-            'modalId' => 'ModalEditPetugasSPMB',
-        ]);
     }
 
     public function update(): void

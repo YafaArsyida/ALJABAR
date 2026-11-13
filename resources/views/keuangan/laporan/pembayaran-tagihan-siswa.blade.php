@@ -7,7 +7,7 @@
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="card-body p-3 p-lg-4">
                         <div class="d-flex flex-column flex-xl-row align-items-xl-center justify-content-between gap-4">
-                            @livewire('keuangan.dashboard.informasi-tahun-ajar', ['heading' => 'Laporan Pembayaran Siswa'])
+                            @livewire('keuangan.parameter.informasi-tahun-ajar', ['heading' => 'Laporan Pembayaran Siswa'])
 
                             <div class="flex-shrink-0">
                                 @livewire('keuangan.parameter.jenjang-tahun-ajar')   

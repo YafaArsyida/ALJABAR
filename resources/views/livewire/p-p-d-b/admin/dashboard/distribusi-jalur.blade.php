@@ -1,7 +1,7 @@
 
 <div class="card border-0 shadow-sm rounded-4 h-100">
-    {{-- HEADER --}}
-    <div class="card-header bg-transparent border-bottom">
+    {{-- Header --}}
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
         <div class="d-flex align-items-center gap-3">
             <div class="avatar-sm flex-shrink-0">
                 <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -17,7 +17,6 @@
             </div>
         </div>
     </div>
-
     {{-- BODY --}}
     <div class="card-body">
         @if (!$selectedJenjang || !$selectedPeriode)

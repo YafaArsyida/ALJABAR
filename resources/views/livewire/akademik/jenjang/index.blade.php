@@ -1,7 +1,9 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+    {{-- HEADER --}}
     <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
-        <div class="d-flex align-items-center flex-wrap gap-3">
-            <div class="flex-grow-1">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
+
+            <div>
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -22,49 +24,72 @@
             </div>
 
             {{-- ACTION --}}
-            <div class="flex-shrink-0">
+            <div class="d-flex gap-2 flex-wrap">
                 <button
-                    type="button" data-bs-toggle="modal" id="create-btn" data-bs-target="#ModalAddJenjang"
-                    class="btn btn-primary rounded-pill px-4 d-inline-flex align-items-center gap-1">
-                    <i class="ri-add-line align-bottom"></i>
-                    <span>
-                        Jenjang Baru
-                    </span>
+                    type="button"
+                    class="btn btn-primary rounded-pill px-4"
+                    data-bs-toggle="modal"
+                    id="create-btn"
+                    data-bs-target="#ModalAddJenjang"
+                >
+                    <i class="ri-add-line me-1"></i>
+                    Jenjang Baru
                 </button>
             </div>
+
         </div>
     </div>
     <div class="card-body">
-        <div class="row g-3 align-items-end mb-4">
+        {{-- FILTER --}}
+        <div class="row g-3 mb-3">
+
             {{-- PENCARIAN --}}
-            <div class="col-xxl-8 col-md-12">
-                <label for="searchData" class="form-label small text-muted text-uppercase fw-medium mb-2">
+            <div class="col-12 col-lg-9">
+                <label
+                    for="searchData"
+                    class="form-label small text-muted text-uppercase fw-medium mb-2"
+                >
                     Pencarian
                 </label>
 
                 <div class="search-box">
-                    <input type="text" id="searchData" class="form-control search" wire:model.debounce.300ms="search"
-                        placeholder="Cari nama, slug, alamat, atau deskripsi...">
+                    <input
+                        type="text"
+                        id="searchData"
+                        class="form-control search"
+                        wire:model.debounce.300ms="search"
+                        placeholder="Cari nama, slug, alamat, atau deskripsi..."
+                    >
+
                     <i class="ri-search-line search-icon"></i>
                 </div>
             </div>
 
             {{-- STATUS --}}
-            <div class="col-xxl-4 col-md-12">
-                <label for="statusSelect" class="form-label small text-muted text-uppercase fw-medium mb-2">
+            <div class="col-12 col-lg-3">
+                <label
+                    for="statusSelect"
+                    class="form-label small text-muted text-uppercase fw-medium mb-2"
+                >
                     Status
                 </label>
 
-                <select id="statusSelect" wire:model="selectedStatus"
-                    class="form-select" style="cursor: pointer"
-                    data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Pilih Status">
+                <select
+                    id="statusSelect"
+                    wire:model="selectedStatus"
+                    class="form-select"
+                    style="cursor: pointer;"
+                    title="Pilih Status"
+                >
                     <option value="">Semua</option>
                     <option value="Aktif">Aktif</option>
                     <option value="Tidak Aktif">Tidak Aktif</option>
                 </select>
             </div>
+
         </div>
-        <!--end row-->
+
+        {{-- LOADING --}}
         <div
             wire:loading.delay
             wire:target="search,selectedStatus,gotoPage,nextPage,previousPage,toggleStatus,refreshJenjangs"

@@ -27,7 +27,7 @@
                     wire:click="cetakSiswaEkstrakurikuler"
                     class="btn btn-danger rounded-pill d-inline-flex align-items-center gap-2">
                     <i class="ri-printer-line"></i>
-                    <span>Cetak</span>
+                    <span>Cetak Laporan</span>
                 </button>
             </div>
         </div>
@@ -60,6 +60,14 @@
         
         </div>
         <!--end row-->
+         <div
+            wire:loading.delay
+            wire:target="search,selectedKelas,gotoPage,nextPage,previousPage,refreshJenjangs"
+            class="text-muted small mb-3"
+        >
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data siswa...
+        </div>
         {{-- DATA --}}
         <div class="live-preview">
             <!-- Jika Jenjang atau Tahun Ajar belum dipilih -->

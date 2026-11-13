@@ -44,8 +44,7 @@
                 class="d-flex flex-column flex-grow-1"
                 style="min-height: 0; overflow: hidden;">
                 {{-- BODY --}}
-                <div class="modal-body px-4 pt-2 pb-4 flex-grow-1 overflow-auto"
-                    style="min-height: 0;">
+                <div class="modal-body px-4 pt-2 pb-4">
                     {{-- CONTEXT --}}
                     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4 pb-3 border-bottom">
 

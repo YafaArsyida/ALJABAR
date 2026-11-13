@@ -20,10 +20,6 @@ class Detail extends Component
             ->whereIn('peran', ['SUPERADMIN', 'PETUGAS_PPDB'])
             ->with('ms_jenjang')
             ->findOrFail($userId);
-
-        $this->dispatchBrowserEvent('show-modal', [
-            'modalId' => 'ModalDetailPetugasSPMB',
-        ]);
     }
 
     private function authorizeManagement(): void

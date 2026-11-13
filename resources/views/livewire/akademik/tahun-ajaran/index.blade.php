@@ -1,7 +1,8 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
     <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
-        <div class="d-flex align-items-center flex-wrap gap-3">
-            <div class="flex-grow-1">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
+            {{-- HEADER INFORMASI --}}
+            <div>
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -13,7 +14,6 @@
                         <h5 class="fw-bold mb-1">
                             Tahun Ajaran
                         </h5>
-
                         <small class="text-muted">
                             Kelola periode tahun ajaran sekolah.
                         </small>
@@ -21,52 +21,66 @@
                 </div>
             </div>
 
-            <div class="flex-shrink-0">
-
-                <button type="button" data-bs-toggle="modal"
-                    id="create-btn" data-bs-target="#ModalAddTahunAjar"
-                    class="btn btn-primary rounded-pill px-4 d-inline-flex align-items-center gap-1">
-                    <i class="ri-add-line align-bottom"></i>
-                    <span>
-                        Tahun Ajar Baru
-                    </span>
+            {{-- HEADER ACTION --}}
+            <div class="d-flex gap-2 flex-wrap">
+                <button type="button"
+                    data-bs-toggle="modal"
+                    id="create-btn"
+                    data-bs-target="#ModalAddTahunAjar"
+                    class="btn btn-primary rounded-pill px-4 d-inline-flex align-items-center gap-2">
+                    <i class="ri-add-line"></i>
+                    <span>Tahun Ajar Baru</span>
                 </button>
             </div>
         </div>
     </div>
     <div class="card-body">
-        <div class="row g-3 align-items-end mb-4">
-            <!-- Input Pencarian -->
-            <div class="col-xxl-8 col-md-6">
-                <label for="searchData" class="form-label small text-muted text-uppercase fw-medium mb-2">Pencarian</label>
+        {{-- FILTER --}}
+        <div class="row g-3 mb-3">
+            {{-- INPUT PENCARIAN --}}
+            <div class="col-12 col-lg-9">
+                <label for="searchData"
+                    class="form-label small text-muted text-uppercase fw-medium mb-2">
+                    Pencarian
+                </label>
+
                 <div class="search-box">
-                    <input type="text" id="searchData" class="form-control search" wire:model.debounce.300ms="search"
+                    <input type="text"
+                        id="searchData"
+                        class="form-control search"
+                        wire:model.debounce.300ms="search"
                         placeholder="Cari nama, deskripsi, atau lainnya...">
+
                     <i class="ri-search-line search-icon"></i>
                 </div>
             </div>
 
-            <!-- Pilih Jenjang -->
-            {{-- <div class="col-xxl-4 col-md-6">
-                <label for="jenjangSelect" class="form-label small text-muted text-uppercase fw-medium mb-2">Jenjang</label>
-                <select id="jenjangSelect" wire:model="selectedJenjang" class="form-select" style="cursor: pointer"
-                    data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Pilih Jenjang">
-                    @foreach ($select_jenjang as $item)
-                        <option value="{{ $item->ms_jenjang_id }}">{{ $item->nama_jenjang }}</option>
-                    @endforeach
-                </select>
-            </div> --}}
+            {{-- PILIH STATUS --}}
+            <div class="col-12 col-lg-3">
+                <label for="statusSelect"
+                    class="form-label small text-muted text-uppercase fw-medium mb-2">
+                    Status
+                </label>
 
-            <!-- Pilih Status -->
-            <div class="col-xxl-4 col-md-6">
-                <label for="statusSelect" class="form-label small text-muted text-uppercase fw-medium mb-2">Status</label>
-                <select id="statusSelect" wire:model="selectedStatus" class="form-select" style="cursor: pointer"
-                    data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Pilih Status">
+                <select id="statusSelect"
+                    wire:model="selectedStatus"
+                    class="form-select"
+                    style="cursor: pointer"
+                    title="Pilih Status">
                     <option value="">Semua</option>
                     <option value="Aktif">Aktif</option>
                     <option value="Tidak Aktif">Tidak Aktif</option>
                 </select>
             </div>
+        </div>
+
+        <div
+            wire:loading.delay
+            wire:target="search,selectedStatus"
+            class="text-muted small mb-3"
+        >
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data tahun ajar...
         </div>
 
         <!--end row-->

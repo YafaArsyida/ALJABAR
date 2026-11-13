@@ -4,23 +4,21 @@
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
 
             {{-- TITLE --}}
-            <div>
-                <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm flex-shrink-0">
-                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                            <i class="ri-user-add-line"></i>
-                        </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-user-add-line"></i>
                     </div>
+                </div>
 
-                    <div>
-                        <h5 class="fw-bold mb-1">
-                            Pendataan Calon Siswa SPMB
-                        </h5>
+                <div>
+                    <h5 class="fw-bold mb-1">
+                        Pendataan Calon Siswa SPMB
+                    </h5>
 
-                        <small class="text-muted">
-                            Kelola data calon siswa, periksa berkas, dan bantu keluarga mengisi pendataan SPMB.
-                        </small>
-                    </div>
+                    <small class="text-muted">
+                        Kelola data calon siswa, periksa berkas, dan bantu keluarga mengisi pendataan SPMB.
+                    </small>
                 </div>
             </div>
 

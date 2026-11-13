@@ -21,6 +21,8 @@
             {{-- TOMBOL --}}
             <button type="button"
                 class="btn btn-primary rounded-pill px-4 flex-shrink-0"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalAddPetugasSPMB"
                 wire:click="$emit('showCreatePetugas')">
                 <i class="ri-user-add-line me-1"></i>
                 Tambah Petugas
@@ -85,6 +87,8 @@
                                     <button
                                         type="button"
                                         class="btn btn-soft-primary btn-sm rounded-pill px-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#ModalDetailPetugasSPMB"
                                         wire:click="$emit('showDetailPetugas', {{ $user->ms_pengguna_id }})"
                                     >
                                         <i class="ri-eye-line me-1"></i>
@@ -93,6 +97,8 @@
                                     @if ($user->peran === 'PETUGAS_PPDB')
                                         <button
                                             type="button"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#ModalEditPetugasSPMB"
                                             class="btn btn-primary btn-sm rounded-pill px-3"
                                             wire:click="$emit('editPetugas', {{ $user->ms_pengguna_id }})"
                                         >
@@ -101,6 +107,8 @@
                                         </button>
                                         <button
                                             type="button"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#ModalDeletePetugasSPMB"
                                             class="btn btn-soft-danger btn-sm rounded-pill px-3"
                                             wire:click="$emit('confirmDeletePetugas', {{ $user->ms_pengguna_id }})"
                                         >
@@ -110,6 +118,8 @@
                                     @endif
                                     <button
                                         type="button"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#ModalAksesPetugas"
                                         class="btn btn-soft-secondary btn-sm rounded-pill px-3"
                                         wire:click="$emit('editAksesPetugas', {{ $user->ms_pengguna_id }})"
                                     >

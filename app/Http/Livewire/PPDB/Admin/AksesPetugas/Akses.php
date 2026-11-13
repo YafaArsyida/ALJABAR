@@ -31,10 +31,6 @@ class Akses extends Component
             ->pluck('ms_jenjang.ms_jenjang_id')
             ->map(fn ($id) => (string) $id)
             ->all();
-
-        $this->dispatchBrowserEvent('show-modal', [
-            'modalId' => 'ModalAksesPetugas',
-        ]);
     }
 
     public function save(): void

@@ -59,7 +59,7 @@
                                     class="btn btn-danger rounded-pill px-4 d-inline-flex align-items-center gap-1"
                                     title="Cetak Laporan PDF">
                                     <i class="ri-printer-line"></i>
-                                    <span>Cetak</span>
+                                    <span>Cetak Laporan</span>
                                 </button>
 
                                 {{-- <button data-bs-toggle="modal" data-bs-target="#ModalDetailEkstrakurikuler" class="btn rounded-pill px-4 btn-success"><i class="ri-file-excel-2-line pb-0"></i> Export</button> --}}

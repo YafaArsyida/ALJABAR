@@ -1,9 +1,9 @@
 
 <div class="card border-0 shadow-sm rounded-4 h-100">
-    {{-- HEADER --}}
-    <div class="card-header bg-transparent border-bottom">
+     {{-- Header --}}
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
         <div class="d-flex align-items-center gap-3">
-            <div class="avatar-sm">
+            <div class="avatar-sm flex-shrink-0">
                 <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
                     <i class="mdi mdi-clipboard-list-outline"></i>
                 </div>

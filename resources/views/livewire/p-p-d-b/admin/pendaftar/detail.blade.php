@@ -11,7 +11,7 @@
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content rounded-4 border-0">
 
-                <div class="modal-header">
+                <div class="modal-header border-0 px-4 pt-4 pb-2">                
                     <div class="d-flex align-items-center gap-3">
                         <div class="avatar-sm">
                             <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -29,11 +29,11 @@
                         </div>
                     </div>
 
-                    <button
-                        type="button"
-                        class="btn-close"
+                    <button type="button"
+                        class="btn btn-light btn-icon rounded-circle ms-auto"
                         data-bs-dismiss="modal"
                         aria-label="Tutup">
+                        <i class="ri-close-line fs-18"></i>
                     </button>
                 </div>
 

@@ -1,52 +1,69 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    {{-- HEADER --}}
     <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
+
             {{-- TITLE --}}
-            <div>
-                <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm flex-shrink-0">
-                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                            <i class="ri-building-4-line">
-                            </i>
-                        </div>
-                    </div>
-    
-                    <div>
-                        <h5 class="fw-bold mb-1">
-                            Data Kelas
-                        </h5>
-                        <small>
-                            Kelola informasi kelas, termasuk penempatan akademik dan ringkasan data siswa.
-                        </small>
+            <div class="d-flex align-items-center gap-3">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-building-4-line"></i>
                     </div>
                 </div>
+
+                <div>
+                    <h5 class="fw-bold mb-1">
+                        Data Kelas
+                    </h5>
+                    <small class="text-muted">
+                        Kelola informasi kelas, termasuk penempatan akademik dan ringkasan data siswa.
+                    </small>
+                </div>
             </div>
-    
+
             {{-- ACTION --}}
             @if ($selectedJenjang && $selectedTahunAjar)
-            <div class="d-flex gap-2 flex-wrap">
-                {{-- TAMBAH --}}
-                <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#ModalAddKelas"
+                <div class="d-flex gap-2 flex-wrap">
+                    <button type="button"
+                        class="btn btn-primary rounded-pill px-4 d-inline-flex align-items-center gap-2"
+                        data-bs-toggle="modal"
+                        data-bs-target="#ModalAddKelas"
                         wire:click.prevent="$emit('showCreateKelas', {{ $selectedJenjang }}, {{ $selectedTahunAjar }})">
-                    <i class="ri-add-line me-1"></i>Kelas Baru
-                </button>
-            </div>
+                        <i class="ri-add-line"></i>
+                        <span>Kelas Baru</span>
+                    </button>
+                </div>
             @endif
+
         </div>
     </div>
     <div class="card-body">
+        {{-- FILTER PENCARIAN --}}
         <div class="row g-3 mb-3">
-            <div class="col-xxl-12 col-sm-12">
-                <label for="searchData" class="form-label small text-muted text-uppercase fw-medium mb-2">Pencarian</label>
+            <div class="col-12">
+                <label for="searchData"
+                    class="form-label small text-muted text-uppercase fw-medium mb-2">
+                    Pencarian
+                </label>
+
                 <div class="search-box">
-                    <input type="text" id="searchData" class="form-control search" wire:model.debounce.300ms="search"
-                        placeholder="Cari nama, deskripsi, atau lainnya...">
+                    <input type="text"
+                        id="searchData"
+                        class="form-control search"
+                        wire:model.debounce.300ms="search"
+                        placeholder="Cari nama kelas atau informasi lainnya...">
+
                     <i class="ri-search-line search-icon"></i>
                 </div>
             </div>
         </div>
-        <!--end row-->
+
+        {{-- LOADING --}}
+        <div wire:loading.delay
+            wire:target="search, selectedJenjang, selectedTahunAjar"
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data kelas...
+        </div>
         {{-- DATA --}}
         <div class="live-preview">
             <!-- Jika Jenjang atau Tahun Ajar belum dipilih -->

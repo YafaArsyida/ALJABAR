@@ -1,8 +1,7 @@
 
 <div class="card border-0 shadow-sm rounded-4">
-    {{-- HEADER --}}
-    <div class="card-header bg-transparent border-bottom">
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
             <div class="d-flex align-items-center gap-3">
                 <div class="avatar-sm flex-shrink-0">
                     <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -83,13 +82,13 @@
                 <table class="table table-hover table-nowrap align-middle mb-0">
                     <thead class="table-light">
                         <tr>
-                            <th scope="col">Calon Siswa</th>
-                            <th scope="col">Nomor Pendataan</th>
-                            <th scope="col">Jalur</th>
-                            <th scope="col">Sumber</th>
-                            <th scope="col">Tanggal</th>
-                            <th scope="col">Status</th>
-                            <th scope="col" class="text-center">Aksi</th>
+                            <th class="text-uppercase">Calon Siswa</th>
+                            <th class="text-uppercase">Nomor Pendataan</th>
+                            <th class="text-uppercase">Jalur</th>
+                            <th class="text-uppercase">Sumber</th>
+                            <th class="text-uppercase">Tanggal</th>
+                            <th class="text-uppercase">Status</th>
+                            <th class="text-uppercase text-center">Aksi</th>
                         </tr>
                     </thead>
 

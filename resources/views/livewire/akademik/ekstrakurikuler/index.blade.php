@@ -44,6 +44,15 @@
             </div>
         </div>
         <!--end row-->
+        {{-- LOADING --}}
+        <div
+            wire:loading.delay
+            wire:target="search,selectedStatus,gotoPage,nextPage,previousPage,refreshJenjangs"
+            class="text-muted small mb-3"
+        >
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data ekstrakurikuler...
+        </div>
         {{-- DATA --}}
         <div class="live-preview">
             <!-- Jika Jenjang atau Tahun Ajar belum dipilih -->

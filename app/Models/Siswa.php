@@ -27,6 +27,13 @@ class Siswa extends Model
         'deskripsi',          // deskripsi
     ];
 
+    public function setNamaSiswaAttribute($value): void
+    {
+        $this->attributes['nama_siswa'] = $value === null
+            ? null
+            : mb_strtoupper($value, 'UTF-8');
+    }
+
     // Model Siswa
     public function ms_penempatan_siswa()
     {

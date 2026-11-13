@@ -24,10 +24,6 @@ class Delete extends Component
         $user = $this->petugasQuery()->findOrFail($userId);
         $this->userId = $user->ms_pengguna_id;
         $this->nama = $user->nama;
-
-        $this->dispatchBrowserEvent('show-modal', [
-            'modalId' => 'ModalDeletePetugasSPMB',
-        ]);
     }
 
     public function delete(): void

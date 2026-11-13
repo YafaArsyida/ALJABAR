@@ -24,9 +24,6 @@ class Create extends Component
         $this->authorizeManagement();
         $this->resetValidation();
         $this->reset(['nama', 'email', 'password', 'jenjangIds']);
-        $this->dispatchBrowserEvent('show-modal', [
-            'modalId' => 'ModalAddPetugasSPMB',
-        ]);
     }
 
     public function save(): void

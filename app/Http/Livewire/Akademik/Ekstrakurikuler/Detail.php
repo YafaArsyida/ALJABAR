@@ -11,11 +11,28 @@ class Detail extends Component
 
     protected $listeners = [
         'detailEkstrakurikuler',
+        'cetakEkstrakurikuler',
     ];
 
     public function detailEkstrakurikuler($ms_ekstrakurikuler_id)
     {
         $this->ms_ekstrakurikuler_id = $ms_ekstrakurikuler_id;
+    }
+
+    public function cetakEkstrakurikuler()
+    {
+        if (!$this->ms_ekstrakurikuler_id) {
+            $this->dispatchBrowserEvent('alertify-error', ['message' => 'Ekstrakurikuler tidak diketahui.']);
+            return;
+        }
+
+        $this->dispatchBrowserEvent('alertify-success', ['message' => 'Laporan diproses.']);
+
+        $url = route('akademik.ekstrakurikuler-siswa.pdf', [
+            'ekstrakurikuler_id' => $this->ms_ekstrakurikuler_id,
+        ]);
+
+        $this->emit('openNewTab', $url);
     }
 
     public function render()
