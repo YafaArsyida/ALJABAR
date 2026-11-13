@@ -1535,35 +1535,12 @@ class Edit extends Component
 
         try {
             // =====================================================
-            // 3. PERIKSA PENDAFTARAN DAN BERKAS SAAT INI
+            // 3. PERIKSA PENDAFTARAN
             // =====================================================
 
             $pendaftaran = PPDBPendaftaran::query()
                 ->where('ppdb_pendaftaran_id', $pendaftaranId)
                 ->firstOrFail();
-
-            $berkasTersimpan = PPDBBerkas::query()
-                ->where('ppdb_pendaftaran_id', $pendaftaranId)
-                ->get()
-                ->keyBy('jenis_berkas');
-
-            // Berkas wajib harus tersedia dari file lama atau baru.
-            foreach ([
-                'KARTU_KELUARGA',
-                'AKTA_KELAHIRAN',
-                'PAS_FOTO',
-            ] as $jenis) {
-                $property = array_search($jenis, $fileFields, true);
-
-                if (
-                    ! $this->{$property}
-                    && ! $berkasTersimpan->has($jenis)
-                ) {
-                    throw ValidationException::withMessages([
-                        $property => 'Berkas ini wajib tersedia.',
-                    ]);
-                }
-            }
 
             // =====================================================
             // 4. SIMPAN FILE PENGGANTI TERLEBIH DAHULU
@@ -1697,30 +1674,6 @@ class Edit extends Component
                 // -------------------------------------------------
                 // 5E. PERBARUI BERKAS
                 // -------------------------------------------------
-
-                $berkasTerkini = PPDBBerkas::query()
-                    ->where('ppdb_pendaftaran_id', $pendaftaranId)
-                    ->lockForUpdate()
-                    ->get()
-                    ->keyBy('jenis_berkas');
-
-                // Periksa ulang berkas wajib di dalam transaksi.
-                foreach ([
-                    'KARTU_KELUARGA',
-                    'AKTA_KELAHIRAN',
-                    'PAS_FOTO',
-                ] as $jenis) {
-                    $property = array_search($jenis, $fileFields, true);
-
-                    if (
-                        ! isset($fileBaru[$jenis])
-                        && ! $berkasTerkini->has($jenis)
-                    ) {
-                        throw ValidationException::withMessages([
-                            $property => 'Berkas ini wajib tersedia.',
-                        ]);
-                    }
-                }
 
                 foreach ($fileBaru as $jenis => $metadata) {
                     $berkas = PPDBBerkas::query()
