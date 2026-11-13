@@ -1,5 +1,5 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+    <div class="card-header border-bottom">
         <div class="d-flex align-items-center flex-wrap gap-3">
             {{-- Judul --}}
             <div class="flex-grow-1">
@@ -42,15 +42,14 @@
                     <i class="ri-search-line search-icon"></i>
                 </div>
             </div>
-            {{-- <div class="col-xxl-4 col-sm-12">
-                <div>
-                    <select wire:model="selectedStatus" style="cursor: pointer" class="form-select" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Pilih Status">
-                        <option value=""> Semua</option>
-                        <option value="Aktif"> Aktif</option>
-                        <option value="Tidak Aktif"> Tidak Aktif</option>
-                    </select>
-                </div>
-            </div> --}}
+        </div>
+        <div
+            wire:loading.delay
+            wire:target="search,gotoPage,nextPage,previousPage,perPage,refreshJenjangs"
+            class="text-muted small mb-3"
+        >
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data pengguna...
         </div>
         <!--end row-->
         <div class="live-preview">

@@ -2,7 +2,7 @@
 <div wire:ignore.self class="modal fade" id="ModalImportTagihan" tabindex="-1" aria-labelledby="ModalImportTagihan" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-0">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -13,7 +13,7 @@
                         <h5 class="fw-bold mb-1">
                             Import Data Jenis Tagihan
                         </h5>
-                        <small>
+                        <small class="text-muted">
                             Tambahkan data jenis tagihan melalui file Excel.
                         </small>
                     </div>
@@ -24,7 +24,7 @@
                 </button>
             </div>
             <form wire:submit.prevent="createJenisTagihan">
-                <div class="modal-body">
+                <div class="modal-body p-3">
                     <div class="text-center mb-4">
                         <lord-icon
                             src="https://cdn.lordicon.com/fjvfsqea.json"

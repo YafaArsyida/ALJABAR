@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
             {{-- HEADER --}}
-            <div class="modal-header border-0 px-4 pt-4 pb-3">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -30,7 +30,7 @@
             </div>
 
             {{-- BODY --}}
-            <div class="modal-body px-4 pb-4">
+            <div class="modal-body p-3">
                 @if($produk)
                     {{-- PRODUCT SUMMARY --}}
                     <div class="bg-light rounded-4 p-4 mb-4">

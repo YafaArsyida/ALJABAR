@@ -8,7 +8,7 @@
 >
     <div class="modal-dialog modal-lg">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-0">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -36,7 +36,7 @@
                 </button>
             </div>
 
-            <div class="modal-body">
+            <div class="modal-body p-3">
                 @if ($transaksi)
                     @if ($transaksi->status_transaksi === 'dibatalkan')
                         <div class="alert alert-danger d-flex align-items-center gap-2 mb-4">

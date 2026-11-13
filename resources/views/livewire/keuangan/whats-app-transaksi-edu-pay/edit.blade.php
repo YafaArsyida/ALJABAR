@@ -2,7 +2,7 @@
 <div wire:ignore.self class="modal fade" id="loadPesanEduPay" tabindex="-1" aria-labelledby="loadPesanEduPayLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -14,7 +14,7 @@
                         <h5 class="fw-bold mb-1">
                             Perbarui Pesan Transaksi EduPay
                         </h5>
-                        {{-- <small>
+                        {{-- <small class="text-muted">
                             Tambahkan agenda kegiatan generasi penerus dengan pengaturan tingkat, jadwal, dan lokasi.
                         </small> --}}
                     </div>
@@ -25,7 +25,7 @@
                 </button>
             </div>
             <form wire:submit.prevent="updatePesan">
-                <div class="modal-body">
+                <div class="modal-body p-3">
                     <div class="mb-3">
                         <label for="judul" class="form-label">Judul</label>
                         <input type="text" class="form-control" id="judul" wire:model.defer="judul">

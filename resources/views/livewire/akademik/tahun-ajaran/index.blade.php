@@ -1,23 +1,21 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+    <div class="card-header border-bottom">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
             {{-- HEADER INFORMASI --}}
-            <div>
-                <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm flex-shrink-0">
-                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                            <i class="ri-calendar-line"></i>
-                        </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-calendar-line"></i>
                     </div>
+                </div>
 
-                    <div>
-                        <h5 class="fw-bold mb-1">
-                            Tahun Ajaran
-                        </h5>
-                        <small class="text-muted">
-                            Kelola periode tahun ajaran sekolah.
-                        </small>
-                    </div>
+                <div>
+                    <h5 class="fw-bold mb-1">
+                        Tahun Ajaran
+                    </h5>
+                    <small class="text-muted">
+                        Kelola periode tahun ajaran sekolah.
+                    </small>
                 </div>
             </div>
 

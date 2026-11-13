@@ -2,7 +2,7 @@
 <div wire:ignore.self class="modal fade" id="editSuratTagihan" tabindex="-1" aria-labelledby="editSuratTagihanLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-0">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -13,7 +13,7 @@
                         <h5 class="fw-bold mb-1">
                             Perbarui Surat Tagihan Siswa
                         </h5>
-                        {{-- <small>
+                        {{-- <small class="text-muted">
                             Tambahkan agenda kegiatan generasi penerus dengan pengaturan tingkat, jadwal, dan lokasi.
                         </small> --}}
                     </div>
@@ -24,7 +24,7 @@
                 </button>
             </div>
             <form wire:submit.prevent="updateSurat">
-                <div class="modal-body">
+                <div class="modal-body p-3">
                     @if ($foto_kop_baru && is_object($foto_kop_baru))
                         <div class="mb-3">
                             <p>Preview Foto Baru:</p>

@@ -10,7 +10,7 @@
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
             {{-- HEADER --}}
-            <div class="modal-header border-0 px-4 pt-4 pb-3">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -40,7 +40,7 @@
 
             {{-- FORM --}}
             <form wire:submit.prevent="update">
-                <div class="modal-body px-4 pt-2 pb-4">
+                <div class="modal-body p-3">
 
                     {{-- PERIODE --}}
                     <div class="card border rounded-4 shadow-none mb-4">

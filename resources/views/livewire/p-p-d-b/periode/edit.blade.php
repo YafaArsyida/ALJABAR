@@ -9,7 +9,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden d-flex flex-column">
             {{-- HEADER --}}
-            <div class="modal-header border-0 px-4 pt-4 pb-3">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm flex-shrink-0">
                         <div
@@ -44,7 +44,7 @@
 
             <form class="d-flex flex-column overflow-hidden" wire:submit.prevent="updatePeriode">
                 {{-- BODY --}}
-                <div class="modal-body px-4 pt-2 pb-4">
+                <div class="modal-body p-3">
                     <div class="d-flex justify-content-end mb-3">
                         <small class="text-muted">
                             <span class="text-danger">*</span>

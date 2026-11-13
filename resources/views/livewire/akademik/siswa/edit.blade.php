@@ -9,7 +9,7 @@
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
             {{-- HEADER --}}
-            <div class="modal-header border-0 px-4 pt-4 pb-3">
+            <div class="modal-header border-bottom">
                 <div class="d-flex align-items-center gap-3">
 
                     <div class="avatar-sm flex-shrink-0">
@@ -43,7 +43,7 @@
                 style="min-height: 0; overflow: hidden;">
 
                 {{-- BODY --}}
-                <div class="modal-body px-4 pt-2 pb-4">
+                <div class="modal-body">
 
                     {{-- CONTEXT --}}
                     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4 pb-3 border-bottom">
@@ -304,7 +304,7 @@
 
 
                 {{-- FOOTER --}}
-                <div class="modal-footer border-0 px-4 pb-4 pt-2">
+                <div class="modal-footer">
 
                     <button type="button"
                         class="btn btn-light rounded-pill px-4"

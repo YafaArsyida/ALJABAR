@@ -1,7 +1,7 @@
 <div wire:ignore.self class="modal fade" id="ModalTambahProduk" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content border-0 shadow-lg rounded-4">
-            <div class="modal-header">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -13,7 +13,7 @@
                         <h5 class="fw-bold mb-1">
                             Tambah Produk Kantin
                         </h5>
-                        {{-- <small>
+                        {{-- <small class="text-muted">
                             Tambahkan agenda kegiatan generasi penerus dengan pengaturan tingkat, jadwal, dan lokasi.
                         </small> --}}
                     </div>
@@ -24,7 +24,7 @@
             </div>
 
             <form wire:submit.prevent="save">
-                <div class="modal-body">
+                <div class="modal-body p-3">
                     <div class="row">
                         <div class="col-md-8 mb-3">
                              <label>Nama Produk</label>

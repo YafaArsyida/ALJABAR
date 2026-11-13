@@ -1,14 +1,12 @@
 <div class="row">
     <div class="col-xxl-12">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-            <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+            <div class="card-header border-bottom">
                 <div class="d-flex align-items-center flex-wrap gap-3">
 
                     {{-- JUDUL --}}
                     <div class="flex-grow-1">
-
                         <div class="d-flex align-items-center gap-3">
-
                             <div class="avatar-sm flex-shrink-0">
                                 <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
                                     <i class="ri-exchange-funds-line"></i>

@@ -4,7 +4,7 @@
     <div class="modal-dialog">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
             {{-- Header --}}
-            <div class="modal-header border-0">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-warning-subtle text-warning rounded-circle fs-20">
@@ -29,7 +29,7 @@
             </div>
 
             {{-- Body --}}
-            <div class="modal-body">
+            <div class="modal-body p-3">
                 @if ($transaksi)
                     {{-- Informasi transaksi --}}
                     <div class="bg-light rounded-3 p-3 mb-3">

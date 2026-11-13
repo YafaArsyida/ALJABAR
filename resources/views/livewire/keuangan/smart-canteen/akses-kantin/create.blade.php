@@ -1,7 +1,7 @@
 <div wire:ignore.self class="modal fade" id="createPetugasKantin" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -27,7 +27,7 @@
             </div>
 
             <form wire:submit.prevent="save">
-                <div class="modal-body">
+                <div class="modal-body p-3">
                     <div class="row g-3">
                         <div class="col-lg-12">
                             <label class="form-label">Pilih Kantin</label>

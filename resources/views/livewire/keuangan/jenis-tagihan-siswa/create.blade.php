@@ -1,8 +1,8 @@
 {{-- Success is as dangerous as failure. --}}
 <div wire:ignore.self class="modal fade" id="ModalAddJenisTagihan" tabindex="-1" aria-labelledby="ModalAddJenisTagihan" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-0">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -13,7 +13,7 @@
                         <h5 class="fw-bold mb-1">
                             Jenis Tagihan Baru
                         </h5>
-                        <small>
+                        <small class="text-muted">
                             Tambahkan jenis tagihan dengan pengaturan kategori dan nominal.
                         </small>
                     </div>
@@ -24,7 +24,7 @@
                 </button>
             </div>
             <form wire:submit.prevent="save">
-                <div class="modal-body">
+                <div class="modal-body p-3">
                     <div class="row g-3">
                         <div class="col-lg-12">
                             <label for="nama_jenis_tagihan_siswa" class="form-label">Nama Jenis Tagihan</label>
@@ -82,13 +82,27 @@
                     </div>
                 </div>
                 <div class="modal-footer border-0 px-4 pb-4 pt-0">
-                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">
+                    <button type="button"
+                        class="btn btn-light rounded-pill px-4"
+                        data-bs-dismiss="modal">
                         <i class="ri-close-line me-1"></i>
-                        Tutup
+                        Batal
                     </button>
-                    <button type="submit" class="btn btn-primary rounded-pill px-4">
-                        <i class="ri-save-3-line me-1"></i>
-                        Simpan
+
+                    <button type="submit"
+                        class="btn btn-primary rounded-pill px-4"
+                        wire:loading.attr="disabled"
+                        wire:target="save">
+
+                        <span wire:loading.remove wire:target="save">
+                            <i class="ri-save-3-line me-1"></i>
+                            Simpan Jenis Tagihan
+                        </span>
+
+                        <span wire:loading wire:target="save">
+                            <span class="spinner-border spinner-border-sm me-1"></span>
+                            Menyimpan...
+                        </span>
                     </button>
                 </div>
             </form>

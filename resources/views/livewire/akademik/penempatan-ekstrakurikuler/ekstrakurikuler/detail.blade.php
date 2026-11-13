@@ -1,5 +1,5 @@
 <div wire:ignore.self class="offcanvas offcanvas-top bg-light" id="detailEkstrakurikuler" tabindex="-1" aria-labelledby="detailEkstrakurikulerLabel" style="min-height:100vh;">
-    <div class="offcanvas-header border-bottom px-4 py-3 shadow-sm">
+    <div class="offcanvas-header border-bottom">
         <div class="d-flex justify-content-between align-items-start w-100">
             <!-- Kiri -->
             <div class="d-flex align-items-center gap-3">

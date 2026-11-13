@@ -1,7 +1,7 @@
 <div wire:ignore.self class="modal fade" id="modalDetailKategoriTagihan" tabindex="-1" aria-labelledby="modalDetailKategoriTagihanLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-bottom px-4 py-3">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-18">
@@ -18,7 +18,7 @@
                 </button>
             </div>
 
-            <div class="modal-body p-4">
+            <div class="modal-body p-3">
                 @if (!$selectedKategori)
                     <div class="text-center py-5 text-muted">Pilih kategori untuk melihat ringkasan tagihan.</div>
                 @elseif (!$kategori)

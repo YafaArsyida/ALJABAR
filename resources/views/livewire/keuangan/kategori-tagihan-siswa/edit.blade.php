@@ -2,7 +2,7 @@
 <div wire:ignore.self class="modal fade" id="ModalEditKategoriTagihan" tabindex="-1" aria-labelledby="ModalEditKategoriTagihan" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-0">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -13,7 +13,7 @@
                         <h5 class="fw-bold mb-1">
                             Perbarui Data Kategori
                         </h5>
-                        <small>
+                        <small class="text-muted">
                             Perbarui informasi kategori tagihan sesuai kebutuhan.
                         </small>
                     </div>
@@ -24,7 +24,7 @@
                 </button>
             </div>
             <form wire:submit.prevent="updateKategori">
-                <div class="modal-body">
+                <div class="modal-body p-3">
                     <div class="row g-3">
                         <div class="col-lg-8">
                             <label for="nama_kategori_tagihan_siswa" class="form-label">Nama Kategori Tagihan</label>

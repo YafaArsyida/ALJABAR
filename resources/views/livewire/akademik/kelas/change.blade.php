@@ -1,7 +1,7 @@
 <div wire:ignore.self class="modal fade" id="ModalChangeKelas" tabindex="-1" aria-labelledby="ModalChangeKelasLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-0">
+            <div class="modal-header border-bottom">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -21,7 +21,7 @@
                     </i>
                 </button>
             </div>
-            <div class="modal-body pb-0">
+            <div class="modal-body">
                 <div class="row">
                     <div class="col-xxl-12">
                         <!-- Pencarian dan Pilihan Kelas -->
@@ -110,7 +110,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer border-0 px-4 pb-4 pt-0">
+            <div class="modal-footer">
                 <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">
                     <i class="ri-close-line me-1"></i>
                     Tutup

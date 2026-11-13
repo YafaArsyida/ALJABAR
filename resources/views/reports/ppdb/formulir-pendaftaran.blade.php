@@ -17,7 +17,7 @@
         body {
             font-family: "Times New Roman", Times, serif;
             /* font-family: "DejaVu Sans", sans-serif; */
-            font-size: 10px;
+            font-size: 14px;
             line-height: 1.35;
             color: #222;
             margin: 0;
@@ -82,7 +82,7 @@
         /* IDENTITAS PENDAFTARAN */
         .meta {
             margin-bottom: 12px;
-            font-size: 11px;
+            font-size: 14px;
         }
 
         .meta-item {

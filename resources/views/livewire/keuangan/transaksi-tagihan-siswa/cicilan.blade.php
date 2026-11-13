@@ -2,7 +2,7 @@
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-0">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -14,7 +14,7 @@
                         <h5 class="fw-bold mb-1">
                             Cicilan Tagihan Siswa
                         </h5>
-                        <small>
+                        <small class="text-muted">
                             Kelola pembayaran cicilan dan pelunasan tagihan siswa.
                         </small>
                     </div>
@@ -24,7 +24,7 @@
                     </i>
                 </button>    
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-3">
                 <table class="table mb-0">
                     <tbody>
                         @if($tagihan)

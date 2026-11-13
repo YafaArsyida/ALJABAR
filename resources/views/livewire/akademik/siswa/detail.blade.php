@@ -1,12 +1,10 @@
 
 <div wire:ignore.self class="modal fade" id="ModalDetailSiswa" tabindex="-1"
     aria-labelledby="ModalDetailSiswaLabel" aria-hidden="true">
-
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-
             {{-- HEADER --}}
-            <div class="modal-header border-0 px-4 pt-4 pb-2">
+            <div class="modal-header border-bottom">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
@@ -15,7 +13,7 @@
                     </div>
 
                     <div>
-                        <h5 class="modal-title fw-bold mb-1" id="ModalDetailSiswaLabel">
+                        <h5 class="fw-bold mb-1" id="ModalDetailSiswaLabel">
                             Detail Siswa
                         </h5>
                         <small class="text-muted">
@@ -33,7 +31,7 @@
             </div>
 
             {{-- BODY --}}
-            <div class="modal-body px-4 pt-2 pb-4">
+            <div class="modal-body">
 
                 {{-- PROFILE --}}
                 <div class="text-center mb-4">
@@ -273,7 +271,7 @@
             </div>
 
             {{-- FOOTER --}}
-            <div class="modal-footer border-0 px-4 pb-4 pt-0">
+            <div class="modal-footer">
                 <button type="button"
                     class="btn btn-light rounded-pill px-4"
                     data-bs-dismiss="modal">

@@ -6,7 +6,7 @@
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
             {{-- HEADER --}}
-            <div class="modal-header border-0 px-4 pt-4 pb-2">
+            <div class="modal-header border-bottom">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div>
-                        <h5 class="modal-title fw-bold mb-1" id="detailEkstrakurikulerLabel">
+                        <h5 class="fw-bold mb-1" id="detailEkstrakurikulerLabel">
                             Detail Ekstrakurikuler
                         </h5>
                         <small class="text-muted">
@@ -32,7 +32,7 @@
             </div>
 
             {{-- BODY --}}
-            <div class="modal-body px-4 pt-2 pb-4">
+            <div class="modal-body">
                 @if ($ekstrakurikuler)
 
                     {{-- PROFIL EKSTRAKURIKULER --}}
@@ -167,7 +167,7 @@
             </div>
 
             {{-- FOOTER --}}
-            <div class="modal-footer border-0 px-4 pb-4 pt-0">
+            <div class="modal-footer">
                 <button type="button"
                     class="btn btn-light rounded-pill px-4"
                     data-bs-dismiss="modal">
@@ -194,7 +194,6 @@
                     </button>
                 @endif
             </div>
-
         </div>
     </div>
 </div>

@@ -10,7 +10,7 @@
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
             {{-- HEADER --}}
-            <div class="modal-header border-0">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
 
                     <div class="avatar-sm">
@@ -41,7 +41,7 @@
             </div>
 
             {{-- BODY --}}
-            <div class="modal-body">
+            <div class="modal-body p-3">
 
                 @if ($transaksi)
 

@@ -6,7 +6,7 @@
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
             {{-- HEADER --}}
-            <div class="modal-header border-0 px-4 pt-4 pb-3">
+            <div class="modal-header border-bottom">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -37,7 +37,7 @@
             <form wire:submit.prevent="updateTahunAjar"
                 class="d-flex flex-column overflow-hidden">
 
-                <div class="modal-body px-4 pt-2 pb-4">
+                <div class="modal-body">
 
                     {{-- KETERANGAN WAJIB DIISI --}}
                     <div class="d-flex justify-content-end mb-3">
@@ -145,7 +145,7 @@
                 </div>
 
                 {{-- FOOTER --}}
-                <div class="modal-footer border-0 px-4 pb-4 pt-0">
+                <div class="modal-footer">
                     <button type="button"
                         class="btn btn-light rounded-pill px-4"
                         data-bs-dismiss="modal">

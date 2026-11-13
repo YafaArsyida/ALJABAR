@@ -1,23 +1,21 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+    <div class="card-header border-bottom">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
             {{-- TITLE --}}
-            <div>
-                <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm flex-shrink-0">
-                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                            <i class="ri-team-line text-primary me-1"></i>
-                        </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-team-line text-primary me-1"></i>
                     </div>
+                </div>
 
-                    <div>
-                        <h5 class="fw-bold mb-1">
-                            Data Siswa Ekstrakurikuler
-                        </h5>
-                        <small class="text-muted">
-                            Daftar siswa yang mengikuti kegiatan ekstrakurikuler.
-                        </small>
-                    </div>
+                <div>
+                    <h5 class="fw-bold mb-1">
+                        Data Siswa Ekstrakurikuler
+                    </h5>
+                    <small class="text-muted">
+                        Daftar siswa yang mengikuti kegiatan ekstrakurikuler.
+                    </small>
                 </div>
             </div>
 
@@ -35,7 +33,6 @@
 
     <div class="card-body">
         <div class="row g-3 align-items-end mb-3">
-        
             <!-- Filter Kelas -->
             <div class="col-xxl-3 col-sm-6">
                 <label for="filterKelas" class="form-label small text-muted text-uppercase fw-medium mb-2">Kelas</label>

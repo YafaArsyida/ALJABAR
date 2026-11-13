@@ -2,7 +2,7 @@
 <div wire:ignore.self class="modal fade" id="editPendapatanLainnya" tabindex="-1" aria-labelledby="editPendapatanLainnyaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header">
+            <div class="modal-header border-bottom p-3">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -23,7 +23,7 @@
                     </i>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-3">
                 @if($transaksi)
                 <table class="table table-nowrap mb-0 ">
                     <tbody>
