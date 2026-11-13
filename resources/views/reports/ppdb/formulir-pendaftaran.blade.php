@@ -106,7 +106,7 @@
             color: #fff;
             text-align: center;
             font-weight: bold;
-            font-size: 11px;
+            font-size: 16px;
             padding: 5px 7px;
             margin-top: 12px;
             margin-bottom: 8px;
