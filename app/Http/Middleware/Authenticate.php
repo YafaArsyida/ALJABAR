@@ -29,7 +29,7 @@ class Authenticate extends Middleware
             $segments = $request->segments();
             $jenjang = $segments[1] ?? null;
 
-            if (in_array($jenjang, ['sd', 'tk'])) {
+            if (in_array($jenjang, ['sd', 'tk', 'kb'], true)) {
                 return route('ppdb.login', [
                     'jenjang' => $jenjang,
                 ]);

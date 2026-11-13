@@ -12,7 +12,7 @@ class PPDBLandingController extends Controller
      */
     public function index()
     {
-        return view('ppdb.landing.index');
+        return view('ppdb.landing.pilih-jenjang');
     }
 
     public function sd()
