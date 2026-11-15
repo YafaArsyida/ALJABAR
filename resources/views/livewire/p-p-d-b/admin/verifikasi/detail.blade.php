@@ -7,9 +7,8 @@
     style="height: 100vh;">
 
     {{-- HEADER ASLI --}}
-    <div class="offcanvas-header border-bottom bg-white px-3 px-md-4 py-3">
+    <div class="offcanvas-header border-bottom">
         <div class="d-flex align-items-center gap-3 w-100">
-
             <div class="avatar-sm flex-shrink-0">
                 <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
                     <i class="ri-user-search-line"></i>
@@ -36,17 +35,16 @@
 
             <button
                 type="button"
-                class="btn-close flex-shrink-0 ms-auto"
+                class="btn btn-light btn-icon rounded-circle"
                 data-bs-dismiss="offcanvas"
                 aria-label="Tutup">
+                <i class="ri-close-line fs-18"></i>        
             </button>
-
         </div>
     </div>
 
     {{-- AREA UTAMA --}}
     <div class="offcanvas-body p-0 d-flex flex-column">
-
         @if (!$pendaftaran)
             <div class="text-center py-5">
                 <div class="spinner-border text-primary mb-3"></div>

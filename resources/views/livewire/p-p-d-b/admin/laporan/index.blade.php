@@ -1,5 +1,5 @@
 
-<div class="card border-0 shadow-sm rounded-4 mb-4">
+<div class="card border-0 shadow-sm rounded-4 overflow-hidden">
 
     @if (session('error'))
         <div class="alert alert-warning alert-dismissible fade show m-3 mb-0" role="alert">
@@ -9,27 +9,25 @@
     @endif
 
     {{-- HEADER --}}
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+    <div class="card-header border-bottom">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3">
 
             {{-- TITLE --}}
-            <div>
-                <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm flex-shrink-0">
-                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                            <i class="ri-file-chart-line"></i>
-                        </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-file-chart-line"></i>
                     </div>
+                </div>
 
-                    <div>
-                        <h5 class="fw-bold mb-1">
-                            Laporan SPMB - Calon Siswa Diterima
-                        </h5>
+                <div>
+                    <h5 class="fw-bold mb-1">
+                        Laporan SPMB - Calon Siswa Diterima
+                    </h5>
 
-                        <small class="text-muted">
-                            Daftar calon siswa yang diterima serta fasilitas untuk mencetak kartu dan formulir pendataan.
-                        </small>
-                    </div>
+                    <small class="text-muted">
+                        Daftar calon siswa yang diterima serta fasilitas untuk mencetak kartu dan formulir pendataan.
+                    </small>
                 </div>
             </div>
 

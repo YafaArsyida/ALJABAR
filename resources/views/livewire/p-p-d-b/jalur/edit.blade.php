@@ -11,7 +11,7 @@
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
             {{-- HEADER --}}
-            <div class="modal-header border-bottom p-3">
+            <div class="modal-header border-bottom">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -41,7 +41,7 @@
 
             <form class="d-flex flex-column overflow-hidden" wire:submit.prevent="updateJalur">
                 {{-- BODY --}}
-                <div class="modal-body p-3">
+                <div class="modal-body">
 
                     <div class="d-flex justify-content-end mb-3">
                         <small class="text-muted">

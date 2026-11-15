@@ -27,13 +27,13 @@
 
         {{-- Statistik --}}
         <div class="row">
-            <div class="col-xxl-12 mb-3">
+            <div class="col-xxl-12">
                 @livewire('p-p-d-b.admin.pendaftar.statistik-pendaftar')   
             </div>
         </div>
 
         {{-- Rekapitulasi per periode --}}
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-xxl-12">
                 @livewire('p-p-d-b.admin.laporan.index') 
             </div>

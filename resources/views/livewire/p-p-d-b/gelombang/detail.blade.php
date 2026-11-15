@@ -5,7 +5,7 @@
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
             {{-- HEADER --}}
-            <div class="modal-header border-bottom p-3">
+            <div class="modal-header border-bottom">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
@@ -13,7 +13,7 @@
                         </div>
                     </div>
                     <div>
-                        <h5 class="modal-title fw-bold mb-1" id="ModalDetailGelombangLabel">
+                        <h5 class="fw-bold mb-1" id="ModalDetailGelombangLabel">
                             Detail Gelombang SPMB
                         </h5>
                         <small class="text-muted">
@@ -29,7 +29,7 @@
             </div>
 
             {{-- BODY --}}
-            <div class="modal-body p-3">
+            <div class="modal-body">
                 @if ($gelombangDetail)
 
                     {{-- IDENTITAS GELOMBANG --}}

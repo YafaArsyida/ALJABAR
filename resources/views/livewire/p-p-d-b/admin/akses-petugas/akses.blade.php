@@ -10,7 +10,7 @@
             <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
                 {{-- HEADER --}}
-                <div class="modal-header border-bottom p-3">
+                <div class="modal-header border-bottom">
                     <div class="d-flex align-items-center gap-3">
                         <div class="avatar-sm flex-shrink-0">
                             <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -27,18 +27,20 @@
                         </div>
                     </div>
 
-                    <button type="button"
+                    <button
+                        type="button"
                         class="btn btn-light btn-icon rounded-circle"
                         data-bs-dismiss="modal"
-                        aria-label="Tutup">
+                        aria-label="Tutup"
+                    >
                         <i class="ri-close-line fs-18"></i>
                     </button>
                 </div>
 
-                <form wire:submit.prevent="save">
+                <form class="d-flex flex-column overflow-hidden" wire:submit.prevent="save">
 
                     {{-- BODY --}}
-                    <div class="modal-body p-3">
+                    <div class="modal-body">
 
                         {{-- IDENTITAS PETUGAS --}}
                         <div class="d-flex align-items-center gap-3 bg-light rounded-3 p-3 mb-4">

@@ -26,13 +26,13 @@
         </div>
         {{-- Summary cards --}}
         <div class="row">
-            <div class="col-xxl-12 mb-3">
+            <div class="col-xxl-12">
                 @livewire('p-p-d-b.admin.verifikasi.statistik-verifikasi')   
             </div>
         </div>
 
         {{-- TABEL--}}
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-xxl-12">
                 @livewire('p-p-d-b.admin.verifikasi.index')   
                 @livewire('p-p-d-b.admin.verifikasi.detail')   

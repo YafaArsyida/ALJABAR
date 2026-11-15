@@ -3,11 +3,11 @@
     <div wire:ignore.self class="modal fade" id="ModalDetailPetugasSPMB" tabindex="-1"
         aria-labelledby="ModalDetailPetugasSPMBLabel" aria-hidden="true">
 
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-scrollable">        
             <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
                 {{-- HEADER --}}
-                <div class="modal-header border-bottom p-3">
+                <div class="modal-header border-bottom">
                     <div class="d-flex align-items-center gap-3">
                         <div class="avatar-sm flex-shrink-0">
                             <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
@@ -16,7 +16,7 @@
                         </div>
 
                         <div>
-                            <h5 class="modal-title fw-bold mb-1" id="ModalDetailPetugasSPMBLabel">
+                            <h5 class="fw-bold mb-1" id="ModalDetailPetugasSPMBLabel">
                                 Detail Petugas SPMB
                             </h5>
                             <small class="text-muted">
@@ -25,15 +25,18 @@
                         </div>
                     </div>
 
-                    <button type="button"
-                        class="btn btn-light btn-icon rounded-circle ms-auto"
-                        data-bs-dismiss="modal" aria-label="Tutup">
-                        <i class="ri-close-line"></i>
+                    <button
+                        type="button"
+                        class="btn btn-light btn-icon rounded-circle"
+                        data-bs-dismiss="modal"
+                        aria-label="Tutup"
+                    >
+                        <i class="ri-close-line fs-18"></i>
                     </button>
                 </div>
 
                 {{-- BODY --}}
-                <div class="modal-body p-3">
+                <div class="modal-body">
 
                     @if ($petugas)
 
@@ -141,6 +144,15 @@
 
                     @endif
 
+                </div>
+
+                {{-- FOOTER --}}
+                <div class="modal-footer border-0 px-4 pb-4 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4"
+                        data-bs-dismiss="modal">
+                        <i class="ri-close-line me-1"></i>
+                        Tutup
+                    </button>
                 </div>
 
             </div>

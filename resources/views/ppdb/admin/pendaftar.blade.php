@@ -25,13 +25,13 @@
         </div>
         {{-- Statistik --}}
         <div class="row">
-            <div class="col-xxl-12 mb-3">
+            <div class="col-xxl-12">
                 @livewire('p-p-d-b.admin.pendaftar.statistik-pendaftar')   
             </div>
         </div>
 
         {{-- Tabel pendaftar --}}
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-xxl-12">
                 @livewire('p-p-d-b.admin.pendaftar.index') 
                 @livewire('p-p-d-b.admin.pendaftar.create')   
