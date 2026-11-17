@@ -1,6 +1,6 @@
 
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+    <div class="card-header border-bottom">
         <!-- Header -->
         <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
             <div class="flex-grow-1">
@@ -235,6 +235,13 @@
             @endif
 
         </div>
+
+        <div wire:loading.delay
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
+
 
         <div class="table-responsive">
             <table class="table table-hover nowrap align-bottom" style="width:100%">

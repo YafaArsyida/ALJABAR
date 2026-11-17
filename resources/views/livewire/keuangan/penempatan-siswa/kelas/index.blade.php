@@ -1,27 +1,24 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
     {{-- HEADER --}}
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+    <div class="card-header border-bottom">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
             {{-- TITLE --}}
-            <div>
-                <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm flex-shrink-0">
-                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                            <i class="ri-community-line"></i>
-                        </div>
-                    </div>
-    
-                    <div>
-                        <h5 class="fw-bold mb-1">
-                            Data Kelas
-                        </h5>
-                        <small>
-                            Kelola informasi tagihan siswa pada kelas
-                        </small>
+            <div class="d-flex align-items-center gap-3">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-community-line"></i>
                     </div>
                 </div>
-            </div>
 
+                <div>
+                    <h5 class="fw-bold mb-1">
+                        Data Kelas
+                    </h5>
+                    <small class="text-muted">
+                        Kelola informasi tagihan siswa pada kelas
+                    </small>
+                </div>
+            </div>
         </div>
     </div>
     <div class="card-body">
@@ -36,6 +33,14 @@
             </div>
         </div>
         <!--end row-->
+        <div
+            wire:loading.delay
+            wire:target="search,gotoPage,nextPage,previousPage"
+            class="text-muted small mb-3">
+
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data kelas...
+        </div>
         {{-- DATA --}}
         <div class="live-preview">
             <!-- Jika Jenjang atau Tahun Ajar belum dipilih -->

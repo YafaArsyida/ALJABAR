@@ -377,17 +377,12 @@
                     wire:click="simpanPerubahan"
                     wire:loading.attr="disabled"
                     wire:target="simpanPerubahan">
-
                     <span wire:loading.remove wire:target="simpanPerubahan">
                         <i class="ri-save-line me-1"></i>
                         Simpan Perubahan
                     </span>
-
                     <span wire:loading wire:target="simpanPerubahan">
-                        <span
-                            class="spinner-border spinner-border-sm me-1"
-                            role="status"
-                            aria-hidden="true"></span>
+                        <span class="spinner-border spinner-border-sm me-1"></span>
                         Menyimpan...
                     </span>
                 </button>

@@ -271,7 +271,6 @@
                             <i class="ri-save-3-line me-1"></i>
                             Simpan Perubahan
                         </span>
-
                         <span wire:loading wire:target="updateGelombang">
                             <span class="spinner-border spinner-border-sm me-1"></span>
                             Menyimpan...

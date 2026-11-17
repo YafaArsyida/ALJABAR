@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xxl-12">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-            <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+            <div class="card-header border-bottom">
                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
                     {{-- HEADER --}}
                     <div class="flex-grow-1">
@@ -119,7 +119,7 @@
     </div>
     <div class="col-xxl-12">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-            <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+            <div class="card-header border-bottom">
                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
 
                     <div class="flex-grow-1">
@@ -197,6 +197,12 @@
                 </div>
 
                 {{-- DATA --}}
+                <div wire:loading.delay wire:target="selectedJenjang, metodePembayaran, search, startDate, endDate, gotoPage, nextPage, previousPage"
+                    class="text-muted small mb-3">
+                    <span class="spinner-border spinner-border-sm me-1"></span>
+                    Memuat data...
+                </div>
+
                 <div class="live-preview">
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover table-nowrap align-middle">

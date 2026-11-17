@@ -1,8 +1,15 @@
 <div wire:ignore.self class="modal fade" id="ModalTambahKategoriKoperasi" tabindex="-1" aria-labelledby="ModalTambahKategoriLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-light p-3">
-                <h5 class="modal-title" id="ModalTambahKategoriLabel">Tambah Kategori Produk</h5>
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden d-flex flex-column">
+            <div class="modal-header border-bottom">
+                <div>
+                    <h5 class="fw-bold mb-1" id="ModalTambahKategoriLabel">
+                        Tambah Kategori Produk
+                    </h5>
+                    <small class="text-muted">
+                        Lengkapi informasi berikut untuk menambahkan data baru.
+                    </small>
+                </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
             </div>
 
@@ -36,8 +43,14 @@
                        data-bs-dismiss="modal">
                         <i class="ri-close-line me-1 align-middle"></i> Tutup
                     </a>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="ri-save-3-line me-1"></i> Simpan
+                    <button type="submit" class="btn btn-primary" wire:target="save" wire:loading.attr="disabled">
+                        <span wire:loading.remove wire:target="save">
+                            <i class="ri-save-3-line me-1"></i> Simpan
+                        </span>
+                        <span wire:loading wire:target="save">
+                            <span class="spinner-border spinner-border-sm me-1"></span>
+                            Menyimpan...
+                        </span>
                     </button>
                 </div>
             </form>

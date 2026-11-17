@@ -24,10 +24,15 @@
         </div>
     </div>
     <div class="offcanvas-body">
+        <div wire:loading.delay
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
         <div class="row justify-content-center">
             <div class="col-xxl-6">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-                    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+                    <div class="card-header border-bottom">
                         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
 
                             {{-- TITLE --}}
@@ -84,7 +89,8 @@
                         </div>
                     </div>
                     @if ($surat)
-                    <div class="card-body p-4 bg-white">
+                    <div class="card-body bg-white">
+
                         <div class="text-center mb-0">
                             @if($surat->foto_kop)
                                 <img src="{{ Storage::url($surat->foto_kop) }}" alt="Kop Surat" class="img-fluid" style="max-width: 100%; height: auto;">
@@ -99,6 +105,7 @@
 
                         <div class="p-4 text-black" style="font-family: 'Times New Roman', Times, serif; font-size: 12pt;">
                             <p class="text-end mb-0">{{ $surat->tempat_tanggal }}</p>
+
                             <table cellpadding="1" class="mb-3">
                                 <tr>
                                     <td width="12%"><b>No</b></td>
@@ -168,7 +175,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="card-body p-4 bg-white">
+                    <div class="card-body bg-white">
                         <div class="text-center mb-0">
                             <img src="{{ Storage::url($surat->foto_kop) }}" alt="Kop Surat" class="img-fluid" style="max-width: 100%; height: auto;">
                         </div>
@@ -224,7 +231,7 @@
                         </div>
                     </div>
                     @else
-                    <div class="card-body py-5">
+                    <div class="card-body">
                         <div class="text-center">
 
                             <div class="avatar-lg mx-auto mb-4">

@@ -112,6 +112,12 @@
                 </div>
 
                 {{-- TABLE --}}
+                <div wire:loading.delay wire:target="search, selectedPeriode, gotoPage, nextPage, previousPage"
+                    class="text-muted small mb-3">
+                    <span class="spinner-border spinner-border-sm me-1"></span>
+                    Memuat data...
+                </div>
+
                 <div class="table-responsive">
                     <table class="table table-hover table-nowrap align-middle">
                         <thead class="table-light">

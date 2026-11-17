@@ -177,13 +177,8 @@
                             <i class="ri-save-line me-1"></i>
                             Simpan Perubahan
                         </span>
-
                         <span wire:loading wire:target="simpan">
-                            <span
-                                class="spinner-border spinner-border-sm me-1"
-                                role="status"
-                                aria-hidden="true">
-                            </span>
+                            <span class="spinner-border spinner-border-sm me-1"></span>
                             Menyimpan...
                         </span>
                     </button>

@@ -44,6 +44,12 @@
                 </button>
             </div>
         </div>
+        <div wire:loading.delay wire:target="search"
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
+
         <div class="live-preview">
             <div class="table-responsive">
                 <!-- Tabel Data Kelas -->

@@ -1,7 +1,7 @@
 <div class="">
     <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-        <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
-            <div class="d-flex align-items-center flex-wrap gap-3">
+        <div class="card-header border-bottom">
+            <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
                 <div class="flex-grow-1">
                     <div class="d-flex align-items-center gap-3">
                         <div class="avatar-sm flex-shrink-0">
@@ -64,6 +64,12 @@
             </div>
         </div>
         <div class="card-body">
+            <div wire:loading.delay wire:target="startDate, endDate"
+                class="text-muted small mb-3">
+                <span class="spinner-border spinner-border-sm me-1"></span>
+                Memuat data...
+            </div>
+
             <div class="live-preview">
                 <div class="table-responsive">
                     <div class="text-center py-3">

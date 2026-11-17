@@ -1,10 +1,10 @@
 <div wire:ignore.self class="modal fade"
     id="modalKoreksi" tabindex="-1"
     aria-labelledby="modalKoreksiLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden d-flex flex-column">
             {{-- Header --}}
-            <div class="modal-header border-bottom p-3">
+            <div class="modal-header border-bottom">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-warning-subtle text-warning rounded-circle fs-20">

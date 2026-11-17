@@ -27,8 +27,9 @@
 
                     <button type="button"
                         class="btn btn-light btn-icon rounded-circle ms-auto"
-                        data-bs-dismiss="modal" aria-label="Tutup">
-                        <i class="ri-close-line"></i>
+                        data-bs-dismiss="modal"
+                        aria-label="Tutup">
+                        <i class="ri-close-line fs-18"></i>
                     </button>
                 </div>
 

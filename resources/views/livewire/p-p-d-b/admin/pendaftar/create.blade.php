@@ -360,15 +360,12 @@
                     wire:click="simpanDraft"
                     wire:loading.attr="disabled"
                     wire:target="simpanDraft">
-
                     <span wire:loading.remove wire:target="simpanDraft">
                         <i class="ri-save-line me-1"></i>
                         Simpan Pendataan
                     </span>
-
                     <span wire:loading wire:target="simpanDraft">
-                        <span class="spinner-border spinner-border-sm me-1"
-                            role="status" aria-hidden="true"></span>
+                        <span class="spinner-border spinner-border-sm me-1"></span>
                         Menyimpan...
                     </span>
                 </button>

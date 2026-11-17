@@ -23,7 +23,13 @@
     <div class="row justify-content-center">
         <div class="col-lg-7 col-xl-6">
             <div class="card border-0 shadow-sm rounded-4">
-                <div class="card-body p-4 p-lg-5">
+                <div class="card-body">
+                    <div wire:loading.delay wire:target="search, selectedEkstrakurikuler"
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
+
                     {{-- Step 1 --}}
                     <div class="mb-4">
                         <div class="d-flex align-items-center gap-3 mb-3">
@@ -181,7 +187,7 @@
 
                             <div class="card border-0 shadow-sm rounded-4 mt-4 overflow-hidden">
 
-                                <div class="card-body p-4 text-center">
+                                <div class="card-body text-center">
 
                                     {{-- Success Icon --}}
                                     <div class="avatar-lg mx-auto mb-3">

@@ -1,5 +1,5 @@
  <div class="" id="produkList">
-    <div class="card-body pb-2">
+    <div class="card-body">
         <div class="row align-items-end gy-3">
 
             <!-- Kiri: Judul & Deskripsi -->
@@ -100,6 +100,12 @@
         </div>
         
         <!-- Tabel Keranjang -->
+        <div wire:loading.delay wire:target="tanggal_pembelian, ms_supplier_koperasi_id, barcodeInput"
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
+
         <div class="table-responsive mt-3">
             <table class="table table-bordered align-middle">
                 <thead class="table-light">

@@ -1,21 +1,19 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+    <div class="card-header border-bottom">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
             {{-- TITLE --}}
-            <div>
-                <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm flex-shrink-0">
-                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                            <i class="ri-group-line"></i>
-                        </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-group-line"></i>
                     </div>
-    
-                    <div>
-                        <h5 class="fw-bold mb-1">
-                            Data Siswa
-                        </h5>
-                        <small> Kelola data siswa dan informasi keuangan berdasarkan kelas. </small>
-                    </div>
+                </div>
+
+                <div>
+                    <h5 class="fw-bold mb-1">
+                        Data Siswa
+                    </h5>
+                    <small class="text-muted">Kelola data siswa dan informasi keuangan berdasarkan kelas. </small>
                 </div>
             </div>
     
@@ -84,6 +82,12 @@
         </div>
         <!--end row-->
         {{-- DATA --}}
+        <div wire:loading.delay wire:target="search, selectedKelas, perPage, gotoPage, nextPage, previousPage"
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
+
         <div class="live-preview">
             <!-- Jika Jenjang atau Tahun Ajar belum dipilih -->
             @if (!$selectedJenjang || !$selectedTahunAjar)

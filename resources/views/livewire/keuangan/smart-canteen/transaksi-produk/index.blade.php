@@ -1,5 +1,5 @@
 <div id="produkList" class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+    <div class="card-header border-bottom">
         <div class="row align-items-center g-3">
             {{-- INFORMASI PENGGUNA --}}
             <div class="col-xxl-7 col-md-6">
@@ -131,7 +131,13 @@
         </div>
     </div>
     <!-- Tabs kategori -->
-    <div class="card-body pt-0">
+    <div class="card-body">
+        <div wire:loading.delay wire:target="smartcardInput"
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
+
         <ul class="nav nav-tabs nav-tabs-custom nav-success" role="tablist">
             <!-- Tab Semua Produk -->
             <li class="nav-item">

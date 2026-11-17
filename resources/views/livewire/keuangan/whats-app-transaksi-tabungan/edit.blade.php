@@ -1,8 +1,8 @@
 {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
 <div wire:ignore.self class="modal fade" id="loadPesanTabunganSiswa" tabindex="-1" aria-labelledby="loadPesanTabunganSiswaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-bottom p-3">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden d-flex flex-column">
+            <div class="modal-header border-bottom">
                 <div class="d-flex align-items-center gap-3">
                     <div class="avatar-sm">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -69,9 +69,15 @@
                         <i class="ri-close-line me-1"></i>
                         Tutup
                     </button>
-                    <button type="submit" class="btn btn-primary rounded-pill px-4">
-                        <i class="ri-save-3-line me-1"></i>
-                        Simpan
+                    <button type="submit" class="btn btn-primary rounded-pill px-4" wire:target="updatePesan" wire:loading.attr="disabled">
+                        <span wire:loading.remove wire:target="updatePesan">
+                            <i class="ri-save-3-line me-1"></i>
+                            Simpan
+                        </span>
+                        <span wire:loading wire:target="updatePesan">
+                            <span class="spinner-border spinner-border-sm me-1"></span>
+                            Menyimpan...
+                        </span>
                     </button>
                 </div>
             </form>

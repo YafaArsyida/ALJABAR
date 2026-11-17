@@ -1,6 +1,6 @@
 <div class="card">
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
-        <div class="d-flex align-items-center flex-wrap gap-3">
+    <div class="card-header border-bottom">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
             <div class="d-flex align-items-center gap-3 flex-grow-1">
                 <div class="avatar-sm flex-shrink-0">
                     <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -60,6 +60,12 @@
                 </div>
             </div>
         </div>
+        <div wire:loading.delay wire:target="selectedJabatan, search, startDate, endDate, gotoPage, nextPage, previousPage"
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
+
         <div class="live-preview">
             <div class="table-responsive">
                 <table class="table table-bordered align-middle table-striped">

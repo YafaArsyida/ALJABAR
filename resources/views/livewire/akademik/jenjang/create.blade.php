@@ -2,7 +2,7 @@
 <div wire:ignore.self class="modal fade" id="ModalAddJenjang" tabindex="-1"
     aria-labelledby="ModalAddJenjangLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden d-flex flex-column">
             {{-- HEADER --}}
             <div class="modal-header border-bottom">
                 <div class="d-flex align-items-center gap-3">
@@ -173,12 +173,10 @@
                         class="btn btn-primary rounded-pill px-4"
                         wire:loading.attr="disabled"
                         wire:target="save">
-
                         <span wire:loading.remove wire:target="save">
                             <i class="ri-save-3-line me-1"></i>
                             Simpan Jenjang
                         </span>
-
                         <span wire:loading wire:target="save">
                             <span class="spinner-border spinner-border-sm me-1"></span>
                             Menyimpan...

@@ -1,6 +1,6 @@
 <div class="card" id="generusList">
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
-        <div class="d-flex align-items-center flex-wrap gap-3">
+    <div class="card-header border-bottom">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
             <div class="d-flex align-items-center gap-3 flex-grow-1">
                 <div class="avatar-sm flex-shrink-0">
                     <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -24,6 +24,12 @@
 
     <!-- Search & Filter -->
     <div class="card-body border border-dashed border-start-0 border-end-0">
+        <div wire:loading.delay wire:target="search"
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
+
         <div class="row g-3">
 
             {{-- Search --}}
@@ -44,7 +50,7 @@
         </div>
     </div>
 
-    <div class="card-body pt-0">
+    <div class="card-body">
         <ul class="nav nav-tabs nav-tabs-custom nav-success" role="tablist">
         
             {{-- TAB SEMUA --}}

@@ -6,7 +6,7 @@
     aria-hidden="true">
 
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden d-flex flex-column">
 
             {{-- HEADER --}}
             <div class="modal-header border-bottom">
@@ -315,10 +315,15 @@
                     </button>
 
                     <button type="submit"
-                        class="btn btn-primary rounded-pill px-4">
-
-                        <i class="ri-save-3-line me-1"></i>
-                        Simpan Perubahan
+                        class="btn btn-primary rounded-pill px-4" wire:target="updateSiswa" wire:loading.attr="disabled">
+                        <span wire:loading.remove wire:target="updateSiswa">
+                            <i class="ri-save-3-line me-1"></i>
+                            Simpan Perubahan
+                        </span>
+                        <span wire:loading wire:target="updateSiswa">
+                            <span class="spinner-border spinner-border-sm me-1"></span>
+                            Menyimpan...
+                        </span>
                     </button>
 
                 </div>

@@ -2,26 +2,24 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
 
     {{-- HEADER --}}
-    <div class="card-header">
+    <div class="card-header border-bottom">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
 
             {{-- TITLE --}}
-            <div>
-                <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm">
-                        <div class="avatar-title bg-info-subtle text-info rounded-circle fs-20">
-                            <i class="ri-wallet-3-line"></i>
-                        </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="avatar-sm">
+                    <div class="avatar-title bg-info-subtle text-info rounded-circle fs-20">
+                        <i class="ri-wallet-3-line"></i>
                     </div>
+                </div>
 
-                    <div>
-                        <h5 class="fw-bold mb-1">
-                            Overview EduPay
-                        </h5>
-                        {{-- <small class="text-muted">
-                            Ringkasan transaksi EduPay berdasarkan kelas.
-                        </small> --}}
-                    </div>
+                <div>
+                    <h5 class="fw-bold mb-1">
+                        Overview EduPay
+                    </h5>
+                    <small class="text-muted">
+                        Ringkasan transaksi EduPay berdasarkan kelas.
+                    </small>
                 </div>
             </div>
 

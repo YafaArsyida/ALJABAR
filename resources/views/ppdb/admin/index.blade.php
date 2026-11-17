@@ -26,13 +26,13 @@
 
 
         {{-- Statistik utama --}}
-        <div class="row">
-            <div class="col-xxl-12 mb-3">
+        <div class="row mb-4">
+            <div class="col-xxl-12">
                 @livewire('p-p-d-b.admin.dashboard.statistik-jalur')
             </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row">
             {{-- Antrean pekerjaan --}}
             <div class="col-xl-4">
                 @livewire('p-p-d-b.admin.dashboard.antrean-pekerjaan')

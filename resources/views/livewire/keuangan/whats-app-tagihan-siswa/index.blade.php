@@ -1,7 +1,7 @@
 {{-- Because she competes with no one, no one can compete with her. --}}
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
-        <div class="d-flex align-items-center flex-wrap gap-3">
+    <div class="card-header border-bottom">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
             {{-- HEADER --}}
             <div class="flex-grow-1">
                 <div class="d-flex align-items-center gap-3">
@@ -78,6 +78,11 @@
         </div>
     </div>
     <div class="card-body">
+        <div wire:loading.delay
+                                                        class="text-muted small mb-3">
+                                                        <span class="spinner-border spinner-border-sm me-1"></span>
+                                                        Memuat data...
+                                                    </div>
         @if (!$selectedJenjang)
             <div class="text-center py-4">
                 <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"
@@ -134,6 +139,7 @@
                                                 <div class="mb-3">
                                                     <label for="detail_transaksi" class="form-label">Detail Tagihan (bawaan sistem)</label>
                                                     <p>Kami informasikan bahwa <b>Tagihan Sekolah</b> atas nama siswa <b>Yafa Arsyida</b> kelas <b>2 A Umar</b> masih perlu diselesaikan. Berikut adalah rincian tagihannya : </p>
+
                                                     <table cellpadding="1" class="mb-3">
                                                         <tr>
                                                             <td><b>- SPP FEBRUARI : Rp100.XXX</b></td>

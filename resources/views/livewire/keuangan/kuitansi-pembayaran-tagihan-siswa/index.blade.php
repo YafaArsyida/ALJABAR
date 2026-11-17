@@ -24,10 +24,15 @@
         </div>
     </div>
     <div class="offcanvas-body">
+        <div wire:loading.delay
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
         <div class="row justify-content-center">
             <div class="col-xxl-4">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-                    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+                    <div class="card-header border-bottom">
                         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
                             {{-- TITLE --}}
                             <div>
@@ -83,7 +88,8 @@
                         </div>
                     </div>
                     @if ($kuitansi)
-                    <div class="card-body p-4 bg-white p-1">
+                    <div class="card-body bg-white">
+
                         <!-- Header -->
                         <div class="text-center text-black mb-2" style="font-family: 'Times New Roman', Times, serif; font-size: 18pt;">
                             <img src="{{ Storage::url($kuitansi->logo) }}" alt="Logo" class="img-fluid" style="height: 80px;">
@@ -97,6 +103,7 @@
                         </div>
                         
                         <div style="font-family: 'Times New Roman', Times, serif; font-size: 14pt;" class="px-4 m-2 text-black">
+
                             <table cellpadding="0" class="m-2">
                                 <tr>
                                     <td width="12%">Siswa</td>
@@ -156,7 +163,7 @@
                         </div>
                     </div>
                     @else
-                    <div class="card-body p4 bg-white mb-2 text-center">
+                    <div class="card-body bg-white mb-2 text-center">
                         <h3 class="p-4 text-black" style="font-family: 'Times New Roman', Times, serif; font-size: 12pt;">Template Kuitansi belum di atur untuk jenjang ini.</h3>
                     </div>
                     @endif

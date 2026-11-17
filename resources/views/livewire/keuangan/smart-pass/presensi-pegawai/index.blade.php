@@ -5,7 +5,7 @@
             {{-- <div class="bg-overlay"></div> --}}
             <div class="position-relative h-100 d-flex align-items-center justify-content-center">
                 <div class="card shadow-lg border-0" style="max-width: 520px; width: 100%;">
-                    <div class="card-header bg-white border-0 mb-4">
+                    <div class="card-header border-bottom">
                         <!-- ================= LOGO & IDENTITAS ================= -->
                         <div class="text-center mb-4 pb-4">
                             <img src="{{ asset('assets/images/logo-sm.png') }}" alt="Logo Instansi" style="max-height: 90px;" class="mb-2">
@@ -62,6 +62,11 @@
                         </div>
                     </div>
                     <div class="card-body">
+                        <div wire:loading.delay wire:target="selectedJenjang, barcodeInput"
+                                class="text-muted small mb-3">
+                                <span class="spinner-border spinner-border-sm me-1"></span>
+                                Memuat data...
+                            </div>
                         <div class="row g-4">
                             {{-- barcode --}}
                             <div class="col-md-12">
@@ -102,8 +107,8 @@
             <div class="card shadow-sm h-100">
     
                 <!-- HEADER -->
-                <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
-                    <div class="d-flex align-items-center flex-wrap gap-3">
+                <div class="card-header border-bottom">
+                    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
                         <div class="d-flex align-items-center gap-3 flex-grow-1">
                             <div class="avatar-sm flex-shrink-0">
                                 <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
@@ -119,9 +124,10 @@
                 </div>
     
                 <!-- BODY -->
-                <div class="card-body p-0">
+                <div class="card-body">
                     <div class="mx-n3">
                         <div data-simplebar data-simplebar-auto-hide="false" style="max-height: 420px;" class="px-3">
+
                             <table class="table table-hover align-middle mb-0">
                                 <thead class="table-light sticky-top">
                                     <tr>

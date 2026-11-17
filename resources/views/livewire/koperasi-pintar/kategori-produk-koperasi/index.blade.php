@@ -21,6 +21,12 @@
 
     <div class="col-xl-12">
         <div class="mt-4">
+            <div wire:loading.delay wire:target="search"
+                class="text-muted small mb-3">
+                <span class="spinner-border spinner-border-sm me-1"></span>
+                Memuat data...
+            </div>
+
             <div class="live-preview">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover nowrap align-middle">

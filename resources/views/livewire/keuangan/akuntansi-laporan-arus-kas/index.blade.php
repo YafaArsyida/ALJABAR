@@ -2,7 +2,7 @@
     <div class="col-xxl-12">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
             <div class="card-header border-bottom">
-                <div class="d-flex align-items-center flex-wrap gap-3">
+                <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
 
                     {{-- JUDUL --}}
                     <div class="flex-grow-1">
@@ -89,6 +89,12 @@
                 </div>
 
                 {{-- DATA --}}
+                <div wire:loading.delay wire:target="selectedRekening, search, startDate, endDate, gotoPage, nextPage, previousPage"
+                    class="text-muted small mb-3">
+                    <span class="spinner-border spinner-border-sm me-1"></span>
+                    Memuat data...
+                </div>
+
                 <div class="live-preview">
                     <div class="table-responsive">
                         <table id="DataArusKas" class="table table-hover table-nowrap align-middle">

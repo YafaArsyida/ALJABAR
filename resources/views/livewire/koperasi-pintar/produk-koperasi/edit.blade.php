@@ -1,9 +1,16 @@
 <div wire:ignore.self class="modal fade" id="ModalEditProdukKoperasi" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden d-flex flex-column">
 
-            <div class="modal-header bg-light p-3">
-                <h5 class="modal-title">Edit Produk Koperasi</h5>
+            <div class="modal-header border-bottom">
+                <div>
+                    <h5 class="fw-bold mb-1">
+                        Edit Produk Koperasi
+                    </h5>
+                    <small class="text-muted">
+                        Perbarui informasi yang diperlukan pada formulir ini.
+                    </small>
+                </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
@@ -99,8 +106,14 @@
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">
                         Tutup
                     </button>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="ri-save-3-line me-1"></i> Update
+                    <button type="submit" class="btn btn-primary" wire:target="update" wire:loading.attr="disabled">
+                        <span wire:loading.remove wire:target="update">
+                            <i class="ri-save-3-line me-1"></i> Update
+                        </span>
+                        <span wire:loading wire:target="update">
+                            <span class="spinner-border spinner-border-sm me-1"></span>
+                            Menyimpan...
+                        </span>
                     </button>
                 </div>
 

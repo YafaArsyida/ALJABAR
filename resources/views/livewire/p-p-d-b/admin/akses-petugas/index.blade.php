@@ -1,6 +1,6 @@
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
     <div class="card-header border-bottom">
-        <div class="d-flex align-items-center flex-wrap gap-3">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
             {{-- INFORMASI --}}
             <div class="d-flex align-items-center gap-3 flex-grow-1">
                 <div class="avatar-sm flex-shrink-0">
@@ -48,6 +48,13 @@
                 </div>
             </div>
         </div>
+
+        <div wire:loading.delay wire:target="search"
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
+
 
         <div class="table-responsive">
             <table class="table table-hover table-nowrap align-middle">

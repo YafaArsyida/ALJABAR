@@ -72,6 +72,12 @@
                 </div>
             </div>
             {{-- DATA --}}
+            <div wire:loading.delay wire:target="search, gotoPage, nextPage, previousPage"
+                class="text-muted small mb-3">
+                <span class="spinner-border spinner-border-sm me-1"></span>
+                Memuat data...
+            </div>
+
             <div class="live-preview">
                 @if (!$selectedJenjang)
                     <div class="text-center py-4">

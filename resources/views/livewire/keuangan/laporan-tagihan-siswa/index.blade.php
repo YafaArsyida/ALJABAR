@@ -1,24 +1,22 @@
 {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+    <div class="card-header border-bottom">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
 
             {{-- TITLE --}}
-            <div>
-                <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm flex-shrink-0">
-                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                            <i class="ri-file-list-3-line"></i>
-                        </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="avatar-sm flex-shrink-0">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-file-list-3-line"></i>
                     </div>
-                    <div>
-                        <h5 class="fw-bold mb-1">
-                            Laporan Piutang Siswa
-                        </h5>
-                        <small>
-                            Pantau piutang, cetak surat tagihan, dan kirim pemberitahuan
-                        </small>
-                    </div>
+                </div>
+                <div>
+                    <h5 class="fw-bold mb-1">
+                        Laporan Piutang Siswa
+                    </h5>
+                    <small class="text-muted">
+                        Pantau piutang, cetak surat tagihan, dan kirim pemberitahuan
+                    </small>
                 </div>
             </div>
 
@@ -136,6 +134,12 @@
 
         <!--end row-->
         {{-- DATA --}}
+        <div wire:loading.delay wire:target="selectedKelas, search, endDate, gotoPage, nextPage, previousPage"
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
+
         <div class="live-preview">
             <!-- Jika Jenjang atau Tahun Ajar belum dipilih -->
             @if (!$selectedJenjang || !$selectedTahunAjar)

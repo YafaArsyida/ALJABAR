@@ -8,7 +8,7 @@
     aria-hidden="true"
 >
     <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden d-flex flex-column">
 
             {{-- HEADER --}}
             <div class="modal-header border-bottom">
@@ -254,13 +254,8 @@
                             <i class="ri-save-3-line me-1"></i>
                             Simpan Perubahan
                         </span>
-
                         <span wire:loading wire:target="updateJalur">
-                            <span
-                                class="spinner-border spinner-border-sm me-1"
-                                role="status"
-                                aria-hidden="true"
-                            ></span>
+                            <span class="spinner-border spinner-border-sm me-1"></span>
                             Menyimpan...
                         </span>
                     </button>

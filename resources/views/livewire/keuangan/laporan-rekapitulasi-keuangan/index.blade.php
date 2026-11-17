@@ -1,6 +1,6 @@
 {{-- Stop trying to control. --}}
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-    <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+    <div class="card-header border-bottom">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
             {{-- TITLE --}}
             <div>
@@ -23,7 +23,7 @@
                                 Rekapitulasi Keuangan Siswa
                             @endif
                         </h5>
-                        <small>
+                        <small class="text-muted">
                             @if ($jenisRekapitulasi === 'tagihan')
                                 Ringkasan tagihan siswa berdasarkan periode dan kelas.
                             @elseif ($jenisRekapitulasi === 'pembayaran')
@@ -69,6 +69,12 @@
         </div>
         <!--end row-->
         {{-- DATA --}}
+        <div wire:loading.delay wire:target="jenisRekapitulasi, search, gotoPage, nextPage, previousPage"
+            class="text-muted small mb-3">
+            <span class="spinner-border spinner-border-sm me-1"></span>
+            Memuat data...
+        </div>
+
         <div class="live-preview">
             @if (!$selectedJenjang || !$selectedTahunAjar)
                 <div class="text-center py-4">

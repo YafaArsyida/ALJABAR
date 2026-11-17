@@ -1,30 +1,32 @@
 {{-- Success is as dangerous as failure. --}}
 <div wire:ignore.self class="modal fade" id="ModalAddKategoriTagihan" tabindex="-1" aria-labelledby="ModalAddKategoriTagihan" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-bottom p-3">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden d-flex flex-column">
+            <div class="modal-header border-bottom">
                 <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm">
+                    <div class="avatar-sm flex-shrink-0">
                         <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
                             <i class="ri-price-tag-3-line"></i>
                         </div>
                     </div>
+
                     <div>
-                        <h5 class="fw-bold mb-1">
-                            Kategori Baru
+                        <h5 class="fw-bold mb-1" id="ModalAddGelombangLabel">
+                            Kategori Tagihan Siswa
                         </h5>
                         <small class="text-muted">
                             Tambahkan kategori untuk mengelompokkan jenis tagihan.
                         </small>
                     </div>
                 </div>
+
                 <button type="button" class="btn btn-light btn-icon rounded-circle" data-bs-dismiss="modal">
                     <i class="ri-close-line fs-18">
                     </i>
                 </button>
             </div>
             <form wire:submit.prevent="save">
-                <div class="modal-body p-3">
+                <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-lg-8">
                             <label for="nama_kategori_tagihan_siswa" class="form-label">Nama Kategori Tagihan</label>
@@ -54,9 +56,15 @@
                         <i class="ri-close-line me-1"></i>
                         Tutup
                     </button>
-                    <button type="submit" class="btn btn-primary rounded-pill px-4">
-                        <i class="ri-save-3-line me-1"></i>
-                        Simpan
+                    <button type="submit" class="btn btn-primary rounded-pill px-4" wire:target="save" wire:loading.attr="disabled">
+                        <span wire:loading.remove wire:target="save">
+                            <i class="ri-save-3-line me-1"></i>
+                            Simpan
+                        </span>
+                        <span wire:loading wire:target="save">
+                            <span class="spinner-border spinner-border-sm me-1"></span>
+                            Menyimpan...
+                        </span>
                     </button>
                 </div>
             </form>

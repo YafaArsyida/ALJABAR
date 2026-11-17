@@ -1,25 +1,23 @@
 {{-- If your happiness depends on money, you will never be happy with yourself. --}}
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden sticky-side-div">
-    <div class="card-header">
+    <div class="card-header border-bottom">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
             {{-- TITLE --}}
-            <div>
-                <div class="d-flex align-items-center gap-3">
-                    <div class="avatar-sm">
-                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                            <i class="ri-calendar-event-line">
-                            </i>
-                        </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="avatar-sm">
+                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                        <i class="ri-calendar-event-line">
+                        </i>
                     </div>
-    
-                    <div>
-                        <h5 class="fw-bold mb-1">
-                            Overview
-                        </h5>
-                        <small>
-                            Rangkuman Pembayaran Siswa
-                        </small>
-                    </div>
+                </div>
+
+                <div>
+                    <h5 class="fw-bold mb-1">
+                        Overview
+                    </h5>
+                    <small class="text-muted">
+                        Rangkuman Pembayaran Siswa
+                    </small>
                 </div>
             </div>
     

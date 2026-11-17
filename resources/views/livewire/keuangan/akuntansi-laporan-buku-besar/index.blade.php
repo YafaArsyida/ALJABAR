@@ -45,7 +45,7 @@
     @if ($selectedRekeningData)
     <div class="col-xxl-12">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-            <div class="card-header bg-transparent border-bottom p-3 p-lg-4">
+            <div class="card-header border-bottom">
                 <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
                     <div>
                         <div class="d-flex align-items-center gap-3">
@@ -93,6 +93,12 @@
             </div>
 
             <div class="card-body">
+                <div wire:loading.delay wire:target="selectedRekening, search, startDate, endDate, gotoPage, nextPage, previousPage"
+                    class="text-muted small mb-3">
+                    <span class="spinner-border spinner-border-sm me-1"></span>
+                    Memuat data...
+                </div>
+
                 <div class="live-preview">
                     <div class="table-responsive">
                     {{-- <div class="table-responsive" style="max-height: 500px;" data-simplebar> --}}
@@ -332,7 +338,7 @@
     @else
     <div class="col-xxl-12">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-            <div class="card-body text-center py-5">
+            <div class="card-body text-center">
                 <div class="noresult text-center py-3">
                     <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"
                         colors="primary:#405189,secondary:#08a88a"
