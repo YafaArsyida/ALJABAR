@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Akademik\AkademikDashboard;
+use App\Http\Controllers\Akademik\AkademikSetupController;
 use App\Http\Controllers\Akademik\EkstrakurikulerSiswa;
 use App\Http\Controllers\Akademik\JenjangController;
 use App\Http\Controllers\Akademik\KelasController;
@@ -11,6 +12,9 @@ use App\Http\Controllers\Akademik\PenempatanEkstrakurikulerSiswa;
 use App\Http\Controllers\Akademik\PenempatanSiswaController;
 use App\Http\Controllers\Akademik\SiswaController;
 use App\Http\Controllers\Akademik\TahunAjaranController;
+use App\Http\Controllers\GuruController;
+use App\Http\Controllers\JadwalMengajarController;
+use App\Http\Controllers\PeriodeAkademikController;
 use App\Http\Controllers\PPDB\PPDBAdminController;
 use App\Http\Controllers\PPDB\PPDBLandingController;
 use App\Http\Controllers\Portal\PortalController;
@@ -25,6 +29,7 @@ use App\Http\Controllers\Keuangan\AkuntansiLaporanNeraca;
 use App\Http\Controllers\Keuangan\AkuntansiLaporanPendapatan;
 use App\Http\Controllers\Keuangan\AkuntansiLaporanPengeluaran;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MataPelajaranController;
 use App\Http\Controllers\Keuangan\DokumenAdministrasi;
 use App\Http\Controllers\Keuangan\JenisTagihanSiswa;
 use App\Http\Controllers\Keuangan\JenjangTahunAjar;
@@ -69,6 +74,7 @@ use App\Http\Controllers\SmartPassPresensiPegawai;
 
 // KEUANGAN
 use App\Http\Controllers\Keuangan\PenempatanSiswaController as KeuanganPenempatanSiswaController;
+use App\Http\Controllers\PenugasanGuruController;
 use App\Http\Controllers\PPDB\Auth\LoginController as AuthLoginController;
 use App\Http\Controllers\PPDB\Auth\RegisterController as PPDBRegisterController;
 use App\Http\Controllers\PPDB\PPDBOrangTuaController;
@@ -374,8 +380,26 @@ Route::middleware(['auth', 'peran:SUPERADMIN,ADMIN,KEUANGAN,PETUGAS_PPDB'])->gro
             Route::get('/tahun-ajaran', [TahunAjaranController::class, 'index'])
                 ->name('tahun-ajaran');
 
+            Route::get('/semester', [PeriodeAkademikController::class, 'index'])
+                ->name('semester');
+
             Route::get('/kelas', [KelasController::class, 'index'])
                 ->name('kelas');
+
+            Route::get('/mata-pelajaran', [MataPelajaranController::class, 'index'])
+                ->name('mata-pelajaran');
+
+            Route::get('/data-guru', [GuruController::class, 'index'])
+                ->name('data-guru');
+
+            Route::get('/penugasan-guru', [PenugasanGuruController::class, 'index'])
+                ->name('penugasan-guru');
+
+            Route::get('/jadwal-mengajar', [JadwalMengajarController::class, 'index'])
+                ->name('jadwal-mengajar');
+
+            Route::get('/penilaian-akademik', [AkademikSetupController::class, 'penilaianAkademik'])
+                ->name('penilaian-akademik');
 
             Route::get('/siswa', [SiswaController::class, 'index'])
                 ->name('siswa');

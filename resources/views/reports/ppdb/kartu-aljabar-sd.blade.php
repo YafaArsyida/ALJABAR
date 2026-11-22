@@ -355,7 +355,7 @@
             }
 
             .student-identity {
-                width: 70%;
+                width: 80%;
             }
 
             .student-identity table {

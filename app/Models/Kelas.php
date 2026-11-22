@@ -50,6 +50,15 @@ class Kelas extends Model
         );
     }
 
+    public function ms_penugasan_guru()
+    {
+        return $this->hasMany(
+            PenugasanGuru::class,
+            'ms_kelas_id',
+            'ms_kelas_id'
+        );
+    }
+
 
     public function ms_tagihan_siswa()
     {

@@ -15,26 +15,52 @@ class Pegawai extends Model
     protected $primaryKey = 'ms_pegawai_id'; // Nama kolom primary key
 
     protected $fillable = [
-        'user_id', // ID Pengguna
-        'nama_pegawai',   // Nama Pegawai
-        'nip',            // Nomor Induk Pegawai
-        'ms_jabatan_id',  // ID Jabatan
-        'ms_jenjang_id',  // ID Jenjang
-        'ms_pengguna_id', // ID Pengguna
-        'pin_fingerspot', // ID Pengguna
-        'email',          // Email Pegawai
-        'telepon',        // Nomor Telepon Pegawai
-        'alamat',         // Alamat Pegawai
-        'deskripsi',      // Deskripsi Tambahan
+        // Relasi
+        'user_id',
+        'ms_pengguna_id',
+
+        // Identitas
+        'nama_pegawai',
+        'nip',
+        'nik',
+        'jenis_kelamin',
+        'tempat_lahir',
+        'tanggal_lahir',
+
+        // Kepegawaian
+        'ms_jabatan_id',
+        'ms_jenjang_id',
+        'jenis_pegawai',
+        'status_kepegawaian',
+        'tanggal_masuk',
+        'tanggal_keluar',
+
+        // Kontak
+        'email',
+        'telepon',
+        'alamat',
+
+        // Integrasi dan informasi tambahan
+        'pin_fingerspot',
+        'foto',
+        'deskripsi',
+
+        // Status
+        'status',
     ];
 
     /**
      * Relasi ke model Petugas
      */
-    // public function ms_pengguna()
-    // {
-    //     return $this->belongsTo(User::class, 'ms_pengguna_id', 'ms_pengguna_id');
-    // }
+    public function ms_pengguna()
+    {
+        return $this->belongsTo(User::class, 'ms_pengguna_id', 'ms_pengguna_id');
+    }
+
+    public function akun_pengguna()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'ms_pengguna_id');
+    }
 
     /**
      * Relasi ke model Jabatan
@@ -154,5 +180,14 @@ class Pegawai extends Model
     public function saldo_edupay_pegawai()
     {
         return $this->total_pemasukan_edupay() - $this->total_pengeluaran_edupay();
+    }
+
+    public function ms_penugasan_guru()
+    {
+        return $this->hasMany(
+            PenugasanGuru::class,
+            'ms_pegawai_id',
+            'ms_pegawai_id'
+        );
     }
 }

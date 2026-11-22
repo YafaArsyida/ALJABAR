@@ -29,4 +29,22 @@ class Jenjang extends Model
         return $this->belongsToMany(User::class, 'ms_akses_jenjang', 'ms_jenjang_id', 'ms_pengguna_id')
             ->withTimestamps();
     }
+
+    public function ms_periode_akademik()
+    {
+        return $this->hasMany(
+            PeriodeAkademik::class,
+            'ms_jenjang_id',
+            'ms_jenjang_id'
+        );
+    }
+
+    public function ms_mata_pelajaran()
+    {
+        return $this->hasMany(
+            MataPelajaran::class,
+            'ms_jenjang_id',
+            'ms_jenjang_id'
+        );
+    }
 }

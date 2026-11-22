@@ -39,6 +39,12 @@ class PPDBKartuAljabarService
         $kodeJalur = mb_strtolower(trim((string) $jalur?->kode_jalur));
         $namaJalur = mb_strtolower(trim((string) $jalur?->nama_jalur));
 
+        $isJalurAlumni = str_contains($kodeJalur, 'alumni')
+            || str_contains($namaJalur, 'alumni');
+
+        $isJalurKakakAdik = str_contains($kodeJalur, 'kakak adik')
+            || str_contains($namaJalur, 'kakak adik');
+
         return [
             'nomor_pendaftaran' => $pendaftaran->nomor_pendaftaran,
             'nama_siswa' => $siswa?->nama_siswa ?? '-',
@@ -50,8 +56,11 @@ class PPDBKartuAljabarService
                 : '-',
             'jenis_kelamin' => $siswa?->jenis_kelamin ?? '-',
             'nama_jalur' => $jalur?->nama_jalur ?? '-',
-            'is_jalur_alumni' => str_contains($kodeJalur, 'alumni')
-                || str_contains($namaJalur, 'alumni'),
+            
+             // Identifikasi jalur potongan
+            'is_jalur_alumni' => $isJalurAlumni,
+            'is_jalur_kakak_adik' => $isJalurKakakAdik,
+            
             'telepon' => $orangTua?->telepon_ayah
                 ?: ($orangTua?->telepon_ibu
                 ?: ($orangTua?->telepon_wali ?? '-')),

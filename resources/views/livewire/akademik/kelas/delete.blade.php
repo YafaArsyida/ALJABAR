@@ -49,9 +49,7 @@
                             <div>
                                 <h6 class="fw-semibold mb-1">Perhatian</h6>
                                 <p class="text-muted mb-0 fs-13">
-                                    Pastikan data kelas tidak memiliki penempatan
-                                    atau relasi data penting sebelum melakukan
-                                    penghapusan.
+                                    Kelas yang masih memiliki penempatan siswa atau penugasan guru tidak dapat dihapus.
                                 </p>
                             </div>
                         </div>

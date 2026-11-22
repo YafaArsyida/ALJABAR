@@ -355,7 +355,7 @@
             }
 
             .student-identity {
-                width: 70%;
+                width: 80%;
             }
 
             .student-identity table {
@@ -618,7 +618,7 @@
                     {{-- LOGO SEKOLAH --}}
                     <td class="logo-cell">
                         <img
-                            src="{{ public_path('assets/logo/logo.webp') }}"
+                            src="{{ public_path('assets/logo/tk.png') }}"
                             class="school-logo"
                             alt="Logo sekolah"
                         >
@@ -626,11 +626,10 @@
 
                     {{-- IDENTITAS SEKOLAH --}}
                     <td class="school-info">
-                        <h2>TK AL HIDAYAH</h2>
+                        <h2>TK IT AL HIDAYAH</h2>
 
                         <p>
-                            Dusun Kebonan RT 04/RW 01, Desa Kebonan,
-                            Kecamatan Karanggede
+                            Dusun Trayon No.RT 01/02 Desa Kebonan, Kec. Karanggede,
                         </p>
 
                         <p>
@@ -643,7 +642,8 @@
                     {{-- LOGO SPMB --}}
                     <td class="logo-cell">
                         <img
-                            src="{{ public_path('assets/pdf/spmb.webp') }}"
+                            src="{{ public_path('assets/logo/spmb-tk.png') }}"
+                            height="80px"
                             class="spmb-logo"
                             alt="Logo SPMB"
                         >
@@ -766,7 +766,8 @@
 
                         <td class="student-spmb">
                             <img
-                                src="{{ public_path('assets/pdf/spmb.webp') }}"
+                                src="{{ public_path('assets/logo/spmb-tk.png') }}"
+                                height="80px"
                                 alt="Logo SPMB"
                             >
                         </td>
@@ -808,19 +809,14 @@
                                     </div>
                                     --}}
 
-                                    @if ($is_jalur_alumni ?? false)
+                                    @if ($is_jalur_kakak_adik ?? false)
                                         <div class="category-heading category-heading-potongan">
                                             Potongan
                                         </div>
 
                                         <div class="category-subitem">
                                             <span class="category-checkbox"></span>
-                                            Pengembangan 100% + APP 10%
-                                        </div>
-
-                                        <div class="category-subitem">
-                                            <span class="category-checkbox"></span>
-                                            Kakak Adik APP 20%
+                                            Pengembangan 20%
                                         </div>
                                     @endif
 

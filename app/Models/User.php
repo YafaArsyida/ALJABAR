@@ -76,6 +76,11 @@ class User extends Authenticatable
         return $this->hasMany(AksesJenjang::class, 'ms_pengguna_id', 'ms_pengguna_id');
     }
 
+    public function ms_pegawai()
+    {
+        return $this->hasOne(Pegawai::class, 'user_id', 'ms_pengguna_id');
+    }
+
     public function ms_kantin()
     {
         return $this->belongsToMany(

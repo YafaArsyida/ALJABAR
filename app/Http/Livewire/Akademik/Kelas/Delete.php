@@ -49,6 +49,15 @@ class Delete extends Component
                 return;
             }
 
+            if ($kelas->ms_penugasan_guru()->exists()) {
+                DB::rollBack();
+
+                $this->dispatchBrowserEvent('alertify-error', [
+                    'message' => 'Kelas tidak bisa dihapus karena masih digunakan pada penugasan guru.'
+                ]);
+                return;
+            }
+
             $namaKelas = $kelas->nama_kelas;
 
             $kelas->delete();

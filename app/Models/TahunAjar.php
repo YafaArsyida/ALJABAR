@@ -34,4 +34,13 @@ class TahunAjar extends Model
     {
         return $this->belongsTo(User::class, 'ms_pengguna_id', 'ms_pengguna_id');
     }
+
+    public function ms_periode_akademik()
+    {
+        return $this->hasMany(
+            PeriodeAkademik::class,
+            'ms_tahun_ajar_id',
+            'ms_tahun_ajar_id'
+        );
+    }
 }

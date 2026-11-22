@@ -28,13 +28,6 @@
 <!-- Sweet Alerts js -->
 <script src="{{asset('assets')}}/libs/sweetalert2/sweetalert2.min.js"></script>
 
-<!--datatable js-->
-{{-- <script src="{{asset('assets')}}/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="{{asset('assets')}}/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script> --}}
-
-<!-- dropzone min -->
-{{-- <script src="{{asset('assets')}}/libs/dropzone/dropzone-min.js"></script> --}}
-
 <!-- filepond js -->
 <script src="{{asset('assets')}}/libs/filepond/filepond.min.js"></script>
 <script src="{{asset('assets')}}/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js"></script>
@@ -46,6 +39,9 @@
 <script src="{{asset('assets')}}/js/select2.min.js"></script>
 
 <script src="{{asset('assets')}}/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+
+<script src="{{asset('assets')}}/libs/fullcalendar/index.global.min.js"></script>
+<script src="{{asset('assets')}}/js/pages/calendar.init.js"></script>
 
 <!-- App js -->
 <script src="{{asset('assets')}}/js/app.js"></script>

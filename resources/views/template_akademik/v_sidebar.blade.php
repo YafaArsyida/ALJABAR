@@ -97,6 +97,17 @@
                     </a>
                 </li>
 
+                {{-- SEMESTER / PERIODE AKADEMIK --}}
+                <li class="nav-item">
+                    <a href="{{ route('akademik.semester') }}"
+                        class="nav-link menu-link {{ request()->routeIs('akademik.semester') ? 'active' : '' }}">
+                        <i class="mdi mdi-calendar-range-outline"></i>
+                        <span data-key="t-semester">
+                            Semester / Periode
+                        </span>
+                    </a>
+                </li>
+
                 {{-- KELAS --}}
                 <li class="nav-item">
                     <a href="{{ route('akademik.kelas') }}"
@@ -110,10 +121,10 @@
 
                 {{-- Mata Pelajaran --}}
                 <li class="nav-item">
-                    <a href="{{ route('akademik.kelas') }}"
-                        class="nav-link menu-link {{ request()->routeIs('akademik.kelas') ? 'active' : '' }}">
+                    <a href="{{ route('akademik.mata-pelajaran') }}"
+                        class="nav-link menu-link {{ request()->routeIs('akademik.mata-pelajaran') ? 'active' : '' }}">
                         <i class="mdi mdi-book-open-outline"></i>
-                        <span data-key="t-kelas">
+                        <span data-key="t-mata-pelajaran">
                             Mata Pelajaran
                         </span>
                     </a>
@@ -149,8 +160,8 @@
                 </li>
                 {{-- DATA GURU --}}
                 <li class="nav-item">
-                    <a href="javascript:void(0);"
-                        class="nav-link menu-link">
+                    <a href="{{ route('akademik.data-guru') }}"
+                        class="nav-link menu-link {{ request()->routeIs('akademik.data-guru') ? 'active' : '' }}">
                         <i class="mdi mdi-account-tie-outline"></i>
                         <span data-key="t-data-guru">
                             Data Guru
@@ -160,8 +171,8 @@
 
                 {{-- WALI KELAS --}}
                 <li class="nav-item">
-                    <a href="javascript:void(0);"
-                        class="nav-link menu-link">
+                    <a href="{{ route('akademik.penugasan-guru') }}"
+                        class="nav-link menu-link {{ request()->routeIs('akademik.penugasan-guru') ? 'active' : '' }}">
                         <i class="mdi mdi-account-star-outline"></i>
                         <span data-key="t-wali-kelas">
                             Wali Kelas
@@ -171,8 +182,8 @@
 
                 {{-- PENGAMPU MATA PELAJARAN --}}
                 <li class="nav-item">
-                    <a href="javascript:void(0);"
-                        class="nav-link menu-link">
+                    <a href="{{ route('akademik.penugasan-guru') }}"
+                        class="nav-link menu-link {{ request()->routeIs('akademik.penugasan-guru') ? 'active' : '' }}">
                         <i class="mdi mdi-book-account-outline"></i>
                         <span data-key="t-pengampu-mata-pelajaran">
                             Pengampu Mata Pelajaran
@@ -250,8 +261,8 @@
 
                 {{-- PENGAMPU GURU --}}
                 <li class="nav-item">
-                    <a href="javascript:void(0);"
-                        class="nav-link menu-link">
+                    <a href="{{ route('akademik.penugasan-guru') }}"
+                        class="nav-link menu-link {{ request()->routeIs('akademik.penugasan-guru') ? 'active' : '' }}">
                         <i class="mdi mdi-account-tie-outline"></i>
                         <span data-key="t-pengampu-guru">
                             Pengampu Guru
@@ -261,8 +272,8 @@
 
                 {{-- JADWAL --}}
                 <li class="nav-item">
-                    <a href="javascript:void(0);"
-                        class="nav-link menu-link">
+                    <a href="{{ route('akademik.jadwal-mengajar') }}"
+                        class="nav-link menu-link {{ request()->routeIs('akademik.jadwal-mengajar') ? 'active' : '' }}">
                         <i class="mdi mdi-calendar-clock-outline"></i>
                         <span data-key="t-jadwal">
                             Jadwal
@@ -272,8 +283,8 @@
 
                 {{-- NILAI --}}
                 <li class="nav-item">
-                    <a href="javascript:void(0);"
-                        class="nav-link menu-link">
+                    <a href="{{ route('akademik.penilaian-akademik') }}"
+                        class="nav-link menu-link {{ request()->routeIs('akademik.penilaian-akademik') ? 'active' : '' }}">
                         <i class="mdi mdi-clipboard-text-outline"></i>
                         <span data-key="t-nilai">
                             Nilai
