@@ -265,32 +265,48 @@
                                         <div class="d-flex justify-content-center align-items-center gap-2 flex-nowrap">
 
                                             {{-- CETAK KARTU ALJABAR --}}
-                                            <a
-                                                href="{{ route('ppdb.kartu-aljabar.pdf', [
-                                                    'pendaftaranId' => $item->ppdb_pendaftaran_id,
-                                                ]) }}"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
+                                            <button
+                                                type="button"
                                                 class="btn btn-outline-primary btn-sm rounded-pill px-3 text-nowrap"
+                                                wire:click="cetakKartu({{ $item->ppdb_pendaftaran_id }})"
+                                                wire:loading.attr="disabled"
+                                                wire:target="cetakKartu({{ $item->ppdb_pendaftaran_id }})"
                                                 title="Cetak Kartu Aljabar"
                                             >
-                                                <i class="ri-printer-line align-bottom me-1"></i>
-                                                Kartu
-                                            </a>
+                                                <span wire:loading.remove wire:target="cetakKartu({{ $item->ppdb_pendaftaran_id }})">
+                                                    <i class="ri-printer-line align-bottom me-1"></i>
+                                                    Kartu
+                                                </span>
+
+                                                <span wire:loading wire:target="cetakKartu({{ $item->ppdb_pendaftaran_id }})">
+                                                    <span class="spinner-border spinner-border-sm me-1"
+                                                        role="status" aria-hidden="true"></span>
+                                                    Menyiapkan...
+                                                </span>
+                                            </button>
 
                                             {{-- CETAK FORMULIR PENDAFTARAN --}}
-                                            <a
-                                                href="{{ route('ppdb.formulir-pendaftaran.pdf', [
-                                                    'pendaftaranId' => $item->ppdb_pendaftaran_id,
-                                                ]) }}"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
+                                           
+                                            <button
+                                                type="button"
                                                 class="btn btn-danger btn-sm rounded-pill px-3 text-nowrap"
-                                                title="Cetak Formulir Pendataan">
+                                                wire:click="cetakFormulir({{ $item->ppdb_pendaftaran_id }})"
+                                                wire:loading.attr="disabled"
+                                                wire:target="cetakFormulir({{ $item->ppdb_pendaftaran_id }})"
+                                                title="Cetak Formulir Pendataan"
+                                            >
+                                                <span wire:loading.remove wire:target="cetakFormulir({{ $item->ppdb_pendaftaran_id }})">
+                                                    <i class="ri-printer-line me-1"></i>
+                                                    Formulir
+                                                </span>
 
-                                                <i class="ri-printer-line me-1"></i>
-                                                Formulir
-                                            </a>
+                                                <span wire:loading wire:target="cetakFormulir({{ $item->ppdb_pendaftaran_id }})">
+                                                    <span class="spinner-border spinner-border-sm me-1"
+                                                        role="status" aria-hidden="true"></span>
+                                                    Menyiapkan...
+                                                </span>
+                                            </button>
+
 
                                             {{-- UNDUH BERKAS PENDATAAN --}}
                                             @if ($item->ppdb_berkas_count > 0)
@@ -328,16 +344,26 @@
                                                 Konfirmasi
                                             </button> --}}
 
+                                            {{-- CETAK BUKU INDUK --}}
                                             <button
                                                 type="button"
                                                 class="btn btn-info btn-sm rounded-pill px-3 text-nowrap"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#modalKonfirmasiPendataan-{{ $item->ppdb_pendaftaran_id }}"
-                                                title="Dokumen buku induk">
-                                                <i class="ri-book-line me-1"></i>
-                                                Buku Induk
-                                            </button>
+                                                wire:click="cetakBukuInduk({{ $item->ppdb_pendaftaran_id }})"
+                                                wire:loading.attr="disabled"
+                                                wire:target="cetakBukuInduk({{ $item->ppdb_pendaftaran_id }})"
+                                                title="Dokumen Buku Induk"
+                                            >
+                                                <span wire:loading.remove wire:target="cetakBukuInduk({{ $item->ppdb_pendaftaran_id }})">
+                                                    <i class="ri-book-line me-1"></i>
+                                                    Buku Induk
+                                                </span>
 
+                                                <span wire:loading wire:target="cetakBukuInduk({{ $item->ppdb_pendaftaran_id }})">
+                                                    <span class="spinner-border spinner-border-sm me-1"
+                                                        role="status" aria-hidden="true"></span>
+                                                    Menyiapkan...
+                                                </span>
+                                            </button>
                                         </div>
                                     </td>
 

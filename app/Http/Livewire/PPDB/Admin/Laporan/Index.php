@@ -119,6 +119,47 @@ class Index extends Component
             ->exists();
     }
 
+
+    public function cetakKartu($pendaftaranId)
+    {
+        $this->dispatchBrowserEvent('alertify-success', [
+            'message' => 'Kartu sedang disiapkan.',
+        ]);
+
+        $url = route('ppdb.kartu-aljabar.pdf', [
+            'pendaftaranId' => $pendaftaranId,
+        ]);
+
+        $this->emit('openNewTab', $url);
+    }
+
+    public function cetakFormulir($pendaftaranId)
+    {
+        $this->dispatchBrowserEvent('alertify-success', [
+            'message' => 'Formulir sedang disiapkan.',
+        ]);
+
+        $url = route('ppdb.formulir-pendaftaran.pdf', [
+            'pendaftaranId' => $pendaftaranId,
+        ]);
+
+        $this->emit('openNewTab', $url);
+    }
+
+
+    public function cetakBukuInduk($pendaftaranId)
+    {
+        $this->dispatchBrowserEvent('alertify-success', [
+            'message' => 'Buku induk sedang disiapkan.',
+        ]);
+
+        $url = route('ppdb.buku-induk.pdf', [
+            'pendaftaranId' => $pendaftaranId,
+        ]);
+
+        $this->emit('openNewTab', $url);
+    }
+
     public function render()
     {
         $periode = null;

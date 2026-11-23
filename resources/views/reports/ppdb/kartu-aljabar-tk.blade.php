@@ -675,12 +675,12 @@
                 <tr>
                     <td class="requirements">
                         <table class="requirement-table">
-                            <tr><td class="requirement-text">Fotokopi akta kelahiran 1 lembar</td><td class="requirement-check"><span class="check-box"></span></td></tr>
-                            <tr><td class="requirement-text">Fotokopi Kartu Keluarga 1 lembar</td><td class="requirement-check"><span class="check-box"></span></td></tr>
-                            <tr><td class="requirement-text">Fotokopi KTP ayah dan ibu</td><td class="requirement-check"><span class="check-box"></span></td></tr>
-                            <tr><td class="requirement-text">Pas foto 3 × 4 berlatar belakang merah</td><td class="requirement-check"><span class="check-box"></span></td></tr>
-                            <tr><td class="requirement-text">Membayar biaya pendaftaran, skrining, dan seragam</td><td class="requirement-check"><span class="check-box"></span></td></tr>
-                            <tr><td class="requirement-text">Menyiapkan soft file Foto 3 x 4, KK, dan akta kelahiran</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Fotokopi akta kelahiran (2 lembar)</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Fotokopi Kartu Keluarga (2 lembar)</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Fotokopi KTP ayah dan ibu (1 lembar)</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Pas foto 3 × 4 berlatar belakang merah (3 lembar)</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Membayar biaya pendaftaran dan seragam</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Menyiapkan soft file KK, Foto 3 x 4, dan akta kelahiran</td><td class="requirement-check"><span class="check-box"></span></td></tr>
                         </table>
                     </td>
 
@@ -830,7 +830,7 @@
                             <table class="activity-table">
                                 <thead>
                                     <tr>
-                                        <th>Januari – April</th>
+                                        <th>Maret – April</th>
                                         <th>Mei – Juni</th>
                                     </tr>
                                 </thead>
@@ -843,8 +843,8 @@
                                             </div>
 
                                             <ul>
-                                                <li>Pengukuran Seragam</li>
-                                                <li>Skrining Psikologi</li>
+                                                <li>Assesmen diagnostic</li>
+                                                <li>Pengukuran seragam</li>
                                             </ul>
                                         </td>
 
@@ -854,9 +854,8 @@
                                             </div>
 
                                             <ul>
-                                                <li>Pengambilan Buku</li>
-                                                <li>Pengambilan Seragam</li>
-                                                <li>Golden Gate</li>
+                                                <li>Awalussanah</li>
+                                                <li>Pembagian seragam</li>
                                             </ul>
                                         </td>
                                     </tr>
@@ -891,8 +890,7 @@
 
                                     <ul>
                                         <li>Isi Formulir</li>
-                                        <li>Pengumpulan Syarat SPMB</li>
-                                        <li>Wawancara Wali Murid</li>
+                                        <li>Pengumpulan Persyaratan SPMB</li>
                                     </ul>
                                 </div>
 
@@ -900,7 +898,7 @@
                                 <table class="payment-table">
                                     <thead>
                                         <tr>
-                                            <th class="payment-item">Pembayaran</th>
+                                            <th class="payment-item">Pendaftaran (Desember – Januari)</th>
                                             <th class="payment-nominal">Nominal</th>
                                             <th class="payment-paraf">Paraf</th>
                                             <th class="payment-date">Tgl.</th>
@@ -910,22 +908,14 @@
                                     <tbody>
                                         <tr class="payment-detail">
                                             <td>Pendataan</td>
-                                            <td class="payment-amount">Rp 150.000</td>
-                                            <td class="payment-paraf"></td>
-                                            <td class="payment-date"></td>
-                                        </tr>
-
-                                        <tr class="payment-detail">
-                                            <td>Skrining Psikologi</td>
-                                            <td class="payment-amount">Rp 150.000</td>
+                                            <td class="payment-amount">Rp 120.000</td>
                                             <td class="payment-paraf"></td>
                                             <td class="payment-date"></td>
                                         </tr>
 
                                         <tr class="payment-detail">
                                             <td>
-                                                Seragam 5 Stel
-                                                <i>(3 Seragam Jadi dan 2 Kaos Olahraga)</i>
+                                                Seragam 4 Stel
 
                                                 {{-- @if ($jenis_kelamin === 'Laki-Laki')
                                                     <br>
@@ -947,10 +937,9 @@
                                                     Rp 890.000 
                                                 @endif --}}
                                                 <br>
+                                                Rp 585.000
                                                 <br>
-                                                Rp 740.000
-                                                <br>
-                                                Rp 890.000
+                                                Rp 699.000
                                             </td>
 
                                             <td class="payment-paraf"></td>
@@ -987,15 +976,22 @@
 
                                         {{-- TAHAP I --}}
                                         <tr>
-                                            <th class="payment-item">Tahap I (Januari - Februari)</th>
+                                            <th class="payment-item">Tahap I (Februari - Maret)</th>
                                             <th class="payment-nominal">Nominal</th>
                                             <th class="payment-paraf">Paraf</th>
                                             <th class="payment-date">Tgl.</th>
                                         </tr>
 
                                         <tr class="payment-detail">
-                                            <td>Buku 1 Tahun</td>
-                                            <td class="payment-amount">Rp 640.000</td>
+                                            <td>ATK & Perkap</td>
+                                            <td class="payment-amount">Rp 575.000</td>
+                                            <td class="payment-paraf"></td>
+                                            <td class="payment-date"></td>
+                                        </tr>
+
+                                        <tr class="payment-detail">
+                                            <td>Kegiatan 1 Tahun</td>
+                                            <td class="payment-amount">Rp 400.000</td>
                                             <td class="payment-paraf"></td>
                                             <td class="payment-date"></td>
                                         </tr>
@@ -1003,52 +999,37 @@
 
                                         {{-- TAHAP II --}}
                                         <tr>
-                                            <th class="payment-item">Tahap II (Maret - April)</th>
+                                            <th class="payment-item">Tahap II (April - Mei)</th>
                                             <th class="payment-nominal">Nominal</th>
                                             <th class="payment-paraf">Paraf</th>
                                             <th class="payment-date">Tgl.</th>
                                         </tr>
 
                                         <tr class="payment-detail">
-                                            <td>Kegiatan 1 Tahun</td>
-                                            <td class="payment-amount">Rp 450.000</td>
+                                            <td>Syahriah (Juli)</td>
+                                            <td class="payment-amount">Rp 295.000</td>
                                             <td class="payment-paraf"></td>
                                             <td class="payment-date"></td>
                                         </tr>
 
                                         <tr class="payment-detail">
-                                            <td>SPP Bulan Juli</td>
-                                            <td class="payment-amount">Rp 370.000</td>
+                                            <td>APE</td>
+                                            <td class="payment-amount">Rp 520.000</td>
                                             <td class="payment-paraf"></td>
                                             <td class="payment-date"></td>
                                         </tr>
-
-                                        <tr class="payment-detail">
-                                            <td>Perlengkapan</td>
-                                            <td class="payment-amount">Rp 375.000</td>
-                                            <td class="payment-paraf"></td>
-                                            <td class="payment-date"></td>
-                                        </tr>
-
 
                                         {{-- TAHAP III --}}
                                         <tr>
-                                            <th class="payment-item">Tahap III (Mei - Juni)</th>
+                                            <th class="payment-item">Tahap III (Juni - Juli)</th>
                                             <th class="payment-nominal">Nominal</th>
                                             <th class="payment-paraf">Paraf</th>
                                             <th class="payment-date">Tgl.</th>
-                                        </tr>
-
-                                        <tr class="payment-detail">
-                                            <td>Alat Penunjang Pendidikan</td>
-                                            <td class="payment-amount">Rp 620.000</td>
-                                            <td class="payment-paraf"></td>
-                                            <td class="payment-date"></td>
                                         </tr>
 
                                         <tr class="payment-detail">
                                             <td>Pengembangan</td>
-                                            <td class="payment-amount">Rp 800.000</td>
+                                            <td class="payment-amount">Rp 850.000</td>
                                             <td class="payment-paraf"></td>
                                             <td class="payment-date"></td>
                                         </tr>

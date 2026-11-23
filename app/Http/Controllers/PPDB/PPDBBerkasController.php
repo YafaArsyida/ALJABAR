@@ -152,4 +152,47 @@ class PPDBBerkasController extends Controller
         );
     }
 
+
+    public function cetakBukuInduk(
+        $pendaftaranId,
+        PPDBFormulirPendaftaranService $formulirService
+    ) {
+        $pendaftaran = PPDBPendaftaran::query()
+            ->with([
+                'ppdb_calon_siswa',
+                'ppdb_orangtua',
+                'ppdb_jalur',
+                'ppdb_periode',
+            ])
+            ->findOrFail($pendaftaranId);
+
+        $user = Auth::user();
+
+        $peran = strtoupper($user->peran ?? '');
+
+        $peranAdmin = [
+            'SUPERADMIN',
+            'ADMIN',
+            'PETUGAS_PPDB',
+        ];
+
+        $isAdmin = in_array($peran, $peranAdmin, true);
+
+        $isPemilik = (string) $pendaftaran->ms_pengguna_id
+            === (string) $user->getAuthIdentifier();
+
+        abort_unless($isPemilik || $isAdmin, 403);
+
+        // Ambil data pendaftaran.
+        $data = $formulirService->getData($pendaftaran);
+
+        $pdf = Pdf::loadView('reports.ppdb.buku-induk',
+            $data
+        )->setPaper('a4', 'portrait');
+
+        return $pdf->download(
+            'buku-induk-' . $pendaftaran->getKey() . '.pdf'
+        );
+    }
+
 }

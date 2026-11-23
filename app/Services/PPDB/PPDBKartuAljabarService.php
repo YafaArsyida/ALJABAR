@@ -16,7 +16,8 @@ class PPDBKartuAljabarService
         return match ($slugJenjang) {
             'sd' => 'reports.ppdb.kartu-aljabar-sd',
             'tk' => 'reports.ppdb.kartu-aljabar-tk',
-            'kb' => 'reports.ppdb.kartu-aljabar-kb',
+            'kb-b' => 'reports.ppdb.kartu-aljabar-kb-b',
+            'kb-a' => 'reports.ppdb.kartu-aljabar-kb-a',
             default => abort(
                 422,
                 'Desain kartu belum tersedia untuk jenjang pendaftaran ini.'
