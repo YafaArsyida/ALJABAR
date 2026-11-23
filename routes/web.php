@@ -121,8 +121,11 @@ Route::prefix('ppdb')->name('ppdb.')->group(function () {
     Route::get('/tk', [PPDBLandingController::class, 'tk'])
         ->name('tk');
 
-    Route::get('/kb', [PPDBLandingController::class, 'kb'])
-        ->name('kb');
+    Route::get('/kb-b', [PPDBLandingController::class, 'kb_b'])
+        ->name('kb-b');
+
+    Route::get('/kb-a', [PPDBLandingController::class, 'kb_a'])
+        ->name('kb-a');
 });
 
 

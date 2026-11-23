@@ -33,13 +33,22 @@ class PPDBLandingController extends Controller
         return view('ppdb.landing.tk', compact('jenjang'));
     }
 
-    public function kb()
+    public function kb_b()
     {
-        $jenjang = Jenjang::where('slug', 'kb')
+        $jenjang = Jenjang::where('slug', 'kb-b')
             ->where('status', 'aktif')
             ->firstOrFail();
 
-        return view('ppdb.landing.kb', compact('jenjang'));
+        return view('ppdb.landing.kb_b', compact('jenjang'));
+    }
+
+    public function kb_a()
+    {
+        $jenjang = Jenjang::where('slug', 'kb-a')
+            ->where('status', 'aktif')
+            ->firstOrFail();
+
+        return view('ppdb.landing.kb_a', compact('jenjang'));
     }
 
     public function login()

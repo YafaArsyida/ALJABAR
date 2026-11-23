@@ -19,6 +19,7 @@ class EditSiswa extends Component
     // Identitas siswa
     public $nama_siswa = '';
     public $nama_panggilan = '';
+    public $no_kk = '';
     public $nik = '';
     public $nisn = '';
     public $tempat_lahir = '';
@@ -112,6 +113,7 @@ class EditSiswa extends Component
         // Identitas siswa
         $this->nama_siswa = $siswa->nama_siswa ?? '';
         $this->nama_panggilan = $siswa->nama_panggilan ?? '';
+        $this->no_kk = $siswa->no_kk ?? '';
         $this->nik = $siswa->nik ?? '';
         $this->nisn = $siswa->nisn ?? '';
         $this->tempat_lahir = $siswa->tempat_lahir ?? '';
@@ -176,6 +178,10 @@ class EditSiswa extends Component
                 'nullable',
                 'string',
                 'max:50',
+            ],
+            'no_kk' => [
+                'nullable',
+                'digits:16',
             ],
             'nik' => [
                 'required',
@@ -311,6 +317,7 @@ class EditSiswa extends Component
 
         'nama_panggilan.max' => 'Nama panggilan maksimal 50 karakter.',
 
+        'no_kk.digits' => 'Nomor KK harus terdiri dari 16 digit.',
         'nik.required' => 'NIK wajib diisi.',
         'nik.digits' => 'NIK harus terdiri dari 16 digit.',
 

@@ -470,7 +470,7 @@
                             <div class="col-lg-5">
                                 <div class="ppdb-hero-card rounded-4 shadow-sm">
                                     <img
-                                        src="{{ asset('assets/logo/hero.jpeg') }}"
+                                        src="{{ asset('assets/logo/hero-tk.jpeg') }}"
                                         alt="Kegiatan belajar dan bermain anak {{ $jenjang->nama_jenjang }}">
                                 </div>
                             </div>

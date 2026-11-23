@@ -72,6 +72,20 @@
                             @enderror
                         </div>
 
+                        {{-- NO KK --}}
+                        <div class="col-12 col-md-6">
+                            <label for="edit-no-kk" class="form-label">
+                                Nomor KK <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" id="edit-no-kk"
+                                class="form-control @error('no_kk') is-invalid @enderror"
+                                wire:model.defer="no_kk" inputmode="numeric" maxlength="16">
+                            @error('no_kk')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+
                         {{-- NIK --}}
                         <div class="col-12 col-md-6">
                             <label for="edit-nik" class="form-label">
@@ -186,12 +200,11 @@
                         </div>
 
                         {{-- Hobi --}}
-                        <div class="col-12">
+                        <div class="col-12 col-md-6">
                             <label for="edit-hobi" class="form-label">Hobi</label>
-                            <textarea id="edit-hobi" rows="2"
+                            <input type="text" id="edit-hobi"
                                 class="form-control @error('hobi') is-invalid @enderror"
-                                wire:model.defer="hobi" maxlength="255"
-                                placeholder="Contoh: membaca, menggambar, olahraga"></textarea>
+                                wire:model.defer="hobi" maxlength="255">
                             @error('hobi')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror

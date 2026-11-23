@@ -19,6 +19,7 @@ class FormSiswa extends Component
 
     public $nama_siswa = '';
     public $nama_panggilan = '';
+    public $no_kk = '';
     public $nik = '';
     public $nisn = '';
     public $tempat_lahir = '';
@@ -68,6 +69,10 @@ class FormSiswa extends Component
             ],
             'kewarganegaraan' => [
                 'required', 'string', 'max:50',
+            ],
+
+            'no_kk' => [
+                'nullable', 'digits:16',
             ],
 
             'nik' => [
@@ -146,6 +151,8 @@ class FormSiswa extends Component
         'nama_siswa.required' => 'Nama lengkap wajib diisi.',
         'nama_siswa.max' => 'Nama lengkap maksimal 150 karakter.',
 
+        'no_kk.digits' => 'Nomor KK harus terdiri dari 16 digit.',
+        
         'nik.required' => 'NIK wajib diisi.',
         'nik.digits' => 'NIK harus terdiri dari 16 digit.',
 

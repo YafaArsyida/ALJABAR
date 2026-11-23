@@ -80,13 +80,18 @@
                     </div>
 
                     <div class="col-md-4">
-                        <small class="text-muted d-block mb-1">NIK</small>
-                        <span class="fw-semibold">{{ $calonSiswa->nik ?: '-' }}</span>
+                        <small class="text-muted d-block mb-1">NISN</small>
+                        <span class="fw-semibold">{{ $calonSiswa->nisn ?: '-' }}</span>
                     </div>
 
                     <div class="col-md-4">
-                        <small class="text-muted d-block mb-1">NISN</small>
-                        <span class="fw-semibold">{{ $calonSiswa->nisn ?: '-' }}</span>
+                        <small class="text-muted d-block mb-1">Nomor KK</small>
+                        <span class="fw-semibold">{{ $calonSiswa->no_kk ?: '-' }}</span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <small class="text-muted d-block mb-1">NIK</small>
+                        <span class="fw-semibold">{{ $calonSiswa->nik ?: '-' }}</span>
                     </div>
 
                     <div class="col-md-4">
@@ -127,7 +132,7 @@
                         <span class="fw-semibold">{{ $calonSiswa->cita_cita ?: '-' }}</span>
                     </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-4">
                         <small class="text-muted d-block mb-1">Hobi</small>
                         <span class="fw-semibold">{{ $calonSiswa->hobi ?: '-' }}</span>
                     </div>

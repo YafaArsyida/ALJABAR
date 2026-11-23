@@ -54,13 +54,18 @@
                         </div>
 
                         <div class="col-md-4">
-                            <small class="text-muted d-block mb-1">NIK</small>
-                            <span class="fw-semibold">{{ $siswa->nik ?: '-' }}</span>
+                            <small class="text-muted d-block mb-1">NISN</small>
+                            <span class="fw-semibold">{{ $siswa->nisn ?: '-' }}</span>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <small class="text-muted d-block mb-1">Nomor KK</small>
+                            <span class="fw-semibold">{{ $siswa->no_kk ?: '-' }}</span>
                         </div>
 
                         <div class="col-md-4">
-                            <small class="text-muted d-block mb-1">NISN</small>
-                            <span class="fw-semibold">{{ $siswa->nisn ?: '-' }}</span>
+                            <small class="text-muted d-block mb-1">NIK</small>
+                            <span class="fw-semibold">{{ $siswa->nik ?: '-' }}</span>
                         </div>
 
                         <div class="col-md-4">

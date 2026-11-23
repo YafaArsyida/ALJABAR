@@ -40,6 +40,7 @@ class Create extends Component
     // =========================================================
     public $nama_siswa = '';
     public $nama_panggilan = '';
+    public $no_kk = '';
     public $nik = '';
     public $nisn = '';
     public $tempat_lahir = '';
@@ -181,6 +182,7 @@ class Create extends Component
 
             'nama_siswa',
             'nama_panggilan',
+            'no_kk',
             'nik',
             'nisn',
             'tempat_lahir',
@@ -364,6 +366,10 @@ class Create extends Component
             ],
             'kewarganegaraan' => [
                 'required', 'string', 'max:50',
+            ],
+
+            'no_kk' => [
+                'nullable', 'digits:16',
             ],
 
             'nik' => [
@@ -734,6 +740,7 @@ class Create extends Component
         'kewarganegaraan.string' => 'Kewarganegaraan harus berupa teks.',
         'kewarganegaraan.max' => 'Kewarganegaraan maksimal 50 karakter.',
 
+        'no_kk.digits' => 'Nomor KK harus terdiri dari 16 digit.',
         'nik.required' => 'NIK calon siswa wajib diisi.',
         'nik.digits' => 'NIK calon siswa harus terdiri dari 16 digit.',
 
@@ -1023,6 +1030,7 @@ class Create extends Component
         return $this->tabMemilikiError([
             'nama_siswa',
             'nama_panggilan',
+            'no_kk',
             'nik',
             'nisn',
             'tempat_lahir',

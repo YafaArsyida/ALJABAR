@@ -680,7 +680,7 @@
                             <tr><td class="requirement-text">Fotokopi KTP ayah dan ibu</td><td class="requirement-check"><span class="check-box"></span></td></tr>
                             <tr><td class="requirement-text">Pas foto 3 × 4 berlatar belakang merah</td><td class="requirement-check"><span class="check-box"></span></td></tr>
                             <tr><td class="requirement-text">Membayar biaya pendaftaran, skrining, dan seragam</td><td class="requirement-check"><span class="check-box"></span></td></tr>
-                            <tr><td class="requirement-text">Menyiapkan soft file KK dan akta kelahiran</td><td class="requirement-check"><span class="check-box"></span></td></tr>
+                            <tr><td class="requirement-text">Menyiapkan soft file Foto 3 x 4, KK, dan akta kelahiran</td><td class="requirement-check"><span class="check-box"></span></td></tr>
                         </table>
                     </td>
 

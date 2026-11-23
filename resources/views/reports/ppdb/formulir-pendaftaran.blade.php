@@ -213,8 +213,8 @@
                 {{-- LOGO SEKOLAH --}}
                 <td class="header-logo">
                     <img
-                        src="{{ public_path('assets/logo/logo.webp') }}"
-                        alt="Logo SD Islam Al Hidayah"
+                        src="{{ public_path('assets/logo/' . $logoSekolah) }}"
+                        alt="Logo {{ $namaJenjang }}"
                     >
                 </td>
 
@@ -257,6 +257,14 @@
                 {{ $pendaftaran->nomor_pendaftaran ?? '-' }}
             </span>
         </div>
+
+        <div class="meta-item">
+            <span class="meta-label">Jenjang</span>
+            <span class="meta-separator">:</span>
+            <span>
+                {{ $namaJenjang ?? '-' }}
+            </span>
+        </div>
     </div>
 
     {{-- REGISTRASI PESERTA DIDIK --}}
@@ -264,19 +272,19 @@
     @php
         $dataRegistrasi = [
             [
-                'Apakah pernah TK',
+                'Apakah pernah sekolah',
                 ($pendidikan?->jenjang_asal === 'TK') ? 'Ya' : (
                     filled($pendidikan?->jenjang_asal) ? 'Tidak' : '-'
                 ),
             ],
             [
-                'Nama TK Asal',
+                'Nama Sekolah Asal',
                 $pendidikan?->jenjang_asal === 'TK'
                     ? ($pendidikan?->asal_sekolah ?? '-')
                     : '-',
             ],
             [
-                'Alamat TK Asal',
+                'Alamat Sekolah Asal',
                 $pendidikan?->jenjang_asal === 'TK'
                     ? ($pendidikan?->alamat_asal_sekolah ?? '-')
                     : '-',
@@ -305,6 +313,7 @@
             ['Nama Lengkap Calon Peserta Didik', $calonSiswa->nama_siswa ?? '-'],
             ['Nama Panggilan', $calonSiswa->nama_panggilan ?? '-'],
             ['Jenis Kelamin', $calonSiswa->jenis_kelamin ?? '-'],
+            ['Nomor Kartu Keluarga', $calonSiswa->no_kk ?? '-'],
             ['NIK (Nomor Induk Kependudukan)', $calonSiswa->nik ?? '-'],
             ['Tempat Lahir', $calonSiswa->tempat_lahir ?? '-'],
             [

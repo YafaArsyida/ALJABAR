@@ -23,6 +23,7 @@ class PPDBCalonSiswa extends Model
         'nama_siswa',
         'nama_panggilan',
         'nisn',
+        'no_kk',
         'nik',
         'tempat_lahir',
         'tanggal_lahir',

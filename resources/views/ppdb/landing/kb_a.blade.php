@@ -296,8 +296,7 @@
         <div class="ppdb-page">
             <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
                 <div class="container">
-                    <a class="ppdb-brand d-flex align-items-center gap-2 fw-bold text-body text-decoration-none"
-                    href="{{ route('ppdb.kb') }}">
+                    <a class="ppdb-brand d-flex align-items-center gap-2 fw-bold text-body text-decoration-none">
                         <img class="avatar-sm rounded-3 object-fit-cover"
                             src="{{ asset('assets/logo/yayasan.webp') }}"
                             alt="Logo {{ $jenjang->nama_jenjang }}">
@@ -473,7 +472,7 @@
                             <div class="col-lg-5">
                                 <div class="ppdb-hero-card rounded-4 shadow-sm">
                                     <img
-                                        src="{{ asset('assets/logo/hero.jpeg') }}"
+                                        src="{{ asset('assets/logo/hero-tk.jpeg') }}"
                                         alt="Kegiatan bermain dan stimulasi tumbuh kembang anak {{ $jenjang->nama_jenjang }}">
                                 </div>
                             </div>

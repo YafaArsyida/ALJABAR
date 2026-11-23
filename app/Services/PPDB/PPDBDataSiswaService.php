@@ -50,6 +50,7 @@ class PPDBDataSiswaService
         $calonSiswa->kewarganegaraan = $data['kewarganegaraan'];
 
         $calonSiswa->nisn = self::nilaiOpsional($data['nisn'] ?? null);
+        $calonSiswa->no_kk = self::nilaiOpsional($data['no_kk'] ?? null);
         $calonSiswa->nik = $data['nik'];
         $calonSiswa->tempat_lahir = $data['tempat_lahir'];
         $calonSiswa->tanggal_lahir = $data['tanggal_lahir'];

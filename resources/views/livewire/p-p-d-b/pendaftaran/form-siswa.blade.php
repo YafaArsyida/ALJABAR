@@ -86,6 +86,23 @@
                         </div>
 
                         <div class="col-md-6">
+                            <label class="form-label" for="no_kk">
+                                Nomor KK <span class="text-danger">*</span>
+                            </label>
+                            <input type="text"
+                                class="form-control @error('no_kk') is-invalid @enderror"
+                                id="no_kk"
+                                wire:model.defer="no_kk"
+                                inputmode="numeric"
+                                maxlength="16"
+                                placeholder="16 digit Nomor KK">
+
+                            @error('no_kk')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-6">
                             <label class="form-label" for="nik">
                                 NIK <span class="text-danger">*</span>
                             </label>
@@ -218,15 +235,14 @@
                             @enderror
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-md-6">
                             <label class="form-label" for="hobi">Hobi</label>
-                            <textarea
+                            <input type="text"
                                 class="form-control @error('hobi') is-invalid @enderror"
                                 id="hobi"
                                 wire:model.defer="hobi"
-                                rows="2"
-                                maxlength="255"
-                                placeholder="Contoh: membaca, menggambar, bermain sepak bola"></textarea>
+                                maxlength="100"
+                                placeholder="Contoh: membaca, menggambar, bermain sepak bola">
 
                             @error('hobi')
                                 <div class="invalid-feedback">{{ $message }}</div>

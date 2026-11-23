@@ -298,7 +298,7 @@
                                                     href="{{ route('ppdb.admin.laporan.berkas.zip', [
                                                         'pendaftaranId' => $item->ppdb_pendaftaran_id,
                                                     ]) }}"
-                                                    class="btn btn-soft-primary btn-sm rounded-pill px-3 text-nowrap"
+                                                    class="btn btn-primary btn-sm rounded-pill px-3 text-nowrap"
                                                     title="Unduh berkas pendataan"
                                                 >
                                                     <i class="ri-download-2-line me-1"></i>
@@ -318,7 +318,7 @@
                                             @endif
 
                                             {{-- KONFIRMASI PENDATAAN --}}
-                                            <button
+                                            {{-- <button
                                                 type="button"
                                                 class="btn btn-soft-success btn-sm rounded-pill px-3 text-nowrap"
                                                 data-bs-toggle="modal"
@@ -326,6 +326,16 @@
                                                 title="Konfirmasi pendataan">
                                                 <i class="ri-whatsapp-line me-1"></i>
                                                 Konfirmasi
+                                            </button> --}}
+
+                                            <button
+                                                type="button"
+                                                class="btn btn-info btn-sm rounded-pill px-3 text-nowrap"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalKonfirmasiPendataan-{{ $item->ppdb_pendaftaran_id }}"
+                                                title="Dokumen buku induk">
+                                                <i class="ri-book-line me-1"></i>
+                                                Buku Induk
                                             </button>
 
                                         </div>

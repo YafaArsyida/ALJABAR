@@ -31,6 +31,12 @@ class PPDBFormulirPendaftaranService
             ->get();
 
         $jenjang = $pendaftaran->ppdb_periode?->ms_jenjang;
+
+        // Logo sekolah berdasarkan jenjang
+        $logoSekolah = $jenjang?->slug === 'sd'
+            ? 'logo.webp'
+            : 'tk.png';
+            
         $berkasFoto = $pendaftaran->ppdb_berkas()
             ->where('jenis_berkas', 'PAS_FOTO')
             ->first();
@@ -82,6 +88,7 @@ class PPDBFormulirPendaftaranService
             'jenjang' => $jenjang,
             'namaJenjang' => $jenjang?->nama_jenjang,
             'alamatSekolah' => $jenjang?->alamat,
+            'logoSekolah' => $logoSekolah,
         ];
     }
 }

@@ -76,6 +76,24 @@
                     </div>
 
                     <div class="col-md-6">
+                        <label class="form-label" for="bantu-no-kk">
+                            Nomor KK <span class="text-danger">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="bantu-no-kk"
+                            class="form-control @error('no_kk') is-invalid @enderror"
+                            wire:model.defer="no_kk"
+                            inputmode="numeric"
+                            maxlength="16"
+                            placeholder="16 digit Nomor KK"
+                        >
+                        @error('no_kk')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="col-md-6">
                         <label class="form-label" for="bantu-nik">
                             NIK <span class="text-danger">*</span>
                         </label>
