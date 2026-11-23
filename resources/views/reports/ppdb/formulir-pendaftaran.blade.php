@@ -627,7 +627,7 @@
         @foreach ([
             'Diterima Tanggal',
             'Ditempatkan di Kelompok',
-            'Berasal dari SD/MI',
+            'Berasal dari Sekolah',
         ] as $i => $label)
             <tr>
                 <td class="number">{{ $i + 61 }}.</td>
