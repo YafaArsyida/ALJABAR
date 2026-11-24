@@ -28,13 +28,13 @@
             }
 
             :root {
-                --color-primary: #4b9b68;
-                --color-border: #287444;
-                --color-border-dark: #1e5c36;
-                --color-payment: #eaf5ed;
-                --color-payment-text: #245b36;
-                --color-school-title: #287444;
-                --color-note: #287444;
+                --color-primary: #f39c35;
+                --color-border: #d97706;
+                --color-border-dark: #b45309;
+                --color-payment: #fff3e0;
+                --color-payment-text: #92400e;
+                --color-school-title: #c56a0a;
+                --color-note: #d97706;
                 --color-white: #fff;
 
                 --font-body: 10px;
@@ -45,7 +45,6 @@
                 --line-body: 1.4;
                 --line-compact: 1.25;
             }
-
             .page-content {
                 position: relative;
                 top: 10mm;
