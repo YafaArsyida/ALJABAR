@@ -2,10 +2,10 @@
 <html lang="id" data-layout="vertical" data-topbar="light" data-sidebar="light" data-bs-theme="light" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
     <head>
         <meta charset="utf-8" />
-        <title>PPDB {{ $jenjang->nama_jenjang }}</title>
+        <title>SPMB {{ $jenjang->nama_jenjang }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Informasi Penerimaan Peserta Didik Baru Tahun Ajaran 2027/2028 di {{ $jenjang->nama_jenjang }}.">
-        <link rel="shortcut icon" href="{{asset('assets')}}/logo/yayasan.webp">
+        <meta name="description" content="Informasi Sistem Penerimaan Murid Baru (SPMB) Tahun Ajaran 2027/2028 di {{ $jenjang->nama_jenjang }}.">
+        <link rel="shortcut icon" href="{{asset('assets')}}/logo/tk.png">
         <script src="{{ asset('assets') }}/js/layout.js"></script>
         <link href="{{ asset('assets') }}/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets') }}/css/icons.min.css" rel="stylesheet" type="text/css" />
@@ -32,25 +32,42 @@
                 color: #fff;
             }
 
+                        
             .ppdb-page .ppdb-hero {
                 position: relative;
                 overflow: hidden;
-                background: linear-gradient(120deg, rgba(15, 23, 42, 0.72), rgba(15, 23, 42, 0.42));
+                background: #0f172a;
                 min-height: 640px;
                 display: flex;
                 align-items: center;
+                isolation: isolate;
             }
 
             .ppdb-page .ppdb-hero::before {
                 content: "";
                 position: absolute;
                 inset: 0;
-                background-image: url('{{ asset('assets/logo/sekolah.jpg') }}');
+                background-image: url('{{ asset('assets/logo/background-tk.jpeg') }}');
                 background-size: cover;
                 background-position: center;
                 transform: scale(1.05);
-                z-index: 0;
+                z-index: -2;
             }
+
+            /* Overlay untuk meningkatkan keterbacaan teks */
+            .ppdb-page .ppdb-hero::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    90deg,
+                    rgba(15, 23, 42, 0.92) 0%,
+                    rgba(15, 23, 42, 0.78) 45%,
+                    rgba(15, 23, 42, 0.42) 100%
+                );
+                z-index: -1;
+            }
+
 
             .ppdb-page .ppdb-hero-content {
                 position: relative;
@@ -213,29 +230,73 @@
             .ppdb-page .ppdb-cta {
                 position: relative;
                 overflow: hidden;
-                background: linear-gradient(120deg, rgba(15, 23, 42, 0.72), rgba(15, 23, 42, 0.55));
+                isolation: isolate;
+                background: #0f172a;
                 min-height: 280px;
                 display: flex;
                 align-items: center;
             }
 
+            /* Foto sekolah + overlay gradien */
             .ppdb-page .ppdb-cta::before {
                 content: "";
                 position: absolute;
                 inset: 0;
-                background-image: url('{{ asset('assets/logo/sekolah.jpg') }}');
+                background:
+                    linear-gradient(
+                        120deg,
+                        rgba(15, 23, 42, 0.92) 0%,
+                        rgba(15, 23, 42, 0.78) 48%,
+                        rgba(15, 23, 42, 0.48) 100%
+                    ),
+                    url('{{ asset('assets/logo/background-tk.jpeg') }}');
+
                 background-size: cover;
                 background-position: center;
-                transform: scale(1.08);
-                z-index: 0;
+                transform: scale(1.04);
+                z-index: -1;
             }
 
+            /* Konten CTA */
             .ppdb-page .ppdb-cta-content {
                 position: relative;
                 z-index: 1;
                 max-width: 700px;
                 color: #fff;
             }
+
+            .ppdb-page .ppdb-cta-content p {
+                color: rgba(255, 255, 255, 0.78);
+                line-height: 1.8;
+                max-width: 620px;
+            }
+
+            /* Tampilan mobile */
+            @media (max-width: 575.98px) {
+                .ppdb-page .ppdb-cta {
+                    min-height: 300px;
+                    padding: 1.5rem !important;
+                }
+
+                .ppdb-page .ppdb-cta::before {
+                    background:
+                        linear-gradient(
+                            120deg,
+                            rgba(15, 23, 42, 0.93),
+                            rgba(15, 23, 42, 0.76)
+                        ),
+                        url('{{ asset('assets/logo/background-tk.jpeg') }}');
+
+                    background-size: cover;
+                    background-position: center;
+                }
+
+                .ppdb-page .ppdb-cta-content h2 {
+                    font-size: 1.65rem;
+                    line-height: 1.35;
+                }
+            }
+            ```
 
             .ppdb-page .ppdb-cta-content h2 {
                 font-size: clamp(2rem, 3vw, 3rem);
@@ -298,29 +359,30 @@
                 <div class="container">
                     <a class="ppdb-brand d-flex align-items-center gap-2 fw-bold text-body text-decoration-none">
                         <img class="avatar-sm rounded-3 object-fit-cover"
-                            src="{{ asset('assets/logo/yayasan.webp') }}"
-                            alt="Logo {{ $jenjang->nama_jenjang }}">
+                            src="{{ asset('assets/logo/tk.png') }}"
+                            alt="Logo sekolah">
 
                         <div class="lh-sm">
                             <span>{{ $jenjang->nama_jenjang }}</span>
                             <small class="d-block text-muted fw-semibold text-uppercase">
-                                PPDB Online
+                                SPMB 2027/2028
                             </small>
                         </div>
                     </a>
 
                     <button class="navbar-toggler"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#ppdbNavbar"
-                            aria-controls="ppdbNavbar"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation">
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#ppdbNavbar"
+                        aria-controls="ppdbNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="ppdbNavbar">
                         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+
                             <li class="nav-item">
                                 <a class="nav-link fw-semibold" href="#beranda">
                                     Beranda
@@ -328,20 +390,26 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link fw-semibold" href="#informasi">
-                                    Informasi
+                                <a class="nav-link fw-semibold" href="#profil">
+                                    Profil Sekolah
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link fw-semibold" href="#program">
-                                    Program
+                                    Program Unggulan
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link fw-semibold" href="#biaya">
+                                    Biaya SPMB
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link fw-semibold" href="#jadwal">
-                                    Jadwal
+                                    Jadwal & Alur
                                 </a>
                             </li>
 
@@ -351,25 +419,19 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link fw-semibold" href="#faq">
-                                    FAQ
-                                </a>
-                            </li>
-
+                            {{-- Action --}}
                             @auth
-                                @if (Auth::user()->peran == 'ADMIN' ||
-                                    Auth::user()->peran == 'SUPERADMIN')
-                                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                                @if (Auth::user()->peran == 'ADMIN' || Auth::user()->peran == 'SUPERADMIN')
+                                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
                                         <a href="{{ route('ppdb.admin.dashboard') }}"
-                                        class="btn btn-primary rounded-pill px-3">
+                                            class="btn btn-primary rounded-pill px-3">
                                             <i class="ri-home-line me-1"></i>
                                             Dashboard Admin
                                         </a>
                                     </li>
                                 @else
-                                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                                        <a href="{{ route('ppdb.dashboard' , [
+                                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                                        <a href="{{ route('ppdb.dashboard', [
                                             'jenjang' => $jenjang->slug,
                                         ]) }}"
                                             class="btn btn-primary rounded-pill px-3">
@@ -379,8 +441,8 @@
                                     </li>
                                 @endif
                             @else
-                                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                                    <a href="{{ route('ppdb.login' , [
+                                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                                    <a href="{{ route('ppdb.login', [
                                         'jenjang' => $jenjang->slug,
                                     ]) }}"
                                         class="btn btn-outline-dark rounded-pill px-3">
@@ -392,136 +454,129 @@
                                     <a href="{{ route('ppdb.daftar', [
                                         'jenjang' => $jenjang->slug,
                                     ]) }}"
-                                    class="btn btn-primary rounded-pill px-3">
-                                        Daftar Sekarang
+                                        class="btn btn-primary rounded-pill px-3">
+                                        Mulai Pendataan
                                     </a>
                                 </li>
                             @endauth
+
                         </ul>
                     </div>
                 </div>
             </nav>
 
-
             <main id="beranda">
                 <section class="ppdb-hero" id="beranda">
                     <div class="container ppdb-hero-content">
                         <div class="row align-items-center g-4">
-
-                            {{-- Konten Utama --}}
                             <div class="col-lg-7">
                                 <span class="ppdb-badge">
-                                    <i class="ri-heart-3-line"></i>
-                                    PPDB KB Tahun Ajaran 2027/2028
+                                    <i class="ri-calendar-check-line"></i>
+                                    SPMB Tahun Ajaran 2027/2028
                                 </span>
 
                                 <h1>
-                                    Langkah Kecil, Tumbuh Bahagia
+                                    Menumbuhkan Generasi Islami, Cerdas, dan Ceria
                                 </h1>
 
                                 <p>
-                                    Temani si kecil mengenal dunia melalui bermain,
-                                    mengembangkan kemampuan sesuai tahap usianya,
-                                    dan membiasakan doa serta akhlak baik dalam
-                                    lingkungan yang hangat dan menyenangkan bersama
-                                    {{ $jenjang->nama_jenjang }}.
+                                    TK IT Al Hidayah mendampingi anak bermain, belajar, mengenal nilai-nilai
+                                    Islam, dan mengembangkan potensinya. Bersama keluarga, kami
+                                    menumbuhkan karakter baik sebagai bekal masa depan.
                                 </p>
 
-                                {{-- CTA --}}
                                 <div class="ppdb-hero-cta d-grid d-sm-flex gap-3 mt-4">
                                     @auth
-                                        <a href="{{ route('ppdb.dashboard', [
-                                            'jenjang' => $jenjang->slug,
-                                        ]) }}"
-                                            class="btn btn-primary rounded-pill">
-                                            <i class="ri-home-line me-1"></i>
-                                            Dashboard
-                                        </a>
+                                        @if (Auth::user()->peran == 'ADMIN' || Auth::user()->peran == 'SUPERADMIN')
+                                            <a href="{{ route('ppdb.admin.dashboard') }}"
+                                                class="btn btn-primary rounded-pill">
+                                                <i class="ri-home-line me-1"></i>
+                                                Dashboard Admin
+                                            </a>
+                                        @else
+                                            <a href="{{ route('ppdb.dashboard', [
+                                                'jenjang' => $jenjang->slug,
+                                            ]) }}"
+                                                class="btn btn-primary rounded-pill">
+                                                <i class="ri-home-line me-1"></i>
+                                                Dashboard SPMB
+                                            </a>
+                                        @endif
                                     @else
                                         <a href="{{ route('ppdb.daftar', [
                                             'jenjang' => $jenjang->slug,
                                         ]) }}"
                                             class="btn btn-primary rounded-pill">
-                                            Daftar Sekarang
+                                            <i class="ri-user-add-line me-1"></i>
+                                            Mulai Pendataan
                                         </a>
                                     @endauth
 
-                                    <a href="#informasi"
+                                    <a href="#jadwal"
                                         class="btn ppdb-secondary-cta rounded-pill">
-                                        Kenali KB Kami
+                                        <i class="ri-calendar-line me-1"></i>
+                                        Lihat Alur Pendataan
                                     </a>
                                 </div>
 
-                                {{-- Status Pendaftaran --}}
-                                <div
-                                    class="ppdb-status d-flex flex-column flex-sm-row flex-wrap gap-3 align-items-sm-center mt-4 text-white">
-
-                                    <div
-                                        class="ppdb-status-pill d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold">
+                                <div class="ppdb-status d-flex flex-column flex-sm-row flex-wrap gap-3 align-items-sm-center mt-4 text-white">
+                                    <div class="ppdb-status-pill d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold">
                                         <span class="dot"></span>
-                                        Pendaftaran Tahun Ajaran 2027/2028
+                                        Pendataan Dibuka Desember 2026
                                     </div>
 
                                     <div class="text-white-50">
-                                        1 Oktober – 30 November 2026
+                                        Tahun Ajaran 2027/2028
                                     </div>
                                 </div>
                             </div>
 
-                            {{-- Visual Utama --}}
                             <div class="col-lg-5">
                                 <div class="ppdb-hero-card rounded-4 shadow-sm">
-                                    <img
-                                        src="{{ asset('assets/logo/hero-tk.jpeg') }}"
-                                        alt="Kegiatan bermain dan stimulasi tumbuh kembang anak {{ $jenjang->nama_jenjang }}">
+                                    <img src="{{ asset('assets/logo/hero-tk.jpeg') }}"
+                                        alt="Kegiatan peserta didik TK IT Al Hidayah">
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </section>
 
                 <section class="py-5 pt-0 mt-n4">
                     <div class="container">
-
                         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
                             <div class="card-body p-0">
-
                                 <div class="row g-0">
 
                                     @php
                                         $quickInfo = [
                                             [
-                                                'icon' => 'ri-calendar-event-line',
-                                                'label' => 'Tahun Ajaran',
-                                                'value' => '2027/2028',
-                                            ],
-                                            [
                                                 'icon' => 'ri-calendar-check-line',
-                                                'label' => 'Periode Pendaftaran',
-                                                'value' => '1 Okt – 30 Nov 2026',
+                                                'label' => 'Pendataan Dibuka',
+                                                'value' => 'Desember 2026',
                                             ],
                                             [
-                                                'icon' => 'ri-user-heart-line',
-                                                'label' => 'Sasaran Usia',
-                                                'value' => 'Sekitar 2–4 Tahun',
+                                                'icon' => 'ri-ruler-line',
+                                                'label' => 'Pengukuran Seragam',
+                                                'value' => 'Maret – April 2027',
                                             ],
                                             [
-                                                'icon' => 'ri-seedling-line',
-                                                'label' => 'Fokus Pembelajaran',
-                                                'value' => 'Tumbuh Kembang Anak',
+                                                'icon' => 'ri-shirt-line',
+                                                'label' => 'Pembagian Seragam',
+                                                'value' => 'Mei – Juni 2027',
+                                            ],
+                                            [
+                                                'icon' => 'ri-graduation-cap-line',
+                                                'label' => 'Awalussanah',
+                                                'value' => 'Mei – Juni 2027',
                                             ],
                                         ];
                                     @endphp
 
                                     @foreach ($quickInfo as $index => $info)
-                                        <div class="col-lg-3 col-md-6 col-12">
-                                            <div class="p-4 h-100
-                                                {{ $index < 3 ? 'border-end border-bottom border-lg-bottom-0' : 'border-bottom' }}
-                                                position-relative">
+                                        <div class="col-lg col-md-6 col-12">
+                                            <div class="p-3 p-xl-4 h-100 border-end border-bottom position-relative">
 
-                                                <div class="d-flex align-items-start gap-3">
-
+                                                <div class="d-flex align-items-center gap-3">
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-5">
                                                             <i class="{{ $info['icon'] }}"></i>
@@ -529,15 +584,14 @@
                                                     </div>
 
                                                     <div class="min-w-0">
-                                                        <div class="text-muted text-uppercase fw-medium fs-12 mb-1">
+                                                        <div class="text-muted fw-medium fs-12 mb-2 text-uppercase">
                                                             {{ $info['label'] }}
                                                         </div>
 
-                                                        <div class="fw-semibold text-body fs-15">
+                                                        <div class="fw-bold text-body fs-15 lh-sm">
                                                             {{ $info['value'] }}
                                                         </div>
                                                     </div>
-
                                                 </div>
 
                                             </div>
@@ -545,178 +599,218 @@
                                     @endforeach
 
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                 </section>
-                
-                <section class="py-5" id="informasi">
+
+                <section class="py-5" id="profil">
                     <div class="container">
 
-                        {{-- Section Heading --}}
-                        <div class="text-center mx-auto mb-5" style="max-width: 680px;">
+                        {{-- Header Profil --}}
+                        <div class="text-center mx-auto mb-5" style="max-width: 760px;">
                             <span class="d-inline-block text-primary text-uppercase fw-semibold small mb-2">
-                                Mengenal KB Kami
+                                Profil Sekolah
                             </span>
 
                             <h2 class="display-6 fw-bold mb-3">
-                                Awal Kecil untuk Masa Depan yang Hebat
+                                Mengenal TK IT Al Hidayah
                             </h2>
 
                             <p class="text-muted lh-lg mb-0">
-                                Setiap anak tumbuh dengan caranya sendiri.
-                                Kami menemani si kecil belajar, bermain, dan mengenal
-                                kebiasaan baik dalam suasana yang penuh kasih.
+                                TK IT Al Hidayah mendampingi anak belajar, bermain,
+                                mengenal nilai-nilai Islam, dan mengembangkan potensinya.
+                                Bersama keluarga, kami menumbuhkan karakter baik sebagai
+                                bekal tumbuh kembang anak.
                             </p>
                         </div>
 
-                        {{-- Keunggulan KB --}}
+                        {{-- Visi Sekolah --}}
+                        <div class="card border-0 rounded-4 shadow-sm mb-5 overflow-hidden">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-md-auto text-center">
+                                        <div class="avatar-lg mx-auto">
+                                            <div class="avatar-title bg-primary-subtle text-primary rounded-4 fs-2">
+                                                <i class="ri-eye-line"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <span class="text-primary text-uppercase fw-semibold small">
+                                            Visi Sekolah
+                                        </span>
+
+                                        <h3 class="fs-4 fw-bold mt-2 mb-0 lh-base">
+                                            <i class="ri-double-quotes-l text-primary fs-3 me-1" aria-hidden="true"></i>
+                                            Terwujudnya pendidikan anak usia dini yang unggul dalam iman, ilmu, dan akhlak mulia
+                                            <i class="ri-double-quotes-r text-primary fs-3 ms-1" aria-hidden="true"></i>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Misi Sekolah --}}
+                        <div class="mb-4">
+                            <div class="text-center mx-auto" style="max-width: 680px;">
+                                <span class="d-inline-block text-primary text-uppercase fw-semibold small mb-2">
+                                    Misi Sekolah
+                                </span>
+
+                                <h3 class="fw-bold mb-2">
+                                    Nilai yang Kami Tanamkan
+                                </h3>
+
+                                <p class="text-muted mb-0">
+                                    Empat komitmen dalam mendampingi tumbuh kembang anak
+                                    melalui pendidikan yang Islami dan menyenangkan.
+                                </p>
+                            </div>
+                        </div>
+
                         @php
-                            $features = [
-                                [
-                                    'icon' => 'ri-gamepad-line',
-                                    'title' => 'Serunya Belajar Sambil Bermain',
-                                    'text' => 'Bernyanyi, bergerak, bereksplorasi, dan mencoba hal baru setiap hari.',
-                                ],
+                            $missions = [
                                 [
                                     'icon' => 'ri-heart-3-line',
-                                    'title' => 'Mengenal Islam Sejak Dini',
-                                    'text' => 'Belajar berdoa, mengucapkan salam, dan membiasakan perilaku baik.',
+                                    'title' => 'Keimanan dan Akhlak',
+                                    'text' => 'Menanamkan keimanan, membekali ilmu, dan membiasakan akhlak mulia.',
                                 ],
                                 [
-                                    'icon' => 'ri-seedling-line',
-                                    'title' => 'Tumbuh Sesuai Usianya',
-                                    'text' => 'Melatih gerak, bahasa, rasa ingin tahu, dan keberanian secara bertahap.',
+                                    'icon' => 'ri-book-open-line',
+                                    'title' => 'Nilai-Nilai Islam',
+                                    'text' => 'Mengajarkan nilai-nilai Islam sesuai Al-Qur’an dan Sunah.',
                                 ],
                                 [
-                                    'icon' => 'ri-parent-line',
-                                    'title' => 'Didampingi dengan Kasih Sayang',
-                                    'text' => 'Membantu si kecil merasa nyaman, mulai mandiri, dan berteman.',
+                                    'icon' => 'ri-shield-star-line',
+                                    'title' => 'Pelayanan Pendidikan',
+                                    'text' => 'Mewujudkan pelayanan pendidikan yang optimal dan profesional.',
+                                ],
+                                [
+                                    'icon' => 'ri-hand-heart-line',
+                                    'title' => 'Keteladanan Islami',
+                                    'text' => 'Mengajarkan akhlak Islami melalui keteladanan dan pembiasaan.',
+                                ],
+                                [
+                                    'icon' => 'ri-lightbulb-line',
+                                    'title' => 'Potensi dan Bakat',
+                                    'text' => 'Mengembangkan pengetahuan, potensi, dan bakat anak sesuai tingkat perkembangannya.',
                                 ],
                             ];
                         @endphp
 
-                        <div class="row g-4 mt-2">
-                            @foreach ($features as $feature)
+                        <div class="row g-3 g-lg-4">
+                            @foreach ($missions as $mission)
                                 <div class="col-lg-3 col-md-6 col-12">
                                     <div class="card h-100 border rounded-4 shadow-none mb-0">
                                         <div class="card-body p-4">
-
                                             <div class="avatar-md mb-3">
                                                 <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-4">
-                                                    <i class="{{ $feature['icon'] }}"></i>
+                                                    <i class="{{ $mission['icon'] }}"></i>
                                                 </div>
                                             </div>
 
-                                            <h3 class="fs-5 fw-semibold mb-2">
-                                                {{ $feature['title'] }}
-                                            </h3>
+                                            <h4 class="fs-5 fw-semibold mb-2">
+                                                {{ $mission['title'] }}
+                                            </h4>
 
                                             <p class="text-muted lh-lg mb-0">
-                                                {{ $feature['text'] }}
+                                                {{ $mission['text'] }}
                                             </p>
-
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
 
-                        {{-- Penegasan --}}
-                        <div class="text-center mt-4">
-                            <p class="text-muted mb-0">
-                                <i class="ri-sparkling-2-line text-primary me-1"></i>
-                                Langkah kecil hari ini, bekal berharga untuk esok hari.
-                            </p>
-                        </div>
-
                     </div>
                 </section>
-
+                                
                 <section class="py-5 bg-white" id="program">
                     <div class="container">
 
-                        {{-- Section Heading --}}
+                        {{-- Header Program Unggulan --}}
                         <div class="text-center mx-auto mb-5" style="max-width: 720px;">
                             <span class="d-inline-block text-primary text-uppercase fw-semibold small mb-2">
-                                Kegiatan Si Kecil
+                                Program Unggulan
                             </span>
 
                             <h2 class="display-6 fw-bold mb-3">
-                                Banyak Hal Seru untuk Dipelajari
+                                Belajar, Bermain, dan Tumbuh Bersama
                             </h2>
 
                             <p class="text-muted mb-0 lh-lg">
-                                Dari bermain hingga mengenal kebiasaan baik, setiap kegiatan
-                                menjadi kesempatan bagi si kecil untuk tumbuh dan mencoba hal baru.
+                                Kegiatan belajar yang menyenangkan untuk mengenalkan nilai-nilai
+                                Islam, mengembangkan potensi, dan membangun kemandirian anak.
                             </p>
                         </div>
 
-                        {{-- Program KB --}}
                         @php
                             $programs = [
                                 [
-                                    'icon' => 'ri-gamepad-line',
-                                    'title' => 'Bermain dan Bereksplorasi',
-                                    'description' => 'Bernyanyi, bermain warna, mengenal benda, dan melakukan aktivitas seru yang membangkitkan rasa ingin tahu.',
-                                    'label' => 'Belajar Sambil Bermain',
-                                    'target' => '#informasi',
-                                    'button' => 'Kenali KB Kami',
-                                ],
-                                [
-                                    'icon' => 'ri-seedling-line',
-                                    'title' => 'Belajar Mandiri dan Berani',
-                                    'description' => 'Berlatih bergerak, berbicara, mencoba sendiri, dan berinteraksi dengan teman secara bertahap.',
-                                    'label' => 'Tumbuh Kembang',
-                                    'target' => '#informasi',
-                                    'button' => 'Lihat Manfaatnya',
-                                ],
-                                [
                                     'icon' => 'ri-heart-3-line',
-                                    'title' => 'Membiasakan Akhlak Baik',
-                                    'description' => 'Mulai mengenal doa sederhana, mengucapkan salam, berbagi, dan membiasakan perilaku baik sehari-hari.',
-                                    'label' => 'Nilai-Nilai Islami',
-                                    'target' => '#informasi',
-                                    'button' => 'Kenali Pembiasaan',
+                                    'title' => 'Pembiasaan Islami',
+                                    'description' => 'Mengenal Asmaul Husna, sholawat, doa harian, serta praktik wudu dan salat.',
+                                ],
+                                [
+                                    'icon' => 'ri-book-open-line',
+                                    'title' => 'Belajar Membaca',
+                                    'description' => 'Mengenal huruf dan bacaan melalui Buku Baca Al Hidayah (BBA) dan Iqro.',
+                                ],
+                                [
+                                    'icon' => 'ri-leaf-line',
+                                    'title' => 'Pembelajaran Sentra',
+                                    'description' => 'Mengembangkan kreativitas dan kemampuan anak melalui kegiatan bermain dan bereksplorasi.',
+                                ],
+                                [
+                                    'icon' => 'ri-book-read-line',
+                                    'title' => 'Read Aloud',
+                                    'description' => 'Menumbuhkan minat baca, kemampuan berbahasa, dan imajinasi melalui kegiatan membacakan cerita.',
+                                ],
+                                [
+                                    'icon' => 'ri-restaurant-line',
+                                    'title' => 'Mindful Eating',
+                                    'description' => 'Membiasakan anak makan dengan tertib, mandiri, dan menghargai makanan.',
+                                ],
+                                [
+                                    'icon' => 'ri-sun-line',
+                                    'title' => 'Jumat Spesial',
+                                    'description' => 'Kegiatan senam, jalan sehat, membaca, penimbangan, dan permainan tradisional.',
+                                ],
+                                [
+                                    'icon' => 'ri-compass-3-line',
+                                    'title' => 'Fun Eksplorasi',
+                                    'description' => 'Memberikan pengalaman belajar langsung melalui kegiatan mengenal lingkungan sekitar.',
+                                ],
+                                [
+                                    'icon' => 'ri-hand-heart-line',
+                                    'title' => 'Pembiasaan Kemandirian',
+                                    'description' => 'Melatih anak membangun kebiasaan baik sejak datang hingga pulang sekolah.',
                                 ],
                             ];
                         @endphp
 
+                        {{-- Daftar Program --}}
                         <div class="row g-4">
                             @foreach ($programs as $program)
-                                <div class="col-lg-4 col-md-6 col-12">
+                                <div class="col-lg-3 col-md-6 col-12">
                                     <div class="card h-100 border rounded-4 shadow-none mb-0">
-                                        <div class="card-body p-4 d-flex flex-column">
+                                        <div class="card-body p-4">
 
-                                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                                <div class="avatar-md">
-                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-4">
-                                                        <i class="{{ $program['icon'] }}"></i>
-                                                    </div>
+                                            <div class="avatar-md mb-4">
+                                                <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-4">
+                                                    <i class="{{ $program['icon'] }}"></i>
                                                 </div>
-
-                                                <span class="badge bg-light text-body fw-medium px-3 py-2">
-                                                    {{ $program['label'] }}
-                                                </span>
                                             </div>
 
                                             <h3 class="fs-5 fw-semibold mb-2">
                                                 {{ $program['title'] }}
                                             </h3>
 
-                                            <p class="text-muted lh-lg mb-4">
+                                            <p class="text-muted lh-lg mb-0">
                                                 {{ $program['description'] }}
                                             </p>
-
-                                            <div class="mt-auto">
-                                                <a href="{{ $program['target'] }}"
-                                                    class="btn btn-primary fw-medium rounded-3 w-100">
-                                                    {{ $program['button'] }}
-                                                    <i class="ri-arrow-right-line align-middle ms-1"></i>
-                                                </a>
-                                            </div>
 
                                         </div>
                                     </div>
@@ -724,92 +818,440 @@
                             @endforeach
                         </div>
 
-                    </div>
-                </section>
-
-                <section class="py-5" id="jadwal">
-                    <div class="container">
-
-                        {{-- Section Heading --}}
-                        <div class="text-center mx-auto mb-5" style="max-width: 720px;">
-                            <span class="d-inline-block text-primary text-uppercase fw-semibold small mb-2">
-                                Jadwal PPDB
-                            </span>
-
-                            <h2 class="display-6 fw-bold mb-3">
-                                Jadwal PPDB KB 2027/2028
-                            </h2>
-
-                            <p class="text-muted mb-0 lh-lg">
-                                Ayah dan Bunda, yuk catat tahapan pendaftaran KB
-                                agar persiapan si kecil dapat dilakukan dengan nyaman
-                                dan tanpa terburu-buru.
+                        {{-- Penutup --}}
+                        <div class="text-center mt-4">
+                            <p class="text-muted small mb-0">
+                                Setiap kegiatan menjadi kesempatan bagi anak untuk belajar,
+                                mencoba hal baru, dan mengembangkan potensinya.
                             </p>
                         </div>
 
-                        {{-- Timeline Jadwal --}}
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
+                    </div>
+                </section>
 
-                                <div class="ppdb-schedule">
+                <section class="py-5" id="biaya">
+                    <div class="container">
 
-                                    @php
-                                        $schedule = [
-                                            [
-                                                'date' => '01',
-                                                'month' => 'Okt',
-                                                'title' => 'Pendaftaran Dibuka',
-                                                'desc' => 'Ayah dan Bunda dapat mulai mendaftarkan si kecil melalui formulir online.',
-                                            ],
-                                            [
-                                                'date' => '30',
-                                                'month' => 'Nov',
-                                                'title' => 'Batas Akhir Pendaftaran',
-                                                'desc' => 'Lengkapi data dan kirim formulir sebelum masa pendaftaran berakhir.',
-                                            ],
-                                            [
-                                                'date' => '05',
-                                                'month' => 'Des',
-                                                'title' => 'Pemeriksaan Berkas',
-                                                'desc' => 'Tim PPDB memeriksa data dan dokumen pendaftaran calon peserta didik.',
-                                            ],
-                                            [
-                                                'date' => '10',
-                                                'month' => 'Des',
-                                                'title' => 'Pengumuman Hasil',
-                                                'desc' => 'Ayah dan Bunda dapat memeriksa informasi hasil penerimaan melalui sistem PPDB.',
-                                            ],
-                                            [
-                                                'date' => '11–15',
-                                                'month' => 'Des',
-                                                'title' => 'Daftar Ulang',
-                                                'desc' => 'Orang tua calon peserta didik yang diterima menyelesaikan proses daftar ulang.',
-                                            ],
-                                        ];
-                                    @endphp
+                        {{-- Header --}}
+                        <div class="text-center mx-auto mb-5" style="max-width: 720px;">
+                            <span class="d-inline-block text-primary text-uppercase fw-semibold small mb-2">
+                                Informasi Biaya
+                            </span>
 
-                                    @foreach ($schedule as $item)
-                                        <div class="ppdb-timeline-item">
+                            <h2 class="display-6 fw-bold mb-3">
+                                Biaya Pendataan TK 2027/2028
+                            </h2>
 
-                                            <div class="date avatar-title bg-primary-subtle text-primary">
-                                                {{ $item['date'] }}
+                            <p class="text-muted lh-lg mb-0">
+                                Berikut rincian biaya pendidikan TK IT Al Hidayah
+                                yang dibayarkan secara bertahap.
+                            </p>
+                        </div>
+
+                        {{-- Ringkasan Biaya --}}
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-6">
+                                <div class="card h-100 border rounded-4 shadow-none mb-0">
+                                    <div class="card-body p-4 p-lg-5">
+                                        <div class="d-flex align-items-center gap-3 mb-4">
+                                            <div class="avatar-md flex-shrink-0">
+                                                <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-4">
+                                                    <i class="ri-user-line"></i>
+                                                </div>
                                             </div>
+                                            <div>
+                                                <h3 class="fs-5 fw-semibold mb-1">
+                                                    Calon Siswa Laki-laki
+                                                </h3>
+                                                <p class="text-muted small mb-0">
+                                                    Biaya seragam
+                                                </p>
+                                            </div>
+                                        </div>
 
-                                            <div class="content card border-0 shadow-sm rounded-4">
-                                                <div class="card-body p-3">
-                                                    <strong class="d-block mb-1">
-                                                        {{ $item['title'] }}
-                                                    </strong>
+                                        <h4 class="display-6 fw-bold text-primary mb-2">
+                                            Rp3.480.000
+                                        </h4>
 
+                                        <p class="text-muted small mb-0">
+                                            Total biaya pendidikan sesuai rincian tahap pembayaran.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card h-100 border rounded-4 shadow-none mb-0">
+                                    <div class="card-body p-4 p-lg-5">
+                                        <div class="d-flex align-items-center gap-3 mb-4">
+                                            <div class="avatar-md flex-shrink-0">
+                                                <div class="avatar-title bg-success-subtle text-success rounded-3 fs-4">
+                                                    <i class="ri-user-heart-line"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h3 class="fs-5 fw-semibold mb-1">
+                                                    Calon Siswi Perempuan
+                                                </h3>
+                                                <p class="text-muted small mb-0">
+                                                    Biaya seragam
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <h4 class="display-6 fw-bold text-success mb-2">
+                                            Rp3.594.000
+                                        </h4>
+
+                                        <p class="text-muted small mb-0">
+                                            Total biaya pendidikan sesuai rincian tahap pembayaran.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Rincian Pembayaran --}}
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="avatar-md flex-shrink-0">
+                                <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-4">
+                                    <i class="ri-file-list-3-line"></i>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="fs-4 fw-bold mb-1">
+                                    Rincian Pembayaran
+                                </h3>
+                                <p class="text-muted mb-0">
+                                    Pembayaran dibagi menjadi empat tahap.
+                                </p>
+                            </div>
+                        </div>
+
+                        @php
+                            $tahapanBiaya = [
+                                [
+                                    'tahap' => 'Tahap Pendataan',
+                                    'periode' => 'Desember 2026 – Januari 2027',
+                                    'icon' => 'ri-clipboard-line',
+                                    'items' => [
+                                        ['nama' => 'Biaya pendataan', 'nominal' => 120000],
+                                        ['nama' => 'Seragam 4 stel (laki-laki)', 'nominal' => 585000],
+                                    ],
+                                ],
+                                [
+                                    'tahap' => 'Tahap 1',
+                                    'periode' => 'Februari – Maret 2027',
+                                    'icon' => 'ri-book-2-line',
+                                    'items' => [
+                                        ['nama' => 'Alat tulis dan perlengkapan', 'nominal' => 575000],
+                                        ['nama' => 'Kegiatan tahunan', 'nominal' => 400000],
+                                    ],
+                                ],
+                                [
+                                    'tahap' => 'Tahap 2',
+                                    'periode' => 'April – Mei 2027',
+                                    'icon' => 'ri-calendar-check-line',
+                                    'items' => [
+                                        ['nama' => 'Syahriah bulan Juli', 'nominal' => 295000],
+                                        ['nama' => 'Alat Permainan Edukatif (APE)', 'nominal' => 520000],
+                                    ],
+                                ],
+                                [
+                                    'tahap' => 'Tahap 3',
+                                    'periode' => 'Juni – Juli 2027',
+                                    'icon' => 'ri-graduation-cap-line',
+                                    'items' => [
+                                        ['nama' => 'Pengembangan', 'nominal' => 850000],
+                                    ],
+                                ],
+                            ];
+                        @endphp
+
+                        <div class="row g-4">
+                            @foreach ($tahapanBiaya as $tahap)
+                                <div class="col-lg-6">
+                                    <div class="card h-100 border rounded-4 shadow-none mb-0">
+                                        <div class="card-header bg-transparent border-bottom p-4">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <div class="avatar-md flex-shrink-0">
+                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-4">
+                                                        <i class="{{ $tahap['icon'] }}"></i>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <h4 class="fs-5 fw-semibold mb-1">
+                                                        {{ $tahap['tahap'] }}
+                                                    </h4>
+                                                    <p class="text-muted small mb-0">
+                                                        {{ $tahap['periode'] }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-body p-4">
+                                            @foreach ($tahap['items'] as $item)
+                                                <div class="d-flex justify-content-between align-items-start gap-3 {{ !$loop->last ? 'mb-3 pb-3 border-bottom' : '' }}">
                                                     <span class="text-muted">
-                                                        {{ $item['month'] }} 2026 · {{ $item['desc'] }}
+                                                        {{ $item['nama'] }}
                                                     </span>
+
+                                                    <span class="fw-semibold text-nowrap">
+                                                        Rp{{ number_format($item['nominal'], 0, ',', '.') }}
+                                                    </span>
+                                                </div>
+                                            @endforeach
+
+                                            <div class="d-flex justify-content-between align-items-center gap-3 mt-4 pt-3 border-top">
+                                                <span class="fw-bold fs-6 text-body">
+                                                    Total tahap
+                                                </span>
+
+                                                <span class="fw-bold fs-5 text-body text-nowrap">
+                                                    Rp{{ number_format(collect($tahap['items'])->sum('nominal'), 0, ',', '.') }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        {{-- Catatan --}}
+                        <div class="alert alert-light border rounded-4 mt-4 mb-0" role="note">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="ri-information-line fs-4 text-primary"></i>
+                                <div>
+                                    <h4 class="fs-6 fw-semibold mb-1">
+                                        Informasi Biaya
+                                    </h4>
+                                    <p class="text-muted small mb-0 lh-lg">
+                                        Biaya seragam calon siswa laki-laki sebesar
+                                        <strong class="text-body">Rp585.000</strong>
+                                        dan calon siswi perempuan sebesar
+                                        <strong class="text-body">Rp699.000</strong>.
+                                        Total biaya dapat berbeda sesuai jenis seragam.
+                                        Silakan menghubungi panitia untuk informasi pembayaran.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+
+                
+                <section class="py-5" id="jadwal">
+                    <div class="container">
+
+                        {{-- Header --}}
+                        <div class="text-center mx-auto mb-5" style="max-width: 720px;">
+                            <span class="d-inline-block text-primary text-uppercase fw-semibold small mb-2">
+                                Jadwal dan Alur
+                            </span>
+
+                            <h2 class="display-6 fw-bold mb-3">
+                                Alur Pendataan TK 2027/2028
+                            </h2>
+
+                            <p class="text-muted lh-lg mb-0">
+                                Kenali tahapan pendataan, kegiatan, dan persiapan
+                                calon peserta didik TK IT Al Hidayah tahun ajaran 2027/2028.
+                            </p>
+                        </div>
+
+                        {{-- Fase Pendataan --}}
+                        <div class="row g-4 mb-5">
+
+                            {{-- Tahap Pendataan --}}
+                            <div class="col-lg-6">
+                                <div class="card h-100 border rounded-4 shadow-none mb-0">
+                                    <div class="card-body p-4 p-lg-5">
+
+                                        <div class="d-flex align-items-start gap-3 mb-4">
+                                            <div class="avatar-md flex-shrink-0">
+                                                <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-4">
+                                                    <i class="ri-calendar-event-line"></i>
                                                 </div>
                                             </div>
 
-                                        </div>
-                                    @endforeach
+                                            <div>
+                                                <span class="badge bg-primary-subtle text-primary mb-2">
+                                                    Desember 2026 – Januari 2027
+                                                </span>
 
+                                                <h3 class="fs-4 fw-bold mb-1">
+                                                    Tahap Pendataan
+                                                </h3>
+
+                                                <p class="text-muted small mb-0">
+                                                    Pendaftaran dan pengisian data calon peserta didik.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        @php
+                                            $registrationSteps = [
+                                                'Menyiapkan data calon peserta didik dan orang tua.',
+                                                'Menyiapkan dokumen persyaratan pendataan.',
+                                                'Mengisi formulir pendataan.',
+                                                'Melengkapi dan mengunggah berkas persyaratan.',
+                                                'Memastikan seluruh data telah diisi dengan benar.',
+                                            ];
+                                        @endphp
+
+                                        <div class="d-flex flex-column gap-3">
+                                            @foreach ($registrationSteps as $step)
+                                                <div class="d-flex align-items-start gap-3">
+                                                    <div class="avatar-xs flex-shrink-0">
+                                                        <div class="avatar-title bg-light text-primary rounded-circle fw-semibold">
+                                                            {{ $loop->iteration }}
+                                                        </div>
+                                                    </div>
+
+                                                    <p class="text-muted mb-0 lh-lg">
+                                                        {{ $step }}
+                                                    </p>
+                                                </div>
+                                            @endforeach
+                                        </div>
+
+                                        <div class="alert alert-light border rounded-3 mt-4 mb-0">
+                                            <div class="d-flex align-items-start gap-2">
+                                                <i class="ri-information-line text-primary fs-5"></i>
+                                                <p class="small text-muted mb-0 lh-lg">
+                                                    Pastikan data dan dokumen calon peserta didik
+                                                    telah dilengkapi sebelum mengirim formulir pendataan.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- Tahapan Kegiatan --}}
+                            <div class="col-lg-6">
+                                <div class="card h-100 border rounded-4 shadow-none mb-0">
+                                    <div class="card-body p-4 p-lg-5">
+
+                                        {{-- Header --}}
+                                        <div class="d-flex align-items-start gap-3 mb-4">
+                                            <div class="avatar-md flex-shrink-0">
+                                                <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-4">
+                                                    <i class="ri-calendar-check-line"></i>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <span class="badge bg-primary-subtle text-primary mb-2">
+                                                    Maret – Juni 2027
+                                                </span>
+
+                                                <h3 class="fs-4 fw-bold mb-1">
+                                                    Tahapan Kegiatan
+                                                </h3>
+
+                                                <p class="text-muted small mb-0">
+                                                    Persiapan sebelum tahun ajaran baru.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        {{-- Daftar Tahapan --}}
+                                        @php
+                                            $activitySteps = [
+                                                [
+                                                    'judul' => 'Pengukuran Seragam',
+                                                    'periode' => 'Maret – April 2027',
+                                                    'deskripsi' => 'Pengukuran seragam calon peserta didik.',
+                                                ],
+                                                [
+                                                    'judul' => 'Asesmen Diagnostik',
+                                                    'periode' => 'Maret – April 2027',
+                                                    'deskripsi' => 'Mengenal kemampuan dan kebutuhan belajar awal anak.',
+                                                ],
+                                                [
+                                                    'judul' => 'Awalussanah',
+                                                    'periode' => 'Mei – Juni 2027',
+                                                    'deskripsi' => 'Kegiatan penyambutan anak dan pengenalan lingkungan sekolah.',
+                                                ],
+                                                [
+                                                    'judul' => 'Pembagian Seragam',
+                                                    'periode' => 'Mei – Juni 2027',
+                                                    'deskripsi' => 'Penyerahan seragam untuk persiapan masuk sekolah.',
+                                                ],
+                                            ];
+                                        @endphp
+
+                                        <div class="d-flex flex-column gap-3">
+                                            @foreach ($activitySteps as $step)
+                                                <div class="d-flex align-items-start gap-3">
+                                                    <div class="avatar-xs flex-shrink-0">
+                                                        <div class="avatar-title bg-light text-primary rounded-circle fw-semibold">
+                                                            {{ $loop->iteration }}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="min-w-0">
+                                                        <div class="fw-semibold text-body mb-1">
+                                                            {{ $step['judul'] }}
+                                                        </div>
+
+                                                        <div class="text-primary fs-12 fw-medium mb-1">
+                                                            {{ $step['periode'] }}
+                                                        </div>
+
+                                                        <p class="text-muted small mb-0 lh-lg">
+                                                            {{ $step['deskripsi'] }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+
+                                        {{-- Informasi --}}
+                                        <div class="alert alert-light border rounded-3 mt-4 mb-0">
+                                            <div class="d-flex align-items-start gap-2">
+                                                <i class="ri-information-line text-primary fs-5"></i>
+                                                <p class="small text-muted mb-0 lh-lg">
+                                                    Informasi jadwal kegiatan selanjutnya akan
+                                                    disampaikan oleh pihak sekolah kepada orang tua.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- CTA --}}
+                        <div class="card border-0 rounded-4 bg-primary-subtle mb-0">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="row align-items-center g-3">
+                                    <div class="col-lg">
+                                        <h3 class="fs-4 fw-bold mb-2">
+                                            Siapkan Persyaratan Pendataan
+                                        </h3>
+
+                                        <p class="text-muted mb-0 lh-lg">
+                                            Lengkapi dokumen calon peserta didik
+                                            agar proses pendataan berjalan lancar.
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-auto">
+                                        <a href="#persyaratan"
+                                            class="btn btn-primary rounded-pill px-4 py-2 fw-medium">
+                                            Lihat Persyaratan
+                                            <i class="ri-arrow-right-line align-middle ms-1"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -820,252 +1262,291 @@
                 <section class="py-5 bg-white" id="persyaratan">
                     <div class="container">
 
-                        {{-- Heading --}}
-                        <div class="text-center mx-auto mb-5" style="max-width: 760px;">
+                        {{-- Header --}}
+                        <div class="text-center mx-auto mb-5" style="max-width: 720px;">
                             <span class="d-inline-block text-primary text-uppercase fw-semibold small mb-2">
-                                Persiapan Pendaftaran
+                                Persyaratan SPMB
                             </span>
 
                             <h2 class="display-6 fw-bold mb-3">
-                                Yuk, Siapkan Kebutuhan Si Kecil
+                                Siapkan Dokumen Pendataan
                             </h2>
 
-                            <p class="text-muted mb-0 lh-lg">
-                                Sebelum mendaftar, Ayah dan Bunda dapat menyiapkan
-                                informasi serta dokumen berikut agar proses pendaftaran
-                                berjalan lebih mudah.
+                            <p class="text-muted lh-lg mb-0">
+                                Siapkan dokumen berikut untuk memudahkan proses pendataan
+                                calon peserta didik TK IT Al Hidayah.
                             </p>
                         </div>
 
                         <div class="row g-4">
 
-                            {{-- Persyaratan Umum --}}
-                            <div class="col-lg-6">
-                                <div class="card h-100 border shadow-sm rounded-4 mb-0">
+                            {{-- Dokumen Fisik --}}
+                            <div class="col-lg-7">
+                                <div class="card h-100 border rounded-4 shadow-none mb-0">
                                     <div class="card-body p-4 p-lg-5">
 
                                         <div class="d-flex align-items-center gap-3 mb-4">
-                                            <div class="avatar-md bg-primary-subtle text-primary rounded-3
-                                                        d-flex align-items-center justify-content-center fs-4">
-                                                <i class="ri-user-heart-line"></i>
+                                            <div class="avatar-md flex-shrink-0">
+                                                <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-4">
+                                                    <i class="ri-file-list-3-line"></i>
+                                                </div>
                                             </div>
 
                                             <div>
                                                 <h3 class="fs-5 fw-semibold mb-1">
-                                                    Sebelum Mendaftar
+                                                    Dokumen Persyaratan
                                                 </h3>
-                                                <p class="text-muted mb-0 small">
-                                                    Hal yang perlu diperhatikan
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <ul class="list-unstyled mb-0">
-                                            <li class="d-flex align-items-start gap-3 mb-3">
-                                                <i class="ri-checkbox-circle-line text-primary fs-5"></i>
-                                                <span>
-                                                    Pastikan usia si kecil sesuai ketentuan penerimaan KB.
-                                                </span>
-                                            </li>
-
-                                            <li class="d-flex align-items-start gap-3 mb-3">
-                                                <i class="ri-checkbox-circle-line text-primary fs-5"></i>
-                                                <span>
-                                                    Isi formulir pendaftaran dengan data yang benar.
-                                                </span>
-                                            </li>
-
-                                            <li class="d-flex align-items-start gap-3 mb-3">
-                                                <i class="ri-checkbox-circle-line text-primary fs-5"></i>
-                                                <span>
-                                                    Siapkan informasi anak, orang tua atau wali, dan alamat tempat tinggal.
-                                                </span>
-                                            </li>
-
-                                            <li class="d-flex align-items-start gap-3">
-                                                <i class="ri-checkbox-circle-line text-primary fs-5"></i>
-                                                <span>
-                                                    Periksa kembali data sebelum mengirim formulir.
-                                                </span>
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            {{-- Dokumen --}}
-                            <div class="col-lg-6">
-                                <div class="card h-100 border shadow-sm rounded-4 mb-0">
-                                    <div class="card-body p-4 p-lg-5">
-
-                                        <div class="d-flex align-items-center gap-3 mb-4">
-                                            <div class="avatar-md bg-primary-subtle text-primary rounded-3
-                                                        d-flex align-items-center justify-content-center fs-4">
-                                                <i class="ri-folder-user-line"></i>
-                                            </div>
-
-                                            <div>
-                                                <h3 class="fs-5 fw-semibold mb-1">
-                                                    Dokumen Pendaftaran
-                                                </h3>
-                                                <p class="text-muted mb-0 small">
+                                                <p class="text-muted small mb-0">
                                                     Berkas yang perlu disiapkan
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <ul class="list-unstyled mb-0">
-                                            <li class="d-flex align-items-start gap-3 mb-3">
-                                                <i class="ri-checkbox-circle-line text-primary fs-5"></i>
-                                                <span>
-                                                    Kartu Keluarga (KK).
-                                                </span>
-                                            </li>
+                                        @php
+                                            $documents = [
+                                                [
+                                                    'title' => 'Akta kelahiran anak',
+                                                    'detail' => 'Fotokopi 2 lembar',
+                                                ],
+                                                [
+                                                    'title' => 'Kartu Keluarga (KK)',
+                                                    'detail' => 'Fotokopi 2 lembar',
+                                                ],
+                                                [
+                                                    'title' => 'KTP ayah dan ibu',
+                                                    'detail' => 'Fotokopi masing-masing 1 lembar',
+                                                ],
+                                                [
+                                                    'title' => 'Pas foto anak',
+                                                    'detail' => 'Ukuran 3 × 4, background sesuai ketentuan, 3 lembar',
+                                                ],
+                                                [
+                                                    'title' => 'Materai Rp10.000',
+                                                    'detail' => '1 lembar',
+                                                ],
+                                            ];
+                                        @endphp
 
-                                            <li class="d-flex align-items-start gap-3 mb-3">
-                                                <i class="ri-checkbox-circle-line text-primary fs-5"></i>
-                                                <span>
-                                                    Akta Kelahiran anak.
-                                                </span>
-                                            </li>
+                                        <div class="d-flex flex-column gap-3">
+                                            @foreach ($documents as $document)
+                                                <div class="d-flex align-items-start gap-3">
+                                                    <i class="ri-checkbox-circle-line text-primary fs-5 mt-1"></i>
 
-                                            <li class="d-flex align-items-start gap-3 mb-3">
-                                                <i class="ri-checkbox-circle-line text-primary fs-5"></i>
-                                                <span>
-                                                    Pas foto calon peserta didik.
-                                                </span>
-                                            </li>
+                                                    <div>
+                                                        <h4 class="fs-6 fw-semibold mb-1">
+                                                            {{ $document['title'] }}
+                                                        </h4>
 
-                                            <li class="d-flex align-items-start gap-3 mb-3">
-                                                <i class="ri-checkbox-circle-line text-primary fs-5"></i>
-                                                <span>
-                                                    Informasi identitas dan kontak orang tua atau wali.
-                                                </span>
-                                            </li>
+                                                        <p class="text-muted small mb-0 lh-lg">
+                                                            {{ $document['detail'] }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
 
-                                            <li class="d-flex align-items-start gap-3">
-                                                <i class="ri-checkbox-circle-line text-primary fs-5"></i>
-                                                <span>
-                                                    Dokumen tambahan jika diminta oleh pihak sekolah.
-                                                </span>
-                                            </li>
-                                        </ul>
+                                        <div class="alert alert-light border rounded-3 mt-4 mb-0">
+                                            <div class="d-flex align-items-start gap-2">
+                                                <i class="ri-information-line text-primary fs-5"></i>
+                                                <p class="small text-muted mb-0 lh-lg">
+                                                    Siapkan juga dokumen dalam bentuk digital
+                                                    untuk keperluan pendataan online.
+                                                </p>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
                             </div>
 
-                        </div>
+                            {{-- Berkas Digital dan Kategori --}}
+                            <div class="col-lg-5">
+                                <div class="d-flex flex-column gap-4 h-100">
 
-                    </div>
-                </section>
-
-
-                <section class="py-5" id="cara-daftar">
-                    <div class="container">
-
-                        <div class="text-center mx-auto mb-5" style="max-width: 760px;">
-                            <span class="d-inline-block text-primary text-uppercase fw-semibold small mb-2">
-                                Cara Pendaftaran
-                            </span>
-                            <h2 class="display-6 fw-bold mb-3">
-                                Cara Mendaftar
-                            </h2>
-                            <p class="text-muted mb-0 lh-lg">
-                                Ikuti langkah berikut untuk mendaftarkan putra-putri Anda.
-                            </p>
-                        </div>
-
-                        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-4">
-                            @php
-                                $steps = [
-                                    [
-                                        'number' => '01',
-                                        'title' => 'Buat Akun',
-                                        'text' => 'Daftar akun orang tua melalui portal PPDB.',
-                                    ],
-                                    [
-                                        'number' => '02',
-                                        'title' => 'Isi Data',
-                                        'text' => 'Lengkapi data anak dan orang tua.',
-                                    ],
-                                    [
-                                        'number' => '03',
-                                        'title' => 'Upload Berkas',
-                                        'text' => 'Unggah dokumen yang diperlukan.',
-                                    ],
-                                    [
-                                        'number' => '04',
-                                        'title' => 'Kirim Formulir',
-                                        'text' => 'Periksa kembali data, lalu kirim pendaftaran.',
-                                    ],
-                                    [
-                                        'number' => '05',
-                                        'title' => 'Cek Status',
-                                        'text' => 'Pantau status pendaftaran melalui akun Anda.',
-                                    ],
-                                ];
-                            @endphp
-
-                            @foreach ($steps as $step)
-                                <div class="col">
-                                    <div class="card h-100 border shadow-sm rounded-4">
+                                    {{-- Berkas Digital --}}
+                                    <div class="card border rounded-4 shadow-none mb-0">
                                         <div class="card-body p-4">
-                                            <span class="ppdb-step-number">
-                                                {{ $step['number'] }}
-                                            </span>
 
-                                            <h3 class="fs-5 fw-semibold mb-2">
-                                                {{ $step['title'] }}
-                                            </h3>
+                                            <div class="d-flex align-items-center gap-3 mb-3">
+                                                <div class="avatar-md flex-shrink-0">
+                                                    <div class="avatar-title bg-info-subtle text-info rounded-3 fs-4">
+                                                        <i class="ri-folder-upload-line"></i>
+                                                    </div>
+                                                </div>
 
-                                            <p class="text-muted lh-lg mb-0">
-                                                {{ $step['text'] }}
+                                                <div>
+                                                    <h3 class="fs-5 fw-semibold mb-1">
+                                                        Berkas Digital
+                                                    </h3>
+                                                    <p class="text-muted small mb-0">
+                                                        Siapkan softfile dokumen
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <p class="text-muted lh-lg mb-3">
+                                                Siapkan salinan digital dari dokumen berikut:
                                             </p>
+
+                                            <ul class="list-unstyled mb-0">
+                                                @foreach (['Kartu Keluarga (KK)', 'Pas foto anak', 'Akta kelahiran anak'] as $item)
+                                                    <li class="d-flex align-items-start gap-2 mb-2">
+                                                        <i class="ri-check-line text-info fs-5"></i>
+                                                        <span>{{ $item }}</span>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+
                                         </div>
                                     </div>
+
+                                    {{-- Kategori Siswa --}}
+                                    <div class="card border rounded-4 shadow-none mb-0">
+                                        <div class="card-body p-4">
+
+                                            <div class="d-flex align-items-center gap-3 mb-3">
+                                                <div class="avatar-md flex-shrink-0">
+                                                    <div class="avatar-title bg-success-subtle text-success rounded-3 fs-4">
+                                                        <i class="ri-group-line"></i>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <h3 class="fs-5 fw-semibold mb-1">
+                                                        Kategori Siswa
+                                                    </h3>
+                                                    <p class="text-muted small mb-0">
+                                                        Kategori pendataan
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex flex-column gap-3">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <i class="ri-checkbox-circle-line text-success fs-5"></i>
+                                                    <span class="fw-medium">Reguler</span>
+                                                </div>
+
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <i class="ri-checkbox-circle-line text-success fs-5"></i>
+                                                    <span class="fw-medium">Kakak dan Beradik</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
                                 </div>
-                            @endforeach
+                            </div>
+
                         </div>
+
+                        {{-- Alur Pendataan --}}
+                        <div class="card border rounded-4 shadow-none mt-4 mb-0">
+                            <div class="card-body p-4 p-lg-5">
+
+                                <div class="d-flex align-items-center gap-3 mb-4">
+                                    <div class="avatar-md flex-shrink-0">
+                                        <div class="avatar-title bg-primary-subtle text-primary rounded-3 fs-4">
+                                            <i class="ri-list-check-2"></i>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h3 class="fs-5 fw-semibold mb-1">
+                                            Syarat Pendataan SPMB
+                                        </h3>
+                                        <p class="text-muted small mb-0">
+                                            Dua langkah utama pendataan
+                                        </p>
+                                    </div>
+                                </div>
+
+                                @php
+                                    $registrationSteps = [
+                                        'Mengisi formulir pendataan.',
+                                        'Mengumpulkan persyaratan SPMB.',
+                                    ];
+                                @endphp
+
+                                <div class="row g-3">
+                                    @foreach ($registrationSteps as $step)
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center gap-3 bg-light rounded-3 p-3 h-100">
+                                                <div class="avatar-sm flex-shrink-0">
+                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fw-semibold">
+                                                        {{ $loop->iteration }}
+                                                    </div>
+                                                </div>
+
+                                                <span class="text-body fw-medium">
+                                                    {{ $step }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {{-- Informasi Biaya --}}
+                        <div class="alert alert-light border rounded-4 mt-4 mb-0">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="ri-information-line fs-4 text-primary"></i>
+
+                                <div>
+                                    <h4 class="fs-6 fw-semibold mb-1">
+                                        Informasi Biaya Awal
+                                    </h4>
+
+                                    <p class="text-muted small lh-lg mb-0">
+                                        Ketentuan biaya awal berbeda sesuai kelompok kelas:
+                                        KB B dan TK A membayar biaya pendaftaran dan seragam,
+                                        sedangkan KB A membayar biaya pendaftaran dan ATK.
+                                        Rincian biaya dapat dilihat pada bagian Informasi Biaya.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </section>
-                
+
+
                 <section class="py-5" id="ppdb-status">
                     <div class="container">
                         <div class="ppdb-status-panel rounded-4 p-4 p-lg-5 shadow">
                             <div class="row align-items-center g-4">
-
-                                {{-- Informasi --}}
                                 <div class="col-lg-6 ppdb-status-copy">
                                     <span class="ppdb-status-kicker">
                                         <i class="ri-search-eye-line"></i>
-                                        Cek Pendaftaran
+                                        Layanan Pendataan
                                     </span>
 
                                     <h3 class="fs-2 fw-bold text-white">
-                                        Cek Status Pendaftaran Buah Hati
+                                        Pantau Status Pendataan Calon Peserta Didik
                                     </h3>
 
                                     <p class="text-white-50">
-                                        Masukkan nomor pendaftaran untuk melihat status
-                                        pendaftaran dan informasi hasil penerimaan.
+                                        Gunakan fitur ini untuk memeriksa status pendataan
+                                        calon peserta didik melalui portal SPMB TK IT Al Hidayah
+                                        Tahun Ajaran 2027/2028.
                                     </p>
 
                                     <div class="ppdb-status-points d-flex flex-wrap gap-3 text-white-50">
                                         <span class="d-inline-flex align-items-center gap-2">
                                             <i class="ri-checkbox-circle-line text-success"></i>
-                                            Status pendaftaran
+                                            Informasi status pendataan
                                         </span>
 
                                         <span class="d-inline-flex align-items-center gap-2">
                                             <i class="ri-checkbox-circle-line text-success"></i>
-                                            Informasi hasil
+                                            Informasi proses seleksi
                                         </span>
                                     </div>
                                 </div>
 
-                                {{-- Form Cek Status --}}
                                 <div class="col-lg-6">
                                     @livewire('p-p-d-b.landing.status-pendaftaran', [
                                         'jenjangSlug' => $jenjang->slug,
@@ -1075,188 +1556,88 @@
                         </div>
                     </div>
                 </section>
-                
-                
+
+                @php
+                    $faqs = [
+                        [
+                            'question' => 'Kapan pendataan SPMB dibuka?',
+                            'answer' => 'Pendataan SPMB TK IT Al Hidayah Tahun Ajaran 2027/2028 dibuka pada Desember 2026. Silakan mengikuti informasi dan jadwal pendataan yang disampaikan oleh pihak sekolah.',
+                        ],
+                        [
+                            'question' => 'Bagaimana cara mengikuti pendataan?',
+                            'answer' => 'Orang tua mengisi formulir pendataan secara online, kemudian melengkapi dan menyerahkan persyaratan SPMB sesuai ketentuan. Silakan ikuti tahapan yang dijelaskan pada bagian Alur Pendataan.',
+                        ],
+                        [
+                            'question' => 'Dokumen apa saja yang perlu disiapkan?',
+                            'answer' => 'Persyaratan meliputi fotokopi akta kelahiran sebanyak 2 lembar, fotokopi Kartu Keluarga sebanyak 2 lembar, fotokopi KTP ayah dan ibu masing-masing 1 lembar, serta pas foto calon siswa ukuran 3×4 sebanyak 3 lembar. Siapkan juga berkas digital Kartu Keluarga, foto anak, dan akta kelahiran.',
+                        ],
+                        [
+                            'question' => 'Apa saja kategori pendataan SPMB?',
+                            'answer' => 'Pendataan SPMB memiliki dua kategori, yaitu Reguler dan Kakak dan Beradik. Silakan pilih kategori yang sesuai dengan kondisi calon peserta didik.',
+                        ],
+                        [
+                            'question' => 'Berapa biaya awal SPMB?',
+                            'answer' => 'Pembayaran awal berbeda sesuai kelompok calon peserta didik. KB B dan TK A membayar biaya pendaftaran serta seragam, sedangkan KB A membayar biaya pendaftaran serta ATK. Rincian biaya dapat dilihat pada bagian Biaya SPMB.',
+                        ],
+                        [
+                            'question' => 'Kapan pengukuran seragam dan asesmen diagnostik dilaksanakan?',
+                            'answer' => 'Pengukuran seragam dan asesmen diagnostik dijadwalkan pada Maret–April 2027. Kegiatan ini menjadi bagian dari persiapan anak sebelum memulai kegiatan belajar di sekolah.',
+                        ],
+                        [
+                            'question' => 'Kapan Awalussanah dan pembagian seragam dilaksanakan?',
+                            'answer' => 'Kegiatan Awalussanah dan pembagian seragam dijadwalkan pada Mei–Juni 2027. Informasi lebih lanjut mengenai pelaksanaannya akan disampaikan oleh pihak sekolah.',
+                        ],
+                        [
+                            'question' => 'Bagaimana jika saya membutuhkan informasi lebih lanjut?',
+                            'answer' => 'Orang tua dapat menghubungi pihak TK IT Al Hidayah melalui kontak resmi sekolah untuk memperoleh informasi lebih lanjut mengenai pendataan SPMB.',
+                        ],
+                    ];
+                @endphp
+
                 <section class="py-5" id="faq">
                     <div class="container">
-
-                        {{-- Heading --}}
-                        <div class="text-center mx-auto mb-5" style="max-width: 760px;">
+                        <div class="text-center mx-auto mb-5" style="max-width: 650px;">
                             <span class="d-inline-block text-primary text-uppercase fw-semibold small mb-2">
                                 FAQ
                             </span>
 
                             <h2 class="display-6 fw-bold mb-3">
-                                Ada yang Ingin Ditanyakan?
+                                Pertanyaan yang Sering Diajukan
                             </h2>
 
-                            <p class="text-muted mb-0 lh-lg">
-                                Temukan jawaban seputar pendaftaran KB untuk membantu
-                                Ayah dan Bunda mempersiapkan langkah pertama si kecil.
+                            <p class="text-muted mb-0">
+                                Informasi penting untuk membantu orang tua mempersiapkan
+                                pendataan calon peserta didik baru.
                             </p>
                         </div>
 
-                        <div class="row justify-content-center">
-                            <div class="col-lg-9">
+                        <div class="accordion ppdb-faq" id="ppdbFaq">
+                            @foreach ($faqs as $index => $faq)
+                                <div class="accordion-item border-0 shadow-sm rounded-4 overflow-hidden mb-3">
+                                    <h2 class="accordion-header" id="faqHeading{{ $index }}">
+                                        <button
+                                            class="accordion-button fw-semibold {{ $index !== 0 ? 'collapsed' : '' }}"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faqCollapse{{ $index }}"
+                                            aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
+                                            aria-controls="faqCollapse{{ $index }}">
+                                            {{ $faq['question'] }}
+                                        </button>
+                                    </h2>
 
-                                <div class="accordion ppdb-faq" id="ppdbFaq">
-
-                                    {{-- FAQ 1 --}}
-                                    <div class="accordion-item border-0 shadow-sm rounded-4 overflow-hidden mb-3">
-                                        <h2 class="accordion-header" id="faqOne">
-                                            <button class="accordion-button fw-semibold"
-                                                type="button"
-                                                data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne"
-                                                aria-expanded="true"
-                                                aria-controls="collapseOne">
-                                                Berapa usia anak yang bisa mendaftar KB?
-                                            </button>
-                                        </h2>
-
-                                        <div id="collapseOne"
-                                            class="accordion-collapse collapse show"
-                                            aria-labelledby="faqOne"
-                                            data-bs-parent="#ppdbFaq">
-                                            <div class="accordion-body text-muted lh-lg">
-                                                Pendaftaran ditujukan bagi anak usia dini yang memenuhi
-                                                ketentuan usia dari sekolah. Silakan konfirmasi kepada
-                                                pihak {{ $jenjang->nama_jenjang }} untuk memastikan
-                                                kesesuaian usia si kecil.
-                                            </div>
+                                    <div
+                                        id="faqCollapse{{ $index }}"
+                                        class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
+                                        aria-labelledby="faqHeading{{ $index }}"
+                                        data-bs-parent="#ppdbFaq">
+                                        <div class="accordion-body text-muted lh-lg">
+                                            {{ $faq['answer'] }}
                                         </div>
                                     </div>
-
-                                    {{-- FAQ 2 --}}
-                                    <div class="accordion-item border-0 shadow-sm rounded-4 overflow-hidden mb-3">
-                                        <h2 class="accordion-header" id="faqTwo">
-                                            <button class="accordion-button fw-semibold collapsed"
-                                                type="button"
-                                                data-bs-toggle="collapse"
-                                                data-bs-target="#collapseTwo"
-                                                aria-expanded="false"
-                                                aria-controls="collapseTwo">
-                                                Bagaimana cara mendaftarkan anak?
-                                            </button>
-                                        </h2>
-
-                                        <div id="collapseTwo"
-                                            class="accordion-collapse collapse"
-                                            aria-labelledby="faqTwo"
-                                            data-bs-parent="#ppdbFaq">
-                                            <div class="accordion-body text-muted lh-lg">
-                                                Ayah dan Bunda dapat membuat akun, mengisi data anak
-                                                dan orang tua, mengunggah dokumen yang diperlukan,
-                                                lalu mengirim formulir melalui halaman PPDB.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- FAQ 3 --}}
-                                    <div class="accordion-item border-0 shadow-sm rounded-4 overflow-hidden mb-3">
-                                        <h2 class="accordion-header" id="faqThree">
-                                            <button class="accordion-button fw-semibold collapsed"
-                                                type="button"
-                                                data-bs-toggle="collapse"
-                                                data-bs-target="#collapseThree"
-                                                aria-expanded="false"
-                                                aria-controls="collapseThree">
-                                                Dokumen apa saja yang perlu disiapkan?
-                                            </button>
-                                        </h2>
-
-                                        <div id="collapseThree"
-                                            class="accordion-collapse collapse"
-                                            aria-labelledby="faqThree"
-                                            data-bs-parent="#ppdbFaq">
-                                            <div class="accordion-body text-muted lh-lg">
-                                                Siapkan Kartu Keluarga, akta kelahiran, dan pas foto
-                                                anak. Informasi orang tua atau wali juga perlu dilengkapi.
-                                                Dokumen tambahan dapat diminta jika diperlukan.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- FAQ 4 --}}
-                                    <div class="accordion-item border-0 shadow-sm rounded-4 overflow-hidden mb-3">
-                                        <h2 class="accordion-header" id="faqFour">
-                                            <button class="accordion-button fw-semibold collapsed"
-                                                type="button"
-                                                data-bs-toggle="collapse"
-                                                data-bs-target="#collapseFour"
-                                                aria-expanded="false"
-                                                aria-controls="collapseFour">
-                                                Bagaimana jika ada data yang perlu diperbaiki?
-                                            </button>
-                                        </h2>
-
-                                        <div id="collapseFour"
-                                            class="accordion-collapse collapse"
-                                            aria-labelledby="faqFour"
-                                            data-bs-parent="#ppdbFaq">
-                                            <div class="accordion-body text-muted lh-lg">
-                                                Jika petugas meminta perbaikan, Ayah dan Bunda dapat
-                                                melihat catatan pada sistem PPDB, memperbaiki data
-                                                yang diminta, lalu mengirimkan kembali pendaftaran.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- FAQ 5 --}}
-                                    <div class="accordion-item border-0 shadow-sm rounded-4 overflow-hidden mb-3">
-                                        <h2 class="accordion-header" id="faqFive">
-                                            <button class="accordion-button fw-semibold collapsed"
-                                                type="button"
-                                                data-bs-toggle="collapse"
-                                                data-bs-target="#collapseFive"
-                                                aria-expanded="false"
-                                                aria-controls="collapseFive">
-                                                Bagaimana cara mengetahui status pendaftaran?
-                                            </button>
-                                        </h2>
-
-                                        <div id="collapseFive"
-                                            class="accordion-collapse collapse"
-                                            aria-labelledby="faqFive"
-                                            data-bs-parent="#ppdbFaq">
-                                            <div class="accordion-body text-muted lh-lg">
-                                                Gunakan nomor pendaftaran pada bagian Cek Status
-                                                di halaman ini untuk mengetahui perkembangan
-                                                pendaftaran si kecil.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- FAQ 6 --}}
-                                    <div class="accordion-item border-0 shadow-sm rounded-4 overflow-hidden mb-3">
-                                        <h2 class="accordion-header" id="faqSix">
-                                            <button class="accordion-button fw-semibold collapsed"
-                                                type="button"
-                                                data-bs-toggle="collapse"
-                                                data-bs-target="#collapseSix"
-                                                aria-expanded="false"
-                                                aria-controls="collapseSix">
-                                                Bagaimana jika saya kesulitan saat mendaftar?
-                                            </button>
-                                        </h2>
-
-                                        <div id="collapseSix"
-                                            class="accordion-collapse collapse"
-                                            aria-labelledby="faqSix"
-                                            data-bs-parent="#ppdbFaq">
-                                            <div class="accordion-body text-muted lh-lg">
-                                                Ayah dan Bunda dapat menghubungi petugas PPDB
-                                                {{ $jenjang->nama_jenjang }} untuk meminta bantuan
-                                                selama proses pendaftaran.
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
-
-                            </div>
+                            @endforeach
                         </div>
-
                     </div>
                 </section>
 
@@ -1264,55 +1645,63 @@
                     <div class="container">
                         <div class="ppdb-cta rounded-4 p-4 p-lg-5">
                             <div class="ppdb-cta-content">
-
                                 <span class="ppdb-badge d-inline-flex mb-3">
-                                    PPDB KB Tahun Ajaran 2027/2028
+                                    SPMB Tahun Ajaran 2027/2028
                                 </span>
 
                                 <h2 class="text-white">
-                                    Awali Langkah Kecilnya Bersama Kami
+                                    Bersiap Menjadi Bagian dari TK IT Al Hidayah
                                 </h2>
 
                                 <p>
-                                    Yuk, temani si kecil mengenal dunia, belajar mandiri,
-                                    dan membiasakan akhlak baik melalui kegiatan bermain
-                                    yang menyenangkan bersama {{ $jenjang->nama_jenjang }}.
+                                    Awali perjalanan belajar dan tumbuh kembang putra-putri Anda
+                                    bersama TK IT Al Hidayah. Pendataan dimulai Desember 2026.
+                                    Siapkan persyaratan dan ikuti alur pendataan yang tersedia.
                                 </p>
 
                                 <div class="d-flex flex-wrap gap-2">
                                     @auth
-                                        <a href="{{ route('ppdb.dashboard', [
-                                            'jenjang' => $jenjang->slug,
-                                        ]) }}"
-                                            class="btn btn-primary rounded-pill">
-                                            <i class="ri-home-line me-1"></i>
-                                            Dashboard
-                                        </a>
+                                        @if (in_array(auth()->user()->peran, ['SUPERADMIN', 'ADMIN']))
+                                            <a href="{{ route('ppdb.admin.dashboard') }}"
+                                                class="btn btn-primary rounded-pill">
+                                                <i class="ri-dashboard-line me-1"></i>
+                                                Dashboard Admin
+                                            </a>
+                                        @else
+                                            <a href="{{ route('ppdb.dashboard', [
+                                                'jenjang' => $jenjang->slug,
+                                            ]) }}"
+                                                class="btn btn-primary rounded-pill">
+                                                <i class="ri-home-line me-1"></i>
+                                                Dashboard SPMB
+                                            </a>
+                                        @endif
                                     @else
                                         <a href="{{ route('ppdb.daftar', [
                                             'jenjang' => $jenjang->slug,
                                         ]) }}"
                                             class="btn btn-primary rounded-pill">
-                                            Daftarkan Si Kecil
+                                            <i class="ri-user-add-line me-1"></i>
+                                            Mulai Pendataan
                                         </a>
                                     @endauth
 
-                                    <a href="#persyaratan"
+                                    <a href="#jadwal"
                                         class="btn ppdb-secondary-cta rounded-pill">
-                                        Lihat Persyaratan
+                                        <i class="ri-calendar-check-line me-1"></i>
+                                        Lihat Alur Pendataan
                                     </a>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </section>
-            </main>
 
-            
-            
+            </main>
+                        
             <footer class="custom-footer bg-dark position-relative">
                 <div class="container">
+
                     {{-- Main Footer --}}
                     <div class="row py-5 gy-4">
 
@@ -1320,7 +1709,8 @@
                         <div class="col-lg-5 col-md-6">
                             <div>
                                 <div class="mb-4">
-                                    <img src="{{ asset('assets/logo/yayasan.webp') }}"
+                                    <img
+                                        src="{{ asset('assets/logo/tk.png') }}"
                                         alt="Logo {{ $jenjang->nama_jenjang }}"
                                         height="50"
                                         class="rounded-2">
@@ -1332,18 +1722,27 @@
 
                                 <p class="text-white-50 ff-secondary mb-4"
                                     style="max-width: 420px;">
-                                    Informasi Penerimaan Peserta Didik Baru (PPDB)
-                                    KB tahun ajaran 2027/2028. Kenali kegiatan,
-                                    persyaratan, jadwal, dan langkah pendaftaran
-                                    untuk menemani awal tumbuh kembang si kecil.
+                                    Informasi SPMB Tahun Ajaran 2027/2028.
+                                    Kenali profil sekolah, program unggulan, biaya,
+                                    jadwal, dan persyaratan pendataan calon peserta didik.
                                 </p>
 
-                                {{-- Alamat Sekolah --}}
-                                <div class="d-flex align-items-start gap-2 text-white-50">
+                                <div class="d-flex align-items-start gap-2 text-white-50 mb-3">
                                     <i class="ri-map-pin-line text-white fs-18 mt-1"></i>
                                     <span class="ff-secondary fs-13">
                                         {{ $jenjang->alamat }}
                                     </span>
+                                </div>
+
+                                <div class="d-flex align-items-center gap-2 text-white-50">
+                                    <i class="ri-whatsapp-line text-white fs-18"></i>
+                                    <a
+                                        href="https://wa.me/6282226266861"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="link-light ff-secondary fs-13">
+                                        0822-2626-6861
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1360,61 +1759,80 @@
                                         <a href="#beranda">Beranda</a>
                                     </li>
                                     <li class="mb-2">
-                                        <a href="#informasi">Tentang KB Kami</a>
+                                        <a href="#profil">Profil Sekolah</a>
                                     </li>
                                     <li class="mb-2">
-                                        <a href="#program">Kegiatan Si Kecil</a>
+                                        <a href="#program">Program Unggulan</a>
                                     </li>
                                     <li class="mb-2">
-                                        <a href="#jadwal">Jadwal PPDB</a>
+                                        <a href="#biaya">Biaya SPMB</a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a href="#jadwal">Jadwal & Alur Pendataan</a>
                                     </li>
                                     <li class="mb-2">
                                         <a href="#persyaratan">Persyaratan</a>
                                     </li>
-                                    <li>
+                                    <li class="mb-2">
                                         <a href="#faq">Pertanyaan Umum</a>
+                                    </li>
+                                    <li>
+                                        <a href="#ppdb-status">Cek Status Pendataan</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
-                        {{-- CTA PPDB --}}
+                        {{-- CTA SPMB --}}
                         <div class="col-lg-4 col-md-3">
                             <div>
                                 <h5 class="text-white mb-3">
-                                    Pendaftaran KB
+                                    Bergabung Bersama Kami
                                 </h5>
 
                                 <p class="text-white-50 ff-secondary fs-14 mb-4">
-                                    Yuk, persiapkan data dan dokumen si kecil.
-                                    Lengkapi pendaftaran secara online agar
-                                    langkah awalnya bersama kami semakin mudah.
+                                    Awali perjalanan belajar dan tumbuh kembang
+                                    putra-putri Anda bersama TK IT Al Hidayah.
+                                    Siapkan persyaratan dan ikuti pendataan
+                                    Tahun Ajaran 2027/2028.
                                 </p>
 
                                 <div class="d-flex flex-wrap gap-2">
                                     @auth
-                                        <a href="{{ route('ppdb.dashboard', [
-                                            'jenjang' => $jenjang->slug,
-                                        ]) }}"
-                                            class="btn btn-primary rounded-pill px-4">
-                                            <i class="ri-home-line align-middle me-1"></i>
-                                            Dashboard Orang Tua
-                                        </a>
+                                        @if (in_array(auth()->user()->peran, ['SUPERADMIN', 'ADMIN']))
+                                            <a
+                                                href="{{ route('ppdb.admin.dashboard') }}"
+                                                class="btn btn-primary rounded-pill px-4">
+                                                <i class="ri-dashboard-line align-middle me-1"></i>
+                                                Dashboard Admin
+                                            </a>
+                                        @else
+                                            <a
+                                                href="{{ route('ppdb.dashboard', [
+                                                    'jenjang' => $jenjang->slug,
+                                                ]) }}"
+                                                class="btn btn-primary rounded-pill px-4">
+                                                <i class="ri-home-line align-middle me-1"></i>
+                                                Dashboard SPMB
+                                            </a>
+                                        @endif
                                     @else
-                                        <a href="{{ route('ppdb.daftar', [
-                                            'jenjang' => $jenjang->slug,
-                                        ]) }}"
+                                        <a
+                                            href="{{ route('ppdb.daftar', [
+                                                'jenjang' => $jenjang->slug,
+                                            ]) }}"
                                             class="btn btn-primary rounded-pill px-4">
                                             <i class="ri-pencil-line align-middle me-1"></i>
-                                            Daftarkan Si Kecil
+                                            Mulai Pendataan
                                             <i class="ri-arrow-right-line align-middle ms-1"></i>
                                         </a>
                                     @endauth
 
-                                    <a href="#persyaratan"
+                                    <a
+                                        href="#ppdb-status"
                                         class="btn btn-outline-light rounded-pill px-4">
-                                        <i class="ri-file-list-3-line align-middle me-1"></i>
-                                        Persyaratan
+                                        <i class="ri-search-line align-middle me-1"></i>
+                                        Cek Status
                                     </a>
                                 </div>
                             </div>
@@ -1428,53 +1846,71 @@
                     {{-- Bottom Footer --}}
                     <div class="row align-items-center py-4 gy-3">
 
+                        {{-- Copyright --}}
                         <div class="col-sm-6">
                             <p class="copy-rights mb-0 text-white-50 ff-secondary fs-13">
                                 &copy; {{ date('Y') }}
-                                {{ $jenjang->nama_jenjang }}. Hak cipta dilindungi.
+                                {{ $jenjang->nama_jenjang }}.
+                                Hak cipta dilindungi.
                             </p>
                         </div>
 
+                        {{-- Footer Links --}}
                         <div class="col-sm-6">
                             <div class="text-sm-end">
+                                <a href="#beranda" class="link-light me-3">
+                                    Beranda
+                                </a>
+
                                 @auth
-                                    <a href="{{ route('ppdb.dashboard', [
-                                        'jenjang' => $jenjang->slug,
-                                    ]) }}"
-                                        class="btn btn-primary rounded-pill px-4">
-                                        <i class="ri-home-line align-middle me-1"></i>
-                                        Dashboard Orang Tua
-                                    </a>
+                                    @if (in_array(auth()->user()->peran, ['SUPERADMIN', 'ADMIN']))
+                                        <a
+                                            href="{{ route('ppdb.admin.dashboard') }}"
+                                            class="link-light me-3">
+                                            Dashboard Admin
+                                        </a>
+                                    @else
+                                        <a
+                                            href="{{ route('ppdb.dashboard', [
+                                                'jenjang' => $jenjang->slug,
+                                            ]) }}"
+                                            class="link-light me-3">
+                                            Dashboard SPMB
+                                        </a>
+                                    @endif
                                 @else
-                                    <a href="{{ route('ppdb.daftar', [
-                                        'jenjang' => $jenjang->slug,
-                                    ]) }}"
-                                        class="btn btn-primary rounded-pill px-4">
-                                        <i class="ri-pencil-line align-middle me-1"></i>
-                                        Mulai Pendaftaran
-                                        <i class="ri-arrow-right-line align-middle ms-1"></i>
+                                    <a
+                                        href="{{ route('ppdb.daftar', [
+                                            'jenjang' => $jenjang->slug,
+                                        ]) }}"
+                                        class="link-light me-3">
+                                        Mulai Pendataan SPMB
                                     </a>
                                 @endauth
+
+                                <a href="#ppdb-status" class="link-light">
+                                    Cek Status
+                                </a>
                             </div>
                         </div>
 
                     </div>
-
                 </div>
             </footer>
 
 
-
             <a
-                class="btn btn-primary rounded-pill shadow-lg d-inline-flex align-items-center gap-2 px-4 py-3 fw-semibold position-fixed ppdb-help"
-                href="#faq"
-                aria-label="Lihat bantuan dan pertanyaan umum tentang PPDB"
-                title="Lihat bantuan PPDB">
-                <i class="ri-question-line" aria-hidden="true"></i>
-                <span>Bantuan PPDB</span>
+                class="btn btn-success rounded-pill shadow-lg d-inline-flex align-items-center gap-2 px-4 py-3 fw-semibold position-fixed ppdb-help"
+                href="https://wa.me/6282226266864?text={{ rawurlencode('Assalamu’alaikum, saya ingin bertanya mengenai SPMB TK/KB IT Al Hidayah Tahun Ajaran 2027/2028.') }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Hubungi panitia SPMB melalui WhatsApp"
+                title="Hubungi panitia SPMB melalui WhatsApp">
+
+                <i class="ri-whatsapp-line" aria-hidden="true"></i>
+                <span>Bantuan SPMB</span>
             </a>
         </div>
-
         <script src="{{ asset('assets') }}/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         @livewireScripts

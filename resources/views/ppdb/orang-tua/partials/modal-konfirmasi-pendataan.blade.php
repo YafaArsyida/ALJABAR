@@ -11,7 +11,10 @@
             . "\nNomor pendataan: "
             . ($pendaftaran->nomor_pendaftaran ?? '-')
             . "\nTanggal pendataan: "
-            . $tanggalPendataan;
+            . $tanggalPendataan
+            . "\nJenjang: "
+            . ($pendaftaran->ppdb_periode->ms_jenjang->nama_jenjang ?? '-');
+            
         $tautanGrup = $pendaftaran->ppdb_periode?->tautan_grup;
         $skemaTautanGrup = is_string($tautanGrup)
             ? strtolower((string) parse_url($tautanGrup, PHP_URL_SCHEME))

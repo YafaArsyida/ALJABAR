@@ -606,7 +606,7 @@
             <div class="landscape-canvas">
                 <div class="page-background">
                     <img
-                        src="{{ public_path('assets/pdf/kartu-aljabar-background.webp') }}"
+                        src="{{ public_path('assets/pdf/kartu-aljabar-tk.png') }}"
                         alt=""
                     >
                 </div>
@@ -636,7 +636,7 @@
                             Kabupaten Boyolali, Jawa Tengah 57381
                         </p>
 
-                        <p>HP. 0822 2626 6861</p>
+                        <p>HP. 0822 2626 6864</p>
                     </td>
 
                     {{-- LOGO SPMB --}}
@@ -711,7 +711,7 @@
             <div class="landscape-canvas">
                 <div class="page-background">
                     <img
-                        src="{{ public_path('assets/pdf/kartu-aljabar-background.webp') }}"
+                        src="{{ public_path('assets/pdf/kartu-aljabar-tk.png') }}"
                         alt=""
                     >
                 </div>
