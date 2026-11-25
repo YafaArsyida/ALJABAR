@@ -274,9 +274,7 @@
                             </div>
 
                             <div>
-                                <h5 class="fw-bold mb-1">
-                                    Jadwal Proses SPMB
-                                </h5>
+                                <h5 class="fw-bold mb-1">Jadwal Proses SPMB</h5>
                                 <small class="text-muted">
                                     Tahapan SPMB Tahun Ajaran 2027/2028.
                                 </small>
@@ -285,79 +283,132 @@
                     </div>
 
                     <div class="card-body">
-                        {{-- PENDATAAN --}}
-                        <div class="d-flex gap-3">
-                            <div class="flex-shrink-0 text-center" style="width: 64px;">
-                                <h4 class="fw-bold text-primary mb-0">Nov</h4>
-                                <small class="text-muted">2026</small>
+                        @if ($jenjang->slug === 'sd')
+                            {{-- TIMELINE SD --}}
+                            <div class="d-flex gap-3">
+                                <div class="flex-shrink-0 text-center" style="width: 64px;">
+                                    <h4 class="fw-bold text-primary mb-0">Nov</h4>
+                                    <small class="text-muted">2026</small>
+                                </div>
+
+                                <div class="pb-4 border-bottom w-100">
+                                    <h6 class="fw-semibold mb-1">Pendataan Dibuka</h6>
+                                    <small class="text-muted">
+                                        Pendataan SPMB dimulai pada November 2026.
+                                        Calon peserta didik mengikuti proses pendataan
+                                        sesuai arahan pihak sekolah.
+                                    </small>
+                                </div>
                             </div>
 
-                            <div class="pb-4 border-bottom w-100">
-                                <h6 class="fw-semibold mb-1">
-                                    Pendataan Dibuka
-                                </h6>
-                                <small class="text-muted">
-                                    Pendataan SPMB dimulai pada November 2026.
-                                    Calon peserta didik mengikuti proses pendataan
-                                    sesuai arahan pihak sekolah.
-                                </small>
-                            </div>
-                        </div>
+                            <div class="d-flex gap-3 pt-4">
+                                <div class="flex-shrink-0 text-center" style="width: 64px;">
+                                    <h4 class="fw-bold text-primary mb-0">Jan–Feb</h4>
+                                    <small class="text-muted">2027</small>
+                                </div>
 
-                        {{-- PENGUKURAN SERAGAM --}}
-                        <div class="d-flex gap-3 pt-4">
-                            <div class="flex-shrink-0 text-center" style="width: 64px;">
-                                <h4 class="fw-bold text-primary mb-0">Jan–Feb</h4>
-                                <small class="text-muted">2027</small>
+                                <div class="pb-4 border-bottom w-100">
+                                    <h6 class="fw-semibold mb-1">Pengukuran Seragam</h6>
+                                    <small class="text-muted">
+                                        Pengukuran seragam dan pembayaran buku
+                                        untuk kebutuhan satu tahun.
+                                    </small>
+                                </div>
                             </div>
 
-                            <div class="pb-4 border-bottom w-100">
-                                <h6 class="fw-semibold mb-1">
-                                    Pengukuran Seragam
-                                </h6>
-                                <small class="text-muted">
-                                    Pengukuran seragam dan pembayaran buku
-                                    untuk kebutuhan satu tahun.
-                                </small>
-                            </div>
-                        </div>
+                            <div class="d-flex gap-3 pt-4">
+                                <div class="flex-shrink-0 text-center" style="width: 64px;">
+                                    <h4 class="fw-bold text-primary mb-0">Mar–Apr</h4>
+                                    <small class="text-muted">2027</small>
+                                </div>
 
-                        {{-- SKRINING PSIKOLOGI --}}
-                        <div class="d-flex gap-3 pt-4">
-                            <div class="flex-shrink-0 text-center" style="width: 64px;">
-                                <h4 class="fw-bold text-primary mb-0">Mar–Apr</h4>
-                                <small class="text-muted">2027</small>
+                                <div class="pb-4 border-bottom w-100">
+                                    <h6 class="fw-semibold mb-1">Skrining Psikologi</h6>
+                                    <small class="text-muted">
+                                        Pelaksanaan skrining serta pembayaran kegiatan,
+                                        SPP Juli, dan perlengkapan.
+                                    </small>
+                                </div>
                             </div>
 
-                            <div class="pb-4 border-bottom w-100">
-                                <h6 class="fw-semibold mb-1">
-                                    Skrining Psikologi
-                                </h6>
-                                <small class="text-muted">
-                                    Pelaksanaan skrining serta pembayaran kegiatan,
-                                    SPP Juli, dan perlengkapan.
-                                </small>
-                            </div>
-                        </div>
+                            <div class="d-flex gap-3 pt-4">
+                                <div class="flex-shrink-0 text-center" style="width: 64px;">
+                                    <h4 class="fw-bold text-primary mb-0">Mei–Jun</h4>
+                                    <small class="text-muted">2027</small>
+                                </div>
 
-                        {{-- PERSIAPAN TAHUN AJARAN BARU --}}
-                        <div class="d-flex gap-3 pt-4">
-                            <div class="flex-shrink-0 text-center" style="width: 64px;">
-                                <h4 class="fw-bold text-primary mb-0">Mei–Jun</h4>
-                                <small class="text-muted">2027</small>
+                                <div class="w-100">
+                                    <h6 class="fw-semibold mb-1">Persiapan Tahun Ajaran Baru</h6>
+                                    <small class="text-muted">
+                                        Pengambilan buku, seragam, dan Golden Gate,
+                                        serta pembayaran alat penunjang pendidikan
+                                        dan biaya pengembangan.
+                                    </small>
+                                </div>
                             </div>
 
-                            <div class="w-100">
-                                <h6 class="fw-semibold mb-1">
-                                    Persiapan Tahun Ajaran Baru
-                                </h6>
-                                <small class="text-muted">
-                                    Pengambilan buku, seragam, dan Golden Gate,
-                                    serta pembayaran alat penunjang pendidikan
-                                    dan biaya pengembangan.
-                                </small>
+                        @else
+                            {{-- TIMELINE KB A, KB B, DAN TK A --}}
+                            <div class="d-flex gap-3">
+                                <div class="flex-shrink-0 text-center" style="width: 64px;">
+                                    <h4 class="fw-bold text-primary mb-0">Des–Jan</h4>
+                                    <small class="text-muted">2026–2027</small>
+                                </div>
+
+                                <div class="pb-4 border-bottom w-100">
+                                    <h6 class="fw-semibold mb-1">Tahap Pendaftaran</h6>
+                                    <small class="text-muted">
+                                        Pendataan calon peserta didik serta pembayaran
+                                        biaya awal sesuai jenjang.
+                                    </small>
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="d-flex gap-3 pt-4">
+                                <div class="flex-shrink-0 text-center" style="width: 64px;">
+                                    <h4 class="fw-bold text-primary mb-0">Feb–Mar</h4>
+                                    <small class="text-muted">2027</small>
+                                </div>
+
+                                <div class="pb-4 border-bottom w-100">
+                                    <h6 class="fw-semibold mb-1">Tahap 1</h6>
+                                    <small class="text-muted">
+                                        Pembayaran biaya perlengkapan pendidikan dan
+                                        kegiatan selama satu tahun sesuai jenjang.
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-3 pt-4">
+                                <div class="flex-shrink-0 text-center" style="width: 64px;">
+                                    <h4 class="fw-bold text-primary mb-0">Apr–Mei</h4>
+                                    <small class="text-muted">2027</small>
+                                </div>
+
+                                <div class="pb-4 border-bottom w-100">
+                                    <h6 class="fw-semibold mb-1">Tahap 2</h6>
+                                    <small class="text-muted">
+                                        Pembayaran Syahriah bulan Juli dan Alat Permainan
+                                        Edukatif (APE).
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-3 pt-4">
+                                <div class="flex-shrink-0 text-center" style="width: 64px;">
+                                    <h4 class="fw-bold text-primary mb-0">Jun–Jul</h4>
+                                    <small class="text-muted">2027</small>
+                                </div>
+
+                                <div class="w-100">
+                                    <h6 class="fw-semibold mb-1">Tahap 3</h6>
+                                    <small class="text-muted">
+                                        Pembayaran biaya pengembangan sebagai persiapan
+                                        memasuki tahun ajaran baru.
+                                    </small>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

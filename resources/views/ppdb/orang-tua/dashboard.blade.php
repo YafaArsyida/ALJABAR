@@ -444,133 +444,385 @@
                 @endif
 
                 {{-- INFORMASI JADWAL PPDB --}}
+
                 @if ($periode)
-                    <div class="card border-0 shadow-sm rounded-4 mb-4">
-                        <div class="card-header bg-transparent">
-                            <div class="d-flex align-items-center gap-3">
-                                <div class="avatar-sm">
-                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                                        <i class="ri-calendar-event-line"></i>
-                                    </div>
-                                </div>
 
-                                <div>
-                                    <h5 class="fw-bold mb-1">
-                                        Informasi SPMB
-                                    </h5>
+                    @if ($jenjang->slug === 'sd')
 
-                                    <small class="text-muted">
-                                        Informasi SPMB Tahun Ajaran 2027/2028.
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-                            <h6 class="fw-bold mb-3">
-                                Jadwal SPMB Tahun Ajaran 2027/2028
-                            </h6>
-
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="border rounded-3 p-3 h-100">
-                                        <small class="text-muted d-block mb-2">
-                                            <i class="ri-calendar-event-line me-1"></i>
-                                            November 2026
-                                        </small>
-                                        <div class="fw-semibold">
-                                            Tahap Pendataan
+                        <div class="card border-0 shadow-sm rounded-4 mb-4">
+                            <div class="card-header bg-transparent">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="avatar-sm">
+                                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                                            <i class="ri-calendar-event-line"></i>
                                         </div>
-                                        <small class="text-muted">
-                                            Wawancara wali murid, pengisian formulir,
-                                            dan pengumpulan persyaratan SPMB.
-                                        </small>
                                     </div>
-                                </div>
 
-                                <div class="col-md-6">
-                                    <div class="border rounded-3 p-3 h-100">
-                                        <small class="text-muted d-block mb-2">
-                                            <i class="ri-calendar-check-line me-1"></i>
-                                            Januari – Februari 2027
-                                        </small>
-                                        <div class="fw-semibold">
-                                            Pengukuran Seragam
-                                        </div>
-                                        <small class="text-muted">
-                                            Pengukuran seragam dan pembayaran buku
-                                            untuk kebutuhan satu tahun.
-                                        </small>
-                                    </div>
-                                </div>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">
+                                            Informasi SPMB
+                                        </h5>
 
-                                <div class="col-md-6">
-                                    <div class="border rounded-3 p-3 h-100">
-                                        <small class="text-muted d-block mb-2">
-                                            <i class="ri-calendar-check-line me-1"></i>
-                                            Maret – April 2027
-                                        </small>
-                                        <div class="fw-semibold">
-                                            Skrining Psikologi
-                                        </div>
                                         <small class="text-muted">
-                                            Pelaksanaan skrining serta pembayaran kegiatan,
-                                            SPP Juli, dan perlengkapan.
-                                        </small>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="border rounded-3 p-3 h-100">
-                                        <small class="text-muted d-block mb-2">
-                                            <i class="ri-calendar-check-line me-1"></i>
-                                            Mei – Juni 2027
-                                        </small>
-                                        <div class="fw-semibold">
-                                            Persiapan Tahun Ajaran Baru
-                                        </div>
-                                        <small class="text-muted">
-                                            Pengambilan buku, seragam, dan Golden Gate,
-                                            serta pembayaran alat penunjang pendidikan
-                                            dan biaya pengembangan.
+                                            Informasi SPMB Tahun Ajaran 2027/2028.
                                         </small>
                                     </div>
                                 </div>
                             </div>
 
-                            <p class="text-muted small mb-0 mt-3">
-                                <i class="ri-information-line me-1"></i>
-                                Jadwal kegiatan dan pembayaran dapat diinformasikan
-                                lebih lanjut melalui panitia SPMB.
-                            </p>
-                        </div>
-                    </div>
-                @endif
-
-                {{-- BANTUAN PANITIA --}}
-                {{-- <div class="card border-0 shadow-sm rounded-4">
-                    <div class="card-body p-4">
-                        <div class="d-flex flex-column flex-md-row align-items-md-center gap-3">
-                            <div class="avatar-sm flex-shrink-0">
-                                <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
-                                    <i class="ri-customer-service-2-line"></i>
-                                </div>
-                            </div>
-
-                            <div class="flex-grow-1">
-                                <h6 class="fw-bold mb-1">
-                                    Butuh Bantuan?
+                            <div class="card-body">
+                                <h6 class="fw-bold mb-3">
+                                    Jadwal SPMB Tahun Ajaran 2027/2028
                                 </h6>
 
-                                <p class="text-muted mb-0">
-                                    Hubungi panitia PPDB jika Anda membutuhkan informasi
-                                    atau bantuan terkait pendaftaran.
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="border rounded-3 p-3 h-100">
+                                            <small class="text-muted d-block mb-2">
+                                                <i class="ri-calendar-event-line me-1"></i>
+                                                November 2026
+                                            </small>
+                                            <div class="fw-semibold">
+                                                Tahap Pendataan
+                                            </div>
+                                            <small class="text-muted">
+                                                Wawancara wali murid, pengisian formulir,
+                                                dan pengumpulan persyaratan SPMB.
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="border rounded-3 p-3 h-100">
+                                            <small class="text-muted d-block mb-2">
+                                                <i class="ri-calendar-check-line me-1"></i>
+                                                Januari – Februari 2027
+                                            </small>
+                                            <div class="fw-semibold">
+                                                Pengukuran Seragam
+                                            </div>
+                                            <small class="text-muted">
+                                                Pengukuran seragam dan pembayaran buku
+                                                untuk kebutuhan satu tahun.
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="border rounded-3 p-3 h-100">
+                                            <small class="text-muted d-block mb-2">
+                                                <i class="ri-calendar-check-line me-1"></i>
+                                                Maret – April 2027
+                                            </small>
+                                            <div class="fw-semibold">
+                                                Skrining Psikologi
+                                            </div>
+                                            <small class="text-muted">
+                                                Pelaksanaan skrining serta pembayaran kegiatan,
+                                                SPP Juli, dan perlengkapan.
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="border rounded-3 p-3 h-100">
+                                            <small class="text-muted d-block mb-2">
+                                                <i class="ri-calendar-check-line me-1"></i>
+                                                Mei – Juni 2027
+                                            </small>
+                                            <div class="fw-semibold">
+                                                Persiapan Tahun Ajaran Baru
+                                            </div>
+                                            <small class="text-muted">
+                                                Pengambilan buku, seragam, dan Golden Gate,
+                                                serta pembayaran alat penunjang pendidikan
+                                                dan biaya pengembangan.
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="text-muted small mb-0 mt-3">
+                                    <i class="ri-information-line me-1"></i>
+                                    Jadwal kegiatan dan pembayaran dapat diinformasikan
+                                    lebih lanjut melalui panitia SPMB.
                                 </p>
                             </div>
                         </div>
-                    </div>
-                </div> --}}
 
+                    @else
+
+                        @php
+                            $konfigurasiBiaya = [
+                                'tk' => [
+                                    'nama' => 'TK A',
+                                    'total_lk' => 3345000,
+                                    'total_pr' => 3459000,
+                                    'tahapan' => [
+                                        [
+                                            'tahap' => 'Pendaftaran',
+                                            'periode' => 'Desember 2026 – Januari 2027',
+                                            'icon' => 'ri-clipboard-line',
+                                            'items' => [
+                                                ['nama' => 'Biaya pendataan', 'nominal' => 120000],
+                                                ['nama' => 'Seragam 4 stel (Laki-laki)', 'nominal' => 585000],
+                                                ['nama' => 'Seragam 4 stel (Perempuan)', 'nominal' => 699000],
+                                            ],
+                                        ],
+                                        [
+                                            'tahap' => 'Tahap 1',
+                                            'periode' => 'Februari – Maret 2027',
+                                            'icon' => 'ri-book-2-line',
+                                            'items' => [
+                                                ['nama' => 'ATK & perlengkapan', 'nominal' => 575000],
+                                                ['nama' => 'Kegiatan 1 tahun', 'nominal' => 400000],
+                                            ],
+                                        ],
+                                        [
+                                            'tahap' => 'Tahap 2',
+                                            'periode' => 'April – Mei 2027',
+                                            'icon' => 'ri-calendar-check-line',
+                                            'items' => [
+                                                ['nama' => 'Syahriah bulan Juli', 'nominal' => 295000],
+                                                ['nama' => 'APE', 'nominal' => 520000],
+                                            ],
+                                        ],
+                                        [
+                                            'tahap' => 'Tahap 3',
+                                            'periode' => 'Juni – Juli 2027',
+                                            'icon' => 'ri-graduation-cap-line',
+                                            'items' => [
+                                                ['nama' => 'Pengembangan', 'nominal' => 850000],
+                                            ],
+                                        ],
+                                    ],
+                                ],
+
+                                'kb-b' => [
+                                    'nama' => 'KB B',
+                                    'total_lk' => 3145000,
+                                    'total_pr' => 3259000,
+                                    'tahapan' => [
+                                        [
+                                            'tahap' => 'Pendaftaran',
+                                            'periode' => 'Desember 2026 – Januari 2027',
+                                            'icon' => 'ri-clipboard-line',
+                                            'items' => [
+                                                ['nama' => 'Biaya pendataan', 'nominal' => 120000],
+                                                ['nama' => 'Seragam 4 stel (Laki-laki)', 'nominal' => 460000],
+                                                ['nama' => 'Seragam 4 stel (Perempuan)', 'nominal' => 574000],
+                                            ],
+                                        ],
+                                        [
+                                            'tahap' => 'Tahap 1',
+                                            'periode' => 'Februari – Maret 2027',
+                                            'icon' => 'ri-book-2-line',
+                                            'items' => [
+                                                ['nama' => 'ATK & perlengkapan', 'nominal' => 435000],
+                                                ['nama' => 'Kegiatan 1 tahun', 'nominal' => 400000],
+                                            ],
+                                        ],
+                                        [
+                                            'tahap' => 'Tahap 2',
+                                            'periode' => 'April – Mei 2027',
+                                            'icon' => 'ri-calendar-check-line',
+                                            'items' => [
+                                                ['nama' => 'Syahriah bulan Juli', 'nominal' => 360000],
+                                                ['nama' => 'APE', 'nominal' => 520000],
+                                            ],
+                                        ],
+                                        [
+                                            'tahap' => 'Tahap 3',
+                                            'periode' => 'Juni – Juli 2027',
+                                            'icon' => 'ri-graduation-cap-line',
+                                            'items' => [
+                                                ['nama' => 'Pengembangan', 'nominal' => 850000],
+                                            ],
+                                        ],
+                                    ],
+                                ],
+
+                                'kb-a' => [
+                                    'nama' => 'KB A',
+                                    'total' => 2705000,
+                                    'tahapan' => [
+                                        [
+                                            'tahap' => 'Pendaftaran',
+                                            'periode' => 'Desember 2026 – Januari 2027',
+                                            'icon' => 'ri-clipboard-line',
+                                            'items' => [
+                                                ['nama' => 'Biaya pendataan', 'nominal' => 120000],
+                                                ['nama' => 'ATK & perlengkapan', 'nominal' => 435000],
+                                            ],
+                                        ],
+                                        [
+                                            'tahap' => 'Tahap 1',
+                                            'periode' => 'Februari – Maret 2027',
+                                            'icon' => 'ri-book-2-line',
+                                            'items' => [
+                                                ['nama' => 'Kegiatan 1 tahun', 'nominal' => 400000],
+                                            ],
+                                        ],
+                                        [
+                                            'tahap' => 'Tahap 2',
+                                            'periode' => 'April – Mei 2027',
+                                            'icon' => 'ri-calendar-check-line',
+                                            'items' => [
+                                                ['nama' => 'Syahriah bulan Juli', 'nominal' => 380000],
+                                                ['nama' => 'APE', 'nominal' => 520000],
+                                            ],
+                                        ],
+                                        [
+                                            'tahap' => 'Tahap 3',
+                                            'periode' => 'Juni – Juli 2027',
+                                            'icon' => 'ri-graduation-cap-line',
+                                            'items' => [
+                                                ['nama' => 'Pengembangan', 'nominal' => 850000],
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ];
+
+                            $biaya = $konfigurasiBiaya[$jenjang->slug] ?? null;
+                        @endphp
+
+                        @if ($biaya)
+
+                            {{-- Header Informasi --}}
+                            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                                <div class="card-header bg-transparent">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="avatar-sm">
+                                            <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-20">
+                                                <i class="ri-calendar-event-line"></i>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h5 class="fw-bold mb-1">
+                                                Informasi SPMB {{ $biaya['nama'] }}
+                                            </h5>
+                                            <small class="text-muted">
+                                                Informasi biaya pendidikan Tahun Ajaran 2027/2028.
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+
+                                    {{-- Ringkasan Biaya --}}
+                                    <h6 class="fw-bold mb-3">
+                                        Ringkasan Biaya Pendidikan
+                                    </h6>
+
+                                    <div class="row g-3 mb-4">
+
+                                        @if (isset($biaya['total_lk']))
+                                            <div class="col-md-6">
+                                                <div class="border rounded-3 p-3 h-100">
+                                                    <div class="text-muted small mb-2">
+                                                        Calon Siswa Laki-laki
+                                                    </div>
+                                                    <h4 class="fw-bold text-primary mb-1">
+                                                        Rp{{ number_format($biaya['total_lk'], 0, ',', '.') }}
+                                                    </h4>
+                                                    <small class="text-muted">
+                                                        Termasuk biaya seragam laki-laki.
+                                                    </small>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="border rounded-3 p-3 h-100">
+                                                    <div class="text-muted small mb-2">
+                                                        Calon Siswi Perempuan
+                                                    </div>
+                                                    <h4 class="fw-bold text-success mb-1">
+                                                        Rp{{ number_format($biaya['total_pr'], 0, ',', '.') }}
+                                                    </h4>
+                                                    <small class="text-muted">
+                                                        Termasuk biaya seragam perempuan.
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="col-md-6">
+                                                <div class="border rounded-3 p-3 h-100">
+                                                    <div class="text-muted small mb-2">
+                                                        Total Biaya Pendidikan
+                                                    </div>
+                                                    <h4 class="fw-bold text-primary mb-1">
+                                                        Rp{{ number_format($biaya['total'], 0, ',', '.') }}
+                                                    </h4>
+                                                    <small class="text-muted">
+                                                        Total biaya sesuai rincian pembayaran.
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        @endif
+
+                                    </div>
+
+                                    {{-- Rincian Pembayaran --}}
+                                    <h6 class="fw-bold mb-3">
+                                        Rincian Tahapan Pembayaran
+                                    </h6>
+
+                                    <div class="row g-3">
+                                        @foreach ($biaya['tahapan'] as $tahap)
+                                            <div class="col-md-6">
+                                                <div class="border rounded-3 p-3 h-100">
+
+                                                    <div class="d-flex align-items-center gap-2 mb-3">
+                                                        <div class="avatar-sm">
+                                                            <div class="avatar-title bg-primary-subtle text-primary rounded-3">
+                                                                <i class="{{ $tahap['icon'] }}"></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div>
+                                                            <div class="fw-semibold">
+                                                                {{ $tahap['tahap'] }}
+                                                            </div>
+                                                            <small class="text-muted">
+                                                                {{ $tahap['periode'] }}
+                                                            </small>
+                                                        </div>
+                                                    </div>
+
+                                                    @foreach ($tahap['items'] as $item)
+                                                        <div class="d-flex justify-content-between align-items-start gap-3 {{ !$loop->last ? 'mb-2 pb-2 border-bottom' : '' }}">
+                                                            <small class="text-muted">
+                                                                {{ $item['nama'] }}
+                                                            </small>
+
+                                                            <span class="fw-semibold text-nowrap small">
+                                                                Rp{{ number_format($item['nominal'], 0, ',', '.') }}
+                                                            </span>
+                                                        </div>
+                                                    @endforeach
+
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <p class="text-muted small mb-0 mt-3">
+                                        <i class="ri-information-line me-1"></i>
+                                        Jadwal kegiatan dan pembayaran dapat diinformasikan
+                                        lebih lanjut melalui panitia SPMB.
+                                    </p>
+
+                                </div>
+                            </div>
+
+                        @endif
+
+                    @endif
+
+                @endif
             </div>
         </div>
     </div>
