@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -9,292 +8,505 @@
     <style>
         @page {
             size: A4 portrait;
-            margin: 12mm;
+            margin: 10mm 12mm;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: "Times New Roman", serif;
-            font-size: 11pt;
-            color: #222;
-            line-height: 1.35;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 10.5pt;
+            line-height: 1.25;
+            color: #000;
+            margin: 0;
         }
 
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
 
-        /* IDENTITAS SISWA + FOTO */
-        .student-intro-table {
+        /* KOP DOKUMEN */
+        .header {
+            width: 100%;
+            border-bottom: 3px double #000;
+            padding-bottom: 6px;
+            margin-bottom: 10px;
+        }
+
+        .header-table {
             width: 100%;
             border-collapse: collapse;
             table-layout: fixed;
         }
 
-        .student-intro-table td {
-            vertical-align: top;
+        .header-table td {
+            border: none;
+            vertical-align: middle;
+            text-align: center;
             padding: 0;
         }
 
-        .student-info-column {
-            width: 79%;
-            padding-right: 12px !important;
+        .header-logo {
+            width: 16%;
         }
 
-        .student-photo-column {
-            width: 21%;
-            text-align: right;
+        .header-logo img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
         }
 
-        .student-photo-box {
-            width: 3cm;
-            height: 4cm;
-            border: 1px solid #999;
-            margin-left: auto;
-            text-align: center;
-            overflow: hidden;
-            font-size: 8pt;
-            color: #888;
+        .header-title {
+            width: 68%;
         }
 
-        .student-photo-box img {
-            width: 3cm;
-            height: 4cm;
-        }
-
-        .student-intro-table .data-table {
-            margin: 0;
-        }
-
-        .student-intro-table .data-table td {
-            padding: 3px 4px;
-        }
-
-        .student-photo-caption {
-            font-size: 8pt;
-            text-align: center;
-            margin-top: 4px;
-            color: #666;
-        }
-
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
-            margin-bottom: 18px;
-        }
-
-        .header h2 {
-            margin: 0;
+        .header-title h1 {
             font-size: 16pt;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        .header p {
-            margin: 3px 0;
-            font-size: 10pt;
-        }
-
-        .judul {
-            text-align: center;
-            margin-bottom: 18px;
-        }
-
-        .judul h3 {
-            margin: 0;
-            font-size: 14pt;
+        .header-title h2 {
+            font-size: 12pt;
+            margin-top: 4px;
             text-transform: uppercase;
         }
 
+        .header-title p {
+            font-size: 9pt;
+            margin-top: 3px;
+        }
+
+        /* JUDUL BAGIAN */
         .section-title {
             font-weight: bold;
-            background: #eee;
-            padding: 5px 7px;
-            margin: 12px 0 6px;
-            border: 1px solid #bbb;
+            font-size: 10.5pt;
+            background: #ececec;
+            border-bottom: 1px solid #b5b5b5;
+            padding: 3px 7px;
+            margin: 10px 0 0;
+            page-break-after: avoid;
         }
 
+        /* TABEL DATA */
         table {
             width: 100%;
             border-collapse: collapse;
         }
 
-        td {
-            padding: 4px 5px;
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .data-table td {
+            border: none;
+            padding: 3px 4px;
             vertical-align: top;
         }
 
-        .label {
-            width: 30%;
-        }
-
-        .separator {
-            width: 10px;
-        }
-
-        .foto {
-            width: 100px;
-            height: 130px;
-            border: 1px solid #999;
+        .data-table .number {
+            width: 3%;
             text-align: center;
-            vertical-align: middle;
         }
 
-        .footer {
-            margin-top: 25px;
+        .data-table .label {
+            width: 28%;
+        }
+
+        .data-table .sub-label {
+            width: 22%;
+            font-weight: normal;
+        }
+
+        .data-table .separator {
+            width: 2%;
+            text-align: center;
+        }
+
+        .data-table .photo-cell {
+            width: 18%;
+            padding-right: 0;
             text-align: right;
-            font-size: 10pt;
+            vertical-align: top;
+        }
+
+        tr {
+            page-break-inside: avoid;
+        }
+
+        /* AREA FOTO */
+        .photo-box {
+            width: 3cm;
+            height: 4cm;
+            border: 1px solid #000;
+            margin-left: auto;
+            overflow: hidden;
+            text-align: center;
+            font-size: 8pt;
+            color: #555;
+        }
+
+        .photo-box img {
+            display: block;
+            width: 3cm;
+            height: 4cm;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            padding-top: 55px;
+        }
+
+        .photo-caption {
+            margin-top: 3px;
+            font-size: 8pt;
+            text-align: center;
+            color: #555;
         }
     </style>
 </head>
 
 <body>
-
-    {{-- Identitas sekolah --}}
-    <div class="header">
-        <h2>BUKU INDUK SISWA</h2>
-        <p>IDENTITAS DAN DATA ADMINISTRASI PESERTA DIDIK</p>
-    </div>
-
-    <div class="judul">
-        <h3>Data Induk Peserta Didik</h3>
-    </div>
-
-    
-    {{-- DATA PRIBADI --}}
-    <div class="section-title">DATA PRIBADI</div>
-
     @php
-        $dataPribadi = [
-            ['Nama Lengkap Calon Peserta Didik', $calonSiswa->nama_siswa ?? '-'],
-            ['Nama Panggilan', $calonSiswa->nama_panggilan ?? '-'],
-            ['Jenis Kelamin', $calonSiswa->jenis_kelamin ?? '-'],
-            ['Nomor Kartu Keluarga', $calonSiswa->no_kk ?? '-'],
-            ['NIK (Nomor Induk Kependudukan)', $calonSiswa->nik ?? '-'],
-            ['Tempat Lahir', $calonSiswa->tempat_lahir ?? '-'],
-            [
-                'Tanggal Lahir',
-                !empty($calonSiswa->tanggal_lahir)
-                    ? \Carbon\Carbon::parse($calonSiswa->tanggal_lahir)
-                        ->locale('id')
-                        ->translatedFormat('d F Y')
-                    : '-',
-            ],
-            ['Cita-cita', $calonSiswa->cita_cita ?? '-'],
-            ['Hobi', $calonSiswa->hobi ?? '-'],
-            ['Agama', $calonSiswa->agama ?? '-'],
-            ['Kewarganegaraan', $calonSiswa->kewarganegaraan ?? '-'],
-            ['Anak Ke-', $calonSiswa->anak_ke ?? '-'],
-            ['Jumlah Saudara Kandung', $calonSiswa->jumlah_saudara_kandung ?? '-'],
-            ['Jumlah Saudara Tiri', $calonSiswa->jumlah_saudara_tiri ?? '-'],
-            ['Anak Yatim/Piatu/Yatim Piatu', $calonSiswa->status_yatim_piatu ?? '-'],
-            ['Berkebutuhan Khusus', $calonSiswa->berkebutuhan_khusus ?? '-'],
-            ['Penyakit yang Pernah atau Sedang Diderita', $calonSiswa->penyakit ?? '-'],
-            ['Alergi yang Diderita Anak', $calonSiswa->alergi ?? '-'],
-            [
-                'Tinggi Badan',
-                is_numeric($calonSiswa->tinggi_badan ?? null)
-                    ? number_format((float) $calonSiswa->tinggi_badan, 0, ',', '.') . ' cm'
-                    : '-',
-            ],
-            [
-                'Berat Badan',
-                is_numeric($calonSiswa->berat_badan ?? null)
-                    ? number_format((float) $calonSiswa->berat_badan, 0, ',', '.') . ' kg'
-                    : '-',
-            ],
-            [
-                'Tempat Tinggal',
-                match ($alamat->jenis_tempat_tinggal ?? null) {
-                    'rumah_orang_tua' => 'Rumah Orang Tua',
-                    'rumah_wali' => 'Rumah Wali',
-                    'asrama' => 'Asrama',
-                    'panti_asuhan' => 'Panti Asuhan',
-                    'kos' => 'Kos',
-                    'kontrak' => 'Rumah Kontrak',
-                    default => $alamat->jenis_tempat_tinggal ?? '-',
-                },
-            ],
-            ['Alamat Jalan', $alamat->alamat_lengkap ?? '-'],
-            [
-                'RT/RW',
-                isset($alamat)
-                    ? (($alamat->rt ?? '-') . '/' . ($alamat->rw ?? '-'))
-                    : '-',
-            ],
-            ['Nama Kelurahan/Desa', $alamat->kelurahan_desa ?? '-'],
-            ['Kecamatan', $alamat->kecamatan ?? '-'],
-            ['Kabupaten', $alamat->kabupaten ?? '-'],
-            ['Kode Pos', $alamat->kode_pos ?? '-'],
-            ['Penerima KPS/PKH/KIP', $calonSiswa->penerima_bantuan_sosial ?? '-'],
-            ['No. KS/KKS/PKH/KIP (jika ada)', $calonSiswa->nomor_bantuan_sosial ?? '-'],
+        $jenjangAktif = $jenjang ?? null;
+        $namaSekolah = filled($namaJenjang ?? null)
+            ? $namaJenjang
+            : ($jenjangAktif->nama_jenjang ?? '-');
+        $sebutanJenjang = strtoupper((string) ($jenjangAktif->slug ?? '')) ?: 'Sekolah';
+
+        $teks = function ($value) {
+            return filled($value) ? $value : '-';
+        };
+
+        $tanggalIndonesia = function ($value) {
+            if (! filled($value)) {
+                return '-';
+            }
+
+            return \Carbon\Carbon::parse($value)
+                ->locale('id')
+                ->translatedFormat('d F Y');
+        };
+
+        $angka = function ($value) {
+            return is_numeric($value)
+                ? number_format((float) $value, 0, ',', '.')
+                : null;
+        };
+
+        $pendidikanLabel = function ($value) {
+            return match (strtoupper(trim((string) $value))) {
+                'TIDAK_SEKOLAH' => 'Tidak Sekolah',
+                'SD' => 'SD/Sederajat',
+                'SMP' => 'SMP/Sederajat',
+                'SMA' => 'SMA/SMK/Sederajat',
+                'D1_D2_D3' => 'Diploma (D1/D2/D3)',
+                'S1' => 'Sarjana (S1)',
+                'S2' => 'Magister (S2)',
+                'S3' => 'Doktor (S3)',
+                '' => '-',
+                default => (string) $value,
+            };
+        };
+
+        $tempatLahir = trim((string) ($calonSiswa?->tempat_lahir ?? ''));
+        $tanggalLahir = $calonSiswa?->tanggal_lahir
+            ? $tanggalIndonesia($calonSiswa->tanggal_lahir)
+            : null;
+        $tempatTanggalLahir = collect([$tempatLahir, $tanggalLahir])
+            ->filter(function ($value) {
+                return filled($value);
+            })
+            ->implode(', ') ?: '-';
+
+        $alamatParts = [];
+
+        if (filled($alamat?->alamat_lengkap)) {
+            $alamatParts[] = $alamat->alamat_lengkap;
+        }
+
+        if (filled($alamat?->rt) || filled($alamat?->rw)) {
+            $alamatParts[] =
+                'RT ' . ($alamat->rt ?: '-') .
+                '/RW ' . ($alamat->rw ?: '-');
+        }
+
+        foreach (['kelurahan_desa', 'kecamatan', 'kabupaten', 'provinsi', 'kode_pos'] as $kolomAlamat) {
+            if (filled($alamat?->{$kolomAlamat})) {
+                $alamatParts[] = $alamat->{$kolomAlamat};
+            }
+        }
+
+        $alamatLengkap = $alamatParts
+            ? implode(', ', $alamatParts)
+            : '-';
+
+        $teleponSiswa = $orangTua?->telepon_ayah
+            ?: ($orangTua?->telepon_ibu
+                ?: ($orangTua?->telepon_wali ?: '-'));
+
+        $tempatTinggal = match ($alamat?->jenis_tempat_tinggal) {
+            'rumah_orang_tua' => 'Rumah Orang Tua',
+            'rumah_wali' => 'Rumah Wali',
+            'asrama' => 'Asrama',
+            'panti_asuhan' => 'Panti Asuhan',
+            'kos' => 'Kos',
+            'kontrak' => 'Rumah Kontrak',
+            default => filled($alamat?->jenis_tempat_tinggal)
+                ? $alamat->jenis_tempat_tinggal
+                : '-',
+        };
+
+        $beratBadan = $angka($calonSiswa?->berat_badan);
+        $tinggiBadan = $angka($calonSiswa?->tinggi_badan);
+        $beratTinggi = collect([
+            $beratBadan !== null ? $beratBadan . ' kg' : null,
+            $tinggiBadan !== null ? $tinggiBadan . ' cm' : null,
+        ])->filter()->implode(' / ') ?: '-';
+
+        $dataAnak = [
+            ['Nama Lengkap', $teks($calonSiswa?->nama_siswa)],
+            ['Nama Panggilan', $teks($calonSiswa?->nama_panggilan)],
+            ['Jenis Kelamin', $teks($calonSiswa?->jenis_kelamin)],
+            ['Tempat, Tanggal Lahir', $tempatTanggalLahir],
+            ['Agama', $teks($calonSiswa?->agama)],
+            ['Kewarganegaraan', $teks($calonSiswa?->kewarganegaraan)],
+            ['Anak nomor ke', $teks($calonSiswa?->anak_ke)],
+            ['Jumlah saudara kandung', $teks($calonSiswa?->jumlah_saudara_kandung)],
+            ['Jumlah saudara tiri', $teks($calonSiswa?->jumlah_saudara_tiri)],
+            ['Jumlah saudara angkat', '-'],
+            ['Bahasa sehari-hari', '-'],
+            ['Berat / tinggi badan', $beratTinggi],
+            ['Golongan darah', '-'],
+            ['Penyakit yang pernah diderita', $teks($calonSiswa?->penyakit)],
+            ['Alamat tempat tinggal', $alamatLengkap],
+            ['Telepon / nomor WA', $teleponSiswa],
+            ['Bertempat tinggal pada', $tempatTinggal],
         ];
+
+        $jenjangAsal = strtoupper(trim((string) ($pendidikan?->jenjang_asal ?? '')));
+        $asalSekolah = trim((string) ($pendidikan?->asal_sekolah ?? ''));
+        $normalisasiNama = function ($value) {
+            return preg_replace('/[^A-Z0-9]/', '', strtoupper((string) $value));
+        };
+
+        $slugJenjang = strtoupper((string) ($jenjangAktif->slug ?? ''));
+        $progresiNormal = ($slugJenjang === 'SD' && $jenjangAsal === 'TK')
+            || ($slugJenjang === 'TK' && $jenjangAsal === 'KB');
+        $sekolahSama = $asalSekolah !== ''
+            && $normalisasiNama($asalSekolah) === $normalisasiNama($namaSekolah);
+        $isPindahan = $asalSekolah !== '' && ! $progresiNormal && ! $sekolahSama;
+
+        $statusMasuk = $isPindahan
+            ? 'Pindahan'
+            : 'Anak Didik Baru';
+
+        $tanggalPindahan = filled($pendidikan?->asal_sekolah)
+            && filled($pendidikan?->tahun_lulus)
+                ? 'Tahun ' . $pendidikan->tahun_lulus
+                : '-';
+
+        $tanggalDiterima = $pendaftaran->submitted_at ?? $pendaftaran->created_at;
+        $tanggalDiterima = $tanggalDiterima
+            ? $tanggalIndonesia($tanggalDiterima)
+            : '-';
     @endphp
 
-    {{-- IDENTITAS UTAMA DAN FOTO --}}
-    <table class="student-intro-table">
-        <tr>
-            <td class="student-info-column">
+    {{-- KOP DOKUMEN --}}
+    <div class="header">
+        <table class="header-table">
+            <tr>
+                <td class="header-logo">
+                    <img src="{{ public_path('assets/logo/' . ($logoSekolah ?? 'tk.png')) }}"
+                        alt="Logo {{ $namaSekolah }}">
+                </td>
 
-                <table class="data-table">
-                    <colgroup>
-                        <col style="width: 25px;">
-                        <col style="width: 35%;">
-                        <col style="width: 10px;">
-                        <col>
-                    </colgroup>
-
-                    <tbody>
-                        @foreach (array_slice($dataPribadi, 0, 7) as $i => $item)
-                            <tr>
-                                <td class="number">{{ $i + 4 }}.</td>
-                                <td class="label">{{ $item[0] }}</td>
-                                <td class="separator">:</td>
-                                <td class="value">{{ $item[1] }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-
-            </td>
-
-            <td class="student-photo-column">
-
-                <div class="student-photo-box">
-                    @if ($fotoSiswa)
-                        <img src="{{ $fotoSiswa }}" alt="Foto Siswa">
-                    @else
-                        <div style="padding-top: 55px;">
-                            FOTO SISWA
-                        </div>
+                <td class="header-title">
+                    <h1>Buku Induk Siswa</h1>
+                    <h2>{{ $namaSekolah }}</h2>
+                    @if (filled($alamatSekolah ?? null))
+                        <p>{{ $alamatSekolah }}</p>
                     @endif
-                </div>
+                </td>
 
-                <div class="student-photo-caption">
-                    Pas Foto
-                </div>
+                <td class="header-logo">
+                    <img src="{{ public_path('assets/logo/yayasan.webp') }}"
+                        alt="Logo Yayasan Al Hidayah">
+                </td>
+            </tr>
+        </table>
+    </div>
 
-            </td>
-        </tr>
-    </table>
+    {{-- A. KETERANGAN ANAK DIDIK --}}
+    <div class="section-title">A. KETERANGAN ANAK DIDIK</div>
 
-    {{-- DATA PRIBADI LAINNYA --}}
     <table class="data-table">
-        <colgroup>
-            <col style="width: 25px;">
-            <col style="width: 35%;">
-            <col style="width: 10px;">
-            <col>
-        </colgroup>
 
         <tbody>
-            @foreach (array_slice($dataPribadi, 7) as $i => $item)
+            @foreach ($dataAnak as $index => $item)
                 <tr>
-                    <td class="number">{{ $i + 11 }}.</td>
+                    <td class="number">{{ $index + 1 }}.</td>
                     <td class="label">{{ $item[0] }}</td>
                     <td class="separator">:</td>
-                    <td class="value">{{ $item[1] }}</td>
+
+                    @if ($index === 0)
+                        <td class="value">{{ $item[1] }}</td>
+                        <td class="photo-cell" rowspan="8">
+                            <div class="photo-box">
+                                @if ($fotoSiswa)
+                                    <img src="{{ $fotoSiswa }}"
+                                        alt="Foto {{ $calonSiswa?->nama_siswa ?? 'Siswa' }}">
+                                @else
+                                    <div class="photo-placeholder">
+                                        FOTO<br>3 x 4
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="photo-caption">Pas Foto</div>
+                        </td>
+                    @elseif ($index < 8)
+                        <td class="value">{{ $item[1] }}</td>
+                    @else
+                        <td class="value" colspan="2">{{ $item[1] }}</td>
+                    @endif
                 </tr>
             @endforeach
+        </tbody>
+    </table>
+
+    {{-- B. ORANG TUA / WALI --}}
+    <div class="section-title">B. ORANG TUA / WALI</div>
+    <table class="data-table">
+        <tbody>
+            <tr>
+                <td class="number">18.</td>
+                <td class="label">Nama Orang Tua</td>
+                <td class="sub-label">Ayah Kandung</td>
+                <td class="separator">:</td>
+                <td class="value">{{ $teks($orangTua?->nama_ayah) }}</td>
+            </tr>
+            <tr>
+                <td class="number"></td>
+                <td class="label"></td>
+                <td class="sub-label">Ibu Kandung</td>
+                <td class="separator">:</td>
+                <td class="value">{{ $teks($orangTua?->nama_ibu) }}</td>
+            </tr>
+
+            <tr>
+                <td class="number">19.</td>
+                <td class="label">Pendidikan Tertinggi</td>
+                <td class="sub-label">Ayah Kandung</td>
+                <td class="separator">:</td>
+                <td class="value">{{ $pendidikanLabel($orangTua?->pendidikan_ayah) }}</td>
+            </tr>
+            <tr>
+                <td class="number"></td>
+                <td class="label"></td>
+                <td class="sub-label">Ibu Kandung</td>
+                <td class="separator">:</td>
+                <td class="value">{{ $pendidikanLabel($orangTua?->pendidikan_ibu) }}</td>
+            </tr>
+
+            <tr>
+                <td class="number">20.</td>
+                <td class="label">Pekerjaan Orang Tua</td>
+                <td class="sub-label">Ayah Kandung</td>
+                <td class="separator">:</td>
+                <td class="value">{{ $teks($orangTua?->pekerjaan_ayah) }}</td>
+            </tr>
+            <tr>
+                <td class="number"></td>
+                <td class="label"></td>
+                <td class="sub-label">Ibu Kandung</td>
+                <td class="separator">:</td>
+                <td class="value">{{ $teks($orangTua?->pekerjaan_ibu) }}</td>
+            </tr>
+
+            <tr>
+                <td class="number">21.</td>
+                <td class="label">Wali Anak</td>
+                <td class="sub-label">Nama</td>
+                <td class="separator">:</td>
+                <td class="value">{{ $teks($orangTua?->nama_wali) }}</td>
+            </tr>
+            <tr>
+                <td class="number"></td>
+                <td class="label"></td>
+                <td class="sub-label">Pendidikan Tertinggi</td>
+                <td class="separator">:</td>
+                <td class="value">{{ $pendidikanLabel($orangTua?->pendidikan_wali) }}</td>
+            </tr>
+            <tr>
+                <td class="number"></td>
+                <td class="label"></td>
+                <td class="sub-label">Hubungan Keluarga</td>
+                <td class="separator">:</td>
+                <td class="value">{{ $teks($orangTua?->hubungan_wali) }}</td>
+            </tr>
+            <tr>
+                <td class="number"></td>
+                <td class="label"></td>
+                <td class="sub-label">Pekerjaan</td>
+                <td class="separator">:</td>
+                <td class="value">{{ $teks($orangTua?->pekerjaan_wali) }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{-- C. ASAL MULA ANAK --}}
+    <div class="section-title">C. ASAL MULA ANAK</div>
+    <table class="data-table">
+        <tbody>
+            <tr>
+                <td class="number">22.</td>
+                <td class="label">Masuk {{ $sebutanJenjang }} ini sebagai</td>
+                <td class="sub-label"></td>
+                <td class="separator">:</td>
+                <td class="value" colspan="3">{{ $statusMasuk }}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td class="number">23.</td>
+                <td class="label">Pindahan dari</td>
+                <td class="sub-label">Nama Sekolah</td>
+                <td class="separator">:</td>
+                <td class="value" colspan="3">{{ $teks($pendidikan?->asal_sekolah) }}</td>
+            </tr>
+            <tr>
+                <td class="number"></td>
+                <td class="label"></td>
+                <td class="sub-label">Tanggal</td>
+                <td class="separator">:</td>
+                <td class="value" colspan="3">{{ $tanggalPindahan }}</td>
+            </tr>
+
+            <tr>
+                <td class="number">24.</td>
+                <td class="label">Diterima di sekolah ini</td>
+                <td class="sub-label">Tanggal</td>
+                <td class="separator">:</td>
+                <td class="value" colspan="3">{{ $tanggalDiterima }}</td>
+            </tr>
+            <tr>
+                <td class="number"></td>
+                <td class="label"></td>
+                <td class="sub-label">Di kelompok / kelas</td>
+                <td class="separator">:</td>
+                <td class="value">-</td>
+            </tr>
         </tbody>
     </table>
 
 </body>
 
 </html>
+

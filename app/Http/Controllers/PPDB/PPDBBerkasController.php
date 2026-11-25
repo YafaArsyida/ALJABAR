@@ -161,8 +161,10 @@ class PPDBBerkasController extends Controller
             ->with([
                 'ppdb_calon_siswa',
                 'ppdb_orangtua',
+                'ppdb_alamat',
+                'ppdb_pendidikan',
                 'ppdb_jalur',
-                'ppdb_periode',
+                'ppdb_periode.ms_jenjang',
             ])
             ->findOrFail($pendaftaranId);
 
@@ -190,7 +192,7 @@ class PPDBBerkasController extends Controller
             $data
         )->setPaper('a4', 'portrait');
 
-        return $pdf->download(
+        return $pdf->stream(
             'buku-induk-' . $pendaftaran->getKey() . '.pdf'
         );
     }
