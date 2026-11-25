@@ -295,7 +295,7 @@
                 position: relative;
                 width: 277mm;
                 margin-left: 10mm;
-                margin-top: 8mm;
+                margin-top: 15mm;
                 padding: 0 1mm;
                 z-index: 1;
             }
@@ -667,7 +667,7 @@
             </div>
 
             <div class="document-subtitle">
-                Syarat Pendataan SPMB Tahun Pelajaran 2027/2028
+                Syarat Pendataan SPMB Tahun Ajaran 2027/2028
             </div>
 
             <table class="requirements-layout">
@@ -949,9 +949,9 @@
                                 </table>
                             </div>
                             {{-- CATATAN SKRINING PSIKOLOGI --}}
-                            <div class="payment-note">
+                            {{-- <div class="payment-note">
                                 *Jika skrining psikologi susulan akan dikenai biaya tambahan sebesar Rp100.000.
-                            </div>
+                            </div> --}}
                         </td>
 
 

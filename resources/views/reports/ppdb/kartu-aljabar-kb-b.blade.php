@@ -28,13 +28,13 @@
             }
 
             :root {
-                --color-primary: #4b9b68;
-                --color-border: #287444;
-                --color-border-dark: #1e5c36;
-                --color-payment: #eaf5ed;
-                --color-payment-text: #245b36;
-                --color-school-title: #287444;
-                --color-note: #287444;
+                --color-primary: #f39c35;
+                --color-border: #d97706;
+                --color-border-dark: #b45309;
+                --color-payment: #fff3e0;
+                --color-payment-text: #92400e;
+                --color-school-title: #c56a0a;
+                --color-note: #d97706;
                 --color-white: #fff;
 
                 --font-body: 10px;
@@ -296,7 +296,7 @@
                 position: relative;
                 width: 277mm;
                 margin-left: 10mm;
-                margin-top: 8mm;
+                margin-top: 15mm;
                 padding: 0 1mm;
                 z-index: 1;
             }
@@ -668,7 +668,7 @@
             </div>
 
             <div class="document-subtitle">
-                Syarat Pendataan SPMB Tahun Pelajaran 2027/2028
+                Syarat Pendataan SPMB Tahun Ajaran 2027/2028
             </div>
 
             <table class="requirements-layout">
@@ -950,9 +950,9 @@
                                 </table>
                             </div>
                             {{-- CATATAN SKRINING PSIKOLOGI --}}
-                            <div class="payment-note">
+                            {{-- <div class="payment-note">
                                 *Jika skrining psikologi susulan akan dikenai biaya tambahan sebesar Rp100.000.
-                            </div>
+                            </div> --}}
                         </td>
 
 

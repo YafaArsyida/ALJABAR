@@ -363,7 +363,7 @@
                             alt="Logo sekolah">
 
                         <div class="lh-sm">
-                            <span>{{ $jenjang->nama_jenjang }}</span>
+                            <span>KB IT & TK IT Al Hidayah</span>
                             <small class="d-block text-muted fw-semibold text-uppercase">
                                 SPMB 2027/2028
                             </small>
@@ -480,7 +480,7 @@
                                 </h1>
 
                                 <p>
-                                    TK IT Al Hidayah mendampingi anak bermain, belajar, mengenal nilai-nilai
+                                    KB IT & TK IT Al Hidayah mendampingi anak bermain, belajar, mengenal nilai-nilai
                                     Islam, dan mengembangkan potensinya. Bersama keluarga, kami
                                     menumbuhkan karakter baik sebagai bekal masa depan.
                                 </p>
@@ -534,7 +534,7 @@
                             <div class="col-lg-5">
                                 <div class="ppdb-hero-card rounded-4 shadow-sm">
                                     <img src="{{ asset('assets/logo/hero-tk.jpeg') }}"
-                                        alt="Kegiatan peserta didik TK IT Al Hidayah">
+                                        alt="Kegiatan peserta didik KB IT & TK IT Al Hidayah">
                                 </div>
                             </div>
                         </div>
@@ -614,11 +614,11 @@
                             </span>
 
                             <h2 class="display-6 fw-bold mb-3">
-                                Mengenal TK IT Al Hidayah
+                                Mengenal KB IT & TK IT Al Hidayah
                             </h2>
 
                             <p class="text-muted lh-lg mb-0">
-                                TK IT Al Hidayah mendampingi anak belajar, bermain,
+                                KB IT & TK IT Al Hidayah mendampingi anak belajar, bermain,
                                 mengenal nilai-nilai Islam, dan mengembangkan potensinya.
                                 Bersama keluarga, kami menumbuhkan karakter baik sebagai
                                 bekal tumbuh kembang anak.
@@ -864,13 +864,13 @@
                                                     Calon Siswa Laki-laki
                                                 </h3>
                                                 <p class="text-muted small mb-0">
-                                                    Biaya seragam
+                                                    Biaya seragam <strong>Rp585.000</strong>
                                                 </p>
                                             </div>
                                         </div>
 
                                         <h4 class="display-6 fw-bold text-primary mb-2">
-                                            Rp3.480.000
+                                            Rp3.345.000
                                         </h4>
 
                                         <p class="text-muted small mb-0">
@@ -894,13 +894,13 @@
                                                     Calon Siswi Perempuan
                                                 </h3>
                                                 <p class="text-muted small mb-0">
-                                                    Biaya seragam
+                                                    Biaya seragam <strong>Rp699.000</strong>
                                                 </p>
                                             </div>
                                         </div>
 
                                         <h4 class="display-6 fw-bold text-success mb-2">
-                                            Rp3.594.000
+                                            Rp3.459.000
                                         </h4>
 
                                         <p class="text-muted small mb-0">
@@ -1042,8 +1042,6 @@
 
                     </div>
                 </section>
-
-
                 
                 <section class="py-5" id="jadwal">
                     <div class="container">
@@ -1055,12 +1053,12 @@
                             </span>
 
                             <h2 class="display-6 fw-bold mb-3">
-                                Alur Pendataan TK 2027/2028
+                                Alur Pendataan 2027/2028
                             </h2>
 
                             <p class="text-muted lh-lg mb-0">
                                 Kenali tahapan pendataan, kegiatan, dan persiapan
-                                calon peserta didik TK IT Al Hidayah tahun ajaran 2027/2028.
+                                calon peserta didik KB IT & TK IT Al Hidayah tahun ajaran 2027/2028.
                             </p>
                         </div>
 
@@ -1274,7 +1272,7 @@
 
                             <p class="text-muted lh-lg mb-0">
                                 Siapkan dokumen berikut untuk memudahkan proses pendataan
-                                calon peserta didik TK IT Al Hidayah.
+                                calon peserta didik KB IT & TK IT Al Hidayah.
                             </p>
                         </div>
 
@@ -1530,7 +1528,7 @@
 
                                     <p class="text-white-50">
                                         Gunakan fitur ini untuk memeriksa status pendataan
-                                        calon peserta didik melalui portal SPMB TK IT Al Hidayah
+                                        calon peserta didik melalui portal SPMB KB IT & TK IT Al Hidayah
                                         Tahun Ajaran 2027/2028.
                                     </p>
 
@@ -1561,7 +1559,7 @@
                     $faqs = [
                         [
                             'question' => 'Kapan pendataan SPMB dibuka?',
-                            'answer' => 'Pendataan SPMB TK IT Al Hidayah Tahun Ajaran 2027/2028 dibuka pada Desember 2026. Silakan mengikuti informasi dan jadwal pendataan yang disampaikan oleh pihak sekolah.',
+                            'answer' => 'Pendataan SPMB KB IT & TK IT Al Hidayah Tahun Ajaran 2027/2028 dibuka pada Desember 2026. Silakan mengikuti informasi dan jadwal pendataan yang disampaikan oleh pihak sekolah.',
                         ],
                         [
                             'question' => 'Bagaimana cara mengikuti pendataan?',
@@ -1589,7 +1587,7 @@
                         ],
                         [
                             'question' => 'Bagaimana jika saya membutuhkan informasi lebih lanjut?',
-                            'answer' => 'Orang tua dapat menghubungi pihak TK IT Al Hidayah melalui kontak resmi sekolah untuk memperoleh informasi lebih lanjut mengenai pendataan SPMB.',
+                            'answer' => 'Orang tua dapat menghubungi pihak KB IT & TK IT Al Hidayah melalui kontak resmi sekolah untuk memperoleh informasi lebih lanjut mengenai pendataan SPMB.',
                         ],
                     ];
                 @endphp
@@ -1650,12 +1648,12 @@
                                 </span>
 
                                 <h2 class="text-white">
-                                    Bersiap Menjadi Bagian dari TK IT Al Hidayah
+                                    Bersiap Menjadi Bagian dari KB IT & TK IT Al Hidayah
                                 </h2>
 
                                 <p>
                                     Awali perjalanan belajar dan tumbuh kembang putra-putri Anda
-                                    bersama TK IT Al Hidayah. Pendataan dimulai Desember 2026.
+                                    bersama KB IT & TK IT Al Hidayah. Pendataan dimulai Desember 2026.
                                     Siapkan persyaratan dan ikuti alur pendataan yang tersedia.
                                 </p>
 
@@ -1717,7 +1715,7 @@
                                 </div>
 
                                 <p class="text-white fs-15 fw-medium mb-2">
-                                    {{ $jenjang->nama_jenjang }}
+                                    KB IT & TK IT Al Hidayah
                                 </p>
 
                                 <p class="text-white-50 ff-secondary mb-4"
@@ -1737,11 +1735,11 @@
                                 <div class="d-flex align-items-center gap-2 text-white-50">
                                     <i class="ri-whatsapp-line text-white fs-18"></i>
                                     <a
-                                        href="https://wa.me/6282226266861"
+                                        href="https://wa.me/6282226266864"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         class="link-light ff-secondary fs-13">
-                                        0822-2626-6861
+                                        0822-2626-6864
                                     </a>
                                 </div>
                             </div>
@@ -1792,7 +1790,7 @@
 
                                 <p class="text-white-50 ff-secondary fs-14 mb-4">
                                     Awali perjalanan belajar dan tumbuh kembang
-                                    putra-putri Anda bersama TK IT Al Hidayah.
+                                    putra-putri Anda bersama KB IT & TK IT Al Hidayah.
                                     Siapkan persyaratan dan ikuti pendataan
                                     Tahun Ajaran 2027/2028.
                                 </p>
@@ -1850,7 +1848,7 @@
                         <div class="col-sm-6">
                             <p class="copy-rights mb-0 text-white-50 ff-secondary fs-13">
                                 &copy; {{ date('Y') }}
-                                {{ $jenjang->nama_jenjang }}.
+                                KB IT & TK IT Al Hidayah.
                                 Hak cipta dilindungi.
                             </p>
                         </div>
