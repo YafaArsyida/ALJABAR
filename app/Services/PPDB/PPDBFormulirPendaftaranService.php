@@ -87,6 +87,11 @@ class PPDBFormulirPendaftaranService
 
             'jenjang' => $jenjang,
             'namaJenjang' => $jenjang?->nama_jenjang,
+
+            'judulKop' => $jenjang?->slug === 'sd'
+                ? $jenjang->nama_jenjang
+                : 'KB IT & TK IT Al Hidayah',
+
             'alamatSekolah' => $jenjang?->alamat,
             'logoSekolah' => $logoSekolah,
         ];

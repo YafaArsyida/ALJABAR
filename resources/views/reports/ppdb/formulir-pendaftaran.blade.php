@@ -221,7 +221,7 @@
                 {{-- JUDUL --}}
                 <td class="header-title">
                     <h2>PANITIA SPMB</h2>
-                    <h3>{{ $namaJenjang ?? '-' }}</h3>
+                    <h3>{{ $judulKop ?? '-' }}</h3>
                     <p>TAHUN AJARAN 2027/2028</p>
                 </td>
 
