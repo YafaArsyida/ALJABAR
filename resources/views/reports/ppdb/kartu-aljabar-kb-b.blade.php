@@ -660,7 +660,7 @@
 
 
             <div class="document-title">
-                KARTU ALJABAR
+                KARTU ALJABAR KB B
 
                 <div class="document-title-sub">
                     (Al Hidayah Jejak Baru)
@@ -915,7 +915,7 @@
 
                                         <tr class="payment-detail">
                                             <td>
-                                                Seragam 4 Stel
+                                                Seragam 3 Stel
 
                                                 {{-- @if ($jenis_kelamin === 'Laki-Laki')
                                                     <br>

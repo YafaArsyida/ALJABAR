@@ -660,7 +660,7 @@
 
 
                     <div class="document-title">
-                        KARTU ALJABAR
+                        KARTU ALJABAR KB A
 
                         <div class="document-title-sub">
                             (Al Hidayah Jejak Baru)

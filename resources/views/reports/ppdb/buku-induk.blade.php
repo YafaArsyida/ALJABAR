@@ -170,6 +170,25 @@
             text-align: center;
             color: #555;
         }
+
+        .nomor-induk-box {
+            width: 100%;
+            margin-top: 8px;
+            border: 1px solid #333;
+            box-sizing: border-box;
+        }
+
+        .nomor-induk-label {
+            font-size: 9px;
+            font-weight: bold;
+            text-align: center;
+            padding: 4px 2px;
+            border-bottom: 1px solid #333;
+        }
+
+        .nomor-induk-area {
+            height: 30px;
+        }
     </style>
 </head>
 
@@ -370,7 +389,11 @@
                                     </div>
                                 @endif
                             </div>
-                            <div class="photo-caption">Pas Foto</div>
+
+                            <div class="nomor-induk-box">
+                                {{-- <div class="nomor-induk-label">Nomor Induk</div> --}}
+                                <div class="nomor-induk-area"></div>
+                            </div>
                         </td>
                     @elseif ($index < 8)
                         <td class="value">{{ $item[1] }}</td>

@@ -217,7 +217,7 @@
                                 </div>
 
                                 <h5 class="fw-bold text-dark mb-2">
-                                    PPDB
+                                    SPMB
                                 </h5>
 
                                 <p class="text-muted mb-0">
@@ -457,7 +457,7 @@
                                 </span>
                             </div>
 
-                            <h5 class="fw-bold text-dark mb-2">Landing PPDB</h5>
+                            <h5 class="fw-bold text-dark mb-2">Landing SPMB</h5>
 
                             <p class="text-muted mb-0">
                                 Tampilkan informasi penerimaan siswa baru, persyaratan,
@@ -465,7 +465,7 @@
                             </p>
 
                             <div class="text-primary fw-medium mt-3">
-                                Pilih jenjang PPDB
+                                Pilih jenjang SPMB
                                 <i class="ri-arrow-right-line align-middle ms-1"></i>
                             </div>
                         </div>
@@ -519,10 +519,10 @@
 
                             <div>
                                 <h5 class="fw-bold mb-1" id="modalPilihJenjangPPDBLabel">
-                                    Pilih Jenjang PPDB
+                                    Pilih Jenjang SPMB
                                 </h5>
                                 <small class="text-muted">
-                                    Pilih jenjang pendidikan untuk membuka halaman PPDB.
+                                    Pilih jenjang pendidikan untuk membuka halaman SPMB.
                                 </small>
                             </div>
                         </div>
@@ -553,7 +553,7 @@
 
                                     <div class="flex-grow-1 min-w-0">
                                         <h6 class="fw-semibold text-dark mb-1">
-                                            PPDB SD
+                                            SPMB SD
                                         </h6>
                                         <p class="text-muted small mb-0">
                                             Penerimaan Peserta Didik Baru Sekolah Dasar
@@ -577,7 +577,7 @@
 
                                     <div class="flex-grow-1 min-w-0">
                                         <h6 class="fw-semibold text-dark mb-1">
-                                            PPDB TK
+                                            SPMB TK
                                         </h6>
                                         <p class="text-muted small mb-0">
                                             Penerimaan Peserta Didik Baru Taman Kanak-kanak
@@ -601,7 +601,7 @@
 
                                     <div class="flex-grow-1 min-w-0">
                                         <h6 class="fw-semibold text-dark mb-1">
-                                            PPDB KB B
+                                            SPMB KB B
                                         </h6>
                                         <p class="text-muted small mb-0">
                                             Penerimaan Peserta Didik Baru Kelompok Bermain
@@ -625,7 +625,7 @@
 
                                     <div class="flex-grow-1 min-w-0">
                                         <h6 class="fw-semibold text-dark mb-1">
-                                            PPDB KB A
+                                            SPMB KB A
                                         </h6>
                                         <p class="text-muted small mb-0">
                                             Penerimaan Peserta Didik Baru Kelompok Bermain
