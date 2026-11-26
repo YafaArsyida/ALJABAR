@@ -937,7 +937,7 @@
                                     'icon' => 'ri-clipboard-line',
                                     'items' => [
                                         ['nama' => 'Biaya pendataan', 'nominal' => 120000],
-                                        ['nama' => 'Seragam 4 stel (laki-laki)', 'nominal' => 460000],
+                                        ['nama' => 'Seragam 3 stel (laki-laki)', 'nominal' => 460000],
                                     ],
                                 ],
                                 [

@@ -368,7 +368,6 @@
     <div class="section-title">A. KETERANGAN ANAK DIDIK</div>
 
     <table class="data-table">
-
         <tbody>
             @foreach ($dataAnak as $index => $item)
                 <tr>
