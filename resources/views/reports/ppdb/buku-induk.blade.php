@@ -313,10 +313,11 @@
                 ? 'Tahun ' . $pendidikan->tahun_lulus
                 : '-';
 
-        $tanggalDiterima = $pendaftaran->submitted_at ?? $pendaftaran->created_at;
-        $tanggalDiterima = $tanggalDiterima
-            ? $tanggalIndonesia($tanggalDiterima)
-            : '-';
+        // $tanggalDiterima = $pendaftaran->submitted_at ?? $pendaftaran->created_at;
+        // $tanggalDiterima = $tanggalDiterima
+        //     ? $tanggalIndonesia($tanggalDiterima)
+        //     : '-';
+        $tanggalDiterima = '1 Juli 2027'
     @endphp
 
     {{-- KOP DOKUMEN --}}
