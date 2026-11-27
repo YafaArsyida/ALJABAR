@@ -94,19 +94,38 @@
             </div>
 
             <div class="col-md-6 col-xl-4">
-                <a href="{{ route('ppdb.kb') }}" class="card jenjang-card h-100 border-0 shadow-sm rounded-4 text-decoration-none text-body">
+                <a href="{{ route('ppdb.kb-b') }}" class="card jenjang-card h-100 border-0 shadow-sm rounded-4 text-decoration-none text-body">
                     <div class="card-body p-4 p-lg-5">
                         <div class="avatar-lg mb-4">
                             <div class="avatar-title bg-warning-subtle text-warning rounded-4 fs-2">
                                 <i class="ri-user-smile-line"></i>
                             </div>
                         </div>
-                        <h2 class="h4 fw-bold">Kelompok Bermain (KB)</h2>
+                        <h2 class="h4 fw-bold">Kelompok Bermain B (KB B)</h2>
                         <p class="text-muted mb-4">
                             Informasi dan pendaftaran untuk jenjang Kelompok Bermain.
                         </p>
                         <span class="text-warning fw-semibold">
-                            Lihat SPMB KB <i class="ri-arrow-right-line ms-1"></i>
+                            Lihat SPMB KB B<i class="ri-arrow-right-line ms-1"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <a href="{{ route('ppdb.kb-a') }}" class="card jenjang-card h-100 border-0 shadow-sm rounded-4 text-decoration-none text-body">
+                    <div class="card-body p-4 p-lg-5">
+                        <div class="avatar-lg mb-4">
+                            <div class="avatar-title bg-warning-subtle text-warning rounded-4 fs-2">
+                                <i class="ri-user-smile-line"></i>
+                            </div>
+                        </div>
+                        <h2 class="h4 fw-bold">Kelompok Bermain A (KB A)</h2>
+                        <p class="text-muted mb-4">
+                            Informasi dan pendaftaran untuk jenjang Kelompok Bermain.
+                        </p>
+                        <span class="text-warning fw-semibold">
+                            Lihat SPMB KB A<i class="ri-arrow-right-line ms-1"></i>
                         </span>
                     </div>
                 </a>
