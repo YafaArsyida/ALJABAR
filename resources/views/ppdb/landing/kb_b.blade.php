@@ -1029,7 +1029,7 @@
                                         Informasi Biaya
                                     </h4>
                                     <p class="text-muted small mb-0 lh-lg">
-                                        Biaya seragam 4 stel calon siswa laki-laki sebesar
+                                        Biaya seragam 3 stel calon siswa laki-laki sebesar
                                         <strong class="text-body">Rp460.000</strong>
                                         dan calon siswi perempuan sebesar
                                         <strong class="text-body">Rp574.000</strong>.
